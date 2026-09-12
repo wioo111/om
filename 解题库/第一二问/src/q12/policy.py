@@ -46,6 +46,15 @@ def safe_centers_local()->np.ndarray:
     return np.array([[r*math.cos(a),r*math.sin(a)] for r in (5.,1000.) for a in (-e,e)])
 
 def reception_safe_local(points,tol=0.):
+    """Return the exact four-circle reception-safe predicate for standard F0.
+
+    For the standard first sector F0 that is not truncated by the target
+    region, this four-circle intersection is the necessary-and-sufficient
+    complete reception-safe set.  For an actual target-truncated F1 subset of
+    F0, it remains a general sufficient safe domain but need not be the
+    complete state-specific safe set.  This is an analytic four-circle
+    predicate, not an empirical check of four sampled points.
+    """
     pts=np.atleast_2d(np.asarray(points,dtype=float))
     if pts.shape[1]!=2 or not np.isfinite(pts).all():raise ValueError('Need finite 2D points')
     return np.all(np.sum((pts[:,None,:]-safe_centers_local()[None,:,:])**2,axis=2)<=(1000.+tol)**2,axis=1)

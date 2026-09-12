@@ -10,6 +10,25 @@ from q12.posterior import *
 from q12.proof import verify_all
 RES=ROOT/'results';RES.mkdir(exist_ok=True)
 
+COVERAGE_STATUSES=frozenset({'point','segment','bounded'})
+
+def coverage_rate(rows):
+    """Compute coverage only for localization states with a defined metric.
+
+    Empty and unbounded states are excluded from the denominator.  A missing
+    value on a point/segment/bounded row is an interface error, not a False
+    observation, so it is rejected explicitly.
+    """
+    values=[]
+    for row in rows:
+        if row.get('status') not in COVERAGE_STATUSES:
+            continue
+        covered=row.get('covered')
+        if covered is None:
+            raise ValueError('diameter_circle_covers is undefined for a defined region')
+        values.append(bool(covered))
+    return None if not values else float(sum(values)/len(values))
+
 def dump(name,x):
     (RES/name).write_text(json.dumps(x,ensure_ascii=False,indent=2,default=lambda o:float(o)),encoding='utf-8')
 def csvout(name,rows):
@@ -42,7 +61,7 @@ def q1():
         group=[x for x in rows if x['n']==n];values=np.array([x['D_m'] for x in group if x['D_m'] is not None])
         summ.append(dict(n=n,total=len(group),bounded=len(values),unbounded=sum(x['status']=='unbounded' for x in group),
                          median_D=float(np.median(values)),p25_D=float(np.percentile(values,25)),p75_D=float(np.percentile(values,75)),
-                         mean_D=float(np.mean(values)),covered_among_bounded=float(np.mean([x['covered'] for x in group if x['D_m'] is not None]))))
+                         mean_D=float(np.mean(values)),covered_among_bounded=coverage_rate(group)))
     sensitivity=[]
     obs=[Observation(-500,0,0),Observation(200,-600,math.degrees(math.atan2(600,-200))),Observation(650,350,math.degrees(math.atan2(-350,-650)))]
     for e in [0.2,0.4,0.6,0.8,1.,1.5,2.,3.]:

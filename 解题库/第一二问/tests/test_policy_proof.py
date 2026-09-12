@@ -3,6 +3,7 @@ import math
 import numpy as np
 import pytest
 from q12.interval import IV,pi,sincos_deg
+from q12.geometry import contains
 from q12.proof import verify_all,constants
 from q12.policy import *
 from q12.posterior import *
@@ -63,3 +64,48 @@ def test_candidate_box_reception_filter():
 def test_no_truth_argument():
     import inspect
     assert set(inspect.signature(choose_second_point).parameters)=={'s1','bearing_deg','side','operational_margin'}
+
+
+def test_coverage_rate_excludes_empty_and_never_coerces_none():
+    import sys
+    from pathlib import Path
+    sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+    from experiments import coverage_rate
+    rows=[
+        {'status':'empty','covered':None},
+        {'status':'unbounded','covered':False},
+        {'status':'bounded','covered':True},
+        {'status':'segment','covered':False},
+    ]
+    assert coverage_rate(rows)==pytest.approx(0.5)
+    with pytest.raises(ValueError):
+        coverage_rate([{'status':'point','covered':None}])
+
+
+def test_standard_f0_four_circle_boundary_semantics():
+    k=policy_constants();opt=np.array([k.local_x,k.local_y])
+    assert reception_safe_local(opt)[0]
+    inside=np.array([[100.,0.],[750.,0.],opt,[k.local_x,-k.local_y]])
+    assert np.all(reception_safe_local(inside))
+    centers=safe_centers_local()
+    active=int(np.argmax(np.sum((opt-centers)**2,axis=1)))
+    outward=(opt-centers[active])/np.linalg.norm(opt-centers[active])
+    assert not reception_safe_local(opt+1e-4*outward)[0]
+
+
+def test_target_truncated_first_observation_keeps_universal_policy_guarantee():
+    obs=Observation(1700.,0.,0.)
+    truncated=relaxed_region([obs],target_radius=1800.)
+    assert truncated.status=='bounded'
+    assert contains(truncated.vertices,[1750.,0.])
+    assert first_direction_possible(obs.position,obs.bearing_deg)
+    result=choose_second_point(obs.position,obs.bearing_deg)
+    assert reception_safe_local(result['operational_local'])[0]
+    assert result['minimum_reception_disk_margin_m']>0
+
+
+def test_formal_policy_signature_has_no_truth_inputs():
+    import inspect
+    forbidden={'G','G_true','d_true','R_eff_true','source','true_source','true_distance'}
+    names=set(inspect.signature(choose_second_point).parameters)
+    assert names.isdisjoint(forbidden)

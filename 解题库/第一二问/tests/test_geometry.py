@@ -51,6 +51,25 @@ def test_empty_is_not_zero():
     with pytest.raises(ValueError):diameter([])
 
 
+def test_empty_intersection_uses_none_for_coverage_metric():
+    region=pure_bearing_region([Observation(0,0,180),Observation(10,0,0)])
+    metrics=region.metrics()
+    assert region.status=='empty'
+    assert metrics['D'] is None
+    assert metrics['radius'] is None
+    assert metrics['q'] is None
+    assert metrics['diameter_circle_covers'] is None
+
+
+def test_point_and_segment_are_defined_nonempty_states():
+    point=Region('point',np.array([[2.,3.]]),'test').metrics()
+    segment=Region('segment',np.array([[0.,0.],[10.,0.]]),'test').metrics()
+    assert point['status']=='point' and point['D']==pytest.approx(0.)
+    assert segment['status']=='segment' and segment['D']==pytest.approx(10.)
+    assert point['diameter_circle_covers'] is True
+    assert segment['diameter_circle_covers'] is True
+
+
 def test_unbounded_and_inconsistent():
     assert pure_bearing_region([Observation(0,0,0)]).status=='unbounded'
     assert pure_bearing_region([Observation(0,0,180),Observation(10,0,0)]).status=='empty'
