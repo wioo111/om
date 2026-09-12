@@ -1,0 +1,91 @@
+{
+  "candidate": "RouteV10",
+  "full_clear_all": true,
+  "promotion": "not_promoted_keep_v8",
+  "default_strategy": "AdaptiveV8",
+  "main_improvement_supported_by_paired_normal_ci95": false,
+  "main_goal_180_220_mean_met": false,
+  "mean_goal_s": 200,
+  "n15": {
+    "v8": {
+      "rounds": 30,
+      "zero_clear_rounds": 0,
+      "errors": 0,
+      "cleared_mean": 15,
+      "clear_rate_mean": 1.0,
+      "full_clear_rate": 1,
+      "avg_time_per_cleared_mean": 214.97459469980322,
+      "avg_time_per_cleared_weighted": 214.97459469980322,
+      "avg_time_median": 215.37297059888735,
+      "avg_time_std": 15.52579689772439,
+      "mean_ci95_normal": [
+        209.41875963284,
+        220.53042976676645
+      ],
+      "avg_time_p90": 237.568954663135,
+      "avg_time_p95": 238.34069615505138,
+      "avg_time_min": 181.95354467645862,
+      "avg_time_max": 243.3561217167923,
+      "fraction_180_to_220": 0.6333333333333333,
+      "measure_count_mean": 124.36666666666666,
+      "clear_fail_count": 100,
+      "runtime_mean_s": 2.671249986666559
+    },
+    "route": {
+      "rounds": 30,
+      "zero_clear_rounds": 0,
+      "errors": 0,
+      "cleared_mean": 15,
+      "clear_rate_mean": 1.0,
+      "full_clear_rate": 1,
+      "avg_time_per_cleared_mean": 215.70869019044054,
+      "avg_time_per_cleared_weighted": 215.70869019044054,
+      "avg_time_median": 216.00348249546772,
+      "avg_time_std": 18.724260575247015,
+      "mean_ci95_normal": [
+        209.0082995958578,
+        222.40908078502326
+      ],
+      "avg_time_p90": 238.9722782437129,
+      "avg_time_p95": 245.64691419174358,
+      "avg_time_min": 174.11481213739816,
+      "avg_time_max": 257.8369559478474,
+      "fraction_180_to_220": 0.6,
+      "measure_count_mean": 126.2,
+      "clear_fail_count": 111,
+      "runtime_mean_s": 2.6813718333333783
+    }
+  },
+  "n15_paired": {
+    "rounds": 30,
+    "mean_delta_s": 0.7340954906373137,
+    "mean_delta_ci95_normal": [
+      -3.499778054095912,
+      4.9679690353705395
+    ],
+    "distance_delta_m": -0.9428382022008616,
+    "improved_rounds": 14,
+    "worse_rounds": 16,
+    "worst_regression_s": 31.996366348168152,
+    "best_gain_s": -21.47864986005868
+  },
+  "official_v10_retested": false,
+  "previous_official_score": {
+    "strategy": "AdaptiveV8",
+    "case": "W3QD-ZG2B-MBCG-39XH",
+    "mean_s": 203.10944306666667
+  },
+  "code_sha256": {
+    "strategy_v8.py": "34133b6eac8e6b3e3f77212b62fbd74c9d2678e0bbc0676929aacc979c059d74",
+    "strategy_v10.py": "f3ecbff82586f902e5261032fcc9504510dafc30acd22779feb65cf3061ec0df",
+    "route_search.py": "29eca89d750e9a27b7451b06377436ff0263094562b2dad91866985b4f48afd4",
+    "route_trials.py": "bc2a5669d449d8695ea86a4b97139e93c0a06d1b4635c107aa26521bc17f0ee5",
+    "mock_simulator.py": "6062a1398023db091a86340ba3cc31dedaa1541aa7fee009a75e5d2c23d66fdb",
+    "robot.py": "09123255b0a6addc8054129c87af41114b7a2b20e75ab18bdff306c65d1a71ff",
+    "robot_iter.py": "cfca2e6c15a17e46db4af217b28cf063cbe6141502196b827d068f875672bcd3",
+    "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+    "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+    "evaluate_v8.py": "e2b80a8542c6d6534d6979d85384c66c3d0755b9968e0a4a77ad2d68f124e87d",
+    "benchmark_routes.py": "dbe8a0a866af8b2b822570f28ebcfe263b78680de50976a8b4b2ebb754cf2c2b"
+  }
+}

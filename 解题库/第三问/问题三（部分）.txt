@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{a4paper,margin=1in}
+
+\DeclareMathOperator{\wrap}{wrap}
+
+\begin{document}
+
+\section{问题三建模}
+
+\subsection{场景与目标}
+目标区域
+\[
+\Omega=\{(x,y):x^2+y^2\le1800^2\}\text{ (米)}.
+\]
+场景中存在 \(N\in[10,16]\) 个全向干扰源，频道互不相同，频道集合
+\[
+\mathcal C=\{1,2,\ldots,20\}.
+\]
+机器狗从原点 \((0,0)\) 出发，初始频道 1，速度 5 m/s，测向误差 \(\pm1^\circ\)，有效接收半径 \(R_i\in[1000,1500]\)，近距阈值 5 米，光学清除半径 20 米。
+
+优化目标：
+\[
+\min_{策略\pi} T_{\text{total}}(\pi),
+\]
+约束：
+\begin{itemize}
+\item 20 分钟程序运行时间上限；
+\item 25 分钟测试窗口上限；
+\item 每个干扰源只能清除一次；
+\item 频道切换耗时 1 秒；
+\item 单次检测耗时 5 秒；清除未发现目标耗时 3 秒，清除成功耗时 5 秒。
+\end{itemize}
+
+\subsection{时间模型}
+设机器狗的动作序列为 \(\{a_k\}_{k=1}^K\)。每个动作耗时
+\[
+T_{\text{act}}(a_k)=T_{\text{move}}+T_{\text{switch}}+T_{\text{action}}.
+\]
+各项定义：
+\begin{itemize}
+\item 移动耗时：\(\|p_k-p_{k-1}\|/5\)，其中 \(p_k\) 是第 \(k\) 个动作对应的位置；
+\item 频道切换耗时：\(\mathbf 1_{\text{channel}_k\neq\text{channel}_{k-1}}\times 1\) 秒；
+\item 动作耗时：检测动作固定为 5 秒；清除动作未发现目标为 3 秒，清除成功为 5 秒（包含3秒精确定位 + 2秒激光清除）。
+\end{itemize}
+
+总虚拟时间：
+\[
+T_{\text{total}}=\sum_{k=1}^K T_{\text{act}}(a_k).
+\]
+
+\subsection{信息状态}
+机器狗维护系统信息状态
+\[
+\mathcal S_t
+=
+\bigl(
+p_t,\;c_t,\;\mathcal M_t,\;\mathcal R_t,\;T_t
+\bigr),
+\]
+其中：
+\begin{itemize}
+\item \(p_t\)：\(t\) 时刻机器狗当前位置；
+\item \(c_t\)：\(t\) 时刻机器狗当前频道；
+\item \(\mathcal M_t=\{(S,\theta,\text{ch}):\text{已测量得到的示向度记录集合}\}\)；
+\item \(\mathcal R_t=\{\text{ch}:\text{已经成功清除的频道集合}\}\)；
+\item \(T_t\)：累计已消耗虚拟时间。
+\end{itemize}
+
+\subsection{单源定位与清除模型}
+\subsubsection{单频道精定位子算法}
+对某个频道 \(k\in\mathcal C\setminus\mathcal R_t\)，若已收到两次及以上示向度 \(\{(S_i,\theta_i):i=1,\ldots,m\}\)，调用问题一交会定位模型：
+\[
+\mathcal P_k=\bigcap_{i=1}^m W_i\cap\Omega,
+\]
+其中单检测点楔形约束区域
+\[
+W_i=\{P:|\wrap(\operatorname{atan2}(P-S_i)-\theta_i)|\le2^\circ\}.
+\]
+
+计算定位区域的最小覆盖圆：
+\[
+(c_k^*,\rho_k^*)=\arg\min_c\max_{P\in\mathcal P_k}\|P-c\|_2.
+\]
+
+若 \(\rho_k^*\le 20\) 米，机器狗移动到最小覆盖圆圆心 \(c_k^*\)，发起清除指令\texttt{/clear}；根据题设条件，清除成功仅依赖距离，成功概率为1。
+
+\subsubsection{最小检测次数与定位尺度估计}
+由Jung定理，定位区域直径需要满足
+\[
+D_k\le 20\sqrt3\approx 34.64\text{ 米}
+\]
+才能保证最小覆盖圆半径 \(\rho_k^*\le 20\) 米。
+
+典型两检测点情形：基线长度 \(L\)，交会角 \(\beta\)，测向误差 \(\varepsilon=1^\circ\)，定位区域直径近似
+\[
+D\approx L\cdot\tan\varepsilon\cdot\frac{1}{|\sin\beta|}.
+\]
+代入 \(\varepsilon=1^\circ\)，理想交会角 \(\beta=90^\circ\)，\(\sin90^\circ=1\)，得到
+\[
+D\approx L\cdot 0.0175.
+\]
+
+\end{document}

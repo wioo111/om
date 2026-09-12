@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{a4paper,margin=1in}
+
+\DeclareMathOperator{\wrap}{wrap}
+\DeclareMathOperator{\ang}{ang}
+
+\begin{document}
+	
+	\section{问题二建模（对抗检查修订定稿）}
+	
+	\subsection{符号与基本假设}
+	记检测点为
+	\[ S_i=(x_i,y_i),\qquad i=1,2,\ldots,n, \]
+	示向度为 \(\theta_i\)，示向度误差
+	\[ \varepsilon=1^\circ. \]
+	目标区域
+	\[ \Omega=\{(x,y):x^2+y^2\le1800^2\}. \]
+	干扰源真实位置
+	\[ G=(x_G,y_G). \]
+	定义角度归一化函数
+	\[ \wrap(\alpha) = \alpha-360^\circ \left\lfloor \frac{\alpha+180^\circ}{360^\circ} \right\rfloor \in[-180^\circ,180^\circ). \]
+	
+	此外，附录 2(1) 指出：
+	同一检测点的测向误差是固定的，因此仅在 \(S_1\) 重复检测不会提高精度；
+	不同检测点才能引入新的几何约束；
+	测向误差范围为 \([-1^\circ,1^\circ]\)；
+	有效接收半径 \(R\in[1000,1500]\) 米，机器狗无法读取；
+	近距阈值 5 米：\(\|G-S_i\|\le5\) 米且在覆盖角内时返回 near，不能读数但可直接光学清除。
+	这些事实是问题二建模的所有前提。
+	
+	\subsection{第一次检测后的源候选区域}
+	第一次检测点为 \(S_1\)，示向度为 \(\theta_1\)，该读数本身也存在 \(\pm1^\circ\) 误差。因此
+	\[ \alpha_1(G) = \wrap \bigl( \operatorname{atan2}(G-S_1)-\theta_1 \bigr) \in[-2^\circ,2^\circ]. \]
+	再结合：
+	测向机有效接收半径 \(R\in[1000,1500]\) 米未知，最坏情况取上界 1500 米，最严情况取下界 1000 米；
+	近距阈值 5 米：\(\|G-S_1\|>5\) 米；
+	干扰源位于目标圆域 \(\Omega\) 内。
+	
+	因此第一次检测后的源候选区域为
+	\[
+	\mathcal F_1 = \Omega \cap \bigl(B(S_1,1500)\setminus B(S_1,5)\bigr) \cap \left\{ P: |\wrap \bigl(\operatorname{atan2}(P-S_1)-\theta_1\bigr)| \le2^\circ \right\}.
+	\]
+	注意，外环 \(1000\le\|G-S_1\|\le1500\) 属于未知带，对建模来说就是盲区不确定性来源。后面在 \(\rho_2\) 计算时只在 \(\|S_2-G\|\le1500\) 区间内成立。
+	
+	\(\mathcal F_1\) 的几何含义：以 \(S_1\) 为顶点、方向 \(\theta_1\)、张角 \(2^\circ\) 的窄角形，被外环 1500 米和目标圆域 \(\Omega\) 截断。
+	
+	\subsection{候选源位置关于 \(S_2\) 的分类}
+	设第二检测点为 \(S_2=(x_2,y_2)\)，且
+	\[ S_2\in\Omega,\qquad \|S_2-S_1\|\ge L_{\min}. \]
+	基线下限 \(L_{\min}\) 由定位指标确定：
+	\[
+	L_{\min}=\frac{D^*}{2\sin\varepsilon} = \frac{D^*}{2\sin1^\circ}.
+	\]
+	若目标定位区域直径 \(D^*=20\sqrt3\) 米，则
+	\[ L_{\min}\approx\frac{34.64}{0.0349}\approx992\text{ 米}. \]
+	为安全起见取 \(L_{\min}=30\) 米作为工程最小基线（避免两检测点近似重合），同时保留上述理论下限。
+	
+	把 \(\mathcal F_1\) 中的源位置按 \(\|S_2-G\|\) 分为三类：
+	\[
+	\begin{aligned}
+		\mathcal A_0(S_2)&=\{G\in\mathcal F_1:\|S_2-G\|\le5\},\\
+		\mathcal A_1(S_2)&=\{G\in\mathcal F_1:5<\|S_2-G\|\le1500\},\\
+		\mathcal A_2(S_2)&=\{G\in\mathcal F_1:\|S_2-G\|>1500\}.
+	\end{aligned}
+	\]
+	各段含义：
+	\(\mathcal A_0(S_2)\)：信号过强，由附录 2(9) 可直接光学清除，定位代价取 0；
+	\(\mathcal A_1(S_2)\)：可获得有效示向度，定位代价为最小覆盖圆半径 \(\rho_2(S_2,G)\)；
+	\(\mathcal A_2(S_2)\)：超出 1500 米读不到方向，需重选检测点，赋惩罚 \(\lambda\)。
+	
+	由于有效接收半径实际 \(R\in[1000,1500]\) 未知，\(\mathcal A_2(S_2)\) 在实际中可能比模型给出的更大，应在最终概率上沿用最坏情况 1500 米阈值。
+	
+	\subsection{第二检测点的几何作用}
+	定义两条测向线在源点处的交会角：
+	\[
+	\beta(S_2,G) = \arccos \left( \frac{(G-S_1)\cdot(G-S_2)} {\|G-S_1\|\,\|G-S_2\|} \right).
+	\]
+	误差放大因子
+	\[
+	\kappa(S_2,G) = \frac{1}{|\sin\beta(S_2,G)|}.
+	\]
+	
+	定位区域直径 \(D_2\) 与 \(\beta\) 的定性关系：
+	\(\beta\) 越接近 \(90^\circ\)，楔形交域越接近矩形，\(D_2\) 越小；
+	\(\beta\) 越接近 \(0^\circ\) 或 \(180^\circ\)，楔形交域越长，\(D_2\) 越大；
+	在固定源距离下，最优 \(\beta=90^\circ\)。
+	
+	但 \(\kappa\) 只是单点几何放大率，不等于 \(D_2\)。原因：
+	实际有效接收半径 \(R\le1500\)，因此定位区域在远端会被截断；
+	基线 \(L\) 越小，\(\kappa\) 越大，但同时多楔形交域的绝对长度也会小；
+	在远场近似 \(L\ll d\) 下 \(\beta\approx(L/d)|\sin(\psi-\theta_1)|\)，不能直接把 \(1/\sin\beta\) 当 \(D_2\)。
+	
+	因此 \(\kappa\) 只能用作代理指标，最终精算仍要用问题一的
+	\[ \rho_2(S_2,G)=\rho^*(\mathcal P_2(S_2,G)). \]
+	
+	\subsection{第二检测点的最优选择模型}
+	\subsubsection{主模型：鲁棒最坏最小化}
+	考虑到原题要求“获得较好的定位效果”，应取最坏情况最小化：
+	\[
+	S_2^* = \arg\min_{S_2\in\Omega} \max_{G\in\mathcal A_1(S_2)} \rho_2(S_2,G).
+	\]
+	其中 \(\rho_2(S_2,G)\) 由问题一的最小覆盖圆算法计算。
+	
+	为什么用最小覆盖圆 \(\rho_2\) 而不是直径 \(D_2\)？
+	因为问题三、四的停止判据是 \(\rho^*\le20\) 米（光学清除半径），统一为 \(\rho\) 更便于与后两问闭环。直径 \(D_2\) 仍可作为参考量。
+	
+	\subsubsection{盲区惩罚}
+	如果 \(S_2\) 的选取让 \(\mathcal A_2(S_2)\) 占比较大，则需要重新检测；应给盲区惩罚：
+	\[
+	J_{\text{robust}}(S_2) = \max\left\{ \max_{G\in\mathcal A_1(S_2)}\rho_2(S_2,G),\; \lambda\,\mathbf 1_{\Pr(G\in\mathcal A_2)>0} \right\}.
+	\]
+	其中 \(\lambda\) 的量纲应与 \(\rho_2\) 一致，取：
+	\[
+	\lambda = 1500\text{ m}.
+	\]
+	理由：当盲区出现时，必须再走一次移动 + 5 秒检测 + 重新选择，代价量级与 1500 米基线相当，因此该惩罚与定位项同量纲。
+	
+	\subsubsection{概率参考模型（附录）}
+	若假设源位置在 \(\mathcal F_1\) 上均匀分布，则
+	\[
+	J_{\text{prob}}(S_2) = \frac{ \int_{\mathcal A_1(S_2)}\rho_2(S_2,G)\,dG + \lambda\,|\mathcal A_2(S_2)| }{ |\mathcal F_1|}.
+	\]
+	这只是次模型，不能取代主模型。
+	
+	\subsubsection{代理模型}
+	为降低计算量，可先在代理模型
+	\[
+	\min_{S_2\in\Omega} \max_{G\in\mathcal A_1(S_2)} \frac{1}{|\sin\beta(S_2,G)|}
+	\]
+	下做粗筛，再用主模型做精算。但代理模型只在远场近似下与主模型同解；在近场或盲区出现时，可能给出误导性结果。
+	
+	\subsection{第二检测点的候选区域}
+	设主模型最优值为
+	\[ J^* = \min_{S_2\in\Omega}J_{\text{robust}}(S_2). \]
+	对于相对容许量 \(\eta>0\)，候选区域定义为
+	\[
+	\mathcal C_\eta = \{S_2\in\Omega:J_{\text{robust}}(S_2)\le(1+\eta)J^*\}.
+	\]
+	注意，鲁棒最大值函数 \(J_{\text{robust}}(S_2)\) 是分段连续的；当目标仅由单一源位置取等号时，\(\mathcal C_\eta\) 在最优解附近会退化为线段，与代理模型下的等值带一致。
+	
+	\(\eta\) 的物理含义：
+	\(\eta=0\) 对应最优解集合；
+	\(\eta=0.2\) 对应“最坏情况下定位误差不超过最优解的 20\%”。
+	推荐在论文中同时给出 \(\eta=0\) 与 \(\eta=0.2\) 两个候选区域，便于看出几何形态。
+	
+	\subsection{几何化候选区域}
+	设源距离的先验区间
+	\[ d\in[d_{\min},d_{\max}],\qquad d_{\min}=5,\;d_{\max}=1500. \]
+	记
+	\[ G(d)=S_1+d(\cos\theta_1,\sin\theta_1). \]
+	对于 \(\beta_0\in(0,90^\circ]\)，定义单点候选区域
+	\[
+	\mathcal C_{\beta_0}(G_0) = \bigl\{S_2:5<\|S_2-G_0\|\le1500,\; |\sin\beta(S_2,G_0)|\ge\sin\beta_0\bigr\}.
+	\]
+	再得到两种全局候选区域：
+	
+	\subsubsection{外候选区域}
+	\[
+	\mathcal C_{\text{all}}(\beta_0) = \Omega\cap \bigcup_{d\in[d_{\min},d_{\max}]} \mathcal C_{\beta_0}(G(d)).
+	\]
+	含义：至少对某个可能源距离具有较好交会角的所有位置。
+	
+	\subsubsection{鲁棒候选区域}
+	\[
+	\mathcal C_{\text{robust}}(\beta_0) = \Omega\cap \bigcap_{d\in[d_{\min},d_{\max}]} \mathcal C_{\beta_0}(G(d)).
+	\]
+	含义：对所有可能源距离都具有较好交会角的位置。
+	
+	注意，\(\mathcal C_{\text{robust}}(\beta_0)\) 可能为空集，特别是在 \(\beta_0\) 接近 90°、\(d_{\max}/d_{\min}\) 较大时。这正是“仅凭一次示向度无法对所有源距离同时保证良好第二检测效果”的体现。
+	
+	\subsection{理想第二检测点}
+	设 \(\psi\) 为 \(S_2\) 相对 \(S_1\) 的方向角，基线长 \(L=\|S_2-S_1\|\)。则
+	\[
+	\sin\beta = \frac{L|\sin(\psi-\theta_1)|} {\sqrt{d^2+L^2-2dL\cos(\psi-\theta_1)}}.
+	\]
+	令 \(\psi-\theta_1=\pm90^\circ\)，得 \(\beta=90^\circ\)。因此理想方向为
+	\[
+	\psi^*=\theta_1\pm90^\circ.
+	\]
+	
+	在固定估计源位置 \(G_0\) 情形下，理想第二检测点沿过 \(G_0\) 且与 \(S_1G_0\) 夹角为 \(\pm90^\circ\) 的射线段：
+	\[
+	S_2(t)=G_0+t(-\sin\theta_1,\cos\theta_1),\quad t\in[5,1500],\; \|S_2(t)-S_1\|\ge L_{\min}.
+	\]
+	这与 PDF 的“直线”不同：实际上是射线段，受 \(1500\) 米上界、5 米下界和基线下限三重约束。
+	
+	当源距离 \(d\) 不确定时，取
+	\[ S_2^*(d)=G(d)+t(-\sin\theta_1,\cos\theta_1),\quad t\in[5,1500]. \]
+	随 \(d\) 变化，\(S_2^*(d)\) 在目标圆域内扫出一条弯曲带，即 \(\mathcal C_{\text{all}}(90^\circ)\)。
+	
+	\subsection{停止判据：与问题三、四的接口}
+	机器狗在收到第二次检测结果后，需要判断：
+	\[
+	\text{若 }\rho_2(S_1,S_2,G)\le20\text{ m，则停止补充检测，直接执行光学精确定位 + 清除；}
+	\]
+	\[
+	\text{若 }\rho_2(S_1,S_2,G)>20\text{ m，则需补充第三个检测点。}
+	\]
+	
+	由 Jung 定理可知：
+	\[ \rho_2\le D_2/\sqrt3. \]
+	因此当
+	\[
+	D_2\le20\sqrt3\approx34.64\text{ m}
+	\]
+	时，最小覆盖圆半径必然 \(\le20\) 米，可停止补充。但严格判据仍是 \(\rho_2\le20\) 米。
+	
+	这一判据使问题二与问题三、四形成闭环：
+	问题二给出 \(\rho_2\) 数值；
+	问题三、四根据该数值决定是否继续检测；
+	一旦满足 \(\rho^*\le20\) 米，机器狗移动到 \(c^*\)（最小覆盖圆圆心），启动光学精确定位并清除。
+	
+	\subsection{候选区域求解算法}
+	\begin{enumerate}
+		\item 在 \(\Omega\) 上对 \(S_2\) 做网格离散，间距 50 米；
+		\item 对每个 \(S_2\)，在 \(\mathcal F_1\) 上采样 \(N\) 个候选源位置（推荐 \(N\ge50\)，使用拉丁超立方）；
+		\item 对每个 \(S_2\) 和每个采样 \(G\)，使用问题一的半平面交算法构造 \(\mathcal P_2(S_2,G)\)；
+		\item 用最小覆盖圆算法计算 \(\rho_2(S_2,G)\)；
+		\item 取
+		\[
+		J_{\text{robust}}(S_2) = \max \left\{ \max_i\rho_2(S_2,G_i),\; 1500\cdot\mathbf 1_{N_2>0} \right\},
+		\]
+		其中 \(N_2\) 是采样中落入 \(\mathcal A_2(S_2)\) 的样本数；
+		\item 找出全局最小 \(J^*\)，并按
+		\[ \mathcal C_\eta=\{S_2:J_{\text{robust}}(S_2)\le(1+\eta)J^*\} \]
+		生成候选区域；
+		\item 在最优解附近用 Nelder-Mead 做局部连续优化，进一步精确化 \(S_2^*\)。
+	\end{enumerate}
+	
+	
+\end{document}

@@ -1,0 +1,62 @@
+{
+  "checks_executed": [
+    {
+      "check": "fixed-start free-end exact route compared with all permutations",
+      "node_counts": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "passed": true
+    },
+    {
+      "check": "visit permutation and runtime",
+      "node_counts": [
+        13,
+        16,
+        20
+      ],
+      "runtime_s": [
+        0.0088,
+        0.0076,
+        0.0075
+      ],
+      "passed": true
+    },
+    {
+      "check": "v8 method inheritance",
+      "methods": [
+        "step",
+        "_start_scan",
+        "_local_action",
+        "on_measure",
+        "on_clear",
+        "_explore_action"
+      ],
+      "passed": true
+    },
+    {
+      "check": "entry point --check selected strategy",
+      "strategy": "RouteV10",
+      "official_requests_made": false,
+      "passed": true,
+      "entry_sha256": "7695c43a0beea43143ed27b353726a1375b6e771b14a421adb527f00ede859ef"
+    },
+    {
+      "check": "final default entry --check",
+      "strategy": "AdaptiveV8",
+      "entry_sha256": "2717352b2fd80374e81822919191927e25cb36cebc6ef7b24b546c02b8ba10df",
+      "official_requests_made": false,
+      "passed": true
+    }
+  ],
+  "code_sha256": {
+    "route_search.py": "29eca89d750e9a27b7451b06377436ff0263094562b2dad91866985b4f48afd4",
+    "strategy_v10.py": "f3ecbff82586f902e5261032fcc9504510dafc30acd22779feb65cf3061ec0df",
+    "strategy_v8.py": "34133b6eac8e6b3e3f77212b62fbd74c9d2678e0bbc0676929aacc979c059d74",
+    "run_v10.py": "2717352b2fd80374e81822919191927e25cb36cebc6ef7b24b546c02b8ba10df"
+  }
+}
