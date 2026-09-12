@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "status": "experimental_reference_sensitivity_model",
+  "fitted_case_ids": [
+    "e90143631af0fb9c67a0206b",
+    "c49ed635a27049780042e2eb",
+    "d85ee5c6a6406f0c505b2b67",
+    "ecf85a75da352bc1d2f34797",
+    "9ebd0f18d0d2550b4538d94f",
+    "1265b22250e501be08d8e08c",
+    "f29250d89017427e8f61a252",
+    "fb74c7d0bb79aa1fca80ad43",
+    "547737791e68150125e50d30",
+    "4fe0919e1e3225cf9fb37003",
+    "45e65005a9038c77b336f5e2",
+    "c46d9b64e25c7c4c78ec17e8",
+    "18d197f701bd414c9912d038",
+    "0d91aa4b62c825316e4d568b",
+    "119df13bfc3c4669578baa8d",
+    "80e4153b00dd07adedf937cd",
+    "05fc87a44ca0de3abc4775a9",
+    "c96a05616e926d8632137025",
+    "724e34b247382d12e86fe125",
+    "df1b3b2feefba1e954b95649",
+    "6291b3f35a1c0e4112443391",
+    "682f73e6052b9c878ed8d79c",
+    "97114e38682a64e0b2852966",
+    "4b991e14a6c19ce3e6d124e5",
+    "539db984aa2d24847b98b83c",
+    "719349bd2e665225742ea62b",
+    "4e43f48e16c4dfb8017ee2ad",
+    "7ae1eb0769666d3dccc4291d",
+    "0b1a6c1f8c681c53c2385a49",
+    "0d4a6fb2f5ee8695d5b12646",
+    "c6346fb8d443ca46a3428736",
+    "a02375e6dd928a9ae01909cc",
+    "65ace00203cd7fa3bf9cc160",
+    "2bf4be0fdf11168a4fdafd53",
+    "4a5e27b58bbd50a0d20946fb",
+    "5a662b97a482f066901d9038"
+  ],
+  "noise_fitted": false,
+  "angle_distribution": "uniform_assumption",
+  "channel_distribution": "uniform_without_replacement_assumption",
+  "N_distribution": "not_fitted; evaluate all N equally; never passed to policy",
+  "limitations": [
+    "Successful clear gives a 20m disk, not a true position.",
+    "Intervals are necessary marginal bounds, not a reconstructed joint scene.",
+    "Reception censoring depends on historical policies; fit is not an identified official law.",
+    "Radial distance and reception radius sampled independently as a working assumption.",
+    "Historical validation has been seen before; fresh official holdout is still empty."
+  ],
+  "radial_squared_fraction": {
+    "edges": [
+      0.0,
+      0.3333333333333333,
+      0.6666666666666666,
+      1.0
+    ],
+    "probabilities": [
+      0.3429807725406754,
+      0.3587988016858586,
+      0.2982204257734659
+    ],
+    "interval_count": 461,
+    "wholly_uninformative": 0,
+    "pseudo_count_per_bin": 1.0
+  },
+  "reception_radius_m": {
+    "edges": [
+      1000.0,
+      1100.0,
+      1200.0,
+      1300.0,
+      1400.0,
+      1500.0
+    ],
+    "probabilities": [
+      0.1722226147281821,
+      0.2772054719694961,
+      0.179130894900032,
+      0.16155618708205718,
+      0.20988483132023264
+    ],
+    "interval_count": 461,
+    "wholly_uninformative": 139,
+    "pseudo_count_per_bin": 1.0
+  }
+}

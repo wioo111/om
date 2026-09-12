@@ -1,0 +1,477 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-09-12T21:05:00.331279+00:00",
+  "reference_scope": "own completed P3 practice only",
+  "cases": 48,
+  "split_counts": {
+    "historical_calibration": {
+      "10": 4,
+      "11": 10,
+      "12": 3,
+      "13": 4,
+      "14": 5,
+      "15": 7,
+      "16": 3
+    },
+    "historical_validation": {
+      "10": 2,
+      "11": 3,
+      "12": 1,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 1
+    }
+  },
+  "rejected": [],
+  "duplicates": [],
+  "known_run_folders": [
+    "20260913_031404_714282_p3_AdaptiveV8",
+    "20260913_035009_194149_p3_FastScanP3",
+    "20260913_035109_973046_p3_FastScanP3",
+    "20260913_040040_267829_p3_FastScanP3",
+    "20260913_040102_677321_p3_FastScanP3",
+    "20260913_040121_904038_p3_FastScanP3",
+    "20260913_040137_943049_p3_FastScanP3",
+    "20260913_040155_460679_p3_FastScanP3",
+    "20260913_040235_799402_p3_FastScanP3",
+    "20260913_040310_328152_p3_FastScanP3",
+    "20260913_040327_886061_p3_FastScanP3",
+    "20260913_040347_812301_p3_FastScanP3",
+    "20260913_040405_529822_p3_FastScanP3",
+    "20260913_040426_014672_p3_FastScanP3",
+    "20260913_040441_677036_p3_FastScanP3",
+    "20260913_040501_536381_p3_FastScanP3",
+    "20260913_040518_510146_p3_FastScanP3",
+    "20260913_040536_488409_p3_FastScanP3",
+    "20260913_040552_923691_p3_FastScanP3",
+    "20260913_042145_204190_p3_HopP3",
+    "20260913_042206_698928_p3_HopP3",
+    "20260913_042327_870206_p3_HopP3",
+    "20260913_042344_989246_p3_HopP3",
+    "20260913_042359_551155_p3_HopP3",
+    "20260913_042414_414951_p3_HopP3",
+    "20260913_042431_083749_p3_HopP3",
+    "20260913_042454_322109_p3_HopP3",
+    "20260913_042514_651413_p3_HopP3",
+    "20260913_042543_735916_p3_HopP3",
+    "20260913_042603_753063_p3_HopP3",
+    "20260913_042626_334429_p3_HopP3",
+    "20260913_042642_535226_p3_HopP3",
+    "20260913_042659_831697_p3_HopP3",
+    "20260913_042715_714323_p3_HopP3",
+    "20260913_042731_929097_p3_HopP3",
+    "20260913_042805_492712_p3_HopP3",
+    "20260913_042822_642520_p3_HopP3",
+    "20260913_042839_872430_p3_HopP3",
+    "20260913_043824_480153_p3_ResidualP3",
+    "20260913_043839_868148_p3_ResidualP3",
+    "20260913_043856_160392_p3_ResidualP3",
+    "20260913_043913_738192_p3_ResidualP3",
+    "20260913_043932_535255_p3_ResidualP3",
+    "20260913_043948_674659_p3_ResidualP3",
+    "20260913_044005_917906_p3_ResidualP3",
+    "20260913_044023_682979_p3_ResidualP3",
+    "20260913_044041_211256_p3_ResidualP3",
+    "20260913_044056_997747_p3_ResidualP3"
+  ],
+  "future_official_holdout": [],
+  "blind_test_status": "NOT_AVAILABLE: all existing records are historical, already inspected.",
+  "split_unit": "whole unique scenario; completed package hash when available, otherwise case code",
+  "split_algorithm": "within N sort SHA256(p3-reference-v1:case_id), reserve round(25%) for retrospective validation",
+  "calibration_case_ids": [
+    "e90143631af0fb9c67a0206b",
+    "c49ed635a27049780042e2eb",
+    "d85ee5c6a6406f0c505b2b67",
+    "ecf85a75da352bc1d2f34797",
+    "9ebd0f18d0d2550b4538d94f",
+    "1265b22250e501be08d8e08c",
+    "f29250d89017427e8f61a252",
+    "fb74c7d0bb79aa1fca80ad43",
+    "547737791e68150125e50d30",
+    "4fe0919e1e3225cf9fb37003",
+    "45e65005a9038c77b336f5e2",
+    "c46d9b64e25c7c4c78ec17e8",
+    "18d197f701bd414c9912d038",
+    "0d91aa4b62c825316e4d568b",
+    "119df13bfc3c4669578baa8d",
+    "80e4153b00dd07adedf937cd",
+    "05fc87a44ca0de3abc4775a9",
+    "c96a05616e926d8632137025",
+    "724e34b247382d12e86fe125",
+    "df1b3b2feefba1e954b95649",
+    "6291b3f35a1c0e4112443391",
+    "682f73e6052b9c878ed8d79c",
+    "97114e38682a64e0b2852966",
+    "4b991e14a6c19ce3e6d124e5",
+    "539db984aa2d24847b98b83c",
+    "719349bd2e665225742ea62b",
+    "4e43f48e16c4dfb8017ee2ad",
+    "7ae1eb0769666d3dccc4291d",
+    "0b1a6c1f8c681c53c2385a49",
+    "0d4a6fb2f5ee8695d5b12646",
+    "c6346fb8d443ca46a3428736",
+    "a02375e6dd928a9ae01909cc",
+    "65ace00203cd7fa3bf9cc160",
+    "2bf4be0fdf11168a4fdafd53",
+    "4a5e27b58bbd50a0d20946fb",
+    "5a662b97a482f066901d9038"
+  ],
+  "validation_case_ids": [
+    "f9794479e3c3005371dbad78",
+    "ad0e3a4948bbe010495f637f",
+    "03cb57cddcc8ae26a4d3802c",
+    "2ae50cc3affd28010a8da532",
+    "f495aefecc5d5fe02d7f6915",
+    "89e65b22122b7f447d42e7ed",
+    "5a01a6e953a6c5bd316a1ffc",
+    "bc8a8b0485283c84e4756206",
+    "e8d8b7189827e834bcacb357",
+    "bcfe00010b297730b335ce46",
+    "dabe9352a17edd77b2f16002",
+    "9315f9267ef1858f1df6ad14"
+  ],
+  "case_source_sha256": {
+    "e90143631af0fb9c67a0206b": {
+      "解题库\\演练调试\\results\\20260913_031404_714282_p3_AdaptiveV8\\result.json": "e6b118f486d052a79dc3c637d5161a03390797cbc603798a87906cf0cdffc345",
+      "解题库\\演练调试\\results\\20260913_031404_714282_p3_AdaptiveV8\\actions.jsonl": "424496f7744f189c7815e15762ffbc74bced13610edfde4f884ef10748bdf17d",
+      "解题库\\演练调试\\results\\20260913_031404_714282_p3_AdaptiveV8\\version.json": "71c8bee60b24ecd449fcb3582c61f68f9a1fc87150a7a2b04ea642bb865e25ba",
+      "解题库\\演练调试\\results\\20260913_031404_714282_p3_AdaptiveV8\\execution.json": "7506feb55bba534bbaf5780ddc0d1bcde97f65f7637b8835808ca189cf1d503f",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-539008641706779423-JUU6-PKS8-R364-PZRU.result.json": "aa9b4e2994f9d576568840977ee609097dda7b2d90e401dd7fd56fe992a84332"
+    },
+    "c49ed635a27049780042e2eb": {
+      "解题库\\演练调试\\results\\20260913_035009_194149_p3_FastScanP3\\result.json": "b66ef6e497aeec8ef2c1e07a412c2a44c7649462af140f54ce59480e98504b89",
+      "解题库\\演练调试\\results\\20260913_035009_194149_p3_FastScanP3\\actions.jsonl": "a6b1e62c3f991fca718cc6b419ed36afde4cd396b9ae52b946afb070ad15df76",
+      "解题库\\演练调试\\results\\20260913_035009_194149_p3_FastScanP3\\version.json": "1b1ab2eaab6754f189071aa77cd063e4a8089e6805e88dcb78afc03d1bdbfd9d",
+      "解题库\\演练调试\\results\\20260913_035009_194149_p3_FastScanP3\\execution.json": "c3060bddf00757d9b50ca2541c11d89ae7f77bcddd63c1dd0041f69372048067",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-4851352020126928430-NGTV-U7GU-JKRT-RFKD.result.json": "5660749c3aa434f487ea483cf1c98fbb4bc975e585e40c448123bbdd5e878622"
+    },
+    "d85ee5c6a6406f0c505b2b67": {
+      "解题库\\演练调试\\results\\20260913_035109_973046_p3_FastScanP3\\result.json": "4d73be4e5191f5bfc60e195bbb441d907e0719da82cded9dbd6e36028e55f680",
+      "解题库\\演练调试\\results\\20260913_035109_973046_p3_FastScanP3\\actions.jsonl": "0ef1088485bc6c922da637b3805ebcfab820bd5c3bcdec588444d797a3e772d3",
+      "解题库\\演练调试\\results\\20260913_035109_973046_p3_FastScanP3\\version.json": "95fdf24a14e09534df51ba5af8086ef3b20e37571f1112b9de40e62077fdbed7",
+      "解题库\\演练调试\\results\\20260913_035109_973046_p3_FastScanP3\\execution.json": "cb1b290b513da0722116ad77607a6f75627a24a39372c62e7f01940d007611b1",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3329608246700234829-9T7B-223H-W765-2QZK.result.json": "f455c012d8ce6ffd0e07dc990dfa561f756eddcd3f52d5a881fa8404cdd3b7fc"
+    },
+    "ecf85a75da352bc1d2f34797": {
+      "解题库\\演练调试\\results\\20260913_040040_267829_p3_FastScanP3\\result.json": "1040b8285a57581039969cfd6682d970741457cec3dda10733be5dd5f98f3ea3",
+      "解题库\\演练调试\\results\\20260913_040040_267829_p3_FastScanP3\\actions.jsonl": "d0b68762e3890247c645c28eb0e8b9192015a81802b542e7fa898a998f455c4e",
+      "解题库\\演练调试\\results\\20260913_040040_267829_p3_FastScanP3\\version.json": "126d010ccd5b8e971f86ae2a31c061c797dd45ddb71ecaee251e58ac70a2b63c",
+      "解题库\\演练调试\\results\\20260913_040040_267829_p3_FastScanP3\\execution.json": "69e3757cb87d9a38a96d2f2b27a6d7a857b6a958ed28ab550a481711fdae09bb",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-4487316815864375063-K48M-THGV-2Y5S-4CYY.result.json": "1fe328e2ce2ed92af454a6eca9bc76d06ee7cb2d6b75b6a69962e3de5e047d72"
+    },
+    "9ebd0f18d0d2550b4538d94f": {
+      "解题库\\演练调试\\results\\20260913_040102_677321_p3_FastScanP3\\result.json": "ae7d3f080f5cbff898310ffca0b772122cb05c2f30825089ac21743b7e6d9965",
+      "解题库\\演练调试\\results\\20260913_040102_677321_p3_FastScanP3\\actions.jsonl": "4af601c6eeea5759bd3a87c44835e95f4960d3b270d8671757daa656a15806d3",
+      "解题库\\演练调试\\results\\20260913_040102_677321_p3_FastScanP3\\version.json": "21fcfb5d444e4515b923d18e7e2a98268bae237b6cd61ac1e82cd97faa0edaa5",
+      "解题库\\演练调试\\results\\20260913_040102_677321_p3_FastScanP3\\execution.json": "64ee98b53bb6d0186af22687151ecb5661bfc6fd76febf92e9b6beb902990b3e",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7582276959982480817-ZFEQ-T2S3-BFT6-HYTW.result.json": "60f74b72cb33d8ce83e40dc5d51d3320faea6bf172f88f68db13b9a155989d60"
+    },
+    "1265b22250e501be08d8e08c": {
+      "解题库\\演练调试\\results\\20260913_040121_904038_p3_FastScanP3\\result.json": "8e4896bcca686fb165505d0c3b8be05221fb76b13a9a2d8ac2205ef91d254dfe",
+      "解题库\\演练调试\\results\\20260913_040121_904038_p3_FastScanP3\\actions.jsonl": "e1bfdffcf47d48520075f01818bebbf0ef2be989b46e30d4fad3dd5d30102e96",
+      "解题库\\演练调试\\results\\20260913_040121_904038_p3_FastScanP3\\version.json": "0e17b77a28c3b689ab56bd6abb9066c938330e7e27edb2c5f1051575d47be5ad",
+      "解题库\\演练调试\\results\\20260913_040121_904038_p3_FastScanP3\\execution.json": "346adbe3c72c489af4dbf2230aa81c85ef880a2dc5eac5fcd47a1f21518dfcd9",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3870067413478222883-D6QS-UXG5-YJG4-MFQX.result.json": "705c84d7daa80127e50c747e7d12b7e6e522fdf53fbbd7a0b83fd6c994a9dc53"
+    },
+    "f29250d89017427e8f61a252": {
+      "解题库\\演练调试\\results\\20260913_040137_943049_p3_FastScanP3\\result.json": "23c98f4a1da22347bfed3a0ce395cdbf78bd54e374cc7514fbe1af460c2234e5",
+      "解题库\\演练调试\\results\\20260913_040137_943049_p3_FastScanP3\\actions.jsonl": "dc8e97c88f034ac07cfa97d08927b8aba975e023a7d8f7fee9d33cb45143fea1",
+      "解题库\\演练调试\\results\\20260913_040137_943049_p3_FastScanP3\\version.json": "fbf347327f01f56c102e2153646dd034bacf4de77a1fb7960397a28defa5eb64",
+      "解题库\\演练调试\\results\\20260913_040137_943049_p3_FastScanP3\\execution.json": "aa23254c7b0d948d64f3e07e286485f4aa5e4bb21277f7091cfd8758c844196c",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-169653070612916033-NQBV-VNP6-N73R-FBGX.result.json": "2bce545d31b9e20e41d438fdbfa76da02cb6f420db9683d32612d18c227dd38f"
+    },
+    "f9794479e3c3005371dbad78": {
+      "解题库\\演练调试\\results\\20260913_040155_460679_p3_FastScanP3\\result.json": "b370b8e572fa1bb548f201ac937ba66ae305d2ac0d532a2e7fbd82fd9ca2d3b2",
+      "解题库\\演练调试\\results\\20260913_040155_460679_p3_FastScanP3\\actions.jsonl": "3c406928c69f9cc6985cf6f6ef96b1852e6ba2b82c751e2a666cfc21b6b3019c",
+      "解题库\\演练调试\\results\\20260913_040155_460679_p3_FastScanP3\\version.json": "7611b1adedd2b7399befca90016c2bad9e200a0edf4f2aa827a63030e7b8842f",
+      "解题库\\演练调试\\results\\20260913_040155_460679_p3_FastScanP3\\execution.json": "1a2616d6777f4e72d9c783cba622203989b0e33994781a89914187c84c788370",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-917184022995896844-VWNH-CTT3-YNWC-S7NE.result.json": "5fce4be6045ee6a797f8858ccb7f7b339c462594c3ec582d745614e1dcfbdcd8"
+    },
+    "fb74c7d0bb79aa1fca80ad43": {
+      "解题库\\演练调试\\results\\20260913_040235_799402_p3_FastScanP3\\result.json": "1583ba01c27ad6d5847d91e23855d2de64748c64b8389bd866ae273109e8a3ff",
+      "解题库\\演练调试\\results\\20260913_040235_799402_p3_FastScanP3\\actions.jsonl": "3a1f5f19a6d524f044c44d8f6943a48168bb8d966c4352bf3873be567597db74",
+      "解题库\\演练调试\\results\\20260913_040235_799402_p3_FastScanP3\\version.json": "f055c8511326507d3cc471eee3663153acf7a92fa6047649bfdcfda8fe065eb7",
+      "解题库\\演练调试\\results\\20260913_040235_799402_p3_FastScanP3\\execution.json": "21e56bd89d140cb239a6bcb8b6b08be8dd490ce3fa759524ecd800f689b32a87",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3246170334199233890-4R86-MME8-H2DJ-KJVN.result.json": "66bd205b0b6b36e78c622987e2f59508dc262fb9f557995385b237a8bc862060"
+    },
+    "ad0e3a4948bbe010495f637f": {
+      "解题库\\演练调试\\results\\20260913_040310_328152_p3_FastScanP3\\result.json": "bf9bcd79ed8e4d951e78480e476a8bd5253b2a6268d99792b3fd5a66fffe6745",
+      "解题库\\演练调试\\results\\20260913_040310_328152_p3_FastScanP3\\actions.jsonl": "37f9059f0032034474f540e63a49a2703e0bf670d1c4378f9b66e30321f4a465",
+      "解题库\\演练调试\\results\\20260913_040310_328152_p3_FastScanP3\\version.json": "ca97b3ecd4efed89ae6e6ef474610762669aba1a31e160720f05742c03f80073",
+      "解题库\\演练调试\\results\\20260913_040310_328152_p3_FastScanP3\\execution.json": "9487abc3f8eea98e7f07dce805a601bc1709908728e42c871be7ddcf2c050766",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-8919792408453407910-BSQK-5GP8-VJEV-FBTF.result.json": "c827cd3cca56bf73b76b417d7c95fae835da6ab9fc8afae12520426c962d1ee0"
+    },
+    "547737791e68150125e50d30": {
+      "解题库\\演练调试\\results\\20260913_040327_886061_p3_FastScanP3\\result.json": "817329f3e2c402dfe5334d8ffc269f221402ea443620594d59bdf2fb564fea82",
+      "解题库\\演练调试\\results\\20260913_040327_886061_p3_FastScanP3\\actions.jsonl": "baddadfb36380623997e22b2e23f22385e79c0393f9902ee9e036954da6753bd",
+      "解题库\\演练调试\\results\\20260913_040327_886061_p3_FastScanP3\\version.json": "533212d8232b7fc2adbe6ae6733475ac125f8aa71b5e64f05d8cbb18f00f76e3",
+      "解题库\\演练调试\\results\\20260913_040327_886061_p3_FastScanP3\\execution.json": "be3313c52cdc6dcf1dfd2eadeeefe6475a412e80861e3d50b0331b18514e6641",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2235699464192682364-TX3W-2PER-8D42-CNHG.result.json": "906197d7d65e17a3bbce88a52b774a952a3722e76ca9a4920b950be32947b3b0"
+    },
+    "03cb57cddcc8ae26a4d3802c": {
+      "解题库\\演练调试\\results\\20260913_040347_812301_p3_FastScanP3\\result.json": "00f109bd8e8120227ec0a4e07ba1313c1504cd988b7dd050ecbcfe19b81b0c34",
+      "解题库\\演练调试\\results\\20260913_040347_812301_p3_FastScanP3\\actions.jsonl": "f30a3eb5776191c1c8d63d834c5145014acbf1ec786fc6147f0ffeeb4f7cf409",
+      "解题库\\演练调试\\results\\20260913_040347_812301_p3_FastScanP3\\version.json": "12d82518d87b4fed09c9651b9a3063a3a8020cdba087dcb1890d7e44ffb481f3",
+      "解题库\\演练调试\\results\\20260913_040347_812301_p3_FastScanP3\\execution.json": "45275ab81cea1d355227a1338388179abf6ca0624e545cdd53b636efab26cae2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3531863027993782603-Y9KK-8TDF-NHFP-H472.result.json": "06ab2c824dc4bb44911ac6f8f3842186f206fa308a01f974a6de87fdf090297a"
+    },
+    "4fe0919e1e3225cf9fb37003": {
+      "解题库\\演练调试\\results\\20260913_040405_529822_p3_FastScanP3\\result.json": "9996aea926d1a6c6dd518c0af116fbe762afa8bc5a77c93c7321c8e9e50a0f2c",
+      "解题库\\演练调试\\results\\20260913_040405_529822_p3_FastScanP3\\actions.jsonl": "c358619f4f8e8440ff56059d2a03716973ef3ea9c5fba13f6bffb9aedece51b0",
+      "解题库\\演练调试\\results\\20260913_040405_529822_p3_FastScanP3\\version.json": "c7fdc056b303a7fb2594d3aca3309350b9c096dea923d0cb8c5452dc8597abf8",
+      "解题库\\演练调试\\results\\20260913_040405_529822_p3_FastScanP3\\execution.json": "4bc29a18a671b870b89038f176421928651facc7e1f3d57889a49d7919cca2de",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7617710675971392033-E5NU-3NPD-RPBC-N89U.result.json": "69c83a5402e4b1d48f55d4c72bd66b314f3726e1d437af739eb0d0b0ea60cfe7"
+    },
+    "45e65005a9038c77b336f5e2": {
+      "解题库\\演练调试\\results\\20260913_040426_014672_p3_FastScanP3\\result.json": "7c166a037fd8082cdfee2e678456d41805ae0821748b5877b6dba3a0425c86ef",
+      "解题库\\演练调试\\results\\20260913_040426_014672_p3_FastScanP3\\actions.jsonl": "1e377dd53aebc29282756520d09f8a477ecd4766ec0bee3158a40edeff125796",
+      "解题库\\演练调试\\results\\20260913_040426_014672_p3_FastScanP3\\version.json": "16421fd57d1d405e3bca190bf0ae0f2ba1c206837d6b270e61f66dccd9c5330a",
+      "解题库\\演练调试\\results\\20260913_040426_014672_p3_FastScanP3\\execution.json": "d4eab16d9fab1084538d7c1e76f5211b27c9026a885d2c4ff8a04427b74a77c7",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2832270477905782547-6HWE-EWV9-ZEZ7-JVVB.result.json": "4fd6d3b4d78ea74569f069afadb50d1c8fec7af4f15d6254fb45bee8b8dc9eb1"
+    },
+    "c46d9b64e25c7c4c78ec17e8": {
+      "解题库\\演练调试\\results\\20260913_040441_677036_p3_FastScanP3\\result.json": "154a5a792da992275fcf50b551ee552a88316328a6aacc576a5bb3197ad9f9b8",
+      "解题库\\演练调试\\results\\20260913_040441_677036_p3_FastScanP3\\actions.jsonl": "e1f9f4198f46e12b0750e58abeb5c44326d86969c72c60e0a9964d2f48023c1d",
+      "解题库\\演练调试\\results\\20260913_040441_677036_p3_FastScanP3\\version.json": "187cfc15b5d375ee7ff9ff3f71028c7da4400b3267d70bba3df81b58b3bab0f9",
+      "解题库\\演练调试\\results\\20260913_040441_677036_p3_FastScanP3\\execution.json": "f6c9be51f39a754836f3071ce2183d0d1dbdb5219dfeceba943e2a6ffcba4fb6",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7668407915803900770-N4M6-MCWE-XKP2-6MT7.result.json": "ab555f83a88de6f688986cd3d9631ed9bbd06fa11198dab236d34094e771ba5f"
+    },
+    "2ae50cc3affd28010a8da532": {
+      "解题库\\演练调试\\results\\20260913_040501_536381_p3_FastScanP3\\result.json": "4d420df34bcf8a6ba30692fac98a3ac5338bb180ff3eb6007372e79685764435",
+      "解题库\\演练调试\\results\\20260913_040501_536381_p3_FastScanP3\\actions.jsonl": "9684a8775cb38532bc693a3d2b0cca776ebb27f7b9812263e3462f41f486eae8",
+      "解题库\\演练调试\\results\\20260913_040501_536381_p3_FastScanP3\\version.json": "4cb081f7e9993c319bdab65571d69c544385662b3b20d8a207eba621423e75b8",
+      "解题库\\演练调试\\results\\20260913_040501_536381_p3_FastScanP3\\execution.json": "02ee3b74b567fab4fe952eef3e4920ed7fe13b845be3c0b71f8c180cc04392e2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-432245497360970400-XFE9-FFPA-FCGV-T6JP.result.json": "a072b3aa6d2e96f95213d2780b6e167dbf5fa2ccc600822ee589debaf3650448"
+    },
+    "18d197f701bd414c9912d038": {
+      "解题库\\演练调试\\results\\20260913_040518_510146_p3_FastScanP3\\result.json": "c947a39718b51b3fa7a3c542c62881f9708634a454f25883bf496d9431943609",
+      "解题库\\演练调试\\results\\20260913_040518_510146_p3_FastScanP3\\actions.jsonl": "f2a59f9857956441bf2bdc9f1872bf2145d7a1dec871db1defc47c8059159bc9",
+      "解题库\\演练调试\\results\\20260913_040518_510146_p3_FastScanP3\\version.json": "1abe257d8b48b70fa56c4649f231d26c4fec5109451b8eff95354375f657cffd",
+      "解题库\\演练调试\\results\\20260913_040518_510146_p3_FastScanP3\\execution.json": "603f3a33b6a7b354a3cba83dfa72527d362f1cc0cd8c2a94729b17bcc544ce35",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-6107571091443084047-D8TE-VCAW-UNWH-RUB7.result.json": "6bc5a67f3f53476436812a4681e0e9230c43bcf9f88f70a2b6b7562a5cde3949"
+    },
+    "0d91aa4b62c825316e4d568b": {
+      "解题库\\演练调试\\results\\20260913_040536_488409_p3_FastScanP3\\result.json": "89acdf62268ceaba6d496ee0212e353632a3b6552f29c6405b67efddb294bb9a",
+      "解题库\\演练调试\\results\\20260913_040536_488409_p3_FastScanP3\\actions.jsonl": "80bfe480eb1cd2c7c1237a008dffc9265a6520121b7d968cad34535af9d98c73",
+      "解题库\\演练调试\\results\\20260913_040536_488409_p3_FastScanP3\\version.json": "00c825a67f82862a1257655f548cf4cc502c38a13fc12ce7e89cbd48eda73165",
+      "解题库\\演练调试\\results\\20260913_040536_488409_p3_FastScanP3\\execution.json": "50877771c2896099237aed6871d72b515caba3379e683123a5cf5e06fb3beab6",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2461160218255111992-S5SS-HY5Y-NVU6-NKG4.result.json": "f1efd2bac4cf54adb40269e17cda096abcab10f4100eb80b9d4ee59e03527ae6"
+    },
+    "119df13bfc3c4669578baa8d": {
+      "解题库\\演练调试\\results\\20260913_040552_923691_p3_FastScanP3\\result.json": "643806f5cbb1c5ce196e45f1f30b0b84a64cf4a762fbbdbbfd80595776f84566",
+      "解题库\\演练调试\\results\\20260913_040552_923691_p3_FastScanP3\\actions.jsonl": "e68620c54741b06790c1076b13f974d50f6fbac374e3a71077814ff60271c3a9",
+      "解题库\\演练调试\\results\\20260913_040552_923691_p3_FastScanP3\\version.json": "5c7f271a2397fadee67086198fd8df770f0e0d050049c54e24ff4f1eb1ea81af",
+      "解题库\\演练调试\\results\\20260913_040552_923691_p3_FastScanP3\\execution.json": "830387356fc6776da3d36495ed8585df7245cebc02c4c240c1b2ca1d8c1985e4",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3119900971268619257-7TWY-NZRC-M9X3-9WE9.result.json": "e5534144ca1166a583cfe35ac3c1fbe3f5c321ab2cf2d7dfdd066d3a903416bf"
+    },
+    "80e4153b00dd07adedf937cd": {
+      "解题库\\演练调试\\results\\20260913_042145_204190_p3_HopP3\\result.json": "925d22ae89fdcb3492e129b762e94a7c00ef9ec0b4d1fa981e69faa00c4541cc",
+      "解题库\\演练调试\\results\\20260913_042145_204190_p3_HopP3\\actions.jsonl": "2ac253fcc6131825203712f558cd985c5b84d5cb11847aa105a3d61bb5f7240d",
+      "解题库\\演练调试\\results\\20260913_042145_204190_p3_HopP3\\version.json": "fa96544fe0b4cd61cac2624abf12429c079f6bd1ffc3228125c5d9f437009f75",
+      "解题库\\演练调试\\results\\20260913_042145_204190_p3_HopP3\\execution.json": "aef9796957ffcb0512cbb25ed6ab13215e9d0037afa50671196a2ed08dd950d8",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-6881511855087171613-VJB2-DRF6-9ZM8-ZPRF.result.json": "38f4422b9e59dec8fae9b563ebab71217fd5b8eaa8394a26de2b64efda4f2027"
+    },
+    "05fc87a44ca0de3abc4775a9": {
+      "解题库\\演练调试\\results\\20260913_042206_698928_p3_HopP3\\result.json": "ab056445248de83faeea4bc95d1799f1f90799a1dbe8b29e61fa885443ea2765",
+      "解题库\\演练调试\\results\\20260913_042206_698928_p3_HopP3\\actions.jsonl": "2c3011b8892cb33632b77b21e5b706bcbaa79f77c59eb73ed6fd1c52609639af",
+      "解题库\\演练调试\\results\\20260913_042206_698928_p3_HopP3\\version.json": "3500e4e817da9660b7a77ef482a3338d1641d19e069ce0c97524ef9ae0d3a0be",
+      "解题库\\演练调试\\results\\20260913_042206_698928_p3_HopP3\\execution.json": "e1656dc2c3f7c17e73019702f2aaacdf19bde886ef8cf71b3d501252830120d2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-6419552905119177214-7W53-QR7B-EV4G-9MBV.result.json": "e69ada21aeb7e88967f83661bd46cfa4e4c1ef75057b8d13b44499f229c0b06c"
+    },
+    "f495aefecc5d5fe02d7f6915": {
+      "解题库\\演练调试\\results\\20260913_042327_870206_p3_HopP3\\result.json": "f34613c69d06e2b6964937e5c3e169715971e0cfc43b7841964b7fb7d3546a13",
+      "解题库\\演练调试\\results\\20260913_042327_870206_p3_HopP3\\actions.jsonl": "551796efd13665f2024704ef7e078c0a6a302e3d7fa50c3ccdc73c6c0c30a9ad",
+      "解题库\\演练调试\\results\\20260913_042327_870206_p3_HopP3\\version.json": "9cabacbf19aca9917b981ddfd3cbf1b498a4fd0476c2a79544744d7e09365a14",
+      "解题库\\演练调试\\results\\20260913_042327_870206_p3_HopP3\\execution.json": "eefb2d62a990ec246a7fb740976f9248b7b9e6750ea30fe9eec629245b2db9ce",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-9106295501190717761-2N93-576K-CXVH-T25A.result.json": "4a6126f9f58addaec69541832d426d10c45edb6dad5bfe0c72d62be7f8b57626"
+    },
+    "c96a05616e926d8632137025": {
+      "解题库\\演练调试\\results\\20260913_042344_989246_p3_HopP3\\result.json": "4b3a9766a3233526d7775a75815f29d0883bc9b8b9c318294e4f618544241b34",
+      "解题库\\演练调试\\results\\20260913_042344_989246_p3_HopP3\\actions.jsonl": "fff8081d591e5447e46711a2a95a4f4ac60a2be3ddb5f4f9b25aedf76b2d8ce3",
+      "解题库\\演练调试\\results\\20260913_042344_989246_p3_HopP3\\version.json": "2f5fa043343306af058f5505a10370e9acd0e081ac9ee46b6e04ff059666355c",
+      "解题库\\演练调试\\results\\20260913_042344_989246_p3_HopP3\\execution.json": "3f250ff7b33eb7c72c0291256a912f495d2154a9e09b09f1b1bb6cb61de52bb5",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1057538188745625983-D4E9-XEYD-8SND-ZYZ6.result.json": "b133840183aa6b00b3de5eee40d5326b46bf316a9c3b424e51984743e5405dac"
+    },
+    "724e34b247382d12e86fe125": {
+      "解题库\\演练调试\\results\\20260913_042359_551155_p3_HopP3\\result.json": "86ed9f942f7b6f087df39d65ea526a0dff067d74a308906ce2ab9013a19ccca6",
+      "解题库\\演练调试\\results\\20260913_042359_551155_p3_HopP3\\actions.jsonl": "6e7994b4610790cdec99c9d8c4b6cee5745d23f6db78c070ba4da81e0d197e8e",
+      "解题库\\演练调试\\results\\20260913_042359_551155_p3_HopP3\\version.json": "395dd4de1e442ea803c261ab06d61b9e049c5619b47190ae4eae9edb2e39122f",
+      "解题库\\演练调试\\results\\20260913_042359_551155_p3_HopP3\\execution.json": "9d425d015b101a57055b97c4209169a4c28891319530616c28d32384b8c84d0e",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7004681554149706610-DE2M-7QXH-GRJ2-AK5V.result.json": "e9e3e381ef0e3f5933079ce0931d5c5282a43cce477478a74342ba9493ac2bd8"
+    },
+    "df1b3b2feefba1e954b95649": {
+      "解题库\\演练调试\\results\\20260913_042414_414951_p3_HopP3\\result.json": "96808dd86aa8578531b61ebf0dbf3c7ca604cf2de5393b5b7aaae367598201c1",
+      "解题库\\演练调试\\results\\20260913_042414_414951_p3_HopP3\\actions.jsonl": "62fc19e37eeb5e524ad34c2025606f6955e5510b6e1cc43e886d240b07d8b363",
+      "解题库\\演练调试\\results\\20260913_042414_414951_p3_HopP3\\version.json": "a7b335bcf401f3922a75d9cbf2fb1cc00a556b8406dfc0cc7b614bd248a69eea",
+      "解题库\\演练调试\\results\\20260913_042414_414951_p3_HopP3\\execution.json": "acdd21911c1e4cde37393757686c182db8cd5350447cf6c3ad2f73bf52826025",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-5975700054565493200-3FUF-KZRZ-Z72E-YYP6.result.json": "e7eed117333db5ec42377f52f96c74e741535ff11379b158815d9f5ab01d07a4"
+    },
+    "6291b3f35a1c0e4112443391": {
+      "解题库\\演练调试\\results\\20260913_042431_083749_p3_HopP3\\result.json": "abbcbd17dd1086c76e43e4420ac0dd3e864034afc5996120298fc08fffdb1e81",
+      "解题库\\演练调试\\results\\20260913_042431_083749_p3_HopP3\\actions.jsonl": "912469c20de8d79cd82b0473878105dc56413121038f20c0c17f9b92b2b30179",
+      "解题库\\演练调试\\results\\20260913_042431_083749_p3_HopP3\\version.json": "8b096ee67508aba0ec6eed861db053f85c9fc6078f6291d7083b60d54dd0b987",
+      "解题库\\演练调试\\results\\20260913_042431_083749_p3_HopP3\\execution.json": "b8236887dd314d610f52dcab35ae3d138f335a140ed4cfe71e978b241be6a6e7",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2713076056529117966-2B7J-QG3E-398S-S75H.result.json": "aabab1ee4013ed787666ccaba91305bdc59ce16ee444cd597c5fcf2c7bc5ef8c"
+    },
+    "682f73e6052b9c878ed8d79c": {
+      "解题库\\演练调试\\results\\20260913_042454_322109_p3_HopP3\\result.json": "076975e75bdbf02de0cf1a6fceec0d273a62cc96dc805644fb24323a31a4cd33",
+      "解题库\\演练调试\\results\\20260913_042454_322109_p3_HopP3\\actions.jsonl": "81c1a7dde363417f21e3563ea4125cfab46f7a04bfdaf136166b9cb804b23ca7",
+      "解题库\\演练调试\\results\\20260913_042454_322109_p3_HopP3\\version.json": "1a5a2a0b002c686c449ab6e366f30b11c2b523d6fdd55d8c371ef08202acadaf",
+      "解题库\\演练调试\\results\\20260913_042454_322109_p3_HopP3\\execution.json": "9027a3257d66fb22ed9281b5e84736cfb94687a05f0fca44bd3824603cc9def2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3060303003491399619-8MKX-BDM4-UBA4-BJUP.result.json": "629c9fef401a9db4e70932918b291da5fef191b41ffeb1948f1cfa00bffbe204"
+    },
+    "97114e38682a64e0b2852966": {
+      "解题库\\演练调试\\results\\20260913_042514_651413_p3_HopP3\\result.json": "3d43254ffbdad9874d8f614e238ffd6f9c2419db2bab044957c5d9069ebed623",
+      "解题库\\演练调试\\results\\20260913_042514_651413_p3_HopP3\\actions.jsonl": "8bbe45b7cc20a2f951aefb57af2f6550e1dc55d23eee1f4c936a096f57027cfe",
+      "解题库\\演练调试\\results\\20260913_042514_651413_p3_HopP3\\version.json": "37313ed7ae7ddd047fd03529f3238ec10f11f203656f79438425aa315b248de9",
+      "解题库\\演练调试\\results\\20260913_042514_651413_p3_HopP3\\execution.json": "f942231be67d3d011decfa1568ff11342e09b233bf72dc41e1e8d6a482ffb70b",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1645128180017278409-5FYE-T7J5-TDVZ-GD6P.result.json": "38de151c647620d1f1c5fcf00fc086bbea279d5f90e5dc32bd1a72df80df556b"
+    },
+    "89e65b22122b7f447d42e7ed": {
+      "解题库\\演练调试\\results\\20260913_042543_735916_p3_HopP3\\result.json": "97ad9759407d38a9dbe58b6d857e8ad5d1f8b58654b321dbd752146ecc997579",
+      "解题库\\演练调试\\results\\20260913_042543_735916_p3_HopP3\\actions.jsonl": "6742dbb476f851cf300db6e90bd439a9e06d41fd17f2a3ef91a49540c149731a",
+      "解题库\\演练调试\\results\\20260913_042543_735916_p3_HopP3\\version.json": "a9b9b4a507e3cbb1ef36d6dc1b561581651119bf0e16a0824adc3bd25c4a3f1a",
+      "解题库\\演练调试\\results\\20260913_042543_735916_p3_HopP3\\execution.json": "3c5af3e596289dcd7583092d0d7fb22f91f2b4b7812ce5dbbeb466c5fed8439c",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1236934746678046073-U3CH-B8HV-WY44-WHA6.result.json": "612995c58aebacabb2ce941bd92577362f87d34105805adace751bc10be2cc19"
+    },
+    "4b991e14a6c19ce3e6d124e5": {
+      "解题库\\演练调试\\results\\20260913_042603_753063_p3_HopP3\\result.json": "7ef0735faa1619b9afafacaf7fbbe8c246acde90c991e0b17277f46cee92c1b9",
+      "解题库\\演练调试\\results\\20260913_042603_753063_p3_HopP3\\actions.jsonl": "75fe736e3d068e2580c269cb1981cb087deb9bcfcaa04ec4867a9403c9c9e30e",
+      "解题库\\演练调试\\results\\20260913_042603_753063_p3_HopP3\\version.json": "eb099464a053a8e4500067d679ad4c4a8bb8fdc51f988b1ad26f6bc5b82a91fb",
+      "解题库\\演练调试\\results\\20260913_042603_753063_p3_HopP3\\execution.json": "c754b377cf31c2a5cd7d283924f7862fb88dd5c08df381c569c906472d0427b4",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1686584022215570978-F5GC-Y6VU-5MEU-RUBJ.result.json": "1ff59adc5bc511a294f18499104e9117e57922e901a6476977bb64466ec8b937"
+    },
+    "539db984aa2d24847b98b83c": {
+      "解题库\\演练调试\\results\\20260913_042626_334429_p3_HopP3\\result.json": "b14fa035da5a6e6dcc069d08fa6aaf75b3947514ae3cbe0e34f886e8d1b907a5",
+      "解题库\\演练调试\\results\\20260913_042626_334429_p3_HopP3\\actions.jsonl": "72b3e44969e609b643f63fdde985931847711e2d2c5870aab9b2e03245d0ca4c",
+      "解题库\\演练调试\\results\\20260913_042626_334429_p3_HopP3\\version.json": "f6b9f3186429523f340c465ec93f6f39425447c504d0a93a84062273a5e2498f",
+      "解题库\\演练调试\\results\\20260913_042626_334429_p3_HopP3\\execution.json": "f7a3656120c9259b3d4996b0f467777b89f48fd59d15ea29e82083f278f0d38d",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-5778502334064357847-XWX9-GSN3-9BKB-UZ6Y.result.json": "24d755a77d05ef8cacec3f059a55b2f8eb829a59801fc8a9eb7d2c11c66ec035"
+    },
+    "719349bd2e665225742ea62b": {
+      "解题库\\演练调试\\results\\20260913_042642_535226_p3_HopP3\\result.json": "197dddc9fbcea365c0873c2af9cb50d0ac7b680c6a75ec5105eb2c6f84dfb080",
+      "解题库\\演练调试\\results\\20260913_042642_535226_p3_HopP3\\actions.jsonl": "255aa896c14fcabe4987f982339bcc92f3918d494fcff6c3359c21b89d3cb51e",
+      "解题库\\演练调试\\results\\20260913_042642_535226_p3_HopP3\\version.json": "9797e542efe41daad3f0f8f8de29f003f2b8e0be034657a7854865487bbacd35",
+      "解题库\\演练调试\\results\\20260913_042642_535226_p3_HopP3\\execution.json": "203b14b9db3233ab4b159a587390d7ebc48d4c0c867161752b1acc837208bacf",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3709413650574883301-RCC5-4FRU-ARU3-E8SJ.result.json": "59ffa88c42149cfd397170bae4edb4d5e533f9337bcad0c29cce094cb293199e"
+    },
+    "4e43f48e16c4dfb8017ee2ad": {
+      "解题库\\演练调试\\results\\20260913_042659_831697_p3_HopP3\\result.json": "2868a55f016b2bb7af8f6d34229e1e2a519b1ad26e2856d88d5ffceb9dad8fc6",
+      "解题库\\演练调试\\results\\20260913_042659_831697_p3_HopP3\\actions.jsonl": "081ae48d65a93059d4054856711a3fe649e72ab855b35b3511bdccaa97e30f41",
+      "解题库\\演练调试\\results\\20260913_042659_831697_p3_HopP3\\version.json": "36cf14457381cc251534e40b6f3678df80830a10b022d807d3aacd5024c8b169",
+      "解题库\\演练调试\\results\\20260913_042659_831697_p3_HopP3\\execution.json": "beb371611dc7bca07abc62d5f4a0153d7d25dfcacc330ab23ae34a0c44123544",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7630705008972132406-NHNF-2JQM-YUGB-X86X.result.json": "ae508932c2fbb8be621396981d9ae38630136ecb8b18f40037622b528c3143d2"
+    },
+    "7ae1eb0769666d3dccc4291d": {
+      "解题库\\演练调试\\results\\20260913_042715_714323_p3_HopP3\\result.json": "8c2dedafa35e70c4e197cf33aadd425145771ce6d16f7027cfbbcda27fb248b9",
+      "解题库\\演练调试\\results\\20260913_042715_714323_p3_HopP3\\actions.jsonl": "f6c1c8790cab6b5e3772aac89c79a80bdaec56515953b3136d94ec269fe9f488",
+      "解题库\\演练调试\\results\\20260913_042715_714323_p3_HopP3\\version.json": "5250761d3ccfb9de7f3e1d4b87b325b0a6f5eac705ee19b01d8796dd8283e912",
+      "解题库\\演练调试\\results\\20260913_042715_714323_p3_HopP3\\execution.json": "8a873e937a6bf47b1bab8ca6d2e31557915453f6dea148d9206a2970d7f932e8",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-8235232622005461703-GUPJ-A86K-WH9Z-Y277.result.json": "b39032d18ce919072844c6ffd47fb61accce76813b532658606356a137389386"
+    },
+    "5a01a6e953a6c5bd316a1ffc": {
+      "解题库\\演练调试\\results\\20260913_042731_929097_p3_HopP3\\result.json": "cbbd887105d1c2aaaec071247def71b2f3ecdf256fb77015e11c8a8c7cb9a969",
+      "解题库\\演练调试\\results\\20260913_042731_929097_p3_HopP3\\actions.jsonl": "8a1acaa2a8481d2c5d801b6c0615f4f05fd501de0b3bb8d90f53d8f84710f525",
+      "解题库\\演练调试\\results\\20260913_042731_929097_p3_HopP3\\version.json": "17c0f85bfe4ac47d5c3f8315c25e6d505428c5b7fab8f71ffc7de4a4fe618cbb",
+      "解题库\\演练调试\\results\\20260913_042731_929097_p3_HopP3\\execution.json": "e87862f2d15a16733c9813ce985564e8a4014dffc5263b0fa88b01ed19ccecc0",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1654144930391037501-NTGU-83CK-824P-5APB.result.json": "4298918146846c3502ba1c65eb3fce1c9144d546bb55e424ad06c8d2cd2df11d"
+    },
+    "bc8a8b0485283c84e4756206": {
+      "解题库\\演练调试\\results\\20260913_042805_492712_p3_HopP3\\result.json": "d0be011031c9c2ec8d49f9b4a825a7f17f5ff732286bb3853d10ae04cbf78034",
+      "解题库\\演练调试\\results\\20260913_042805_492712_p3_HopP3\\actions.jsonl": "c4d0e786be5aeb7ba558a2cfe11cb58389db0efb45a3f6dc0a7cc0a29b56479d",
+      "解题库\\演练调试\\results\\20260913_042805_492712_p3_HopP3\\version.json": "e41328773a71cc737be26c2165bfe3aa2e76ee410dbc9aa92c28f7e96c18ce42",
+      "解题库\\演练调试\\results\\20260913_042805_492712_p3_HopP3\\execution.json": "7cc76abbd4a51be349273c6331ca6545924c36a53300eec3ce1bbbda8103df7b",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-6097078628290229094-T7DZ-RYZH-6F94-K4J9.result.json": "1177bc21b8ff2d95ce1a9a764a74527d46c986356bb8720d37ae7010304293c1"
+    },
+    "e8d8b7189827e834bcacb357": {
+      "解题库\\演练调试\\results\\20260913_042822_642520_p3_HopP3\\result.json": "0e63ca6f40e06250a2ac382bb501496f0623e7f95fc511e6e55dc4da389b4a35",
+      "解题库\\演练调试\\results\\20260913_042822_642520_p3_HopP3\\actions.jsonl": "499822e3cb1dfec5c5961d96ef7b4893503cb6b80515425d7ba7e6b5406effcc",
+      "解题库\\演练调试\\results\\20260913_042822_642520_p3_HopP3\\version.json": "aac0bc67fbf06a1afb62054726a7b29d2a49f3c9e4ca043c079255c5595a07d5",
+      "解题库\\演练调试\\results\\20260913_042822_642520_p3_HopP3\\execution.json": "11f72e7e4780533ad02e377268c92d8a955f2b535ef6736485c9f46cb41de53f",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-4900445642737693133-SX9G-665H-Q63U-AQ49.result.json": "5dc4bfa36c2a7ed19f7c724df5480266bda12e501914a35ddf141b1ff0f1bfab"
+    },
+    "0b1a6c1f8c681c53c2385a49": {
+      "解题库\\演练调试\\results\\20260913_042839_872430_p3_HopP3\\result.json": "70a8412378e7034be244722e069daa92636e48b7b846b7e87eb8fae857343a89",
+      "解题库\\演练调试\\results\\20260913_042839_872430_p3_HopP3\\actions.jsonl": "933ad5553088becd4152309bafdb078f01c9746ced29c3f17a6c72394ecce66e",
+      "解题库\\演练调试\\results\\20260913_042839_872430_p3_HopP3\\version.json": "ad578b57c3730be71ed5cb804629365b3536bbcb79c4eba354862ee5869557b6",
+      "解题库\\演练调试\\results\\20260913_042839_872430_p3_HopP3\\execution.json": "afa0714dcb95d40706ba8f9a2d71ebc3279b35411ffeecfe607724c71ebf8a94",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7184762983699476060-9UTS-KJKX-XEQX-JV78.result.json": "cde2e0da8e6d59a3a02e3f32421c9d618fa2c8034d38a8c99924e2f4019160b6"
+    },
+    "0d4a6fb2f5ee8695d5b12646": {
+      "解题库\\演练调试\\results\\20260913_043824_480153_p3_ResidualP3\\result.json": "18119cf0db552b1f21933f8900d3c40c3dc3cc7ad116ea2dca281a7488726e84",
+      "解题库\\演练调试\\results\\20260913_043824_480153_p3_ResidualP3\\actions.jsonl": "9b84b6256350e137646dcc80a3fad77f67a7e81bed58805df1b87a1eab16ba2f",
+      "解题库\\演练调试\\results\\20260913_043824_480153_p3_ResidualP3\\version.json": "26133cbe9037ab13618fe89da1451f724ac71d82befc99538b7388a99a8a7515",
+      "解题库\\演练调试\\results\\20260913_043824_480153_p3_ResidualP3\\execution.json": "c3e494f93e44dc20e59387f38d6cc8188e963445d126583402f048933dc66fb7",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2935384460464964281-U57K-YVGE-EEBW-VFHQ.result.json": "95068cf8ce30c82d01f50dd8e9fc7a866962438f5cff15273ad3c7bb19b91947"
+    },
+    "c6346fb8d443ca46a3428736": {
+      "解题库\\演练调试\\results\\20260913_043839_868148_p3_ResidualP3\\result.json": "6e9d55cbbc248efdb72113b2de6cad42beb7b70a5c905ef025d939f4ed73e483",
+      "解题库\\演练调试\\results\\20260913_043839_868148_p3_ResidualP3\\actions.jsonl": "1d6a13d4fd88c83e37aae47217bfd17bc710c5770cf4614d3cf7696b204000a3",
+      "解题库\\演练调试\\results\\20260913_043839_868148_p3_ResidualP3\\version.json": "2b5bb84bd6b8f387651dd75106af6418ffb19083d78ce5c30837f0c2bea3fb95",
+      "解题库\\演练调试\\results\\20260913_043839_868148_p3_ResidualP3\\execution.json": "a810b8154d3b24bc0a0b9664cd8bc657c9dfd3d15b94c241c583d00583806d0e",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-6148466139068567693-3Z8W-XU5U-WYVP-F8K4.result.json": "a28f4a205a1b293c7a2d2a924a2b9e46d109ba9dcde967db58eb944518809356"
+    },
+    "a02375e6dd928a9ae01909cc": {
+      "解题库\\演练调试\\results\\20260913_043856_160392_p3_ResidualP3\\result.json": "5398c99eb477eab313b7ef98776ce2f58e5dec14d97978413edb7cc758f12423",
+      "解题库\\演练调试\\results\\20260913_043856_160392_p3_ResidualP3\\actions.jsonl": "166eba9daef07581c538c04fe535a2790303a8302f9c373c06e5083e56f6768d",
+      "解题库\\演练调试\\results\\20260913_043856_160392_p3_ResidualP3\\version.json": "85ca8a99f373221199d7e74d28ee174abfec5b3bc0ca41856691c5fc6a446469",
+      "解题库\\演练调试\\results\\20260913_043856_160392_p3_ResidualP3\\execution.json": "500d1b92e911d83d2dff3cd46919ca36ef57671a4cf280d0bfee42c9410d23fe",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-644282280112997317-F9V5-ZKYJ-XY66-H7QS.result.json": "71d93213f4f048b4d9df08cf3b99ba0b45d490b9f3d9deb1fceab0df7f947e7d"
+    },
+    "bcfe00010b297730b335ce46": {
+      "解题库\\演练调试\\results\\20260913_043913_738192_p3_ResidualP3\\result.json": "72cdd6513a750a182bd40b8ae1b94b7ff787a231b1866558b094df1456b4d09b",
+      "解题库\\演练调试\\results\\20260913_043913_738192_p3_ResidualP3\\actions.jsonl": "f3b39cae5b7baa8563b3b467a851a4c0152748bbf2954e1458bead98a46c18ba",
+      "解题库\\演练调试\\results\\20260913_043913_738192_p3_ResidualP3\\version.json": "00248ca129e280fcb3278b815537d7cd819e7b6c26a523f5dce3f3880ceae82a",
+      "解题库\\演练调试\\results\\20260913_043913_738192_p3_ResidualP3\\execution.json": "905b758e547ac692cea90f33e64cc46de9e9f7bbf8daf53beac3804a1f39e72d",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-1880422634455410810-FUJJ-HNBX-JD9R-FTP7.result.json": "fccfc64eabae662a39f6a8bc808699a509ac640541860274dfca39dbf482911e"
+    },
+    "65ace00203cd7fa3bf9cc160": {
+      "解题库\\演练调试\\results\\20260913_043932_535255_p3_ResidualP3\\result.json": "c7940f1efdf62062c544c7db997848ff08b303751ff36cc572d9f70c2c112dc8",
+      "解题库\\演练调试\\results\\20260913_043932_535255_p3_ResidualP3\\actions.jsonl": "d35ca0cde5e62ab96774f1cfe732b6f29b07b41643580a4ce1bccc47c8202682",
+      "解题库\\演练调试\\results\\20260913_043932_535255_p3_ResidualP3\\version.json": "cf74d5c01e8b7a01faeb5643e66ae6452fb2329d48a5a7f1aee08af8b64cd74e",
+      "解题库\\演练调试\\results\\20260913_043932_535255_p3_ResidualP3\\execution.json": "c9713be876dec1c55f1ee11ddd3fcd5ec03009135e1ce9f064fe28603cec30a2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-8344787338044857096-ETQP-XZGY-KHJN-FBF6.result.json": "4b514e960e76d873a978656c691338932814c8fff6f8465e389f3c5289e2f0cc"
+    },
+    "2bf4be0fdf11168a4fdafd53": {
+      "解题库\\演练调试\\results\\20260913_043948_674659_p3_ResidualP3\\result.json": "3a170cacd05df8d1c033ff4620b92eb67e7896c743d4e453d2512afabda2b5cd",
+      "解题库\\演练调试\\results\\20260913_043948_674659_p3_ResidualP3\\actions.jsonl": "ad94fbc437cea609d4ced7d125018a101ede7aac493a16d88f8a8eab9e8192b3",
+      "解题库\\演练调试\\results\\20260913_043948_674659_p3_ResidualP3\\version.json": "532c915be7002d8d1ace3e610a69f79615f198e1216fe648b1f2a3729a4814a4",
+      "解题库\\演练调试\\results\\20260913_043948_674659_p3_ResidualP3\\execution.json": "6d1bb26630efe5c8dee2f18e9da2478a8f1b4da149af4c46ccc7ca695b6ec57b",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-2855076895222792487-9XR9-NYV8-6E7Z-VKTT.result.json": "b3eb86ce8b1b400bcf00f84816d92e7f29a7dc376494469ac11cfbd6db770a22"
+    },
+    "dabe9352a17edd77b2f16002": {
+      "解题库\\演练调试\\results\\20260913_044005_917906_p3_ResidualP3\\result.json": "9cf3e1d6c7aa0a40768ab06746027b352ddd7cf4da7065e4ece70e2c3c30d783",
+      "解题库\\演练调试\\results\\20260913_044005_917906_p3_ResidualP3\\actions.jsonl": "514223a22e2c2ee8a63432c9a3f40581d811ab16cc24065062c00e7cb57d01d8",
+      "解题库\\演练调试\\results\\20260913_044005_917906_p3_ResidualP3\\version.json": "9df8e7299867fe4b6d8c9ff3cd2beec6e6e6d794ca4342e572dc8bb8471d5a3b",
+      "解题库\\演练调试\\results\\20260913_044005_917906_p3_ResidualP3\\execution.json": "be69e739d312875758a3d9a5334070bf28c260d0025f936238eead9bf88fb264",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-4631377079293158130-B6MK-ACQQ-245Q-3WC7.result.json": "8e9dac48da768ea845a5e2ad57507d94b6e01dbd11a46686bdb162f0f1da2dba"
+    },
+    "9315f9267ef1858f1df6ad14": {
+      "解题库\\演练调试\\results\\20260913_044023_682979_p3_ResidualP3\\result.json": "0777cd1ce912a777278cf1fc1a8f700aefbc4d8eb6140de743632b36634b5802",
+      "解题库\\演练调试\\results\\20260913_044023_682979_p3_ResidualP3\\actions.jsonl": "4de36a6d5e96992af64737fa7a836c7e708ea8391f462b0a0dc7d80d1b238547",
+      "解题库\\演练调试\\results\\20260913_044023_682979_p3_ResidualP3\\version.json": "2c5b8ddae75be5b5e264140bcb5e64e1ff095c9b938056f24b01c2f64dbd641b",
+      "解题库\\演练调试\\results\\20260913_044023_682979_p3_ResidualP3\\execution.json": "b327af4c7c643449fabd21fdb2e5c7d2dc19dfd8e8539719b6ed68698c6513b2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-3875217822916763701-GUZN-W7Q5-YGNS-GB97.result.json": "266f5e9b2f064936632346fc53961c307fba98db58ce84818c7caad608c61c5a"
+    },
+    "4a5e27b58bbd50a0d20946fb": {
+      "解题库\\演练调试\\results\\20260913_044041_211256_p3_ResidualP3\\result.json": "72635909a23c4869a8118f54cd7fdd45ab8340cf468be41435e1bbf79eb58af5",
+      "解题库\\演练调试\\results\\20260913_044041_211256_p3_ResidualP3\\actions.jsonl": "6d0d7967a02b258672548982523974fa70a8146aa89307b9310c44881322c124",
+      "解题库\\演练调试\\results\\20260913_044041_211256_p3_ResidualP3\\version.json": "becae5aaa12f92d7d6a657ce79ef56d1c823f5f379d104fccc465602d31d3e68",
+      "解题库\\演练调试\\results\\20260913_044041_211256_p3_ResidualP3\\execution.json": "61b6e1f78068d4c3d34936ba062a01ed9213653c750616640037ddec128f672d",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-229344909329136018-56G4-B8AN-7P4H-ZGDY.result.json": "cc6d3b456dfab50164fd1104d6523dd6b88d927da6f6b7b1066b420bd67c5d5f"
+    },
+    "5a662b97a482f066901d9038": {
+      "解题库\\演练调试\\results\\20260913_044056_997747_p3_ResidualP3\\result.json": "0cc003a292af60b8a14e8152a4bf93ac0b025373d03668b1c96aa9044f506684",
+      "解题库\\演练调试\\results\\20260913_044056_997747_p3_ResidualP3\\actions.jsonl": "0dbc7633efaeab7a4913f95cc01e70ae5dcb6185f0cdd3c4a387b2e15882c966",
+      "解题库\\演练调试\\results\\20260913_044056_997747_p3_ResidualP3\\version.json": "48d960187f8b4adfdb3489414e3f7bea51b33f455ecb828bb8407946ff479427",
+      "解题库\\演练调试\\results\\20260913_044056_997747_p3_ResidualP3\\execution.json": "9a409b5a054eab32e810db949e1c8a504385a1ca870dd54d8581f66161b1d9f2",
+      "Jammers-simulator-win64\\Jammers-simulator\\JammersSimulatorData\\behavior-logs\\practice-p3-7322079213371337520-K4SA-BZA9-YJ7F-TMFQ.result.json": "89d57e24d342cc7b7e6dbcfcb897d03d35629998044758e15aefc14027edec29"
+    }
+  },
+  "artifact_sha256": {
+    "cases.json": "80587cc2178142ea657355e6d4a4ffe807ccba21a5130f745a8a5802462aaef9",
+    "profile.json": "886147413e4e2a69e32926f013af39db7bbf5ac0855cdc415a5654b3c3c0d129",
+    "validation.json": "b7027fde03a2a6990d232e58e04beeedabb7db0e5eeba22ed0363cce2b4ea0ea"
+  }
+}

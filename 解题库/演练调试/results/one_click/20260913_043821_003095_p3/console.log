@@ -1,0 +1,251 @@
+问题3演练：等待接口开放（最长30秒）；请勿切换会话。
+已确认演练，机器狗开始自动执行。
+[strategy] Q1 v4 算法源 = inline: problem1_v4_inline.py
+PRACTICE_ONLY 3 None ResidualP3
+{"action": 1, "path": "/enter", "virtual_time_s": 0, "result": null}
+{"action": 39, "path": "/clear", "virtual_time_s": 488.756771, "result": "no_target_in_range"}
+{"action": 41, "path": "/clear", "virtual_time_s": 502.263588, "result": "success"}
+{"action": 48, "path": "/clear", "virtual_time_s": 712.629681, "result": "success"}
+{"action": 62, "path": "/clear", "virtual_time_s": 879.247269, "result": "success"}
+{"action": 66, "path": "/clear", "virtual_time_s": 1170.552148, "result": "success"}
+{"action": 76, "path": "/clear", "virtual_time_s": 1423.17036, "result": "success"}
+{"action": 80, "path": "/clear", "virtual_time_s": 1590.852392, "result": "success"}
+{"action": 90, "path": "/clear", "virtual_time_s": 1826.64498, "result": "success"}
+{"action": 93, "path": "/clear", "virtual_time_s": 1906.313886, "result": "success"}
+{"action": 100, "path": "/measure", "virtual_time_s": 2161.327981, "result": null}
+{"action": 102, "path": "/clear", "virtual_time_s": 2335.778064, "result": "no_target_in_range"}
+{"action": 105, "path": "/clear", "virtual_time_s": 2355.896375, "result": "success"}
+{"action": 106, "path": "/clear", "virtual_time_s": 2577.40477, "result": "success"}
+{"action": 107, "path": "/clear", "virtual_time_s": 2661.176728, "result": "no_target_in_range"}
+{"action": 109, "path": "/clear", "virtual_time_s": 2674.148953, "result": "success"}
+{"action": 116, "path": "/clear", "virtual_time_s": 2819.047309, "result": "no_target_in_range"}
+{"action": 118, "path": "/clear", "virtual_time_s": 2832.832042, "result": "success"}
+{"action": 120, "path": "/clear", "virtual_time_s": 2995.890233, "result": "success"}
+{"action": 122, "path": "/clear", "virtual_time_s": 3106.224534, "result": "success"}
+{"action": 127, "path": "/clear", "virtual_time_s": 3231.434466, "result": "success"}
+{"action": 132, "path": "/clear", "virtual_time_s": 3565.368059, "result": "success"}
+{
+  "cleared": 16,
+  "virtual_time_s": 3565.368059,
+  "avg_time_per_cleared": 222.8355036875,
+  "measure_count": 111,
+  "clear_count": 20,
+  "clear_fail_count": 4,
+  "stop_reason": "cleared_maximum_16",
+  "coverage_complete": true,
+  "cleared_channels": [
+    1,
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "absent_channels": [
+    3,
+    4,
+    11,
+    14
+  ],
+  "runtime_s": 2.414858299998741,
+  "time_breakdown": {
+    "move_time_s": 2814.368057292514,
+    "switch_time_s": 104.0,
+    "measure_time_s": 555.0,
+    "clear_time_s": 92.0
+  },
+  "mode": "practice",
+  "problem": 3,
+  "case": "U57K-YVGE-EEBW-VFHQ",
+  "strategy": "ResidualP3",
+  "distance_m": 14071.840286462571,
+  "policy_diagnostics": {
+    "mask_cache_hits": 5623,
+    "mask_cache_misses": 196,
+    "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+    "coverage_certificates": {},
+    "residual_updates": 19,
+    "residual_method": "whole 60m cells disjoint from outward-guarded polygon difference",
+    "residual_cache_hits": 15,
+    "residual_certificates": {
+      "14": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -864.1320346031786,
+          325.5934049724133
+        ],
+        [
+          -1206.5732440736215,
+          -613.2369958088467
+        ],
+        [
+          -281.4545668795457,
+          -1152.0021183029412
+        ],
+        [
+          757.3372374467879,
+          -839.9766329539627
+        ],
+        [
+          931.4924128907509,
+          -12.441554740942877
+        ],
+        [
+          735.2519177837917,
+          734.3790365538505
+        ],
+        [
+          -252.94258243594734,
+          1353.6086305911012
+        ],
+        [
+          -668.3322912185085,
+          1596.2197676791925
+        ]
+      ],
+      "3": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -864.1320346031786,
+          325.5934049724133
+        ],
+        [
+          -1206.5732440736215,
+          -613.2369958088467
+        ],
+        [
+          -281.4545668795457,
+          -1152.0021183029412
+        ],
+        [
+          757.3372374467879,
+          -839.9766329539627
+        ],
+        [
+          931.4924128907509,
+          -12.441554740942877
+        ],
+        [
+          735.2519177837917,
+          734.3790365538505
+        ],
+        [
+          -252.94258243594734,
+          1353.6086305911012
+        ],
+        [
+          -668.3322912185085,
+          1596.2197676791925
+        ]
+      ],
+      "4": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -864.1320346031786,
+          325.5934049724133
+        ],
+        [
+          -1206.5732440736215,
+          -613.2369958088467
+        ],
+        [
+          -281.4545668795457,
+          -1152.0021183029412
+        ],
+        [
+          757.3372374467879,
+          -839.9766329539627
+        ],
+        [
+          931.4924128907509,
+          -12.441554740942877
+        ],
+        [
+          735.2519177837917,
+          734.3790365538505
+        ],
+        [
+          -252.94258243594734,
+          1353.6086305911012
+        ],
+        [
+          -668.3322912185085,
+          1596.2197676791925
+        ]
+      ],
+      "11": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -864.1320346031786,
+          325.5934049724133
+        ],
+        [
+          -1206.5732440736215,
+          -613.2369958088467
+        ],
+        [
+          -281.4545668795457,
+          -1152.0021183029412
+        ],
+        [
+          757.3372374467879,
+          -839.9766329539627
+        ],
+        [
+          931.4924128907509,
+          -12.441554740942877
+        ],
+        [
+          735.2519177837917,
+          734.3790365538505
+        ],
+        [
+          -252.94258243594734,
+          1353.6086305911012
+        ],
+        [
+          -668.3322912185085,
+          1596.2197676791925
+        ]
+      ]
+    }
+  },
+  "simulator_summary": {
+    "problem_no": 3,
+    "case_code": "U57K-YVGE-EEBW-VFHQ",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 16,
+    "jammer_count": 16,
+    "measure_accepted_count": 111,
+    "virtual_time_us": 3565368059,
+    "clear_failure_count": 4
+  },
+  "actual_problem": 3
+}
+RUN_FOLDER C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_043824_480153_p3_ResidualP3
+
+本局结束：清除16个；虚拟耗时3565.37秒。
+模拟器确认：16/16。
+完整结果：C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_043824_480153_p3_ResidualP3

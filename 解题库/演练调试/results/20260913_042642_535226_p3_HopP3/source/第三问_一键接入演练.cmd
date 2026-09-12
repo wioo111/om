@@ -1,0 +1,9 @@
+@echo off
+setlocal
+chcp 65001 >nul
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\practice_launch.ps1" -Problem 3 %*
+set "run_code=%errorlevel%"
+if /i "%~1"=="-Check" exit /b %run_code%
+echo.
+pause
+exit /b %run_code%

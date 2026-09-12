@@ -1,0 +1,59 @@
+........................................................................ [ 61%]
+........................................FF...                            [100%]
+================================== FAILURES ===================================
+____________________ test_dispatch_and_execution_record[3] ____________________
+
+tmp_path = WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002B61807BE90>
+problem = 3
+
+    @pytest.mark.parametrize('problem',[3,4])
+    @pytest.mark.skipif(os.name!='nt',reason='Windows one-click entry')
+    def test_dispatch_and_execution_record(tmp_path,monkeypatch,problem):
+        monkeypatch.delenv('JAMMERS_ROBOT_ID',raising=False)
+        config=tmp_path/'config.json';config.write_text('{"robot_id":"000000000000"}',encoding='utf-8')
+        make_journal(tmp_path)
+        calls=[]
+        def fake_runner(args):
+            calls.append(args)
+            print('fixture team 000000000000')
+            return tmp_path/'fixture-result',dict(cleared=1,virtual_time_s=5.)
+        out=tmp_path/'out'
+>       assert launch.execute(problem,config,tmp_path,out,runner=fake_runner)==0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = <function execute at 0x000002B67F7C36A0>(3, WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re0/config.json'), WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re0'), WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re0/out'), runner=<function test_dispatch_and_execution_record.<locals>.fake_runner at 0x000002B67FEEAE80>)
+E        +    where <function execute at 0x000002B67F7C36A0> = launch.execute
+
+解题库\演练调试\test_one_click.py:87: AssertionError
+---------------------------- Captured stderr call -----------------------------
+未继续执行：RuntimeError: 已有一个接入程序在运行，请勿重复点击。
+____________________ test_dispatch_and_execution_record[4] ____________________
+
+tmp_path = WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002B67FEE60A0>
+problem = 4
+
+    @pytest.mark.parametrize('problem',[3,4])
+    @pytest.mark.skipif(os.name!='nt',reason='Windows one-click entry')
+    def test_dispatch_and_execution_record(tmp_path,monkeypatch,problem):
+        monkeypatch.delenv('JAMMERS_ROBOT_ID',raising=False)
+        config=tmp_path/'config.json';config.write_text('{"robot_id":"000000000000"}',encoding='utf-8')
+        make_journal(tmp_path)
+        calls=[]
+        def fake_runner(args):
+            calls.append(args)
+            print('fixture team 000000000000')
+            return tmp_path/'fixture-result',dict(cleared=1,virtual_time_s=5.)
+        out=tmp_path/'out'
+>       assert launch.execute(problem,config,tmp_path,out,runner=fake_runner)==0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = <function execute at 0x000002B67F7C36A0>(4, WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re1/config.json'), WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re1'), WindowsPath('D:/_Temp/pytest-of-LENOVO/pytest-20/test_dispatch_and_execution_re1/out'), runner=<function test_dispatch_and_execution_record.<locals>.fake_runner at 0x000002B67FEBB420>)
+E        +    where <function execute at 0x000002B67F7C36A0> = launch.execute
+
+解题库\演练调试\test_one_click.py:87: AssertionError
+---------------------------- Captured stderr call -----------------------------
+未继续执行：RuntimeError: 已有一个接入程序在运行，请勿重复点击。
+=========================== short test summary info ===========================
+FAILED 解题库/演练调试/test_one_click.py::test_dispatch_and_execution_record[3]
+FAILED 解题库/演练调试/test_one_click.py::test_dispatch_and_execution_record[4]
+2 failed, 115 passed in 19.64s

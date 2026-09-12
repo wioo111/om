@@ -1,0 +1,43 @@
+........................................................................ [ 43%]
+........................................................................ [ 87%]
+............FF......                                                     [100%]
+================================== FAILURES ===================================
+_______________ test_standard_f0_four_circle_boundary_semantics _______________
+
+    def test_standard_f0_four_circle_boundary_semantics():
+        k=policy_constants();opt=np.array([k.local_x,k.local_y])
+        assert reception_safe_local(opt)[0]
+        inside=np.array([[0.,0.],[750.,0.],opt,[k.local_x,-k.local_y]])
+>       assert np.all(reception_safe_local(inside))
+E       assert np.False_
+E        +  where np.False_ = <function all at 0x0000024CACC45330>(array([False,  True,  True,  True]))
+E        +    where <function all at 0x0000024CACC45330> = np.all
+E        +    and   array([False,  True,  True,  True]) = reception_safe_local(array([[   0.        ,    0.        ],\n       [ 750.        ,    0.        ],\n       [ 843.03475375,  545.52842244],\n       [ 843.03475375, -545.52842244]]))
+
+tests\test_policy_proof.py:88: AssertionError
+__ test_target_truncated_first_observation_keeps_universal_policy_guarantee ___
+
+    def test_target_truncated_first_observation_keeps_universal_policy_guarantee():
+        obs=Observation(1700.,0.,0.)
+        truncated=relaxed_region([obs],target_radius=1800.)
+        assert truncated.status=='bounded'
+>       assert contains(truncated.vertices,[1750.,0.])
+               ^^^^^^^^
+E       NameError: name 'contains' is not defined
+
+tests\test_policy_proof.py:99: NameError
+=========================== short test summary info ===========================
+FAILED tests/test_policy_proof.py::test_standard_f0_four_circle_boundary_semantics
+FAILED tests/test_policy_proof.py::test_target_truncated_first_observation_keeps_universal_policy_guarantee
+2 failed, 162 passed in 16.21s
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 40, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 21, in main
+    if a.cmd=='test':subprocess.run([sys.executable,'-m','pytest','-q','--junitxml=logs/pytest.xml'],cwd=ROOT,check=True);return
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_Local\Python313\Lib\subprocess.py", line 579, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['C:\\Users\\LENOVO\\.cache\\cumcm-q12-venv\\Scripts\\python.exe', '-m', 'pytest', '-q', '--junitxml=logs/pytest.xml']' returned non-zero exit status 1.

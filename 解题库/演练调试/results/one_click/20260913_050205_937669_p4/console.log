@@ -1,0 +1,83 @@
+问题4演练：等待接口开放（最长30秒）；请勿切换会话。
+已确认演练，机器狗开始自动执行。
+[strategy] Q1 v4 算法源 = inline: problem1_v4_inline.py
+PRACTICE_ONLY 4 None FastP4_grid49
+{"action": 1, "path": "/enter", "virtual_time_s": 0, "result": null}
+{"action": 100, "path": "/measure", "virtual_time_s": 1293, "result": null}
+{"action": 200, "path": "/measure", "virtual_time_s": 2593, "result": null}
+{"action": 300, "path": "/measure", "virtual_time_s": 4033, "result": null}
+{"action": 400, "path": "/measure", "virtual_time_s": 5613, "result": null}
+{"action": 500, "path": "/measure", "virtual_time_s": 7473, "result": null}
+{"action": 600, "path": "/measure", "virtual_time_s": 9473, "result": null}
+{"action": 661, "path": "/clear", "virtual_time_s": 11764.825183, "result": "success"}
+{"action": 662, "path": "/clear", "virtual_time_s": 11781.387094, "result": "success"}
+{"action": 663, "path": "/clear", "virtual_time_s": 11809.718207, "result": "success"}
+{"action": 664, "path": "/clear", "virtual_time_s": 11936.45069, "result": "success"}
+{"action": 665, "path": "/clear", "virtual_time_s": 12104.789284, "result": "success"}
+{"action": 666, "path": "/clear", "virtual_time_s": 12341.654661, "result": "success"}
+{"action": 667, "path": "/clear", "virtual_time_s": 12444.27218, "result": "success"}
+{"action": 668, "path": "/clear", "virtual_time_s": 12478.746048, "result": "success"}
+{"action": 669, "path": "/clear", "virtual_time_s": 12643.688771, "result": "success"}
+{"action": 670, "path": "/clear", "virtual_time_s": 12809.74816, "result": "success"}
+{
+  "cleared": 10,
+  "virtual_time_s": 12809.74816,
+  "avg_time_per_cleared": 1280.974816,
+  "measure_count": 659,
+  "clear_count": 10,
+  "clear_fail_count": 0,
+  "stop_reason": "all_channels_cleared_or_covered",
+  "coverage_complete": true,
+  "cleared_channels": [
+    1,
+    2,
+    3,
+    6,
+    10,
+    12,
+    14,
+    16,
+    17,
+    18
+  ],
+  "absent_channels": [
+    4,
+    5,
+    7,
+    8,
+    9,
+    11,
+    13,
+    15,
+    19,
+    20
+  ],
+  "runtime_s": 8.006448299998738,
+  "time_breakdown": {
+    "move_time_s": 8806.748159761579,
+    "switch_time_s": 658.0,
+    "measure_time_s": 3295.0,
+    "clear_time_s": 50.0
+  },
+  "mode": "practice",
+  "problem": 4,
+  "case": "W9YY-876T-353X-26KE",
+  "strategy": "FastP4_grid49",
+  "distance_m": 44033.74079880789,
+  "simulator_summary": {
+    "problem_no": 4,
+    "case_code": "W9YY-876T-353X-26KE",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 10,
+    "jammer_count": 10,
+    "measure_accepted_count": 659,
+    "virtual_time_us": 12809748160,
+    "clear_failure_count": 0
+  },
+  "actual_problem": 4
+}
+RUN_FOLDER C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_050212_702405_p4_FastP4_grid49
+
+本局结束：清除10个；虚拟耗时12809.75秒。
+模拟器确认：10/10。
+完整结果：C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_050212_702405_p4_FastP4_grid49

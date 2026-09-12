@@ -1,0 +1,1649 @@
+{
+  "summary": {
+    "N": 16,
+    "cleared": 16,
+    "clear_rate": 1.0,
+    "virtual_time_s": 3037.6565522628603,
+    "avg_time_per_cleared": 189.85353451642877,
+    "measure_count": 102,
+    "clear_count": 24,
+    "clear_fail_count": 8,
+    "stop_reason": "cleared_maximum_16",
+    "coverage_complete": true,
+    "cleared_channels": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20
+    ],
+    "absent_channels": [
+      1,
+      2,
+      4,
+      19
+    ],
+    "runtime_s": 1.2525790999970923,
+    "time_breakdown": {
+      "move_time_s": 2327.6565522628607,
+      "switch_time_s": 96.0,
+      "measure_time_s": 510.0,
+      "clear_time_s": 104.0
+    },
+    "policy_diagnostics": {
+      "mask_cache_hits": 8569,
+      "mask_cache_misses": 185,
+      "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+      "coverage_certificates": {},
+      "residual_updates": 14,
+      "residual_method": "whole 60m cells disjoint from outward-guarded polygon difference",
+      "residual_cache_hits": 14,
+      "residual_certificates": {},
+      "probe_plans": [
+        {
+          "ch": 14,
+          "old": [
+            1315.9540003489094,
+            -309.91708460866045
+          ],
+          "chosen": [
+            1388.7770827374209,
+            -239.26572490779944
+          ],
+          "predicted_old_s": 292.6568344956849,
+          "predicted_new_s": 290.9407597483638
+        },
+        {
+          "ch": 18,
+          "old": [
+            868.6538949514879,
+            -1334.8505899128302
+          ],
+          "chosen": [
+            854.8890568871373,
+            -1084.621290480698
+          ],
+          "predicted_old_s": 144.07829864493235,
+          "predicted_new_s": 131.7960694921463
+        },
+        {
+          "ch": 15,
+          "old": [
+            -1462.6052367565162,
+            115.17969208581717
+          ],
+          "chosen": [
+            -1347.109833886549,
+            13.385391344573044
+          ],
+          "predicted_old_s": 150.42599005668416,
+          "predicted_new_s": 132.882153584841
+        }
+      ],
+      "cardinality_certificates": [
+        {
+          "observed_channels": [
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            20
+          ],
+          "absent_channels": [
+            1,
+            2,
+            4,
+            19
+          ]
+        }
+      ]
+    },
+    "problem": 3,
+    "variant": "cardinality",
+    "seed": 1120052,
+    "error_mode": "smooth",
+    "dir_frac": 0.0,
+    "error": null,
+    "wall_s": 1.2736961000009615,
+    "evaluation": "offline_practice_not_official_simulator",
+    "full_clear": true,
+    "post_last_clear_s": 0.0,
+    "evaluation_model": "uniform"
+  },
+  "actions": [
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 5.0,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 11.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 3,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 209.18,
+      "virtual_time_s": 17.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 23.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 29.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 35.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 7,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 315.6,
+      "virtual_time_s": 41.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 47.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 9,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 53.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 10,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 42.59,
+      "virtual_time_s": 59.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 11,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 108.86,
+      "virtual_time_s": 65.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 12,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 267.84,
+      "virtual_time_s": 71.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 13,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 77.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 14,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 83.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 89.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 95.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 17,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "direction",
+      "svd_deg": 188.38,
+      "virtual_time_s": 101.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 107.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 113.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 119.0,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 315.42862872805335,
+      "delta_time_s": 196.42862872805335
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 321.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 327.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 333.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 339.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 7,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "direction",
+      "svd_deg": 262.88,
+      "virtual_time_s": 345.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 351.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 9,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "direction",
+      "svd_deg": 285.47,
+      "virtual_time_s": 357.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 10,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "direction",
+      "svd_deg": 114.25,
+      "virtual_time_s": 363.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 13,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "direction",
+      "svd_deg": 63.23,
+      "virtual_time_s": 369.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 14,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "direction",
+      "svd_deg": 304.39,
+      "virtual_time_s": 375.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 381.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 387.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 393.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 399.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        951.0212985693482,
+        46.206662383687444
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 405.42862872805335,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 10,
+      "pos": [
+        687.2395705529281,
+        632.0565486022897
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 538.9277943623372,
+      "delta_time_s": 133.49916563428383
+    },
+    {
+      "action": "measure",
+      "ch": 11,
+      "pos": [
+        687.2395705529281,
+        632.0565486022897
+      ],
+      "result": "direction",
+      "svd_deg": 168.12,
+      "virtual_time_s": 544.9277943623372,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 13,
+      "pos": [
+        687.2395705529281,
+        632.0565486022897
+      ],
+      "result": "direction",
+      "svd_deg": 14.8,
+      "virtual_time_s": 550.9277943623372,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 13,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 689.573186410081,
+      "delta_time_s": 138.64539204774383
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 695.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 701.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 707.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 713.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 719.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 725.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 731.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 737.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 743.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 749.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        1333.2318781265737,
+        802.9986702269923
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 755.573186410081,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 14,
+      "pos": [
+        1388.7770827374209,
+        -239.26572490779944
+      ],
+      "result": "direction",
+      "svd_deg": 273.96,
+      "virtual_time_s": 970.3218715911814,
+      "delta_time_s": 214.74868518110043
+    },
+    {
+      "action": "clear",
+      "ch": 14,
+      "pos": [
+        1416.4295995211132,
+        -635.1416913669207
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 1052.6899867267737,
+      "delta_time_s": 82.36811513559223
+    },
+    {
+      "action": "measure",
+      "ch": 14,
+      "pos": [
+        1416.4295995211132,
+        -635.1416913669207
+      ],
+      "result": "direction",
+      "svd_deg": 274.4,
+      "virtual_time_s": 1057.6899867267737,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "clear",
+      "ch": 14,
+      "pos": [
+        1417.294670652806,
+        -644.2846717271814
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1064.5267495087464,
+      "delta_time_s": 6.836762781972766
+    },
+    {
+      "action": "measure",
+      "ch": 9,
+      "pos": [
+        1417.294670652806,
+        -644.2846717271814
+      ],
+      "result": "direction",
+      "svd_deg": 184.59,
+      "virtual_time_s": 1070.5267495087464,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 9,
+      "pos": [
+        1153.271421380474,
+        -665.2375764163477
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1128.4974207792648,
+      "delta_time_s": 57.970671270518324
+    },
+    {
+      "action": "measure",
+      "ch": 12,
+      "pos": [
+        1153.271421380474,
+        -665.2375764163477
+      ],
+      "result": "direction",
+      "svd_deg": 177.27,
+      "virtual_time_s": 1134.4974207792648,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 7,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1209.4565729373173,
+      "delta_time_s": 74.95915215805258
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1215.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1221.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1227.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "direction",
+      "svd_deg": 210.51,
+      "virtual_time_s": 1233.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "direction",
+      "svd_deg": 224.29,
+      "virtual_time_s": 1239.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1245.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1251.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1257.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "direction",
+      "svd_deg": 261.64,
+      "virtual_time_s": 1263.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1269.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        842.4126625659661,
+        -825.6243163144533
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1275.4565729373173,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        854.8890568871373,
+        -1084.621290480698
+      ],
+      "result": "direction",
+      "svd_deg": 248.31,
+      "virtual_time_s": 1333.3160341927248,
+      "delta_time_s": 57.859461255407496
+    },
+    {
+      "action": "clear",
+      "ch": 18,
+      "pos": [
+        772.8228923534816,
+        -1291.8720949280764
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 1380.897533182934,
+      "delta_time_s": 47.581498990209184
+    },
+    {
+      "action": "measure",
+      "ch": 18,
+      "pos": [
+        772.8228923534816,
+        -1291.8720949280764
+      ],
+      "result": "direction",
+      "svd_deg": 239.33,
+      "virtual_time_s": 1385.897533182934,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "clear",
+      "ch": 18,
+      "pos": [
+        772.4400096300669,
+        -1292.5443136130018
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1391.0522557915278,
+      "delta_time_s": 5.154722608593829
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        772.4400096300669,
+        -1292.5443136130018
+      ],
+      "result": "direction",
+      "svd_deg": 171.15,
+      "virtual_time_s": 1397.0522557915278,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        772.4400096300669,
+        -1292.5443136130018
+      ],
+      "result": "direction",
+      "svd_deg": 199.0,
+      "virtual_time_s": 1403.0522557915278,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 6,
+      "pos": [
+        137.7323801325717,
+        -1511.6724370613285
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 1540.3460991989327,
+      "delta_time_s": 137.2938434074049
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        137.7323801325717,
+        -1511.6724370613285
+      ],
+      "result": "direction",
+      "svd_deg": 201.16,
+      "virtual_time_s": 1545.3460991989327,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "measure",
+      "ch": 6,
+      "pos": [
+        110.8459442550573,
+        -1522.1028164141364
+      ],
+      "result": "near",
+      "svd_deg": null,
+      "virtual_time_s": 1556.113848318439,
+      "delta_time_s": 10.767749119506334
+    },
+    {
+      "action": "clear",
+      "ch": 6,
+      "pos": [
+        110.8459442550573,
+        -1522.1028164141364
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1561.113848318439,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "clear",
+      "ch": 5,
+      "pos": [
+        199.96213238262348,
+        -1203.7024972046481
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 1630.241137166264,
+      "delta_time_s": 69.12728884782496
+    },
+    {
+      "action": "measure",
+      "ch": 5,
+      "pos": [
+        199.96213238262348,
+        -1203.7024972046481
+      ],
+      "result": "direction",
+      "svd_deg": 188.56,
+      "virtual_time_s": 1636.241137166264,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 5,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1644.277332232741,
+      "delta_time_s": 8.036195066476921
+    },
+    {
+      "action": "measure",
+      "ch": 3,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "direction",
+      "svd_deg": 150.69,
+      "virtual_time_s": 1650.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1656.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1662.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1668.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1674.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1680.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1686.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 1692.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        184.94592551590677,
+        -1205.9330898116566
+      ],
+      "result": "direction",
+      "svd_deg": 197.18,
+      "virtual_time_s": 1698.277332232741,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 12,
+      "pos": [
+        -23.01453953405118,
+        -609.3781249078168
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 1827.6300735841207,
+      "delta_time_s": 129.3527413513798
+    },
+    {
+      "action": "measure",
+      "ch": 12,
+      "pos": [
+        -23.01453953405118,
+        -609.3781249078168
+      ],
+      "result": "direction",
+      "svd_deg": 246.38,
+      "virtual_time_s": 1833.6300735841207,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 12,
+      "pos": [
+        -23.91984210046916,
+        -611.3531998776546
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 1839.0646075355328,
+      "delta_time_s": 5.43453395141205
+    },
+    {
+      "action": "measure",
+      "ch": 17,
+      "pos": [
+        -23.91984210046916,
+        -611.3531998776546
+      ],
+      "result": "direction",
+      "svd_deg": 154.48,
+      "virtual_time_s": 1845.0646075355328,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 20,
+      "pos": [
+        -23.91984210046916,
+        -611.3531998776546
+      ],
+      "result": "direction",
+      "svd_deg": 234.18,
+      "virtual_time_s": 1851.0646075355328,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 20,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2065.674997546298,
+      "delta_time_s": 214.6103900107653
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2071.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2077.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2083.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2089.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2095.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2101.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 19,
+      "pos": [
+        -637.806281522151,
+        -1460.797918211813
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2107.674997546298,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 3,
+      "pos": [
+        -984.9643961671571,
+        -549.6521530268992
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 2305.683239626296,
+      "delta_time_s": 198.00824207999813
+    },
+    {
+      "action": "measure",
+      "ch": 3,
+      "pos": [
+        -984.9643961671571,
+        -549.6521530268992
+      ],
+      "result": "direction",
+      "svd_deg": 346.28,
+      "virtual_time_s": 2311.683239626296,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 3,
+      "pos": [
+        -975.6547670142364,
+        -551.7527297373075
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2318.5919734210534,
+      "delta_time_s": 6.908733794757154
+    },
+    {
+      "action": "measure",
+      "ch": 1,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2402.348374359235,
+      "delta_time_s": 83.75640093818174
+    },
+    {
+      "action": "measure",
+      "ch": 2,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2408.348374359235,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 4,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "no_signal",
+      "svd_deg": null,
+      "virtual_time_s": 2414.348374359235,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "direction",
+      "svd_deg": 111.37,
+      "virtual_time_s": 2420.348374359235,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "direction",
+      "svd_deg": 157.56,
+      "virtual_time_s": 2426.348374359235,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        -1038.636925080485,
+        -168.10615418006273
+      ],
+      "result": "direction",
+      "svd_deg": 125.2,
+      "virtual_time_s": 2432.348374359235,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 17,
+      "pos": [
+        -999.1784516796209,
+        -146.54557902609395
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 2444.341326097339,
+      "delta_time_s": 11.992951738103784
+    },
+    {
+      "action": "measure",
+      "ch": 17,
+      "pos": [
+        -999.1784516796209,
+        -146.54557902609395
+      ],
+      "result": "direction",
+      "svd_deg": 341.04,
+      "virtual_time_s": 2450.341326097339,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 17,
+      "pos": [
+        -980.196243061545,
+        -152.69679411553994
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2459.3321239679244,
+      "delta_time_s": 8.990797870585538
+    },
+    {
+      "action": "measure",
+      "ch": 15,
+      "pos": [
+        -1347.109833886549,
+        13.385391344573044
+      ],
+      "result": "direction",
+      "svd_deg": 172.44,
+      "virtual_time_s": 2545.882449965851,
+      "delta_time_s": 86.5503259979264
+    },
+    {
+      "action": "clear",
+      "ch": 15,
+      "pos": [
+        -1545.8662331749017,
+        40.03139741896513
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2590.9893650293598,
+      "delta_time_s": 45.10691506350895
+    },
+    {
+      "action": "measure",
+      "ch": 8,
+      "pos": [
+        -1545.8662331749017,
+        40.03139741896513
+      ],
+      "result": "direction",
+      "svd_deg": 70.26,
+      "virtual_time_s": 2596.9893650293598,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        -1545.8662331749017,
+        40.03139741896513
+      ],
+      "result": "direction",
+      "svd_deg": 99.4,
+      "virtual_time_s": 2602.9893650293598,
+      "delta_time_s": 6.0
+    },
+    {
+      "action": "clear",
+      "ch": 16,
+      "pos": [
+        -1648.917099737144,
+        686.7802038774985
+      ],
+      "result": "no_target_in_range",
+      "svd_deg": null,
+      "virtual_time_s": 2736.9708140600933,
+      "delta_time_s": 133.98144903073353
+    },
+    {
+      "action": "measure",
+      "ch": 16,
+      "pos": [
+        -1648.917099737144,
+        686.7802038774985
+      ],
+      "result": "direction",
+      "svd_deg": 281.99,
+      "virtual_time_s": 2741.9708140600933,
+      "delta_time_s": 5.0
+    },
+    {
+      "action": "clear",
+      "ch": 16,
+      "pos": [
+        -1646.2704959800508,
+        675.3119377669519
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2749.324752368795,
+      "delta_time_s": 7.3539383087017995
+    },
+    {
+      "action": "clear",
+      "ch": 8,
+      "pos": [
+        -1342.0955816236483,
+        608.7252342187072
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 2816.6003230568735,
+      "delta_time_s": 67.27557068807846
+    },
+    {
+      "action": "clear",
+      "ch": 11,
+      "pos": [
+        -286.24499157688,
+        837.1697263073536
+      ],
+      "result": "success",
+      "svd_deg": null,
+      "virtual_time_s": 3037.6565522628603,
+      "delta_time_s": 221.0562292059867
+    }
+  ]
+}

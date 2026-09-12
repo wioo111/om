@@ -1,0 +1,87 @@
+问题3演练：等待接口开放（最长30秒）；请勿切换会话。
+已确认演练，机器狗开始自动执行。
+[strategy] Q1 v4 算法源 = inline: problem1_v4_inline.py
+PRACTICE_ONLY 3 None HopP3
+{"action": 1, "path": "/enter", "virtual_time_s": 0, "result": null}
+{"action": 37, "path": "/clear", "virtual_time_s": 639.320868, "result": "success"}
+{"action": 51, "path": "/clear", "virtual_time_s": 1022.863099, "result": "success"}
+{"action": 56, "path": "/clear", "virtual_time_s": 1127.75518, "result": "success"}
+{"action": 71, "path": "/clear", "virtual_time_s": 1446.571533, "result": "success"}
+{"action": 84, "path": "/clear", "virtual_time_s": 1659.129429, "result": "success"}
+{"action": 100, "path": "/clear", "virtual_time_s": 2027.662491, "result": "success"}
+{"action": 105, "path": "/clear", "virtual_time_s": 2130.531749, "result": "no_target_in_range"}
+{"action": 107, "path": "/clear", "virtual_time_s": 2143.378102, "result": "success"}
+{"action": 108, "path": "/clear", "virtual_time_s": 2214.394508, "result": "success"}
+{"action": 118, "path": "/clear", "virtual_time_s": 2414.796591, "result": "success"}
+{"action": 119, "path": "/clear", "virtual_time_s": 2549.557706, "result": "success"}
+{"action": 120, "path": "/clear", "virtual_time_s": 2610.928489, "result": "success"}
+{"action": 131, "path": "/clear", "virtual_time_s": 2823.21522, "result": "success"}
+{"action": 141, "path": "/clear", "virtual_time_s": 3073.627158, "result": "success"}
+{
+  "cleared": 13,
+  "virtual_time_s": 3073.627158,
+  "avg_time_per_cleared": 236.4328583076923,
+  "measure_count": 126,
+  "clear_count": 14,
+  "clear_fail_count": 1,
+  "stop_reason": "all_channels_cleared_or_covered",
+  "coverage_complete": true,
+  "cleared_channels": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "absent_channels": [
+    2,
+    3,
+    8,
+    9,
+    10,
+    19,
+    20
+  ],
+  "runtime_s": 2.524405399999523,
+  "time_breakdown": {
+    "move_time_s": 2254.627160616227,
+    "switch_time_s": 121.0,
+    "measure_time_s": 630.0,
+    "clear_time_s": 68.0
+  },
+  "mode": "practice",
+  "problem": 3,
+  "case": "T7DZ-RYZH-6F94-K4J9",
+  "strategy": "HopP3",
+  "distance_m": 11273.135803081133,
+  "policy_diagnostics": {
+    "mask_cache_hits": 6282,
+    "mask_cache_misses": 213,
+    "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+    "coverage_certificates": {}
+  },
+  "simulator_summary": {
+    "problem_no": 3,
+    "case_code": "T7DZ-RYZH-6F94-K4J9",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 13,
+    "jammer_count": 13,
+    "measure_accepted_count": 126,
+    "virtual_time_us": 3073627158,
+    "clear_failure_count": 1
+  },
+  "actual_problem": 3
+}
+RUN_FOLDER C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_042805_492712_p3_HopP3
+
+本局结束：清除13个；虚拟耗时3073.63秒。
+模拟器确认：13/13。
+完整结果：C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_042805_492712_p3_HopP3

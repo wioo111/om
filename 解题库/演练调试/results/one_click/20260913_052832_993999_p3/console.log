@@ -1,0 +1,463 @@
+问题3演练：等待接口开放（最长30秒）；请勿切换会话。
+已确认演练，机器狗开始自动执行。
+[strategy] Q1 v4 算法源 = inline: problem1_v4_inline.py
+PRACTICE_ONLY 3 None OpticalTaskP3
+{"action": 1, "path": "/enter", "virtual_time_s": 0, "result": null}
+{"action": 23, "path": "/clear", "virtual_time_s": 274.777576, "result": "success"}
+{"action": 35, "path": "/clear", "virtual_time_s": 387.38134, "result": "success"}
+{"action": 39, "path": "/clear", "virtual_time_s": 493.752835, "result": "success"}
+{"action": 49, "path": "/clear", "virtual_time_s": 636.780436, "result": "success"}
+{"action": 50, "path": "/clear", "virtual_time_s": 762.746692, "result": "no_target_in_range"}
+{"action": 52, "path": "/clear", "virtual_time_s": 777.744692, "result": "success"}
+{"action": 53, "path": "/clear", "virtual_time_s": 794.030439, "result": "no_target_in_range"}
+{"action": 54, "path": "/clear", "virtual_time_s": 804.68632, "result": "success"}
+{"action": 63, "path": "/clear", "virtual_time_s": 1011.058727, "result": "no_target_in_range"}
+{"action": 64, "path": "/clear", "virtual_time_s": 1021.4383, "result": "no_target_in_range"}
+{"action": 65, "path": "/clear", "virtual_time_s": 1031.817873, "result": "no_target_in_range"}
+{"action": 66, "path": "/clear", "virtual_time_s": 1044.197446, "result": "success"}
+{"action": 73, "path": "/clear", "virtual_time_s": 1278.347787, "result": "no_target_in_range"}
+{"action": 75, "path": "/clear", "virtual_time_s": 1293.345787, "result": "success"}
+{"action": 76, "path": "/clear", "virtual_time_s": 1368.675902, "result": "success"}
+{"action": 90, "path": "/clear", "virtual_time_s": 1917.387658, "result": "success"}
+{"action": 93, "path": "/clear", "virtual_time_s": 2006.611842, "result": "no_target_in_range"}
+{"action": 95, "path": "/clear", "virtual_time_s": 2020.454415, "result": "success"}
+{"action": 97, "path": "/clear", "virtual_time_s": 2155.226232, "result": "success"}
+{"action": 100, "path": "/measure", "virtual_time_s": 2241.788044, "result": null}
+{"action": 101, "path": "/clear", "virtual_time_s": 2270.914943, "result": "no_target_in_range"}
+{"action": 102, "path": "/clear", "virtual_time_s": 2278.028627, "result": "no_target_in_range"}
+{"action": 103, "path": "/clear", "virtual_time_s": 2287.142311, "result": "success"}
+{"action": 105, "path": "/clear", "virtual_time_s": 2412.536184, "result": "success"}
+{"action": 106, "path": "/clear", "virtual_time_s": 2564.279373, "result": "no_target_in_range"}
+{"action": 108, "path": "/clear", "virtual_time_s": 2577.277373, "result": "no_target_in_range"}
+{"action": 109, "path": "/clear", "virtual_time_s": 2588.497328, "result": "success"}
+{"action": 111, "path": "/clear", "virtual_time_s": 2993.189467, "result": "success"}
+{
+  "cleared": 16,
+  "virtual_time_s": 2993.189467,
+  "avg_time_per_cleared": 187.0743416875,
+  "measure_count": 83,
+  "clear_count": 27,
+  "clear_fail_count": 11,
+  "stop_reason": "cleared_maximum_16",
+  "coverage_complete": true,
+  "cleared_channels": [
+    1,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20
+  ],
+  "absent_channels": [
+    2,
+    5,
+    15,
+    18
+  ],
+  "runtime_s": 2.2332244999997783,
+  "time_breakdown": {
+    "move_time_s": 2386.189470105617,
+    "switch_time_s": 79.0,
+    "measure_time_s": 415.0,
+    "clear_time_s": 113.0
+  },
+  "mode": "practice",
+  "problem": 3,
+  "case": "WBHY-JMHS-FE2Q-6CAW",
+  "strategy": "OpticalTaskP3",
+  "distance_m": 11930.947350528086,
+  "policy_diagnostics": {
+    "mask_cache_hits": 7929,
+    "mask_cache_misses": 171,
+    "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+    "coverage_certificates": {},
+    "residual_updates": 13,
+    "residual_method": "whole 60m cells disjoint from outward-guarded polygon difference",
+    "residual_cache_hits": 10,
+    "residual_certificates": {},
+    "probe_plans": [
+      {
+        "ch": 8,
+        "old": [
+          -498.88839508278204,
+          105.40573633216526
+        ],
+        "chosen": [
+          -577.579733293429,
+          302.44367990184526
+        ],
+        "predicted_old_s": 223.62036497454832,
+        "predicted_new_s": 220.9167121896432
+      },
+      {
+        "ch": 4,
+        "old": [
+          330.17792162090024,
+          1488.7482594387131
+        ],
+        "chosen": [
+          331.4416522325338,
+          1308.7308548166134
+        ],
+        "predicted_old_s": 147.7041637526836,
+        "predicted_new_s": 138.74126073631925
+      }
+    ],
+    "cardinality_certificates": [
+      {
+        "observed_channels": [
+          1,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17,
+          19,
+          20
+        ],
+        "absent_channels": [
+          2,
+          5,
+          15,
+          18
+        ]
+      }
+    ],
+    "optical_plans": [
+      {
+        "ch": 10,
+        "points": [
+          [
+            -142.5984373477284,
+            1166.9330001533572
+          ],
+          [
+            -141.68674620991442,
+            1169.0907500141634
+          ]
+        ],
+        "expected_s": 8.998000000000577,
+        "half_width": 0.7421804640226242,
+        "half_length": 19.976217563863862,
+        "axial_bounds": [
+          999.4458699414608,
+          1041.7407536155984
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 15.46437764147217,
+        "feasible_polygon": [
+          [
+            -149.68960729147838,
+            1148.2430186437664
+          ],
+          [
+            -134.254798770099,
+            1184.7734339974015
+          ],
+          [
+            -134.59557626616433,
+            1187.7807315237546
+          ]
+        ]
+      },
+      {
+        "ch": 3,
+        "points": [
+          [
+            -128.1254723649273,
+            1231.7659411949094
+          ],
+          [
+            -115.85083615647903,
+            1257.242557602911
+          ],
+          [
+            -103.5761999480307,
+            1282.7191740109126
+          ]
+        ],
+        "expected_s": 25.077772562155303,
+        "half_width": 13.801739946201508,
+        "half_length": 14.460707951460245,
+        "axial_bounds": [
+          1039.6115443209555,
+          1125.091767766122
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 26.34554230433124,
+        "feasible_polygon": [
+          [
+            -116.02796420937243,
+            1288.6726013673428
+          ],
+          [
+            -141.90949785628607,
+            1225.551211933151
+          ],
+          [
+            -141.5175944830008,
+            1222.1666769911922
+          ],
+          [
+            -100.97139571938064,
+            1256.327892588784
+          ],
+          [
+            -104.41502137720911,
+            1299.1749081691967
+          ]
+        ]
+      },
+      {
+        "ch": 4,
+        "points": [
+          [
+            487.4504860997898,
+            1458.2092399494372
+          ],
+          [
+            513.2872676782616,
+            1484.551473493859
+          ],
+          [
+            539.1240492567334,
+            1510.8937070382808
+          ],
+          [
+            564.9608308352053,
+            1537.2359405827024
+          ],
+          [
+            590.7976124136771,
+            1563.5781741271242
+          ]
+        ],
+        "expected_s": 67.19895351501688,
+        "half_width": 6.709893362240905,
+        "half_length": 18.830226527244843,
+        "axial_bounds": [
+          -1548.795389535879,
+          -1363.5434705794603
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 72.70956871636896,
+        "feasible_polygon": [
+          [
+            608.7733408559872,
+            1572.3230747536793
+          ],
+          [
+            548.8838510247841,
+            1530.4269343225355
+          ],
+          [
+            469.47475765747987,
+            1449.464339322882
+          ],
+          [
+            501.0685611346554,
+            1469.9541672354144
+          ]
+        ]
+      },
+      {
+        "ch": 12,
+        "points": [
+          [
+            584.5060013150143,
+            747.3199588133324
+          ],
+          [
+            597.0507863248346,
+            757.2646155047988
+          ]
+        ],
+        "expected_s": 11.065224495067397,
+        "half_width": 0.9816240571265666,
+        "half_length": 19.965883757311378,
+        "axial_bounds": [
+          -958.2633365976214,
+          -902.3232016567513
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 17.159920943708276,
+        "feasible_polygon": [
+          [
+            568.2501504474196,
+            735.6860681240354
+          ],
+          [
+            613.3066371924295,
+            768.8985061940961
+          ],
+          [
+            608.1061833909564,
+            767.2812341150808
+          ]
+        ]
+      },
+      {
+        "ch": 17,
+        "points": [
+          [
+            -943.6286202324263,
+            -521.3633128949366
+          ],
+          [
+            -952.7917452931661,
+            -539.7779031740447
+          ],
+          [
+            -961.954870353906,
+            -558.1924934531526
+          ],
+          [
+            -971.1179954146457,
+            -576.6070837322607
+          ],
+          [
+            -980.2811204753855,
+            -595.0216740113685
+          ],
+          [
+            -989.4442455361252,
+            -613.4362642904766
+          ]
+        ],
+        "expected_s": 45.513935765236226,
+        "half_width": 17.007429673294837,
+        "half_length": 10.504638780459336,
+        "axial_bounds": [
+          -1000.4968964250362,
+          -876.645507350135
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 47.39132878689669,
+        "feasible_polygon": [
+          [
+            -1009.3504960968232,
+            -615.2641834940289
+          ],
+          [
+            -954.8156216949918,
+            -582.0216625852428
+          ],
+          [
+            -923.7223696717286,
+            -519.5353936913845
+          ],
+          [
+            -972.2462543166602,
+            -546.8270089430524
+          ]
+        ]
+      },
+      {
+        "ch": 20,
+        "points": [
+          [
+            -238.6293984083452,
+            -1647.439747819234
+          ],
+          [
+            -226.39535715107763,
+            -1618.8473660178597
+          ]
+        ],
+        "expected_s": 12.071318394960766,
+        "half_width": 1.2459268359321243,
+        "half_length": 19.95113446196742,
+        "axial_bounds": [
+          1557.4374687907773,
+          1628.4395136393082
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 19.407045558268628,
+        "feasible_polygon": [
+          [
+            -247.6232579977107,
+            -1665.2922151469393
+          ],
+          [
+            -217.40149756171215,
+            -1600.994898690155
+          ],
+          [
+            -222.39592443568986,
+            -1606.332993262066
+          ]
+        ]
+      },
+      {
+        "ch": 13,
+        "points": [
+          [
+            -1574.9097462983245,
+            -239.31856015587402
+          ],
+          [
+            -1572.5130600461175,
+            -240.87171754046085
+          ]
+        ],
+        "expected_s": 8.998000000000415,
+        "half_width": 0.7511793132304092,
+        "half_length": 19.975881198069203,
+        "axial_bounds": [
+          -1211.4796075712957,
+          -1168.6719034998398
+        ],
+        "radius_guard": 19.99,
+        "previous_expected_s": 10.411009687317128,
+        "feasible_polygon": [
+          [
+            -1592.0818825378276,
+            -229.08538679801802
+          ],
+          [
+            -1559.904255839845,
+            -249.93789449627323
+          ],
+          [
+            -1555.3409238066138,
+            -251.10489089831694
+          ]
+        ]
+      }
+    ]
+  },
+  "simulator_summary": {
+    "problem_no": 3,
+    "case_code": "WBHY-JMHS-FE2Q-6CAW",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 16,
+    "jammer_count": 16,
+    "measure_accepted_count": 83,
+    "virtual_time_us": 2993189467,
+    "clear_failure_count": 11
+  },
+  "actual_problem": 3
+}
+RUN_FOLDER C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_052838_974559_p3_OpticalTaskP3
+
+本局结束：清除16个；虚拟耗时2993.19秒。
+模拟器确认：16/16。
+完整结果：C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_052838_974559_p3_OpticalTaskP3

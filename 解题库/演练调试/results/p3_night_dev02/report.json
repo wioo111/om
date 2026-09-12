@@ -1,0 +1,3560 @@
+{
+  "started": "2026-09-12T20:12:41.300417+00:00",
+  "command": [
+    "解题库/演练调试/benchmark_speed.py",
+    "--problem",
+    "3",
+    "--variants",
+    "scan,midpoint,route",
+    "--reference",
+    "scan",
+    "--cases",
+    "14",
+    "--seed-start",
+    "940001",
+    "--error-modes",
+    "fixed,edge,bias,smooth",
+    "--label",
+    "p3_night_dev02",
+    "--workers",
+    "3"
+  ],
+  "code_sha256": {
+    "解题库\\第三问\\v10\\analyze_official.py": "abf99cf97c1d8c97200aec0edab148e2bcb3ac166c250dbff0f415ab5ee40bda",
+    "解题库\\第三问\\v10\\benchmark_routes.py": "a4d575974badc6059cad13a1656d8d4bb5f8fac1113dfa526499111f90ebc474",
+    "解题库\\第三问\\v10\\evaluate_v8.py": "e2b80a8542c6d6534d6979d85384c66c3d0755b9968e0a4a77ad2d68f124e87d",
+    "解题库\\第三问\\v10\\mock_simulator.py": "6062a1398023db091a86340ba3cc31dedaa1541aa7fee009a75e5d2c23d66fdb",
+    "解题库\\第三问\\v10\\problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+    "解题库\\第三问\\v10\\robot.py": "415d70e4f17cd3c7e28243dd9eb0fb7cdb39f5106707b88e6cfbd8faa3be617d",
+    "解题库\\第三问\\v10\\robot_iter.py": "cfca2e6c15a17e46db4af217b28cf063cbe6141502196b827d068f875672bcd3",
+    "解题库\\第三问\\v10\\route_guarded.py": "c6f0af433a970970e0322cbb16f7dc0e067ecf2f572e9f00efa41f587da583f5",
+    "解题库\\第三问\\v10\\route_reactive.py": "ad79c1e8a6df8e9c54d2d242bcd5a75a3d48f541cc53b39484b4ea0cdcc8cb86",
+    "解题库\\第三问\\v10\\route_search.py": "29eca89d750e9a27b7451b06377436ff0263094562b2dad91866985b4f48afd4",
+    "解题库\\第三问\\v10\\route_trials.py": "bc2a5669d449d8695ea86a4b97139e93c0a06d1b4635c107aa26521bc17f0ee5",
+    "解题库\\第三问\\v10\\run_v10.py": "2717352b2fd80374e81822919191927e25cb36cebc6ef7b24b546c02b8ba10df",
+    "解题库\\第三问\\v10\\strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+    "解题库\\第三问\\v10\\strategy_fast.py": "10326271b7d35ecae7fea4a330a88959477c19b3eaaeaec55a435ed4f8f352be",
+    "解题库\\第三问\\v10\\strategy_night.py": "0a14d5ec6a8d6b055a5eb068a23c185c3cdd254d08e25fcad810c00e1951ac66",
+    "解题库\\第三问\\v10\\strategy_v10.py": "f3ecbff82586f902e5261032fcc9504510dafc30acd22779feb65cf3061ec0df",
+    "解题库\\第三问\\v10\\strategy_v7.py": "ec221b3645c1b1a418d811875b1081fa4625dc32bb1c7b5a30bfebb4cb8a0744",
+    "解题库\\第三问\\v10\\strategy_v8.py": "34133b6eac8e6b3e3f77212b62fbd74c9d2678e0bbc0676929aacc979c059d74",
+    "解题库\\第三问\\v10\\write_report.py": "c8be4d5325bbef82312ba773e03194086ba337800dc450569ca1471aa4b6a045",
+    "解题库\\演练调试\\analyze_p3_night.py": "f3bd5e66102b05111f86a566127ab977835b9295423d9569af1bef6396745792",
+    "解题库\\演练调试\\benchmark_speed.py": "15dce04daca12aa93978b96b77c5ab3317a205ba3e403f9918ce30ec7f8930ad",
+    "解题库\\演练调试\\candidates.py": "e66dc69baf4658b7832387eb6a917e662067c5aaf1d8fe566e7515e0c591b57e",
+    "解题库\\演练调试\\run_practice.py": "d98e2bcc63c8a20634deba808774c7a17f9921f7f41e853018e19139296436c4",
+    "解题库\\演练调试\\test_one_click.py": "bbbc5156a09def9611b8d008dede2a6f5fbbe38fead28ea8beaebf51f07cec2e",
+    "解题库\\演练调试\\test_practice_safety.py": "388fb2cc0e855dd5facd1db7f8e3f38b17d9c82247b9ed6673e44da4024e1bca",
+    "解题库\\演练调试\\test_protocol.py": "4be778ede77ad2de0fa46a72ecd345f1b6b9e9c3ace89d898565e4345f3f7f46"
+  },
+  "evaluation": "offline_practice_not_official_simulator",
+  "problem": 3,
+  "finished": "2026-09-12T20:12:58.586094+00:00",
+  "exit_code": 0,
+  "sources_unchanged": true,
+  "summary": {
+    "scan": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3239.2244685464125,
+      "mean_wall_s": 1.4749590214279513,
+      "mean_measure": 137.57142857142858,
+      "clear_failures": 59,
+      "paired_completed": 14,
+      "mean_paired_delta_s": 0.0,
+      "improved": 0,
+      "worse": 0
+    },
+    "midpoint": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3225.7781984487665,
+      "mean_wall_s": 1.0284085999992385,
+      "mean_measure": 135,
+      "clear_failures": 59,
+      "paired_completed": 14,
+      "mean_paired_delta_s": -13.446270097646122,
+      "improved": 8,
+      "worse": 6
+    },
+    "route": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3231.7713099423127,
+      "mean_wall_s": 1.0125374285715745,
+      "mean_measure": 136.07142857142858,
+      "clear_failures": 56,
+      "paired_completed": 14,
+      "mean_paired_delta_s": -7.453158604100054,
+      "improved": 6,
+      "worse": 8
+    }
+  },
+  "records": [
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3616.024371079828,
+      "avg_time_per_cleared": 361.60243710798284,
+      "measure_count": 184,
+      "clear_count": 13,
+      "clear_fail_count": 3,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        10,
+        12,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        8,
+        9,
+        11,
+        13,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.0977760999994643,
+      "time_breakdown": {
+        "move_time_s": 2456.0243710798277,
+        "switch_time_s": 181.0,
+        "measure_time_s": 920.0,
+        "clear_time_s": 59.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5893,
+        "mask_cache_misses": 221,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940001,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.1292911999989883,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3616.024371079828,
+      "avg_time_per_cleared": 361.60243710798284,
+      "measure_count": 184,
+      "clear_count": 13,
+      "clear_fail_count": 3,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        10,
+        12,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        8,
+        9,
+        11,
+        13,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.1097356999998738,
+      "time_breakdown": {
+        "move_time_s": 2456.0243710798277,
+        "switch_time_s": 181.0,
+        "measure_time_s": 920.0,
+        "clear_time_s": 59.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5892,
+        "mask_cache_misses": 221,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940001,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.1417070999996213,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3435.270009765649,
+      "avg_time_per_cleared": 343.52700097656486,
+      "measure_count": 184,
+      "clear_count": 13,
+      "clear_fail_count": 3,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        10,
+        12,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        8,
+        9,
+        11,
+        13,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.4385808999977598,
+      "time_breakdown": {
+        "move_time_s": 2275.270009765649,
+        "switch_time_s": 181.0,
+        "measure_time_s": 920.0,
+        "clear_time_s": 59.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940001,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.466610599996784,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3564.096732603196,
+      "avg_time_per_cleared": 324.0087938730178,
+      "measure_count": 150,
+      "clear_count": 17,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        16,
+        18,
+        19,
+        20
+      ],
+      "runtime_s": 0.9661760999988473,
+      "time_breakdown": {
+        "move_time_s": 2599.096732603196,
+        "switch_time_s": 142.0,
+        "measure_time_s": 750.0,
+        "clear_time_s": 73.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6373,
+        "mask_cache_misses": 297,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "1": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "2": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "4": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "8": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "16": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "18": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "19": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "20": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.9890591999974276,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3347.5198023779753,
+      "avg_time_per_cleared": 304.3199820343614,
+      "measure_count": 159,
+      "clear_count": 17,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        16,
+        18,
+        19,
+        20
+      ],
+      "runtime_s": 1.266681500001141,
+      "time_breakdown": {
+        "move_time_s": 2326.519802377976,
+        "switch_time_s": 153.0,
+        "measure_time_s": 795.0,
+        "clear_time_s": 73.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.2882161000015913,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3564.096732603196,
+      "avg_time_per_cleared": 324.0087938730178,
+      "measure_count": 150,
+      "clear_count": 17,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        16,
+        18,
+        19,
+        20
+      ],
+      "runtime_s": 1.0006530999999086,
+      "time_breakdown": {
+        "move_time_s": 2599.096732603196,
+        "switch_time_s": 142.0,
+        "measure_time_s": 750.0,
+        "clear_time_s": 73.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6352,
+        "mask_cache_misses": 304,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "1": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "2": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "4": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "8": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "16": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "18": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "19": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ],
+          "20": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              920.169588501209,
+              291.28838290033303
+            ],
+            [
+              597.0493797619046,
+              716.4210627880095
+            ],
+            [
+              35.033221303134255,
+              1643.8797782590107
+            ],
+            [
+              -554.104131895091,
+              1165.702911909699
+            ],
+            [
+              -1149.6748960987086,
+              347.83417973388856
+            ],
+            [
+              -1019.334821812329,
+              -279.2159919091163
+            ],
+            [
+              -483.8251418474721,
+              -926.797826249147
+            ],
+            [
+              188.30297199764368,
+              -1521.2322951352799
+            ],
+            [
+              1287.3004109963788,
+              -1062.6265537791296
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.02352719999908,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3042.500923368245,
+      "avg_time_per_cleared": 253.54174361402042,
+      "measure_count": 133,
+      "clear_count": 13,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+      ],
+      "runtime_s": 1.2486241000005975,
+      "time_breakdown": {
+        "move_time_s": 2183.5009233682454,
+        "switch_time_s": 131.0,
+        "measure_time_s": 665.0,
+        "clear_time_s": 63.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7710,
+        "mask_cache_misses": 288,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940003,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.2686659999999392,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3042.500923368245,
+      "avg_time_per_cleared": 253.54174361402042,
+      "measure_count": 133,
+      "clear_count": 13,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+      ],
+      "runtime_s": 1.2380608999992546,
+      "time_breakdown": {
+        "move_time_s": 2183.5009233682454,
+        "switch_time_s": 131.0,
+        "measure_time_s": 665.0,
+        "clear_time_s": 63.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7724,
+        "mask_cache_misses": 286,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940003,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.2583273999989615,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3036.747943131471,
+      "avg_time_per_cleared": 253.06232859428926,
+      "measure_count": 133,
+      "clear_count": 13,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+      ],
+      "runtime_s": 1.7106687000014063,
+      "time_breakdown": {
+        "move_time_s": 2177.747943131471,
+        "switch_time_s": 131.0,
+        "measure_time_s": 665.0,
+        "clear_time_s": 63.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940003,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.7381447000007029,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3482.7023768514664,
+      "avg_time_per_cleared": 267.9001828347282,
+      "measure_count": 151,
+      "clear_count": 17,
+      "clear_fail_count": 4,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        19
+      ],
+      "runtime_s": 0.6944779000004928,
+      "time_breakdown": {
+        "move_time_s": 2505.702376851466,
+        "switch_time_s": 145.0,
+        "measure_time_s": 755.0,
+        "clear_time_s": 77.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 4694,
+        "mask_cache_misses": 216,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940004,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.7144273000012618,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3422.2745469903907,
+      "avg_time_per_cleared": 263.25188823003003,
+      "measure_count": 151,
+      "clear_count": 17,
+      "clear_fail_count": 4,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        19
+      ],
+      "runtime_s": 0.6880208999973547,
+      "time_breakdown": {
+        "move_time_s": 2445.2745469903916,
+        "switch_time_s": 145.0,
+        "measure_time_s": 755.0,
+        "clear_time_s": 77.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 4484,
+        "mask_cache_misses": 201,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940004,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.7123406999999133,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3719.7422960276485,
+      "avg_time_per_cleared": 286.1340227713576,
+      "measure_count": 154,
+      "clear_count": 17,
+      "clear_fail_count": 4,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        19
+      ],
+      "runtime_s": 1.0228463000021293,
+      "time_breakdown": {
+        "move_time_s": 2727.7422960276485,
+        "switch_time_s": 145.0,
+        "measure_time_s": 770.0,
+        "clear_time_s": 77.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940004,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0475947000013548,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3359.7216133633674,
+      "avg_time_per_cleared": 239.98011524024054,
+      "measure_count": 141,
+      "clear_count": 20,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        9,
+        13,
+        14,
+        16,
+        20
+      ],
+      "runtime_s": 0.4657599999991362,
+      "time_breakdown": {
+        "move_time_s": 2432.7216133633674,
+        "switch_time_s": 134.0,
+        "measure_time_s": 705.0,
+        "clear_time_s": 88.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 3966,
+        "mask_cache_misses": 213,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940005,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.4875909000002139,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3427.894432360009,
+      "avg_time_per_cleared": 244.8496023114292,
+      "measure_count": 143,
+      "clear_count": 18,
+      "clear_fail_count": 4,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        9,
+        13,
+        14,
+        16,
+        20
+      ],
+      "runtime_s": 0.8148664999971515,
+      "time_breakdown": {
+        "move_time_s": 2494.8944323600094,
+        "switch_time_s": 136.0,
+        "measure_time_s": 715.0,
+        "clear_time_s": 82.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940005,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.8412796999982675,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3439.1882096339887,
+      "avg_time_per_cleared": 245.65630068814204,
+      "measure_count": 142,
+      "clear_count": 19,
+      "clear_fail_count": 5,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        9,
+        13,
+        14,
+        16,
+        20
+      ],
+      "runtime_s": 0.5666811999981292,
+      "time_breakdown": {
+        "move_time_s": 2508.188209633989,
+        "switch_time_s": 136.0,
+        "measure_time_s": 710.0,
+        "clear_time_s": 85.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 4845,
+        "mask_cache_misses": 250,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940005,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.5926962999983516,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3086.884697177499,
+      "avg_time_per_cleared": 205.79231314516662,
+      "measure_count": 116,
+      "clear_count": 22,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        12,
+        13,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 0.8283316000015475,
+      "time_breakdown": {
+        "move_time_s": 2298.884697177499,
+        "switch_time_s": 112.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 96.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6777,
+        "mask_cache_misses": 176,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.8522620999974606,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3086.884697177499,
+      "avg_time_per_cleared": 205.79231314516662,
+      "measure_count": 116,
+      "clear_count": 22,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        12,
+        13,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 0.8206032999987656,
+      "time_breakdown": {
+        "move_time_s": 2298.884697177499,
+        "switch_time_s": 112.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 96.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6535,
+        "mask_cache_misses": 198,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.8417743000027258,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3235.2840374587354,
+      "avg_time_per_cleared": 215.68560249724902,
+      "measure_count": 127,
+      "clear_count": 24,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        12,
+        13,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 1.1988910000000033,
+      "time_breakdown": {
+        "move_time_s": 2379.2840374587354,
+        "switch_time_s": 119.0,
+        "measure_time_s": 635.0,
+        "clear_time_s": 102.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.2203004999973928,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2953.574705930875,
+      "avg_time_per_cleared": 184.5984191206797,
+      "measure_count": 95,
+      "clear_count": 17,
+      "clear_fail_count": 1,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 1.405059299999266,
+      "time_breakdown": {
+        "move_time_s": 2301.574705930875,
+        "switch_time_s": 94.0,
+        "measure_time_s": 475.0,
+        "clear_time_s": 83.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 14584,
+        "mask_cache_misses": 329,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940007,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.4281888000004983,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2650.5465037255753,
+      "avg_time_per_cleared": 165.65915648284846,
+      "measure_count": 82,
+      "clear_count": 17,
+      "clear_fail_count": 1,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 1.8005584000020463,
+      "time_breakdown": {
+        "move_time_s": 2076.546503725575,
+        "switch_time_s": 81.0,
+        "measure_time_s": 410.0,
+        "clear_time_s": 83.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 13017,
+        "mask_cache_misses": 340,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940007,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.8241472999980033,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2858.634691399169,
+      "avg_time_per_cleared": 285.8634691399169,
+      "measure_count": 129,
+      "clear_count": 12,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        4,
+        5,
+        8,
+        10,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        16,
+        19
+      ],
+      "runtime_s": 0.7736331000014616,
+      "time_breakdown": {
+        "move_time_s": 2037.6346913991688,
+        "switch_time_s": 120.0,
+        "measure_time_s": 645.0,
+        "clear_time_s": 56.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5232,
+        "mask_cache_misses": 185,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940008,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.8072035000004689,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2668.8128302042624,
+      "avg_time_per_cleared": 166.8008018877664,
+      "measure_count": 83,
+      "clear_count": 17,
+      "clear_fail_count": 1,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 2.686353799999779,
+      "time_breakdown": {
+        "move_time_s": 2089.812830204262,
+        "switch_time_s": 81.0,
+        "measure_time_s": 415.0,
+        "clear_time_s": 83.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940007,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 2.709587000001193,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3011.163548834533,
+      "avg_time_per_cleared": 301.11635488345325,
+      "measure_count": 128,
+      "clear_count": 11,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        4,
+        5,
+        8,
+        10,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        16,
+        19
+      ],
+      "runtime_s": 1.1506031999997504,
+      "time_breakdown": {
+        "move_time_s": 2198.1635488345332,
+        "switch_time_s": 120.0,
+        "measure_time_s": 640.0,
+        "clear_time_s": 53.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940008,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.1807059999991907,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2858.634691399169,
+      "avg_time_per_cleared": 285.8634691399169,
+      "measure_count": 129,
+      "clear_count": 12,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        4,
+        5,
+        8,
+        10,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        16,
+        19
+      ],
+      "runtime_s": 0.6498974999994971,
+      "time_breakdown": {
+        "move_time_s": 2037.6346913991688,
+        "switch_time_s": 120.0,
+        "measure_time_s": 645.0,
+        "clear_time_s": 56.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5230,
+        "mask_cache_misses": 187,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940008,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.676917599997978,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3221.940746314535,
+      "avg_time_per_cleared": 292.9037042104123,
+      "measure_count": 158,
+      "clear_count": 13,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        3,
+        5,
+        7,
+        9,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 1.0016872999985935,
+      "time_breakdown": {
+        "move_time_s": 2217.940746314535,
+        "switch_time_s": 153.0,
+        "measure_time_s": 790.0,
+        "clear_time_s": 61.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 9336,
+        "mask_cache_misses": 377,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940009,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.0307888000024832,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3260.6871794359577,
+      "avg_time_per_cleared": 296.4261072214507,
+      "measure_count": 159,
+      "clear_count": 14,
+      "clear_fail_count": 3,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        3,
+        5,
+        7,
+        9,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 1.5450476000005438,
+      "time_breakdown": {
+        "move_time_s": 2246.6871794359577,
+        "switch_time_s": 155.0,
+        "measure_time_s": 795.0,
+        "clear_time_s": 64.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940009,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.5679477999983646,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3087.299564717378,
+      "avg_time_per_cleared": 280.66359679248893,
+      "measure_count": 157,
+      "clear_count": 13,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        3,
+        5,
+        7,
+        9,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 1.0781181999991531,
+      "time_breakdown": {
+        "move_time_s": 2089.299564717378,
+        "switch_time_s": 152.0,
+        "measure_time_s": 785.0,
+        "clear_time_s": 61.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 9343,
+        "mask_cache_misses": 352,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940009,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.10145669999838,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3176.9905152014235,
+      "avg_time_per_cleared": 264.7492096001186,
+      "measure_count": 137,
+      "clear_count": 21,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        11,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 1.2653663999990385,
+      "time_breakdown": {
+        "move_time_s": 2270.990515201424,
+        "switch_time_s": 134.0,
+        "measure_time_s": 685.0,
+        "clear_time_s": 87.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.2859494000003906,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3230.596740591571,
+      "avg_time_per_cleared": 269.21639504929755,
+      "measure_count": 136,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        11,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 0.9103629000019282,
+      "time_breakdown": {
+        "move_time_s": 2334.5967405915703,
+        "switch_time_s": 132.0,
+        "measure_time_s": 680.0,
+        "clear_time_s": 84.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5871,
+        "mask_cache_misses": 202,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.9320171999970626,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3230.596740591571,
+      "avg_time_per_cleared": 269.21639504929755,
+      "measure_count": 136,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        3,
+        4,
+        5,
+        11,
+        14,
+        15,
+        17,
+        20
+      ],
+      "runtime_s": 0.9561992999988433,
+      "time_breakdown": {
+        "move_time_s": 2334.5967405915703,
+        "switch_time_s": 132.0,
+        "measure_time_s": 680.0,
+        "clear_time_s": 84.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5872,
+        "mask_cache_misses": 201,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.9835739000009198,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3348.698929649308,
+      "avg_time_per_cleared": 257.59222535763905,
+      "measure_count": 148,
+      "clear_count": 14,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        14,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        6,
+        10,
+        12,
+        13,
+        15,
+        17
+      ],
+      "runtime_s": 1.4029183000020566,
+      "time_breakdown": {
+        "move_time_s": 2397.698929649308,
+        "switch_time_s": 143.0,
+        "measure_time_s": 740.0,
+        "clear_time_s": 68.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 8508,
+        "mask_cache_misses": 325,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940011,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.4232296999980463,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3348.698929649308,
+      "avg_time_per_cleared": 257.59222535763905,
+      "measure_count": 148,
+      "clear_count": 14,
+      "clear_fail_count": 1,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        14,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        6,
+        10,
+        12,
+        13,
+        15,
+        17
+      ],
+      "runtime_s": 1.3953552999992098,
+      "time_breakdown": {
+        "move_time_s": 2397.698929649308,
+        "switch_time_s": 143.0,
+        "measure_time_s": 740.0,
+        "clear_time_s": 68.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 8802,
+        "mask_cache_misses": 285,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940011,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.4163635000004433,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3304.83866951371,
+      "avg_time_per_cleared": 254.21835919336232,
+      "measure_count": 147,
+      "clear_count": 13,
+      "clear_fail_count": 0,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        14,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        6,
+        10,
+        12,
+        13,
+        15,
+        17
+      ],
+      "runtime_s": 1.9328991000002134,
+      "time_breakdown": {
+        "move_time_s": 2361.83866951371,
+        "switch_time_s": 143.0,
+        "measure_time_s": 735.0,
+        "clear_time_s": 65.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940011,
+      "error_mode": "bias",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.9560003999977198,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3023.3372719749427,
+      "avg_time_per_cleared": 215.95266228392447,
+      "measure_count": 120,
+      "clear_count": 20,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        8,
+        9,
+        14,
+        15,
+        16
+      ],
+      "runtime_s": 1.002738600000157,
+      "time_breakdown": {
+        "move_time_s": 2222.337271974943,
+        "switch_time_s": 113.0,
+        "measure_time_s": 600.0,
+        "clear_time_s": 88.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 8781,
+        "mask_cache_misses": 163,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940012,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0293118999979924,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3023.3372719749427,
+      "avg_time_per_cleared": 215.95266228392447,
+      "measure_count": 120,
+      "clear_count": 20,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        8,
+        9,
+        14,
+        15,
+        16
+      ],
+      "runtime_s": 1.0158269999992626,
+      "time_breakdown": {
+        "move_time_s": 2222.337271974943,
+        "switch_time_s": 113.0,
+        "measure_time_s": 600.0,
+        "clear_time_s": 88.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 8779,
+        "mask_cache_misses": 165,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940012,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0356554000027245,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2907.179736679472,
+      "avg_time_per_cleared": 207.65569547710516,
+      "measure_count": 121,
+      "clear_count": 20,
+      "clear_fail_count": 6,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        8,
+        9,
+        14,
+        15,
+        16
+      ],
+      "runtime_s": 1.536415800001123,
+      "time_breakdown": {
+        "move_time_s": 2101.1797366794726,
+        "switch_time_s": 113.0,
+        "measure_time_s": 605.0,
+        "clear_time_s": 88.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940012,
+      "error_mode": "smooth",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.5628436000006332,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3331.8428007625816,
+      "avg_time_per_cleared": 222.12285338417212,
+      "measure_count": 111,
+      "clear_count": 17,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        5,
+        6,
+        10,
+        14
+      ],
+      "runtime_s": 0.9286198000008881,
+      "time_breakdown": {
+        "move_time_s": 2589.8428007625816,
+        "switch_time_s": 106.0,
+        "measure_time_s": 555.0,
+        "clear_time_s": 81.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5896,
+        "mask_cache_misses": 167,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940013,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.9492991000006441,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3331.8428007625816,
+      "avg_time_per_cleared": 222.12285338417212,
+      "measure_count": 111,
+      "clear_count": 17,
+      "clear_fail_count": 2,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        5,
+        6,
+        10,
+        14
+      ],
+      "runtime_s": 0.9461069999997562,
+      "time_breakdown": {
+        "move_time_s": 2589.8428007625816,
+        "switch_time_s": 106.0,
+        "measure_time_s": 555.0,
+        "clear_time_s": 81.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5896,
+        "mask_cache_misses": 166,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940013,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.9693333000031998,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3400.2990108022773,
+      "avg_time_per_cleared": 226.68660072015183,
+      "measure_count": 114,
+      "clear_count": 18,
+      "clear_fail_count": 3,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        5,
+        6,
+        10,
+        14
+      ],
+      "runtime_s": 1.3146019000014348,
+      "time_breakdown": {
+        "move_time_s": 2640.2990108022773,
+        "switch_time_s": 106.0,
+        "measure_time_s": 570.0,
+        "clear_time_s": 84.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940013,
+      "error_mode": "fixed",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.3381690999995044,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3343.366379421447,
+      "avg_time_per_cleared": 208.96039871384045,
+      "measure_count": 131,
+      "clear_count": 26,
+      "clear_fail_count": 10,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        5,
+        6,
+        18
+      ],
+      "runtime_s": 0.940314399998897,
+      "time_breakdown": {
+        "move_time_s": 2458.3663794214463,
+        "switch_time_s": 120.0,
+        "measure_time_s": 655.0,
+        "clear_time_s": 110.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7739,
+        "mask_cache_misses": 253,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "1": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              799.5760787496164,
+              932.5320761546461
+            ],
+            [
+              98.69510843280791,
+              1571.0262195283694
+            ],
+            [
+              -880.2186684370017,
+              1238.7364937109073
+            ],
+            [
+              -1195.862997472683,
+              1110.1347945562097
+            ]
+          ],
+          "5": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              799.5760787496164,
+              932.5320761546461
+            ],
+            [
+              98.69510843280791,
+              1571.0262195283694
+            ],
+            [
+              -880.2186684370017,
+              1238.7364937109073
+            ],
+            [
+              -1195.862997472683,
+              1110.1347945562097
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              799.5760787496164,
+              932.5320761546461
+            ],
+            [
+              98.69510843280791,
+              1571.0262195283694
+            ],
+            [
+              -880.2186684370017,
+              1238.7364937109073
+            ],
+            [
+              -1195.862997472683,
+              1110.1347945562097
+            ]
+          ],
+          "18": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              799.5760787496164,
+              932.5320761546461
+            ],
+            [
+              98.69510843280791,
+              1571.0262195283694
+            ],
+            [
+              -880.2186684370017,
+              1238.7364937109073
+            ],
+            [
+              -1195.862997472683,
+              1110.1347945562097
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "midpoint",
+      "seed": 940014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.9604261999993469,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3239.8441533134037,
+      "avg_time_per_cleared": 202.49025958208773,
+      "measure_count": 133,
+      "clear_count": 24,
+      "clear_fail_count": 8,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        5,
+        6,
+        18
+      ],
+      "runtime_s": 0.9740324999984296,
+      "time_breakdown": {
+        "move_time_s": 2349.844153313403,
+        "switch_time_s": 121.0,
+        "measure_time_s": 665.0,
+        "clear_time_s": 104.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7624,
+        "mask_cache_misses": 252,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "1": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              804.179558625758,
+              942.298536190795
+            ],
+            [
+              -129.6079986134926,
+              1342.119336921734
+            ],
+            [
+              -892.4596128150245,
+              1243.9059248595531
+            ],
+            [
+              -1191.5965684958971,
+              1105.8710734196106
+            ]
+          ],
+          "5": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              804.179558625758,
+              942.298536190795
+            ],
+            [
+              -129.6079986134926,
+              1342.119336921734
+            ],
+            [
+              -892.4596128150245,
+              1243.9059248595531
+            ],
+            [
+              -1191.5965684958971,
+              1105.8710734196106
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              804.179558625758,
+              942.298536190795
+            ],
+            [
+              -129.6079986134926,
+              1342.119336921734
+            ],
+            [
+              -892.4596128150245,
+              1243.9059248595531
+            ],
+            [
+              -1191.5965684958971,
+              1105.8710734196106
+            ]
+          ],
+          "18": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -870.1842869764394,
+              -122.46550137902005
+            ],
+            [
+              -1039.0301913158162,
+              -737.0877842317268
+            ],
+            [
+              -218.42061835347408,
+              -845.3905056070349
+            ],
+            [
+              63.30804140572252,
+              -872.0866924094063
+            ],
+            [
+              887.3379957869348,
+              -964.6076798658125
+            ],
+            [
+              1024.1623552362325,
+              -29.06773270245902
+            ],
+            [
+              804.179558625758,
+              942.298536190795
+            ],
+            [
+              -129.6079986134926,
+              1342.119336921734
+            ],
+            [
+              -892.4596128150245,
+              1243.9059248595531
+            ],
+            [
+              -1191.5965684958971,
+              1105.8710734196106
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "route",
+      "seed": 940014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.993661799999245,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3416.712547856653,
+      "avg_time_per_cleared": 213.54453424104082,
+      "measure_count": 137,
+      "clear_count": 25,
+      "clear_fail_count": 9,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        5,
+        6,
+        18
+      ],
+      "runtime_s": 1.42233049999777,
+      "time_breakdown": {
+        "move_time_s": 2500.712547856654,
+        "switch_time_s": 124.0,
+        "measure_time_s": 685.0,
+        "clear_time_s": 107.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 940014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.4460766999982297,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    }
+  ]
+}

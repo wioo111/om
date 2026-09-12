@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\verify_delivery.py", line 90, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\verify_delivery.py", line 25, in main
+    require_fresh(command,prefix)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\evidence.py", line 71, in require_fresh
+    raise RuntimeError(f'{command}: source changed since execution; rerun required')
+RuntimeError: experiments: source changed since execution; rerun required
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 40, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 23, in main
+    run({'experiments':'experiments.py','figures':'plot_figures.py','paper':'build_paper.py','verify':'verify_delivery.py'}[a.cmd]);return
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 16, in run
+    subprocess.run([sys.executable,str(ROOT/file),*extra],cwd=ROOT,check=True,env=env)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_Local\Python313\Lib\subprocess.py", line 579, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['C:\\Users\\LENOVO\\.cache\\cumcm-q12-venv\\Scripts\\python.exe', 'C:\\Users\\LENOVO\\Desktop\\CUMCM2026Problems\\解题库\\第一二问\\verify_delivery.py']' returned non-zero exit status 1.

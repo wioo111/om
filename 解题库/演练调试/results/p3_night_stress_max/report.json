@@ -1,0 +1,2839 @@
+{
+  "started": "2026-09-12T20:16:20.149218+00:00",
+  "command": [
+    "解题库/演练调试/benchmark_speed.py",
+    "--problem",
+    "3",
+    "--variants",
+    "scan,cover,hop",
+    "--reference",
+    "scan",
+    "--cases",
+    "14",
+    "--seed-start",
+    "970001",
+    "--error-modes",
+    "edge",
+    "--reception-min",
+    "1500",
+    "--reception-max",
+    "1500",
+    "--label",
+    "p3_night_stress_max",
+    "--workers",
+    "3"
+  ],
+  "code_sha256": {
+    "解题库\\第三问\\v10\\analyze_official.py": "abf99cf97c1d8c97200aec0edab148e2bcb3ac166c250dbff0f415ab5ee40bda",
+    "解题库\\第三问\\v10\\benchmark_routes.py": "a4d575974badc6059cad13a1656d8d4bb5f8fac1113dfa526499111f90ebc474",
+    "解题库\\第三问\\v10\\evaluate_v8.py": "e2b80a8542c6d6534d6979d85384c66c3d0755b9968e0a4a77ad2d68f124e87d",
+    "解题库\\第三问\\v10\\mock_simulator.py": "6062a1398023db091a86340ba3cc31dedaa1541aa7fee009a75e5d2c23d66fdb",
+    "解题库\\第三问\\v10\\problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+    "解题库\\第三问\\v10\\robot.py": "415d70e4f17cd3c7e28243dd9eb0fb7cdb39f5106707b88e6cfbd8faa3be617d",
+    "解题库\\第三问\\v10\\robot_iter.py": "cfca2e6c15a17e46db4af217b28cf063cbe6141502196b827d068f875672bcd3",
+    "解题库\\第三问\\v10\\route_guarded.py": "c6f0af433a970970e0322cbb16f7dc0e067ecf2f572e9f00efa41f587da583f5",
+    "解题库\\第三问\\v10\\route_reactive.py": "ad79c1e8a6df8e9c54d2d242bcd5a75a3d48f541cc53b39484b4ea0cdcc8cb86",
+    "解题库\\第三问\\v10\\route_search.py": "29eca89d750e9a27b7451b06377436ff0263094562b2dad91866985b4f48afd4",
+    "解题库\\第三问\\v10\\route_trials.py": "bc2a5669d449d8695ea86a4b97139e93c0a06d1b4635c107aa26521bc17f0ee5",
+    "解题库\\第三问\\v10\\run_v10.py": "2717352b2fd80374e81822919191927e25cb36cebc6ef7b24b546c02b8ba10df",
+    "解题库\\第三问\\v10\\strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+    "解题库\\第三问\\v10\\strategy_fast.py": "10326271b7d35ecae7fea4a330a88959477c19b3eaaeaec55a435ed4f8f352be",
+    "解题库\\第三问\\v10\\strategy_night.py": "0a14d5ec6a8d6b055a5eb068a23c185c3cdd254d08e25fcad810c00e1951ac66",
+    "解题库\\第三问\\v10\\strategy_v10.py": "f3ecbff82586f902e5261032fcc9504510dafc30acd22779feb65cf3061ec0df",
+    "解题库\\第三问\\v10\\strategy_v7.py": "ec221b3645c1b1a418d811875b1081fa4625dc32bb1c7b5a30bfebb4cb8a0744",
+    "解题库\\第三问\\v10\\strategy_v8.py": "34133b6eac8e6b3e3f77212b62fbd74c9d2678e0bbc0676929aacc979c059d74",
+    "解题库\\第三问\\v10\\write_report.py": "c8be4d5325bbef82312ba773e03194086ba337800dc450569ca1471aa4b6a045",
+    "解题库\\演练调试\\analyze_p3_night.py": "f3bd5e66102b05111f86a566127ab977835b9295423d9569af1bef6396745792",
+    "解题库\\演练调试\\benchmark_speed.py": "15dce04daca12aa93978b96b77c5ab3317a205ba3e403f9918ce30ec7f8930ad",
+    "解题库\\演练调试\\candidates.py": "e66dc69baf4658b7832387eb6a917e662067c5aaf1d8fe566e7515e0c591b57e",
+    "解题库\\演练调试\\run_practice.py": "d98e2bcc63c8a20634deba808774c7a17f9921f7f41e853018e19139296436c4",
+    "解题库\\演练调试\\test_one_click.py": "bbbc5156a09def9611b8d008dede2a6f5fbbe38fead28ea8beaebf51f07cec2e",
+    "解题库\\演练调试\\test_p3_night.py": "682e3c626018638e595f7187805e13137fd83ccd5a2b40daf78ecbadf4b94da0",
+    "解题库\\演练调试\\test_practice_safety.py": "388fb2cc0e855dd5facd1db7f8e3f38b17d9c82247b9ed6673e44da4024e1bca",
+    "解题库\\演练调试\\test_protocol.py": "4be778ede77ad2de0fa46a72ecd345f1b6b9e9c3ace89d898565e4345f3f7f46"
+  },
+  "evaluation": "offline_practice_not_official_simulator",
+  "problem": 3,
+  "finished": "2026-09-12T20:16:33.100910+00:00",
+  "exit_code": 0,
+  "sources_unchanged": true,
+  "summary": {
+    "scan": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3068.3709682916156,
+      "mean_wall_s": 1.1273255785719292,
+      "mean_measure": 130.92857142857142,
+      "clear_failures": 125,
+      "paired_completed": 14,
+      "mean_paired_delta_s": 0.0,
+      "improved": 0,
+      "worse": 0
+    },
+    "cover": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3066.228111148758,
+      "mean_wall_s": 0.7468418928570567,
+      "mean_measure": 130.57142857142858,
+      "clear_failures": 125,
+      "paired_completed": 14,
+      "mean_paired_delta_s": -2.142857142857143,
+      "improved": 1,
+      "worse": 0
+    },
+    "hop": {
+      "rounds": 14,
+      "full_clear": 14,
+      "mean_virtual_s": 3044.590353685452,
+      "mean_wall_s": 0.750643614285374,
+      "mean_measure": 129.64285714285714,
+      "clear_failures": 128,
+      "paired_completed": 14,
+      "mean_paired_delta_s": -23.78061460616303,
+      "improved": 8,
+      "worse": 4
+    }
+  },
+  "records": [
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2686.725476877558,
+      "avg_time_per_cleared": 268.6725476877558,
+      "measure_count": 154,
+      "clear_count": 18,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        15,
+        19
+      ],
+      "absent_channels": [
+        3,
+        5,
+        9,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "runtime_s": 0.7991099999999278,
+      "time_breakdown": {
+        "move_time_s": 1691.7254768775576,
+        "switch_time_s": 151.0,
+        "measure_time_s": 770.0,
+        "clear_time_s": 74.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6381,
+        "mask_cache_misses": 208,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970001,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.8209529999985534,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2747.7494762078354,
+      "avg_time_per_cleared": 274.77494762078356,
+      "measure_count": 156,
+      "clear_count": 18,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        15,
+        19
+      ],
+      "absent_channels": [
+        3,
+        5,
+        9,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "runtime_s": 0.8174660999975458,
+      "time_breakdown": {
+        "move_time_s": 1742.7494762078359,
+        "switch_time_s": 151.0,
+        "measure_time_s": 780.0,
+        "clear_time_s": 74.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6381,
+        "mask_cache_misses": 208,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970001,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.8391085000002931,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2747.7494762078354,
+      "avg_time_per_cleared": 274.77494762078356,
+      "measure_count": 156,
+      "clear_count": 18,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        15,
+        19
+      ],
+      "absent_channels": [
+        3,
+        5,
+        9,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "runtime_s": 1.2244441000002553,
+      "time_breakdown": {
+        "move_time_s": 1742.7494762078359,
+        "switch_time_s": 151.0,
+        "measure_time_s": 780.0,
+        "clear_time_s": 74.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970001,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.2512997000012547,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3025.8430586476675,
+      "avg_time_per_cleared": 275.0766416952425,
+      "measure_count": 142,
+      "clear_count": 20,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        5,
+        7,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+      ],
+      "absent_channels": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        17,
+        19,
+        20
+      ],
+      "runtime_s": 0.9891033999992942,
+      "time_breakdown": {
+        "move_time_s": 2099.8430586476675,
+        "switch_time_s": 134.0,
+        "measure_time_s": 710.0,
+        "clear_time_s": 82.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6018,
+        "mask_cache_misses": 202,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.0160909000005631,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3025.8430586476675,
+      "avg_time_per_cleared": 275.0766416952425,
+      "measure_count": 142,
+      "clear_count": 20,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        5,
+        7,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+      ],
+      "absent_channels": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        17,
+        19,
+        20
+      ],
+      "runtime_s": 1.3878737000013643,
+      "time_breakdown": {
+        "move_time_s": 2099.8430586476675,
+        "switch_time_s": 134.0,
+        "measure_time_s": 710.0,
+        "clear_time_s": 82.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.4146513999985473,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3020.205823450352,
+      "avg_time_per_cleared": 274.5641657682138,
+      "measure_count": 142,
+      "clear_count": 20,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        4,
+        5,
+        7,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+      ],
+      "absent_channels": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        17,
+        19,
+        20
+      ],
+      "runtime_s": 1.1080112000017834,
+      "time_breakdown": {
+        "move_time_s": 2094.2058234503515,
+        "switch_time_s": 134.0,
+        "measure_time_s": 710.0,
+        "clear_time_s": 82.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6018,
+        "mask_cache_misses": 202,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970002,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.1317353999984334,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3335.131699352879,
+      "avg_time_per_cleared": 277.92764161273993,
+      "measure_count": 139,
+      "clear_count": 17,
+      "clear_fail_count": 5,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        1,
+        2,
+        3,
+        9,
+        12,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.2443902999984857,
+      "time_breakdown": {
+        "move_time_s": 2431.131699352879,
+        "switch_time_s": 134.0,
+        "measure_time_s": 695.0,
+        "clear_time_s": 75.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 8416,
+        "mask_cache_misses": 263,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970003,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.2827048000035575,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3229.209429334783,
+      "avg_time_per_cleared": 269.1007857778986,
+      "measure_count": 133,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        1,
+        2,
+        3,
+        9,
+        12,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.1446353000028466,
+      "time_breakdown": {
+        "move_time_s": 2354.209429334783,
+        "switch_time_s": 126.0,
+        "measure_time_s": 665.0,
+        "clear_time_s": 84.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7963,
+        "mask_cache_misses": 277,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970003,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.1888161999995646,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3335.131699352879,
+      "avg_time_per_cleared": 277.92764161273993,
+      "measure_count": 139,
+      "clear_count": 17,
+      "clear_fail_count": 5,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        18,
+        19
+      ],
+      "absent_channels": [
+        1,
+        2,
+        3,
+        9,
+        12,
+        14,
+        17,
+        20
+      ],
+      "runtime_s": 1.8752539000015531,
+      "time_breakdown": {
+        "move_time_s": 2431.131699352879,
+        "switch_time_s": 134.0,
+        "measure_time_s": 695.0,
+        "clear_time_s": 75.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970003,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 1.9036070000001928,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2826.853123680231,
+      "avg_time_per_cleared": 217.4502402830947,
+      "measure_count": 119,
+      "clear_count": 22,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10,
+        18
+      ],
+      "runtime_s": 0.6253550000001269,
+      "time_breakdown": {
+        "move_time_s": 2023.8531236802314,
+        "switch_time_s": 116.0,
+        "measure_time_s": 595.0,
+        "clear_time_s": 92.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5195,
+        "mask_cache_misses": 105,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970004,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.6459839000017382,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2805.3569502338714,
+      "avg_time_per_cleared": 215.79668847952857,
+      "measure_count": 120,
+      "clear_count": 23,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10,
+        18
+      ],
+      "runtime_s": 0.6432607000024291,
+      "time_breakdown": {
+        "move_time_s": 1994.3569502338717,
+        "switch_time_s": 116.0,
+        "measure_time_s": 600.0,
+        "clear_time_s": 95.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5195,
+        "mask_cache_misses": 105,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970004,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.6689729999998235,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2826.853123680231,
+      "avg_time_per_cleared": 217.4502402830947,
+      "measure_count": 119,
+      "clear_count": 22,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        3,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10,
+        18
+      ],
+      "runtime_s": 0.9993395000019518,
+      "time_breakdown": {
+        "move_time_s": 2023.8531236802314,
+        "switch_time_s": 116.0,
+        "measure_time_s": 595.0,
+        "clear_time_s": 92.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970004,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0266938000022492,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3198.1352764825338,
+      "avg_time_per_cleared": 228.4382340344667,
+      "measure_count": 117,
+      "clear_count": 24,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        6,
+        8,
+        11,
+        12,
+        15,
+        19
+      ],
+      "runtime_s": 0.4048256999994919,
+      "time_breakdown": {
+        "move_time_s": 2403.1352764825338,
+        "switch_time_s": 110.0,
+        "measure_time_s": 585.0,
+        "clear_time_s": 100.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970005,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.42753799999991315,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3198.1352764825338,
+      "avg_time_per_cleared": 228.4382340344667,
+      "measure_count": 117,
+      "clear_count": 24,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        6,
+        8,
+        11,
+        12,
+        15,
+        19
+      ],
+      "runtime_s": 0.2980303999975149,
+      "time_breakdown": {
+        "move_time_s": 2403.1352764825338,
+        "switch_time_s": 110.0,
+        "measure_time_s": 585.0,
+        "clear_time_s": 100.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 2301,
+        "mask_cache_misses": 91,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970005,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.321627699999226,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3185.3670879827005,
+      "avg_time_per_cleared": 227.5262205701929,
+      "measure_count": 116,
+      "clear_count": 23,
+      "clear_fail_count": 9,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        6,
+        8,
+        11,
+        12,
+        15,
+        19
+      ],
+      "runtime_s": 0.2631179999989399,
+      "time_breakdown": {
+        "move_time_s": 2398.367087982701,
+        "switch_time_s": 110.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 97.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 2301,
+        "mask_cache_misses": 91,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970005,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.28678389999913634,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3289.2210970408883,
+      "avg_time_per_cleared": 219.28140646939255,
+      "measure_count": 127,
+      "clear_count": 27,
+      "clear_fail_count": 12,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        6,
+        8,
+        9,
+        14
+      ],
+      "runtime_s": 0.7750377000011213,
+      "time_breakdown": {
+        "move_time_s": 2428.2210970408887,
+        "switch_time_s": 115.0,
+        "measure_time_s": 635.0,
+        "clear_time_s": 111.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6198,
+        "mask_cache_misses": 161,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "4": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1372.2211870614237,
+              -769.5983331034682
+            ],
+            [
+              859.4939241255938,
+              351.8219611437163
+            ],
+            [
+              531.4175357750164,
+              920.2366657113316
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1932899483643,
+              1154.8186354375728
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1372.2211870614237,
+              -769.5983331034682
+            ],
+            [
+              859.4939241255938,
+              351.8219611437163
+            ],
+            [
+              531.4175357750164,
+              920.2366657113316
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1932899483643,
+              1154.8186354375728
+            ]
+          ],
+          "8": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1372.2211870614237,
+              -769.5983331034682
+            ],
+            [
+              859.4939241255938,
+              351.8219611437163
+            ],
+            [
+              531.4175357750164,
+              920.2366657113316
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1932899483643,
+              1154.8186354375728
+            ]
+          ],
+          "9": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1372.2211870614237,
+              -769.5983331034682
+            ],
+            [
+              859.4939241255938,
+              351.8219611437163
+            ],
+            [
+              531.4175357750164,
+              920.2366657113316
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1932899483643,
+              1154.8186354375728
+            ]
+          ],
+          "14": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1372.2211870614237,
+              -769.5983331034682
+            ],
+            [
+              859.4939241255938,
+              351.8219611437163
+            ],
+            [
+              531.4175357750164,
+              920.2366657113316
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1932899483643,
+              1154.8186354375728
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.8051967999999761,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3205.9040110501314,
+      "avg_time_per_cleared": 213.72693407000875,
+      "measure_count": 121,
+      "clear_count": 29,
+      "clear_fail_count": 14,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        6,
+        8,
+        9,
+        14
+      ],
+      "runtime_s": 0.8105734999990091,
+      "time_breakdown": {
+        "move_time_s": 2376.904011050132,
+        "switch_time_s": 107.0,
+        "measure_time_s": 605.0,
+        "clear_time_s": 117.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6038,
+        "mask_cache_misses": 162,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {
+          "4": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1161.5470802467569,
+              -13.626681437365278
+            ],
+            [
+              640.0002410736886,
+              986.1333659289483
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1488005668198,
+              1154.7923056827665
+            ]
+          ],
+          "6": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1161.5470802467569,
+              -13.626681437365278
+            ],
+            [
+              640.0002410736886,
+              986.1333659289483
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1488005668198,
+              1154.7923056827665
+            ]
+          ],
+          "8": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1161.5470802467569,
+              -13.626681437365278
+            ],
+            [
+              640.0002410736886,
+              986.1333659289483
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1488005668198,
+              1154.7923056827665
+            ]
+          ],
+          "9": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1161.5470802467569,
+              -13.626681437365278
+            ],
+            [
+              640.0002410736886,
+              986.1333659289483
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1488005668198,
+              1154.7923056827665
+            ]
+          ],
+          "14": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -868.5346550887843,
+              -127.03344272959401
+            ],
+            [
+              -774.0086795496962,
+              -583.6357687943022
+            ],
+            [
+              -194.90793116969584,
+              -1465.6114735666922
+            ],
+            [
+              592.3479513987286,
+              -795.6914799993726
+            ],
+            [
+              1161.5470802467569,
+              -13.626681437365278
+            ],
+            [
+              640.0002410736886,
+              986.1333659289483
+            ],
+            [
+              -732.89693898447,
+              1233.882578004395
+            ],
+            [
+              -1286.1488005668198,
+              1154.7923056827665
+            ]
+          ]
+        }
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.8385664999987057,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3319.2210970408883,
+      "avg_time_per_cleared": 221.28140646939255,
+      "measure_count": 132,
+      "clear_count": 27,
+      "clear_fail_count": 12,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        4,
+        6,
+        8,
+        9,
+        14
+      ],
+      "runtime_s": 1.2302845999984129,
+      "time_breakdown": {
+        "move_time_s": 2428.2210970408887,
+        "switch_time_s": 120.0,
+        "measure_time_s": 660.0,
+        "clear_time_s": 111.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970006,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.2545547999980045,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2923.1216197947892,
+      "avg_time_per_cleared": 182.69510123717433,
+      "measure_count": 116,
+      "clear_count": 26,
+      "clear_fail_count": 10,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 0.46381470000051195,
+      "time_breakdown": {
+        "move_time_s": 2123.1216197947892,
+        "switch_time_s": 110.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 110.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 3927,
+        "mask_cache_misses": 132,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970007,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.4847348000002967,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2923.1216197947892,
+      "avg_time_per_cleared": 182.69510123717433,
+      "measure_count": 116,
+      "clear_count": 26,
+      "clear_fail_count": 10,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 0.7828743999998551,
+      "time_breakdown": {
+        "move_time_s": 2123.1216197947892,
+        "switch_time_s": 110.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 110.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970007,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.8098528000009537,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2897.2905726834365,
+      "avg_time_per_cleared": 181.08066079271478,
+      "measure_count": 116,
+      "clear_count": 26,
+      "clear_fail_count": 10,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [],
+      "runtime_s": 0.5317319999994652,
+      "time_breakdown": {
+        "move_time_s": 2097.2905726834356,
+        "switch_time_s": 110.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 110.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 3927,
+        "mask_cache_misses": 132,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970007,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.5575841999998374,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2931.5985823865335,
+      "avg_time_per_cleared": 293.1598582386533,
+      "measure_count": 147,
+      "clear_count": 17,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        13,
+        14,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        18
+      ],
+      "runtime_s": 0.6948735000005399,
+      "time_breakdown": {
+        "move_time_s": 1985.5985823865337,
+        "switch_time_s": 140.0,
+        "measure_time_s": 735.0,
+        "clear_time_s": 71.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 4505,
+        "mask_cache_misses": 157,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970008,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.7257085999990522,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2931.5985823865335,
+      "avg_time_per_cleared": 293.1598582386533,
+      "measure_count": 147,
+      "clear_count": 17,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        13,
+        14,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        18
+      ],
+      "runtime_s": 0.6828400999984297,
+      "time_breakdown": {
+        "move_time_s": 1985.5985823865337,
+        "switch_time_s": 140.0,
+        "measure_time_s": 735.0,
+        "clear_time_s": 71.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 4505,
+        "mask_cache_misses": 157,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970008,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 0.7215525999999954,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 10,
+      "cleared": 10,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2931.5985823865335,
+      "avg_time_per_cleared": 293.1598582386533,
+      "measure_count": 147,
+      "clear_count": 17,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        13,
+        14,
+        17,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        18
+      ],
+      "runtime_s": 1.0459310999976879,
+      "time_breakdown": {
+        "move_time_s": 1985.5985823865337,
+        "switch_time_s": 140.0,
+        "measure_time_s": 735.0,
+        "clear_time_s": 71.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970008,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0713317000008828,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3245.912666152956,
+      "avg_time_per_cleared": 295.0829696502687,
+      "measure_count": 154,
+      "clear_count": 18,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        16
+      ],
+      "runtime_s": 0.8609410000026401,
+      "time_breakdown": {
+        "move_time_s": 2258.9126661529554,
+        "switch_time_s": 141.0,
+        "measure_time_s": 770.0,
+        "clear_time_s": 76.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5535,
+        "mask_cache_misses": 242,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970009,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.8842996999992465,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3256.395299774755,
+      "avg_time_per_cleared": 296.03593634315956,
+      "measure_count": 152,
+      "clear_count": 18,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        16
+      ],
+      "runtime_s": 0.8367475000013656,
+      "time_breakdown": {
+        "move_time_s": 2279.3952997747547,
+        "switch_time_s": 141.0,
+        "measure_time_s": 760.0,
+        "clear_time_s": 76.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5332,
+        "mask_cache_misses": 237,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970009,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.8566984000026423,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 11,
+      "cleared": 11,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3245.912666152956,
+      "avg_time_per_cleared": 295.0829696502687,
+      "measure_count": 154,
+      "clear_count": 18,
+      "clear_fail_count": 7,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        16
+      ],
+      "runtime_s": 1.2394518000000971,
+      "time_breakdown": {
+        "move_time_s": 2258.9126661529554,
+        "switch_time_s": 141.0,
+        "measure_time_s": 770.0,
+        "clear_time_s": 76.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970009,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.2626392000020132,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3243.6842938379036,
+      "avg_time_per_cleared": 270.30702448649197,
+      "measure_count": 139,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        6,
+        7,
+        8,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        4,
+        5,
+        9,
+        10,
+        12,
+        16
+      ],
+      "runtime_s": 0.8891307999983837,
+      "time_breakdown": {
+        "move_time_s": 2332.6842938379045,
+        "switch_time_s": 132.0,
+        "measure_time_s": 695.0,
+        "clear_time_s": 84.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6987,
+        "mask_cache_misses": 202,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.9167760999989696,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3254.7654521047866,
+      "avg_time_per_cleared": 271.23045434206557,
+      "measure_count": 140,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        6,
+        7,
+        8,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        4,
+        5,
+        9,
+        10,
+        12,
+        16
+      ],
+      "runtime_s": 0.8583853999989515,
+      "time_breakdown": {
+        "move_time_s": 2338.765452104788,
+        "switch_time_s": 132.0,
+        "measure_time_s": 700.0,
+        "clear_time_s": 84.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 6987,
+        "mask_cache_misses": 202,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.8867243999993661,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2788.329077655449,
+      "avg_time_per_cleared": 214.48685212734225,
+      "measure_count": 129,
+      "clear_count": 21,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        14,
+        19
+      ],
+      "runtime_s": 0.3261928000029002,
+      "time_breakdown": {
+        "move_time_s": 1930.3290776554486,
+        "switch_time_s": 124.0,
+        "measure_time_s": 645.0,
+        "clear_time_s": 89.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970011,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.347194900001341,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 12,
+      "cleared": 12,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3243.6842938379036,
+      "avg_time_per_cleared": 270.30702448649197,
+      "measure_count": 139,
+      "clear_count": 20,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        6,
+        7,
+        8,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        1,
+        3,
+        4,
+        5,
+        9,
+        10,
+        12,
+        16
+      ],
+      "runtime_s": 1.3416992999991635,
+      "time_breakdown": {
+        "move_time_s": 2332.6842938379045,
+        "switch_time_s": 132.0,
+        "measure_time_s": 695.0,
+        "clear_time_s": 84.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970010,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.3621692000015173,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2788.329077655449,
+      "avg_time_per_cleared": 214.48685212734225,
+      "measure_count": 129,
+      "clear_count": 21,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        14,
+        19
+      ],
+      "runtime_s": 0.2393311999985599,
+      "time_breakdown": {
+        "move_time_s": 1930.3290776554486,
+        "switch_time_s": 124.0,
+        "measure_time_s": 645.0,
+        "clear_time_s": 89.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 1966,
+        "mask_cache_misses": 66,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970011,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.2657545999973081,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 13,
+      "cleared": 13,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2795.4825140739645,
+      "avg_time_per_cleared": 215.03711646722803,
+      "measure_count": 129,
+      "clear_count": 21,
+      "clear_fail_count": 8,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        14,
+        19
+      ],
+      "runtime_s": 0.2046730000001844,
+      "time_breakdown": {
+        "move_time_s": 1937.4825140739642,
+        "switch_time_s": 124.0,
+        "measure_time_s": 645.0,
+        "clear_time_s": 89.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 1966,
+        "mask_cache_misses": 66,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970011,
+      "error_mode": "edge",
+      "dir_frac": 0.75,
+      "error": null,
+      "wall_s": 0.22628509999776725,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2813.8844692634793,
+      "avg_time_per_cleared": 200.99174780453424,
+      "measure_count": 116,
+      "clear_count": 24,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        5,
+        9,
+        14,
+        15,
+        20
+      ],
+      "runtime_s": 0.9881056999984139,
+      "time_breakdown": {
+        "move_time_s": 2025.8844692634793,
+        "switch_time_s": 108.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 100.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7554,
+        "mask_cache_misses": 201,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970012,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0160690999982762,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2813.8844692634793,
+      "avg_time_per_cleared": 200.99174780453424,
+      "measure_count": 116,
+      "clear_count": 24,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        5,
+        9,
+        14,
+        15,
+        20
+      ],
+      "runtime_s": 0.9767987000013818,
+      "time_breakdown": {
+        "move_time_s": 2025.8844692634793,
+        "switch_time_s": 108.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 100.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 7554,
+        "mask_cache_misses": 201,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970012,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.0025336000035168,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 14,
+      "cleared": 14,
+      "clear_rate": 1.0,
+      "virtual_time_s": 2813.8844692634793,
+      "avg_time_per_cleared": 200.99174780453424,
+      "measure_count": 116,
+      "clear_count": 24,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        18,
+        19
+      ],
+      "absent_channels": [
+        2,
+        5,
+        9,
+        14,
+        15,
+        20
+      ],
+      "runtime_s": 1.5076312999990478,
+      "time_breakdown": {
+        "move_time_s": 2025.8844692634793,
+        "switch_time_s": 108.0,
+        "measure_time_s": 580.0,
+        "clear_time_s": 100.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970012,
+      "error_mode": "edge",
+      "dir_frac": 1.0,
+      "error": null,
+      "wall_s": 1.5317521999968449,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3242.189255206336,
+      "avg_time_per_cleared": 216.14595034708907,
+      "measure_count": 118,
+      "clear_count": 26,
+      "clear_fail_count": 11,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        10,
+        12,
+        16,
+        19
+      ],
+      "runtime_s": 0.6315065000017057,
+      "time_breakdown": {
+        "move_time_s": 2429.189255206336,
+        "switch_time_s": 115.0,
+        "measure_time_s": 590.0,
+        "clear_time_s": 108.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5388,
+        "mask_cache_misses": 168,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970013,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.652745600000344,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3242.189255206336,
+      "avg_time_per_cleared": 216.14595034708907,
+      "measure_count": 118,
+      "clear_count": 26,
+      "clear_fail_count": 11,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        10,
+        12,
+        16,
+        19
+      ],
+      "runtime_s": 1.0832320999979856,
+      "time_breakdown": {
+        "move_time_s": 2429.189255206336,
+        "switch_time_s": 115.0,
+        "measure_time_s": 590.0,
+        "clear_time_s": 108.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970013,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 1.1046939000007114,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 15,
+      "cleared": 15,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3220.085929200845,
+      "avg_time_per_cleared": 214.67239528005632,
+      "measure_count": 118,
+      "clear_count": 25,
+      "clear_fail_count": 10,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "coverage_complete": true,
+      "cleared_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        20
+      ],
+      "absent_channels": [
+        1,
+        10,
+        12,
+        16,
+        19
+      ],
+      "runtime_s": 0.7105878000002122,
+      "time_breakdown": {
+        "move_time_s": 2411.085929200845,
+        "switch_time_s": 114.0,
+        "measure_time_s": 590.0,
+        "clear_time_s": 105.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5387,
+        "mask_cache_misses": 169,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970013,
+      "error_mode": "edge",
+      "dir_frac": 0.25,
+      "error": null,
+      "wall_s": 0.7319294000008085,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3315.5398603731337,
+      "avg_time_per_cleared": 207.22124127332086,
+      "measure_count": 109,
+      "clear_count": 27,
+      "clear_fail_count": 11,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        5,
+        9,
+        14,
+        16
+      ],
+      "runtime_s": 0.571154999997816,
+      "time_breakdown": {
+        "move_time_s": 2555.5398603731333,
+        "switch_time_s": 102.0,
+        "measure_time_s": 545.0,
+        "clear_time_s": 113.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5454,
+        "mask_cache_misses": 117,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "cover",
+      "seed": 970014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.5989853999999468,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3315.5398603731337,
+      "avg_time_per_cleared": 207.22124127332086,
+      "measure_count": 109,
+      "clear_count": 27,
+      "clear_fail_count": 11,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        5,
+        9,
+        14,
+        16
+      ],
+      "runtime_s": 0.9906544999976177,
+      "time_breakdown": {
+        "move_time_s": 2555.5398603731333,
+        "switch_time_s": 102.0,
+        "measure_time_s": 545.0,
+        "clear_time_s": 113.0
+      },
+      "problem": 3,
+      "variant": "scan",
+      "seed": 970014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 1.0145795000025828,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    },
+    {
+      "N": 16,
+      "cleared": 16,
+      "clear_rate": 1.0,
+      "virtual_time_s": 3321.9933531791357,
+      "avg_time_per_cleared": 207.62458457369598,
+      "measure_count": 111,
+      "clear_count": 26,
+      "clear_fail_count": 10,
+      "stop_reason": "cleared_maximum_16",
+      "coverage_complete": true,
+      "cleared_channels": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "absent_channels": [
+        5,
+        9,
+        14,
+        16
+      ],
+      "runtime_s": 0.5607333000007202,
+      "time_breakdown": {
+        "move_time_s": 2555.9933531791357,
+        "switch_time_s": 101.0,
+        "measure_time_s": 555.0,
+        "clear_time_s": 110.0
+      },
+      "policy_diagnostics": {
+        "mask_cache_hits": 5185,
+        "mask_cache_misses": 118,
+        "coverage_certificate_method": "outer-target128 covered by union of inner-exclusion128, 0.01m margins",
+        "coverage_certificates": {}
+      },
+      "problem": 3,
+      "variant": "hop",
+      "seed": 970014,
+      "error_mode": "edge",
+      "dir_frac": 0.5,
+      "error": null,
+      "wall_s": 0.5898748999970849,
+      "evaluation": "offline_practice_not_official_simulator",
+      "full_clear": true
+    }
+  ]
+}

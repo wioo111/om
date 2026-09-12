@@ -1,0 +1,79 @@
+问题3演练：等待接口开放（最长30秒）；请勿切换会话。
+已确认演练，机器狗开始自动执行。
+[strategy] Q1 v4 算法源 = inline: problem1_v4_inline.py
+PRACTICE_ONLY 3 None FastScanP3
+{"action": 1, "path": "/enter", "virtual_time_s": 0, "result": null}
+{"action": 56, "path": "/clear", "virtual_time_s": 663.542778, "result": "success"}
+{"action": 59, "path": "/clear", "virtual_time_s": 857.972946, "result": "success"}
+{"action": 73, "path": "/clear", "virtual_time_s": 1241.738758, "result": "success"}
+{"action": 100, "path": "/measure", "virtual_time_s": 1564.238997, "result": null}
+{"action": 103, "path": "/clear", "virtual_time_s": 1768.89751, "result": "no_target_in_range"}
+{"action": 105, "path": "/clear", "virtual_time_s": 1780.858444, "result": "success"}
+{"action": 118, "path": "/clear", "virtual_time_s": 2039.799775, "result": "success"}
+{"action": 133, "path": "/clear", "virtual_time_s": 2382.2943, "result": "success"}
+{"action": 145, "path": "/clear", "virtual_time_s": 2644.898898, "result": "success"}
+{"action": 146, "path": "/clear", "virtual_time_s": 2771.819045, "result": "success"}
+{"action": 148, "path": "/clear", "virtual_time_s": 3061.652098, "result": "success"}
+{"action": 161, "path": "/clear", "virtual_time_s": 3329.589667, "result": "success"}
+{
+  "cleared": 10,
+  "virtual_time_s": 3329.589667,
+  "avg_time_per_cleared": 332.9589667,
+  "measure_count": 149,
+  "clear_count": 11,
+  "clear_fail_count": 1,
+  "stop_reason": "all_channels_cleared_or_covered",
+  "coverage_complete": true,
+  "cleared_channels": [
+    1,
+    2,
+    5,
+    9,
+    10,
+    11,
+    12,
+    16,
+    17,
+    18
+  ],
+  "absent_channels": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    13,
+    14,
+    15,
+    19,
+    20
+  ],
+  "runtime_s": 2.8752673999988474,
+  "time_breakdown": {
+    "move_time_s": 2387.5896698967476,
+    "switch_time_s": 144.0,
+    "measure_time_s": 745.0,
+    "clear_time_s": 53.0
+  },
+  "mode": "practice",
+  "problem": 3,
+  "case": "6HWE-EWV9-ZEZ7-JVVB",
+  "strategy": "FastScanP3",
+  "distance_m": 11937.948349483739,
+  "simulator_summary": {
+    "problem_no": 3,
+    "case_code": "6HWE-EWV9-ZEZ7-JVVB",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 10,
+    "jammer_count": 10,
+    "measure_accepted_count": 149,
+    "virtual_time_us": 3329589667,
+    "clear_failure_count": 1
+  },
+  "actual_problem": 3
+}
+RUN_FOLDER C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_040426_014672_p3_FastScanP3
+
+本局结束：清除10个；虚拟耗时3329.59秒。
+模拟器确认：10/10。
+完整结果：C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\演练调试\results\20260913_040426_014672_p3_FastScanP3
