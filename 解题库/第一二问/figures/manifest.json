@@ -1,0 +1,145 @@
+[
+  {
+    "stem": "q1_01_geometry",
+    "caption": "典型定位多边形的直径由最远顶点对给出；本例直径圆覆盖区域。",
+    "source": "q1_summary.json:examples.typical",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q1_02_jung_tight",
+    "caption": "三次有效测向产生的等边三角形，D=30米，最小包围圆半径为10√3米。",
+    "source": "q1_summary.json:examples.equilateral_tight",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q1_03_two_station",
+    "caption": "本例 q=sec(1°)>1，证明“两次测向一定覆盖”不成立；图为局部纵向放大，横纵轴比例不等。",
+    "source": "q1_summary.json:examples.two_station_counterexample",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q1_04_diameter_vs_n",
+    "caption": "200个共享场景、每场最多12个检测点。n=2有1个无界交会区域，图中分位数仅对应有界区域。",
+    "source": "q1_summary.json:summary",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q1_05_error_sensitivity",
+    "caption": "仅扩大误差区间，固定同一组零误差观测。区域包含关系保证直径不减。",
+    "source": "q1_summary.json:eps_sensitivity",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q1_06_disk_bracket",
+    "caption": "圆约束只属于辅助先验区域。内外集合包含关系给出直径夹逼，未把单圆径向误差直接当成交集直径误差。",
+    "source": "q1_summary.json:disk_brackets",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_01_safe_region",
+    "caption": "四个半径1000米的圆盘交集是完整未截断扇形的必要且充分接收安全区，搜索不受Ω或移动距离1000米的错误限制。",
+    "source": "analytic four-disk theorem; policy constants",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_02_candidate_region",
+    "caption": "阴影内所有点都满足接收保证和J≤1.2D*，不是离散网格点的集合。下方对称候选区由镜像获得。",
+    "source": "global_certificate.json:candidate_region",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_03_worst_case",
+    "caption": "两个候选源产生完全相同的两次示向度，给出物理可实现的全局下界；上界证明在同一观测处达到等号。",
+    "source": "q2_summary.json:worst_case",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_04_continuous_certificate",
+    "caption": "63个闭区间覆盖解析活动区间以外的全部示向度；活动区间内用导数符号和顶点对比较证明精确最大值。",
+    "source": "global_certificate.json:all_other_headings",
+    "main": true,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_05_quadratic_root",
+    "caption": "二次方程的小根由未平方方程的正号条件筛选；Q(t*)=0给出整个连续可行域的统一下界。",
+    "source": "analytic coefficients; policy constants",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_06_empirical_cdf",
+    "caption": "同批1500个场景。CDF仅显示有后验的观测；失败案例完整保存在原始CSV，并在下一图单独报告。",
+    "source": "q2_paired_samples.csv",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  },
+  {
+    "stem": "q2_07_failure_rate",
+    "caption": "所有策略均使用1500个场景，未删除无信号样本。理论接收保证与有限样本中零失败严格区分。",
+    "source": "q2_summary.json:summary",
+    "main": false,
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  }
+]

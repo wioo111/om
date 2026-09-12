@@ -1,0 +1,497 @@
+{
+  "seed": 2026091302,
+  "N_scenarios": 1500,
+  "N_evaluations": 6000,
+  "sampling": "G uniform in Omega and R uniform [1000,1500], conditioned on first direction; distinct-site errors independently uniform for this experiment only",
+  "constants": {
+    "t_star": 1401.2407183683406,
+    "diameter_star": 110.96931857283832,
+    "lower_x": 833.3855717209093,
+    "lower_y": 560.1583209813296,
+    "local_x": 843.034753748735,
+    "local_y": 545.5284224392151
+  },
+  "summary": [
+    {
+      "pose": "all",
+      "strategy": "minimax",
+      "N": 1500,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 1500,
+      "mean_D_among_valid": 50.63579155180337,
+      "median_D_among_valid": 44.68995017701927,
+      "p95_D_among_valid": 86.99467616528923,
+      "max_D_among_valid": 110.93574866739053,
+      "optical_guarantee_rate": 0.3373333333333333
+    },
+    {
+      "pose": "all",
+      "strategy": "along_750",
+      "N": 1500,
+      "no_signal": 0,
+      "near": 8,
+      "n_valid": 1500,
+      "mean_D_among_valid": 571.2738819029888,
+      "median_D_among_valid": 740.002819388191,
+      "p95_D_among_valid": 745.2511949673742,
+      "max_D_among_valid": 745.2516792439015,
+      "optical_guarantee_rate": 0.04133333333333333
+    },
+    {
+      "pose": "all",
+      "strategy": "perpendicular_1000",
+      "N": 1500,
+      "no_signal": 921,
+      "near": 0,
+      "n_valid": 579,
+      "mean_D_among_valid": 66.43458643876306,
+      "median_D_among_valid": 62.30534236757486,
+      "p95_D_among_valid": 105.57863512685852,
+      "max_D_among_valid": 116.08129914850666,
+      "optical_guarantee_rate": 0.03933333333333333
+    },
+    {
+      "pose": "all",
+      "strategy": "random_omega",
+      "N": 1500,
+      "no_signal": 879,
+      "near": 0,
+      "n_valid": 621,
+      "mean_D_among_valid": 144.6713055513461,
+      "median_D_among_valid": 75.61784678437584,
+      "p95_D_among_valid": 612.0144135104837,
+      "max_D_among_valid": 1439.9155166951496,
+      "optical_guarantee_rate": 0.042
+    },
+    {
+      "pose": "center",
+      "strategy": "minimax",
+      "N": 1000,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 1000,
+      "mean_D_among_valid": 50.742077830253635,
+      "median_D_among_valid": 44.81046904091269,
+      "p95_D_among_valid": 87.28419733361497,
+      "max_D_among_valid": 110.93574866739053,
+      "optical_guarantee_rate": 0.327
+    },
+    {
+      "pose": "center",
+      "strategy": "along_750",
+      "N": 1000,
+      "no_signal": 0,
+      "near": 6,
+      "n_valid": 1000,
+      "mean_D_among_valid": 583.463256172364,
+      "median_D_among_valid": 740.0033676885419,
+      "p95_D_among_valid": 745.2512390281111,
+      "max_D_among_valid": 745.2516792439015,
+      "optical_guarantee_rate": 0.045
+    },
+    {
+      "pose": "center",
+      "strategy": "perpendicular_1000",
+      "N": 1000,
+      "no_signal": 624,
+      "near": 0,
+      "n_valid": 376,
+      "mean_D_among_valid": 67.69972822484146,
+      "median_D_among_valid": 63.942044285354925,
+      "p95_D_among_valid": 108.3693737843404,
+      "max_D_among_valid": 115.83685086415093,
+      "optical_guarantee_rate": 0.041
+    },
+    {
+      "pose": "center",
+      "strategy": "random_omega",
+      "N": 1000,
+      "no_signal": 555,
+      "near": 0,
+      "n_valid": 445,
+      "mean_D_among_valid": 139.86678597406683,
+      "median_D_among_valid": 73.60282625573038,
+      "p95_D_among_valid": 606.1611319812532,
+      "max_D_among_valid": 1439.9155166951496,
+      "optical_guarantee_rate": 0.048
+    },
+    {
+      "pose": "offset",
+      "strategy": "minimax",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 48.2603651767354,
+      "median_D_among_valid": 44.16371593930924,
+      "p95_D_among_valid": 79.66420342156063,
+      "max_D_among_valid": 93.98497053389511,
+      "optical_guarantee_rate": 0.33
+    },
+    {
+      "pose": "offset",
+      "strategy": "along_750",
+      "N": 100,
+      "no_signal": 0,
+      "near": 1,
+      "n_valid": 100,
+      "mean_D_among_valid": 552.8619840311474,
+      "median_D_among_valid": 740.0020617603113,
+      "p95_D_among_valid": 745.2510738155175,
+      "max_D_among_valid": 745.2515550900949,
+      "optical_guarantee_rate": 0.04
+    },
+    {
+      "pose": "offset",
+      "strategy": "perpendicular_1000",
+      "N": 100,
+      "no_signal": 66,
+      "near": 0,
+      "n_valid": 34,
+      "mean_D_among_valid": 59.64250825104132,
+      "median_D_among_valid": 54.037961376128166,
+      "p95_D_among_valid": 92.85017602432565,
+      "max_D_among_valid": 98.90081061130486,
+      "optical_guarantee_rate": 0.03
+    },
+    {
+      "pose": "offset",
+      "strategy": "random_omega",
+      "N": 100,
+      "no_signal": 63,
+      "near": 0,
+      "n_valid": 37,
+      "mean_D_among_valid": 151.2228732539737,
+      "median_D_among_valid": 90.34822971464848,
+      "p95_D_among_valid": 500.98905138848585,
+      "max_D_among_valid": 1255.7443205702098,
+      "optical_guarantee_rate": 0.05
+    },
+    {
+      "pose": "edge",
+      "strategy": "minimax",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 52.90344889022149,
+      "median_D_among_valid": 44.47136942016466,
+      "p95_D_among_valid": 89.03358688705019,
+      "max_D_among_valid": 109.03990637977648,
+      "optical_guarantee_rate": 0.38
+    },
+    {
+      "pose": "edge",
+      "strategy": "along_750",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 567.5782819922225,
+      "median_D_among_valid": 740.0025995755975,
+      "p95_D_among_valid": 745.2509314963829,
+      "max_D_among_valid": 745.2512940433726,
+      "optical_guarantee_rate": 0.01
+    },
+    {
+      "pose": "edge",
+      "strategy": "perpendicular_1000",
+      "N": 100,
+      "no_signal": 63,
+      "near": 0,
+      "n_valid": 37,
+      "mean_D_among_valid": 68.68482297136376,
+      "median_D_among_valid": 64.73460117801774,
+      "p95_D_among_valid": 100.99338584610182,
+      "max_D_among_valid": 107.83219927274779,
+      "optical_guarantee_rate": 0.03
+    },
+    {
+      "pose": "edge",
+      "strategy": "random_omega",
+      "N": 100,
+      "no_signal": 59,
+      "near": 0,
+      "n_valid": 41,
+      "mean_D_among_valid": 166.65736881555438,
+      "median_D_among_valid": 87.84921826466326,
+      "p95_D_among_valid": 523.2368665580445,
+      "max_D_among_valid": 973.0497585574808,
+      "optical_guarantee_rate": 0.02
+    },
+    {
+      "pose": "external",
+      "strategy": "minimax",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 52.194900721222865,
+      "median_D_among_valid": 43.37901695441364,
+      "p95_D_among_valid": 88.33962395293743,
+      "max_D_among_valid": 104.58438984099222,
+      "optical_guarantee_rate": 0.36
+    },
+    {
+      "pose": "external",
+      "strategy": "along_750",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 546.6068885721775,
+      "median_D_among_valid": 745.1008796518483,
+      "p95_D_among_valid": 745.2511168534231,
+      "max_D_among_valid": 745.2516000567674,
+      "optical_guarantee_rate": 0.03
+    },
+    {
+      "pose": "external",
+      "strategy": "perpendicular_1000",
+      "N": 100,
+      "no_signal": 67,
+      "near": 0,
+      "n_valid": 33,
+      "mean_D_among_valid": 76.84871048735643,
+      "median_D_among_valid": 71.91609036953042,
+      "p95_D_among_valid": 106.97745316614571,
+      "max_D_among_valid": 116.08129914850666,
+      "optical_guarantee_rate": 0.0
+    },
+    {
+      "pose": "external",
+      "strategy": "random_omega",
+      "N": 100,
+      "no_signal": 66,
+      "near": 0,
+      "n_valid": 34,
+      "mean_D_among_valid": 144.92310017827845,
+      "median_D_among_valid": 84.30307306639432,
+      "p95_D_among_valid": 436.21495466477893,
+      "max_D_among_valid": 771.1529029202661,
+      "optical_guarantee_rate": 0.01
+    },
+    {
+      "pose": "north",
+      "strategy": "minimax",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 51.1209483990626,
+      "median_D_among_valid": 46.903124303315984,
+      "p95_D_among_valid": 84.4585545827527,
+      "max_D_among_valid": 110.03212963033599,
+      "optical_guarantee_rate": 0.39
+    },
+    {
+      "pose": "north",
+      "strategy": "along_750",
+      "N": 100,
+      "no_signal": 0,
+      "near": 1,
+      "n_valid": 100,
+      "mean_D_among_valid": 541.1312474918744,
+      "median_D_among_valid": 740.0020481050192,
+      "p95_D_among_valid": 745.2508975373023,
+      "max_D_among_valid": 745.2515819167124,
+      "optical_guarantee_rate": 0.06
+    },
+    {
+      "pose": "north",
+      "strategy": "perpendicular_1000",
+      "N": 100,
+      "no_signal": 53,
+      "near": 0,
+      "n_valid": 47,
+      "mean_D_among_valid": 59.54370608096661,
+      "median_D_among_valid": 58.82324155455942,
+      "p95_D_among_valid": 92.42907136426582,
+      "max_D_among_valid": 104.88163201614799,
+      "optical_guarantee_rate": 0.06
+    },
+    {
+      "pose": "north",
+      "strategy": "random_omega",
+      "N": 100,
+      "no_signal": 72,
+      "near": 0,
+      "n_valid": 28,
+      "mean_D_among_valid": 132.6851737581992,
+      "median_D_among_valid": 77.35293342232501,
+      "p95_D_among_valid": 253.80837471029338,
+      "max_D_among_valid": 1033.0681240727938,
+      "optical_guarantee_rate": 0.03
+    },
+    {
+      "pose": "oblique",
+      "strategy": "minimax",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 47.636431787272016,
+      "median_D_among_valid": 43.03041282926179,
+      "p95_D_among_valid": 71.73511884159481,
+      "max_D_among_valid": 92.51439688477782,
+      "optical_guarantee_rate": 0.33
+    },
+    {
+      "pose": "oblique",
+      "strategy": "along_750",
+      "N": 100,
+      "no_signal": 0,
+      "near": 0,
+      "n_valid": 100,
+      "mean_D_among_valid": 526.2972647337702,
+      "median_D_among_valid": 627.2473326572753,
+      "p95_D_among_valid": 745.2503343951843,
+      "max_D_among_valid": 745.251632220656,
+      "optical_guarantee_rate": 0.03
+    },
+    {
+      "pose": "oblique",
+      "strategy": "perpendicular_1000",
+      "N": 100,
+      "no_signal": 48,
+      "near": 0,
+      "n_valid": 52,
+      "mean_D_among_valid": 59.7458148680647,
+      "median_D_among_valid": 58.29853566105836,
+      "p95_D_among_valid": 92.60412621078002,
+      "max_D_among_valid": 111.84934131511937,
+      "optical_guarantee_rate": 0.06
+    },
+    {
+      "pose": "oblique",
+      "strategy": "random_omega",
+      "N": 100,
+      "no_signal": 64,
+      "near": 0,
+      "n_valid": 36,
+      "mean_D_among_valid": 181.37200793889994,
+      "median_D_among_valid": 69.08857206418904,
+      "p95_D_among_valid": 730.5289927508919,
+      "max_D_among_valid": 970.247728201976,
+      "optical_guarantee_rate": 0.04
+    }
+  ],
+  "worst_case": {
+    "S1": [
+      0,
+      0
+    ],
+    "bearing1": 0,
+    "S2": [
+      843.034753748735,
+      545.5284224392151
+    ],
+    "G": [
+      1499.771542734587,
+      -26.178609655925268
+    ],
+    "q": [
+      1401.0273026198713,
+      24.4550225334354
+    ],
+    "e1": 1,
+    "e2": -1,
+    "bearing2": -42.04044728850816,
+    "R_true": 1500,
+    "posterior": {
+      "lower_m": 110.96924283388924,
+      "upper_m": 110.96931858395041,
+      "outer_metrics": {
+        "status": "bounded",
+        "D": 110.96931858395041,
+        "radius": 55.484659291975206,
+        "q": 1.0,
+        "mec_center": [
+          1450.3994226774662,
+          -0.8617935613359804
+        ],
+        "A": [
+          1401.0273026148923,
+          24.455022535348792
+        ],
+        "B": [
+          1499.77154274004,
+          -26.178609658020758
+        ],
+        "diameter_circle_center": [
+          1450.3994226774662,
+          -0.8617935613359826
+        ],
+        "off": 0.0,
+        "diameter_circle_covers": true,
+        "area": 2150.9960805520786,
+        "vertices": [
+          [
+            1401.0273026148923,
+            24.455022535348792
+          ],
+          [
+            1454.4003657482579,
+            -25.386652817759547
+          ],
+          [
+            1499.77154274004,
+            -26.178609658020758
+          ],
+          [
+            1440.8095117683743,
+            25.149423579110753
+          ]
+        ]
+      },
+      "inner_metrics": {
+        "status": "bounded",
+        "D": 110.96924283388924,
+        "radius": 55.48462141694473,
+        "q": 1.000000000000002,
+        "mec_center": [
+          1450.3993807884744,
+          -0.8617928258152183
+        ],
+        "A": [
+          1401.0273028638571,
+          24.455022439679258
+        ],
+        "B": [
+          1499.771458713092,
+          -26.17860809130969
+        ],
+        "diameter_circle_center": [
+          1450.3993807884744,
+          -0.8617928258152165
+        ],
+        "off": 1.0658141036401503e-13,
+        "diameter_circle_covers": true,
+        "area": 2150.9960569125014,
+        "vertices": [
+          [
+            1401.0273028638571,
+            24.455022439679258
+          ],
+          [
+            1454.400365788424,
+            -25.38665271844542
+          ],
+          [
+            1499.771458713092,
+            -26.17860809130969
+          ],
+          [
+            1499.7714599545618,
+            -26.178537723618717
+          ],
+          [
+            1440.8095117316984,
+            25.14942347845534
+          ]
+        ]
+      }
+    }
+  }
+}

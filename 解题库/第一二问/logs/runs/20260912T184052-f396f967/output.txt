@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\build_paper.py", line 161, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\build_paper.py", line 100, in main
+    if len(displays)!=len(blocks):raise RuntimeError('Equation count mismatch in DOCX conversion')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Equation count mismatch in DOCX conversion
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 40, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 23, in main
+    run({'experiments':'experiments.py','figures':'plot_figures.py','paper':'build_paper.py','verify':'verify_delivery.py'}[a.cmd]);return
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Desktop\CUMCM2026Problems\解题库\第一二问\run.py", line 16, in run
+    subprocess.run([sys.executable,str(ROOT/file),*extra],cwd=ROOT,check=True,env=env)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_Local\Python313\Lib\subprocess.py", line 579, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['C:\\Users\\LENOVO\\.cache\\cumcm-q12-venv\\Scripts\\python.exe', 'C:\\Users\\LENOVO\\Desktop\\CUMCM2026Problems\\解题库\\第一二问\\build_paper.py']' returned non-zero exit status 1.

@@ -13,6 +13,14 @@ r"""问题一 v5 —— 全部正式插图（一键重生成，禁止手工改�
 """
 from __future__ import annotations
 
+# Historical implementation below is retained for import compatibility only.
+# Direct execution delegates to the single formal Q1/Q2 implementation.
+if __name__ == '__main__':
+    from pathlib import Path as _Path
+    import subprocess as _subprocess
+    import sys as _sys
+    raise SystemExit(_subprocess.call([_sys.executable, str(_Path(__file__).resolve().parents[2] / '第一二问' / 'run.py'), 'figures', *_sys.argv[1:]]))
+
 import csv
 import json
 import math

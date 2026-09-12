@@ -1,0 +1,84 @@
+{
+  "branch": {
+    "argv": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "exit_code": 0,
+    "stdout": "main\n",
+    "stderr": ""
+  },
+  "status": {
+    "argv": [
+      "git",
+      "-c",
+      "core.quotepath=false",
+      "status",
+      "--short"
+    ],
+    "exit_code": 0,
+    "stdout": " M 解题库/README_v5.md\n M 解题库/完整论文/论文_第一二问.md\n M 解题库/第一问/v5/plot_figures.py\n M 解题库/第一问/v5/run_experiments.py\n M 解题库/第一问/v5/verify_problem1_v5.py\n M 解题库/第二问/v5/plot_figures.py\n M 解题库/第二问/v5/run_experiments.py\n M 解题库/第二问/v5/verify_problem2_v5.py\n?? .gitignore\n?? CUMCM_Q1Q2_COMPLETE.zip\n?? README.md\n?? run.py\n?? 解题库/完整论文/build_paper.py\n?? 解题库/完整论文/论文_第一二问.docx\n?? 解题库/完整论文/论文_第一二问.pdf\n?? 解题库/完整论文/论文_第一二问.tex\n?? 解题库/第一二问/\n?? 解题库/第一问/README.md\n?? 解题库/第一问/run.py\n?? 解题库/第二问/README.md\n?? 解题库/第二问/run.py\n?? 解题库/第四问/v6/results/p4_local_20260913_005453.json\n",
+    "stderr": ""
+  },
+  "diff_stat": {
+    "argv": [
+      "git",
+      "-c",
+      "core.quotepath=false",
+      "diff",
+      "--stat"
+    ],
+    "exit_code": 0,
+    "stdout": " 解题库/README_v5.md                    |   4 +-\n 解题库/完整论文/论文_第一二问.md       | 773 ++++++++++++++++-----------------\n 解题库/第一问/v5/plot_figures.py       |   8 +\n 解题库/第一问/v5/run_experiments.py    |   8 +\n 解题库/第一问/v5/verify_problem1_v5.py |   8 +\n 解题库/第二问/v5/plot_figures.py       |   8 +\n 解题库/第二问/v5/run_experiments.py    |   8 +\n 解题库/第二问/v5/verify_problem2_v5.py |   8 +\n 8 files changed, 422 insertions(+), 403 deletions(-)\n",
+    "stderr": "warning: in the working copy of '解题库/README_v5.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/plot_figures.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/run_experiments.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/verify_problem1_v5.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/plot_figures.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/run_experiments.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/verify_problem2_v5.py', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "diff_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of '解题库/README_v5.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/plot_figures.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/run_experiments.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第一问/v5/verify_problem1_v5.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/plot_figures.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/run_experiments.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of '解题库/第二问/v5/verify_problem2_v5.py', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "protected_diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--",
+      "解题库/第三问",
+      "解题库/第四问"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "untracked": {
+    "argv": [
+      "git",
+      "-c",
+      "core.quotepath=false",
+      "ls-files",
+      "--others",
+      "--exclude-standard"
+    ],
+    "exit_code": 0,
+    "stdout": ".gitignore\nCUMCM_Q1Q2_COMPLETE.zip\nREADME.md\nrun.py\n解题库/完整论文/build_paper.py\n解题库/完整论文/论文_第一二问.docx\n解题库/完整论文/论文_第一二问.pdf\n解题库/完整论文/论文_第一二问.tex\n解题库/第一二问/MERGE_REPORT.md\n解题库/第一二问/README.md\n解题库/第一二问/SOURCE_MANIFEST.json\n解题库/第一二问/audit/ACCEPTANCE.json\n解题库/第一二问/audit/ENVIRONMENT.json\n解题库/第一二问/audit/document_review.json\n解题库/第一二问/audit/git_diff_stat.txt\n解题库/第一二问/audit/git_state.json\n解题库/第一二问/audit/latest_experiments.json\n解题库/第一二问/audit/latest_figures.json\n解题库/第一二问/audit/latest_paper.json\n解题库/第一二问/audit/latest_prove.json\n解题库/第一二问/audit/latest_q1.json\n解题库/第一二问/audit/latest_q2.json\n解题库/第一二问/audit/latest_test.json\n解题库/第一二问/audit/latest_verify.json\n解题库/第一二问/audit/protected_questions.json\n解题库/第一二问/audit/untracked_files.txt\n解题库/第一二问/build_paper.py\n解题库/第一二问/evidence.py\n解题库/第一二问/examples/q1_cases.json\n解题库/第一二问/examples/q1_observations.json\n解题库/第一二问/experiments.py\n解题库/第一二问/figures/manifest.json\n解题库/第一二问/figures/q1_01_geometry.pdf\n解题库/第一二问/figures/q1_01_geometry.png\n解题库/第一二问/figures/q1_01_geometry.svg\n解题库/第一二问/figures/q1_02_jung_tight.pdf\n解题库/第一二问/figures/q1_02_jung_tight.png\n解题库/第一二问/figures/q1_02_jung_tight.svg\n解题库/第一二问/figures/q1_03_two_station.pdf\n解题库/第一二问/figures/q1_03_two_station.png\n解题库/第一二问/figures/q1_03_two_station.svg\n解题库/第一二问/figures/q1_04_diameter_vs_n.pdf\n解题库/第一二问/figures/q1_04_diameter_vs_n.png\n解题库/第一二问/figures/q1_04_diameter_vs_n.svg\n解题库/第一二问/figures/q1_05_error_sensitivity.pdf\n解题库/第一二问/figures/q1_05_error_sensitivity.png\n解题库/第一二问/figures/q1_05_error_sensitivity.svg\n解题库/第一二问/figures/q1_06_disk_bracket.pdf\n解题库/第一二问/figures/q1_06_disk_bracket.png\n解题库/第一二问/figures/q1_06_disk_bracket.svg\n解题库/第一二问/figures/q2_01_safe_region.pdf\n解题库/第一二问/figures/q2_01_safe_region.png\n解题库/第一二问/figures/q2_01_safe_region.svg\n解题库/第一二问/figures/q2_02_candidate_region.pdf\n解题库/第一二问/figures/q2_02_candidate_region.png\n解题库/第一二问/figures/q2_02_candidate_region.svg\n解题库/第一二问/figures/q2_03_worst_case.pdf\n解题库/第一二问/figures/q2_03_worst_case.png\n解题库/第一二问/figures/q2_03_worst_case.svg\n解题库/第一二问/figures/q2_04_continuous_certificate.pdf\n解题库/第一二问/figures/q2_04_continuous_certificate.png\n解题库/第一二问/figures/q2_04_continuous_certificate.svg\n解题库/第一二问/figures/q2_05_quadratic_root.pdf\n解题库/第一二问/figures/q2_05_quadratic_root.png\n解题库/第一二问/figures/q2_05_quadratic_root.svg\n解题库/第一二问/figures/q2_06_empirical_cdf.pdf\n解题库/第一二问/figures/q2_06_empirical_cdf.png\n解题库/第一二问/figures/q2_06_empirical_cdf.svg\n解题库/第一二问/figures/q2_07_failure_rate.pdf\n解题库/第一二问/figures/q2_07_failure_rate.png\n解题库/第一二问/figures/q2_07_failure_rate.svg\n解题库/第一二问/logs/build_paper.txt\n解题库/第一二问/logs/equation_diagnostic.txt\n解题库/第一二问/logs/pytest.xml\n解题库/第一二问/logs/runs/20260912T183832-af9b19c4/output.txt\n解题库/第一二问/logs/runs/20260912T183832-af9b19c4/record.json\n解题库/第一二问/logs/runs/20260912T183852-383e06f7/output.txt\n解题库/第一二问/logs/runs/20260912T183852-383e06f7/record.json\n解题库/第一二问/logs/runs/20260912T183930-78858f11/output.txt\n解题库/第一二问/logs/runs/20260912T183930-78858f11/record.json\n解题库/第一二问/logs/runs/20260912T184024-b62fd80c/output.txt\n解题库/第一二问/logs/runs/20260912T184024-b62fd80c/record.json\n解题库/第一二问/logs/runs/20260912T184052-f396f967/output.txt\n解题库/第一二问/logs/runs/20260912T184052-f396f967/record.json\n解题库/第一二问/logs/runs/20260912T184152-eb529398/output.txt\n解题库/第一二问/logs/runs/20260912T184152-eb529398/record.json\n解题库/第一二问/logs/runs/20260912T184154-44681ba3/output.txt\n解题库/第一二问/logs/runs/20260912T184154-44681ba3/record.json\n解题库/第一二问/logs/runs/20260912T184211-eb4c38b3/output.txt\n解题库/第一二问/logs/runs/20260912T184211-eb4c38b3/record.json\n解题库/第一二问/logs/runs/20260912T184225-9c3c293d/output.txt\n解题库/第一二问/logs/runs/20260912T184225-9c3c293d/record.json\n解题库/第一二问/logs/runs/20260912T184245-58230453/output.txt\n解题库/第一二问/logs/runs/20260912T184245-58230453/record.json\n解题库/第一二问/logs/runs/20260912T184312-9ca1d8ab/output.txt\n解题库/第一二问/logs/runs/20260912T184312-9ca1d8ab/record.json\n解题库/第一二问/logs/runs/20260912T184513-7efcc66c/output.txt\n解题库/第一二问/logs/runs/20260912T184513-7efcc66c/record.json\n解题库/第一二问/logs/runs/20260912T184516-67d4c626/output.txt\n解题库/第一二问/logs/runs/20260912T184516-67d4c626/record.json\n解题库/第一二问/logs/runs/20260912T184519-f6c461a2/output.txt\n解题库/第一二问/logs/runs/20260912T184519-f6c461a2/record.json\n解题库/第一二问/logs/runs/20260912T184713-02e06a9a/output.txt\n解题库/第一二问/logs/runs/20260912T184713-02e06a9a/record.json\n解题库/第一二问/logs/runs/20260912T184747-f4b31198/output.txt\n解题库/第一二问/logs/runs/20260912T184747-f4b31198/record.json\n解题库/第一二问/manuscript.py\n解题库/第一二问/paper/header.tex\n解题库/第一二问/paper/参考文献.md\n解题库/第一二问/paper/实验与实现.md\n解题库/第一二问/paper/摘要与符号.md\n解题库/第一二问/paper/正文模板.md\n解题库/第一二问/paper/第一二问完整论文.docx\n解题库/第一二问/paper/第一二问完整论文.md\n解题库/第一二问/paper/第一二问完整论文.pdf\n解题库/第一二问/paper/第一二问完整论文.tex\n解题库/第一二问/paper/第一问正文.md\n解题库/第一二问/paper/第二问正文.md\n解题库/第一二问/paper/结论.md\n解题库/第一二问/paper/证明附录.md\n解题库/第一二问/plot_figures.py\n解题库/第一二问/proofs/PROOF_MAP.md\n解题库/第一二问/proofs/global_certificate.json\n解题库/第一二问/provenance/README.md\n解题库/第一二问/provenance/audit/ACCEPTANCE.json\n解题库/第一二问/provenance/audit/ENVIRONMENT.json\n解题库/第一二问/provenance/audit/FILE_HASHES.json\n解题库/第一二问/provenance/audit/RENDER_QA.json\n解题库/第一二问/provenance/logs/build_paper.txt\n解题库/第一二问/provenance/logs/delivery_check.txt\n解题库/第一二问/provenance/logs/experiments.txt\n解题库/第一二问/provenance/logs/proof_check.txt\n解题库/第一二问/provenance/logs/pytest.txt\n解题库/第一二问/pyproject.toml\n解题库/第一二问/requirements-fast.txt\n解题库/第一二问/requirements-paper.txt\n解题库/第一二问/requirements.txt\n解题库/第一二问/results/benchmark.json\n解题库/第一二问/results/q1_samples.csv\n解题库/第一二问/results/q1_summary.json\n解题库/第一二问/results/q2_paired_samples.csv\n解题库/第一二问/results/q2_summary.json\n解题库/第一二问/results/smoke_q1.json\n解题库/第一二问/results/smoke_q2_center.json\n解题库/第一二问/results/smoke_q2_external.json\n解题库/第一二问/run.py\n解题库/第一二问/source/原题_B.pdf\n解题库/第一二问/src/q12/__init__.py\n解题库/第一二问/src/q12/geometry.py\n解题库/第一二问/src/q12/interval.py\n解题库/第一二问/src/q12/policy.py\n解题库/第一二问/src/q12/posterior.py\n解题库/第一二问/src/q12/proof.py\n解题库/第一二问/tests/test_geometry.py\n解题库/第一二问/tests/test_policy_proof.py\n解题库/第一二问/tests/test_repository_integration.py\n解题库/第一二问/tools/check_document.py\n解题库/第一二问/tools/check_protected.py\n解题库/第一二问/tools/finalize_merge.py\n解题库/第一二问/tools/render_word.ps1\n解题库/第一二问/verify_delivery.py\n解题库/第一二问/交付说明.md\n解题库/第一问/README.md\n解题库/第一问/run.py\n解题库/第二问/README.md\n解题库/第二问/run.py\n解题库/第四问/v6/results/p4_local_20260913_005453.json\n",
+    "stderr": ""
+  },
+  "staged": {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--stat"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}
