@@ -1,29 +1,22 @@
 # CUMCM 2026 B 题
 
-第一、二问的唯一正式计算实现是 `解题库/第一二问/src/q12/`，根目录 `run.py` 和分问目录 `run.py` 都调用它。
+## 当前入口速查
 
-当前冻结状态：Q1/Q2：FROZEN；Q3/Q4：继续开发。
+- 当前第三问策略：`OpticalTaskP3`，源文件为 `解题库/第三问/v10/strategy_task.py`。
+- 当前第四问策略：`FastP4_grid49`（类 `FastP4`），源文件为 `解题库/第四问/v6/strategy_fast.py`。
 
-## 环境与使用
+本地离线测试入口：
 
-建议 Python 3.13，在仓库根目录执行：
+- 第三问：`python -m pytest -q 解题库/演练调试/test_p3_night.py 解题库/演练调试/test_p3_task.py 解题库/演练调试/test_p3_transit.py 解题库/演练调试/test_p3_joint.py`
+- 第四问：`python -m pytest -q 解题库/演练调试/test_protocol.py 解题库/演练调试/test_practice_safety.py`
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r 解题库/第一二问/requirements-fast.txt
-python run.py q1 --input 解题库/第一二问/examples/q1_observations.json
-python run.py q2 --s1 0 0 --bearing 0
-python run.py q2 --s1 2100 400 --bearing 190 --side -1
-python run.py prove
-python run.py test
-python run.py experiments
-python run.py figures
-python run.py paper
-python run.py verify
-```
+实际演练入口：先在模拟器中手动开启对应问题的演练，再运行根目录的 `第三问_一键接入演练.cmd` 或 `第四问_一键接入演练.cmd`；`-Check` 只做本机离线检查，不发送请求。
 
-论文编译另需 Pandoc 和 XeLaTeX；Windows 使用本机宋体、微软雅黑和 Times New Roman，不随仓库分发字体。也支持安装 `pypandoc_binary` 提供 Pandoc。每条命令自动保存时间、退出码、输出和源文件/产物哈希到共享目录 `logs/runs/`，失败记录不会被覆盖。
+正式运行入口：Q1/Q2 的冻结入口仍为根目录 `run.py`；Q3/Q4 新增 `第三问_一键接入正式.cmd`、`第四问_一键接入正式.cmd`。先手动开启对应正式测试并等待接口开放，再双击接入。使用说明见 [正式运行说明](解题库/正式运行/README.md)。第三问已完成三次正式运行，见 [正式结果汇总](解题库/正式运行/P3_FORMAL_RESULTS.md)；第四问目前仅做离线验证。原演练入口仍只允许演练。
+
+结果位置：Q3/Q4 演练和离线证据在 `解题库/演练调试/results/`；Q4 本地批量基线结果在 `解题库/第四问/v6/results/`；Q1/Q2 运行记录在 `解题库/第一二问/logs/runs/`，当前正式论文输出在 `解题库/完整论文/`。
+
+历史/基线入口：`解题库/第三问/v10/run_v10.py` 默认使用历史 v8，`解题库/第四问/v6/run_p4_local.py` 使用离线基线 `AdaptiveP4`；它们不会因更新仓库而自动切换到当前演练候选。
 
 ## 正式论文与历史资料
 
