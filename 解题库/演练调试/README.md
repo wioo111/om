@@ -1,5 +1,7 @@
 # 第三、四问：仅演练调试
 
+当前第四问一键演练已接入 `RouteProbeP4()`，运行名 `RouteProbeP4_zero_detour`。本轮新56场确认和112场半径边界场景全部全清、正常停止；合并平均T/N由上一版HuntP4的523.08降至508.16秒/源，整体改善2.85%。旧版HuntP4、FinishP4和FastP4保留，正式入口已同步RouteProbeP4，未启动正式测试。本轮到此停止，尚未整体达到300—400秒/源。证据见 `解题库/第四问/v6/ROUTE_ROUND2_REPORT.md`。 下文旧策略描述为历史记录。
+
 本目录不启动测试，不调用正式测试入口，不控制桌面。真实模拟器运行与离线对照分开记录，不能互相冒充。最新结果见 [SPEED_REPORT.md](SPEED_REPORT.md)。第一、二问正式实现及论文不在本次迭代范围。
 
 2026-09-13 05:30 实机更新：新版 `OpticalTaskP3` 已有8场真实演练，8/8全清、98/98个源，最新一局13/13、238.06秒/源。逐N结果见 [P3_PRACTICE_0530.md](P3_PRACTICE_0530.md)；下面旧记录中“尚未实机复测”只描述对应历史时点。不同案例间的均值不作为因果提速证据。
@@ -51,7 +53,7 @@ python 解题库/演练调试/run_practice.py --problem 3 --strategy candidate -
 python 解题库/演练调试/run_practice.py --problem 4 --strategy candidate --case '当前演练案例码'
 ```
 
-`--case` 可以省略：结束后只从本局新写入的演练统计行关联案例码，不读取活动案例的目标真值。必须确认并指定正确的 `--problem`。`--strategy baseline` 保留原基线；`candidate` 分别调用 `第三问/v10/strategy_task.py:OpticalTaskP3` 与 `第四问/v6/strategy_fast.py:FastP4`，不改原默认入口。`ProbePlanP3`、`ResidualP3`、`HopP3`、`FastScanP3` 保留用于离线同场景对照；其余组合均未启用。没有证明新候选每局虚拟耗时更少。新候选的剩余区域运算要求 Shapely 2.x，本机独立环境已具备。
+`--case` 可以省略：结束后只从本局新写入的演练统计行关联案例码，不读取活动案例的目标真值。必须确认并指定正确的 `--problem`。`--strategy baseline` 保留原基线；`candidate` 分别调用 `第三问/v10/strategy_task.py:OpticalTaskP3` 与 `第四问/v6/strategy_route_probe.py:RouteProbeP4`。第四问的FastP4与FinishP4保留。`ProbePlanP3`、`ResidualP3`、`HopP3`、`FastScanP3` 保留用于离线同场景对照；其余组合均未启用。没有证明新候选在所有可能场景中耗时更少。剩余区域运算要求 Shapely 2.x，本机独立环境已具备。第四问日志按实际接口打印检测/清除结果，只有direction输出方位值，不再将检测误显示为null；原始响应完整保留。
 
 运行器首先要求存在唯一活动演练日志、首事件是 `practice_authorized`、已开放 API、没有机器人提前进入；每个逻辑动作前重新检查演练标记和会话是否变化。不能确认时直接失败，不发送探测 `/enter`。这只是本机日志防误用防护，不是协议提供的原子模式锁：HTTP 本身没有问题号、演练模式或案例码校验字段，故仍必须确认实际已开启的是指定问题的演练，不能在机器人运行时切换会话。`--case` 仅关联结束后的证据，不能强制服务器选择案例。
 

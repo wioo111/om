@@ -47,8 +47,9 @@ def run_case(spec):
         from mock_simulator_p4 import P4MockSimulator
         from strategy_p4 import AdaptiveP4
         from strategy_fast import FastP4
-        factory={'baseline':AdaptiveP4,'fast':FastP4}[variant]
-        sim=P4MockSimulator(seed=seed,n_sources=n,dir_frac=frac,error_mode=mode)
+        from strategy_cost import CostAwareP4
+        factory={'baseline':AdaptiveP4,'fast':FastP4,'ab':lambda:CostAwareP4(True,True,False),'abc':lambda:CostAwareP4(True,True,True)}[variant]
+        sim=P4MockSimulator(seed=seed,n_sources=n,dir_frac=frac,error_mode=mode,reception_range=reception_range)
     start=time.perf_counter();error=None;trace=[]
     try:
         strategy=factory()
@@ -64,6 +65,11 @@ def run_case(spec):
     result.update(problem=problem,variant=variant,seed=seed,N=n,error_mode=mode,dir_frac=frac,
                   error=error,wall_s=time.perf_counter()-start,evaluation='offline_practice_not_official_simulator')
     result['full_clear']=error is None and result['cleared']==n
+    if problem==4:
+        result['normal_stop']=error is None and result.get('stop_reason') in ('all_channels_cleared_or_covered','cleared_maximum_16')
+        result['accepted_run']=result['full_clear'] and result['normal_stop']
+        result['actual_class']=type(strategy).__name__
+        result['strategy_source']=str(Path(sys.modules[type(strategy).__module__].__file__).resolve())
     result['avg_time_per_cleared']=result['virtual_time_s']/result['cleared'] if result['cleared'] else None
     if problem==3:
         last_clear=next((r['virtual_time_s'] for r in reversed(trace)
@@ -82,12 +88,13 @@ def main():
     p.add_argument('--seed-start',type=int,required=True)
     p.add_argument('--label',required=True)
     p.add_argument('--workers',type=int,default=3)
-    p.add_argument('--reference',default='baseline')
+    p.add_argument('--reference',default=None)
     p.add_argument('--error-modes',default='fixed,fixed,fixed,edge')
     p.add_argument('--reception-min',type=float,default=1000.)
     p.add_argument('--reception-max',type=float,default=1500.)
     args=p.parse_args()
     if Path(args.label).name!=args.label:p.error('label must be a directory name')
+    if args.reference is None:args.reference='fast' if args.problem==4 else 'baseline'
     variants=args.variants.split(',')
     if args.reference not in variants:p.error('reference must be included in variants')
     if args.cases<1:p.error('cases must be positive')
@@ -104,6 +111,13 @@ def main():
     (folder/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
     specs=[(args.problem,v,args.seed_start+i,10+i%7,modes[i%len(modes)],
             (.25,.5,.75,1.)[i%4],str(traces),(args.reception_min,args.reception_max)) for i in range(args.cases) for v in variants]
+    if args.problem==4:
+        from itertools import product
+        modes=list(dict.fromkeys(modes))
+        if any(m not in ('random','fixed','edge') for m in modes):p.error('P4 modes: random/fixed/edge')
+        grid=list(product(range(10,17),(.25,.5,.75,1.),modes))
+        if args.cases != len(grid):p.error(f'P4 Cartesian set requires --cases {len(grid)}')
+        specs=[(4,v,args.seed_start+i,n,m,f,str(traces),(args.reception_min,args.reception_max)) for i,(n,f,m) in enumerate(grid) for v in variants]
     rows=[]
     with (folder/'progress.jsonl').open('w',encoding='utf-8') as progress:
         with ProcessPoolExecutor(max_workers=args.workers) as pool:
@@ -116,8 +130,8 @@ def main():
     baseline={r['seed']:r for r in rows if r['variant']==args.reference}
     for v in variants:
         group=[r for r in rows if r['variant']==v]
-        good=[r for r in group if r['full_clear']]
-        deltas=[r['virtual_time_s']-baseline[r['seed']]['virtual_time_s'] for r in good if baseline[r['seed']]['full_clear']]
+        good=group if args.problem==4 else [r for r in group if r['full_clear']]
+        deltas=[r['virtual_time_s']-baseline[r['seed']]['virtual_time_s'] for r in good if args.problem==4 or baseline[r['seed']]['full_clear']]
         summary[v]=dict(rounds=len(group),full_clear=sum(r['full_clear'] for r in group),
             mean_virtual_s=statistics.mean(r['virtual_time_s'] for r in group),
             mean_wall_s=statistics.mean(r['wall_s'] for r in group),
@@ -125,8 +139,17 @@ def main():
             clear_failures=sum(r.get('clear_fail_count',0) for r in group),
             paired_completed=len(deltas),mean_paired_delta_s=statistics.mean(deltas) if deltas else None,
             improved=sum(d<-.001 for d in deltas),worse=sum(d>.001 for d in deltas))
+        if args.problem==4:
+            import math
+            regression=[(r['virtual_time_s']/baseline[r['seed']]['virtual_time_s']-1,r['seed']) for r in group]
+            summary[v].update(normal_stop=sum(r['normal_stop'] for r in group),accepted=sum(r['accepted_run'] for r in group),
+                mean_T_per_N=statistics.mean(r['virtual_time_s']/r['N'] for r in group),
+                by_N={str(n):statistics.mean(r['virtual_time_s']/n for r in group if r['N']==n) for n in sorted({r['N'] for r in group})},
+                mean_distance_m=statistics.mean(r.get('time_breakdown',{}).get('move_time_s',0)*5 for r in group),
+                p95_T=sorted(r['virtual_time_s'] for r in group)[math.ceil(.95*len(group))-1],
+                worst_regression_fraction=max(regression)[0],worst_seed=max(regression)[1])
     unchanged=hashes=={str(f.relative_to(REPO)):hashlib.sha256(f.read_bytes()).hexdigest() for f in files}
-    exit_code=0 if unchanged and all(r['full_clear'] for r in rows) else 1
+    exit_code=0 if unchanged and all(r.get('accepted_run',r['full_clear']) for r in rows) else 1
     report=dict(**meta,finished=datetime.now(timezone.utc).isoformat(),exit_code=exit_code,
                 sources_unchanged=unchanged,summary=summary,records=rows)
     if args.problem==3:

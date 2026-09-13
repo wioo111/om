@@ -84,6 +84,7 @@ def test_clear_preserves_receiver_and_uses_returned_clock(modules,monkeypatch):
     from strategy import Action
     seen=[]
     class Policy:
+        name='ProtocolTestPolicy'
         def __init__(self):
             self.actions=iter([Action('measure',(300.,400.),2),Action('clear',(0.,0.),3),
                                Action('measure',(0.,0.),2),Action('done')])

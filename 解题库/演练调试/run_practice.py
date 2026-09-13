@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import inspect
 import json
 import os
 from pathlib import Path
@@ -13,6 +14,64 @@ import time
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parents[1]
 DEFAULT_DATA=REPO/'Jammers-simulator-win64/Jammers-simulator/JammersSimulatorData'
+
+def p4_strategy_metadata(strategy):
+    """Describe the loaded object without assuming one particular candidate class."""
+    source=Path(inspect.getfile(type(strategy))).resolve()
+    try:source_label=str(source.relative_to(REPO))
+    except ValueError:source_label=str(source)
+    diagnostic=getattr(strategy,'diagnostics',None)
+    diagnostic=diagnostic() if callable(diagnostic) else {}
+    diagnostic=diagnostic if isinstance(diagnostic,dict) else {}
+    # Config may be top-level (FinishP4) or nested (CostAwareP4).
+    config={k:v for k,v in diagnostic.items() if isinstance(v,(bool,int,float,str))}
+    for key in ('switches','config','settings'):
+        if isinstance(diagnostic.get(key),dict):config[key]=diagnostic[key]
+    return dict(actual_class=type(strategy).__name__,strategy=strategy.name,
+                strategy_source=source_label,
+                strategy_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+                feature_switches=diagnostic.get('switches',{}),feature_config=config)
+
+
+def print_p4_strategy(metadata):
+    print(f"[P4 practice] class={metadata['actual_class']} name={metadata['strategy']}",flush=True)
+    print(f"来源：{metadata['strategy_source']}",flush=True)
+    print(f"SHA256：{metadata['strategy_sha256']}",flush=True)
+    config=metadata['feature_config']
+    print('配置：'+(json.dumps(config,ensure_ascii=False) if config else '策略未提供配置诊断'),flush=True)
+
+
+def p4_action_summary(sequence,path,payload,response):
+    """Display actual endpoint fields; the full protocol response is kept separately."""
+    summary=dict(action=sequence,path=path)
+    missing=[]
+    def required(field):
+        value=response.get(field)
+        if value is None:missing.append(field)
+        return value
+    accepted=required('accepted')
+    if accepted is not None:summary['accepted']=accepted
+    virtual_time=required('virtual_time_s')
+    if virtual_time is not None:summary['virtual_time_s']=virtual_time
+    for field in ('channel','position'):
+        if payload.get(field) is not None:summary[field]=payload[field]
+    if path in ('/measure','/clear'):
+        result=required('measure_result' if path=='/measure' else 'clear_result')
+        if result is not None:summary['result']=result
+        if path=='/measure' and result=='direction':
+            bearing=required('svd_deg')
+            if bearing is not None:summary['svd_deg']=bearing
+        # no_signal and near have no bearing, so no svd key is displayed.
+    else:
+        summary['result']=('entered' if path=='/enter' else 'exited') if accepted is True else 'acceptance_unknown' if accepted is None else 'rejected'
+        if path=='/exit' and response.get('exit_reason') is not None:
+            summary['exit_reason']=response['exit_reason']
+    if missing:
+        summary.setdefault('result','response_incomplete')
+        summary['protocol_warning']='missing_required_fields'
+        summary['missing_fields']=missing
+    return summary
+
 
 class PracticeNotReady(RuntimeError):
     pass
@@ -92,6 +151,9 @@ def main(argv=None):
                   started=datetime.now(timezone.utc).isoformat(),python=sys.version,
                   guard_event=guard.header['event'],journal_name=guard.journal.parent.name,
                   code_sha256=hashes,command=['run_practice.py','--problem',str(args.problem),'--strategy',args.strategy]+(['--case',args.case] if args.case else [])+['--robot-id','<redacted>'])
+    if args.problem == 4:
+        metadata.update(p4_strategy_metadata(strategy))
+        print_p4_strategy(metadata)
     (folder/'version.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding='utf-8')
     class PracticeClient(SimulatorClient):
         def _send(self,path,payload):
@@ -101,7 +163,11 @@ def main(argv=None):
             try:
                 response=_post(self.base_url,path,payload,deadline=self.deadline,before_attempt=guard.check)
                 row['response']=response
-                if path in ('/enter','/clear') or self._seq%100==0:
+                if args.problem==4:
+                    summary=p4_action_summary(self._seq,path,payload,response)
+                    if path in ('/enter','/clear','/exit') or self._seq%100==0 or summary.get('missing_fields'):
+                        print(json.dumps(summary,ensure_ascii=False),flush=True)
+                elif path in ('/enter','/clear') or self._seq%100==0:
                     print(json.dumps(dict(action=self._seq,path=path,virtual_time_s=response.get('virtual_time_s'),result=response.get('clear_result'))),flush=True)
                 return response
             except Exception as e:
@@ -109,7 +175,7 @@ def main(argv=None):
             finally:
                 with (folder/'actions.jsonl').open('a',encoding='utf-8') as f:f.write(json.dumps(row,ensure_ascii=False)+'\n')
     cli=PracticeClient('http://127.0.0.1:2026',args.robot_id)
-    print('PRACTICE_ONLY',args.problem,args.case,strategy.name,flush=True)
+    print('PRACTICE_ONLY',args.problem,(args.case or '待结束核对场景') if args.problem==4 else args.case,strategy.name,flush=True)
     code=1
     try:
         result=run_with_sim_strategy(strategy,cli,max_steps=8000)
@@ -118,6 +184,11 @@ def main(argv=None):
         result['distance_m']=result['time_breakdown']['move_time_s']*5
         if args.problem == 3 and hasattr(strategy, 'diagnostics'):
             result['policy_diagnostics'] = strategy.diagnostics()
+        if args.problem == 4:
+            result.update({key: metadata[key] for key in ('actual_class', 'strategy_source', 'strategy_sha256')})
+            result['feature_config']=metadata['feature_config']
+            if hasattr(strategy, 'diagnostics'):
+                result['policy_diagnostics'] = strategy.diagnostics()
         # This post-run source count is evidence only and is never exposed to policy.
         with sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True) as con:
             con.row_factory=sqlite3.Row

@@ -24,9 +24,16 @@ DEFAULT_DIR_FRACS = (0.25, 0.5, 0.75, 1.0)
 
 
 def run_one(seed: int, dir_frac: float, n_sources=None,
-            max_steps: int = 30000) -> dict:
+            max_steps: int = 30000, variant='AdaptiveP4') -> dict:
     sim = P4MockSimulator(seed=seed, n_sources=n_sources, dir_frac=dir_frac)
-    result = run_with_sim_strategy(AdaptiveP4(), sim, max_steps=max_steps)
+    if variant == 'AdaptiveP4':
+        strategy = AdaptiveP4()
+    else:
+        from cost_experiment import make
+        strategy = make(variant)
+    result = run_with_sim_strategy(strategy, sim, max_steps=max_steps)
+    result['actual_class'] = type(strategy).__name__
+    result['strategy_name'] = strategy.name
     result['seed'] = seed
     result['dir_frac'] = dir_frac
     result['N'] = sim.N
@@ -52,6 +59,8 @@ def main() -> int:
                         help='逗号分隔的定向源比例')
     parser.add_argument('--n-sources', type=int, default=None,
                         help='固定源数量；默认按 mock 的 10..16 随机')
+    parser.add_argument('--strategy', choices=('AdaptiveP4','FastP4','AB','ABC','off'), default='AdaptiveP4',
+                        help='Explicit selection; historical default unchanged. This round baseline: FastP4')
     parser.add_argument('--max-steps', type=int, default=30000)
     parser.add_argument('--output', default=None,
                         help='结果 JSON 路径；默认写入 results/')
@@ -77,7 +86,7 @@ def main() -> int:
         print(f'=== dir_frac={dir_frac:g} ===', flush=True)
         for seed in seeds:
             try:
-                row = run_one(seed, dir_frac, args.n_sources, args.max_steps)
+                row = run_one(seed, dir_frac, args.n_sources, args.max_steps, args.strategy)
             except Exception as exc:  # 批量验证保留失败局，继续跑其它 seed
                 row = {
                     'seed': seed,
@@ -108,7 +117,7 @@ def main() -> int:
         output = output_dir / f'p4_local_{stamp}.json'
     output.parent.mkdir(parents=True, exist_ok=True)
     payload = {
-        'strategy': 'AdaptiveP4',
+        'strategy': args.strategy,
         'evaluation': 'offline_mock',
         'seeds': seeds,
         'dir_fracs': dir_fracs,

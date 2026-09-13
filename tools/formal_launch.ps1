@@ -1,4 +1,4 @@
-﻿param([Parameter(Mandatory=$true)][ValidateSet(3,4)][int]$Problem, [switch]$Check)
+﻿param([Parameter(Mandatory=$true)][ValidateSet(3,4)][int]$Problem, [switch]$Check, [ValidateSet('RouteProbeP4','FastP4')][string]$P4Strategy = 'RouteProbeP4')
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path $PSScriptRoot -Parent
 $pythonCandidates = @()
@@ -16,6 +16,7 @@ $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUNBUFFERED = '1'
 $env:PYTHONUTF8 = '1'
 $launchArgs = @((Join-Path $PSScriptRoot 'formal_launch.py'), '--problem', [string]$Problem)
+if ($Problem -eq 4) { $launchArgs += @('--p4-strategy', $P4Strategy) }
 if ($Check) { $launchArgs += '--check' }
 & $selectedPython @launchArgs
 exit $LASTEXITCODE

@@ -2,6 +2,7 @@
 """共用驱动：本地模拟与官方 HTTP 响应采用同一条状态更新路径。"""
 
 import math
+import inspect
 import time
 from strategy import State
 
@@ -23,6 +24,7 @@ def accepted_response(response):
 
 
 def run_with_sim_strategy(strategy, sim, max_steps=8000):
+    print(f"[P4 strategy] class={type(strategy).__name__} name={strategy.name} source={inspect.getfile(type(strategy))}", flush=True)
     state = State(pos=(0.0, 0.0), ch=1)
     started = time.monotonic()
     entered = accepted_response(sim.enter())

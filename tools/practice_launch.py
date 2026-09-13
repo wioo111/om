@@ -14,7 +14,8 @@ ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parent
 MODULE=REPO/'解题库/演练调试'
 sys.path.insert(0,str(MODULE))
-from run_practice import PracticeGuard, PracticeNotReady, DEFAULT_DATA, main as run_robot
+from run_practice import (PracticeGuard, PracticeNotReady, DEFAULT_DATA, main as run_robot,
+                          p4_strategy_metadata, print_p4_strategy)
 
 @contextmanager
 def one_robot(lock_path):
@@ -112,6 +113,11 @@ def main(argv=None):
     args=parser.parse_args(argv)
     if args.check:
         import numpy,scipy,shapely
+        if args.problem == 4:
+            sys.path.insert(0, str(REPO / '解题库/第四问/v6'))
+            from candidates import make_candidate
+            strategy = make_candidate(4)
+            print_p4_strategy(p4_strategy_metadata(strategy))
         print(f'问题{args.problem}启动器可用；本次仅检查本机依赖，没有发送任何模拟器请求。')
         return 0
     return execute(args.problem)

@@ -1,0 +1,60 @@
+{
+  "updated_at": "2026-09-13T02:15:52.791690+00:00",
+  "mode": "formal",
+  "problem": 4,
+  "actual_class": "RouteProbeP4",
+  "name": "RouteProbeP4_zero_detour",
+  "source": "解题库/第四问/v6/strategy_route_probe.py",
+  "sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f",
+  "previous_formal": "FastP4",
+  "rollback_option": "第四问_一键接入正式.cmd -P4Strategy FastP4",
+  "entrypoint": "第四问_一键接入正式.cmd",
+  "entry_sha256": {
+    "tools/formal_launch.py": "ee9a50d562846f8974b7161420885d596f18b248c00ca07ebe64b46686481547",
+    "tools/formal_launch.ps1": "34fa0a2cdaca158b080d11f6f4a38f59536731eed2a4dffca4e1b6c3334e01d2",
+    "第四问_一键接入正式.cmd": "9a6adea91e9b7c9f52eec75baba06f203a7fd0207ef012a0b71bbffba4ccbec9"
+  },
+  "validated_dependency_sha256": {
+    "discovery_compact.py": "abad3b159064e57314ac698e9c47136126d344acf363f494a176ed20bb7238f6",
+    "discovery_coverage.py": "d75365575177ffa46a4388aa40f9c185ad449bac3a8b319c3de2fed96fb4cdfc",
+    "discovery_mesh.py": "8a992b44af423df6297d230d6398028c9668d71b9aea2b1ef53d99548c8f1527",
+    "discovery_prune.py": "93ddb931be047a407febb19a135f4f938a533d099aa4cde16c43e6a0add4de69",
+    "discovery_rings.py": "6ad1df50249b85353ffe915b58424c61a528c18a2366509d243e8f29a9911bfa",
+    "local_hunt.py": "875efe3185bb490b85dde408e6888cd24182962f531d5347907bf0f98b96d718",
+    "mock_simulator_p4.py": "78e6dea4340bac658357fda291f8bc08061ef034b7be681846603b9ecd7d71cd",
+    "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+    "robot_iter.py": "8f17517891ba420d576532ee9d00608831fdf2c67e6654dff7734faa8b4e1bd1",
+    "route_round2_experiment.py": "c46f4ca59a5220587c19ee7f1e4e6cddc75b96fc79b426e621a2f8ee194ee5c0",
+    "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+    "strategy_cost.py": "6d0bce34c66422884a3e8a337f301f95fc37b1140e05cc64b363dce85110e505",
+    "strategy_fast.py": "1fbf01a56e368eaf80a99fe48d766cb228a58383776b2d495368b2fbaf9c5567",
+    "strategy_finish.py": "99598daa5c155685310c6b9488a752be527054d5ee23662b2b1008f22e83a6fc",
+    "strategy_hunt.py": "33e3de0328b9087c33dd49f037d2c8b86be88aabc2b97e7a229564f9cfdbc25c",
+    "strategy_p4.py": "b603659a864440a93a551b3201d43074fb5812809a79a7a54b698bf6df56a41a",
+    "strategy_route.py": "bb30e9d446b886670277036d5485729ff8d4263c3c2457e016c8b51c06639608",
+    "strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+  },
+  "evaluation_reference": "解题库/第四问/v6/route_round2/selection.json",
+  "offline_accepted_scenarios": 168,
+  "recent_practice": [
+    {
+      "result_folder": "解题库/演练调试/results/20260913_101137_123123_p4_RouteProbeP4_zero_detour",
+      "cleared": 15,
+      "total": 15,
+      "virtual_time_s": 7074.181985,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "strategy_sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+    },
+    {
+      "result_folder": "解题库/演练调试/results/20260913_101202_827009_p4_RouteProbeP4_zero_detour",
+      "cleared": 16,
+      "total": 16,
+      "virtual_time_s": 6710.912086,
+      "stop_reason": "all_channels_cleared_or_covered",
+      "strategy_sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+    }
+  ],
+  "formal_run_started": false,
+  "check_only_verified": true,
+  "decision": "User explicitly requested promotion to the formal entry. No optimizer or formal test was started."
+}

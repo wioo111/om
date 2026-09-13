@@ -32,7 +32,12 @@ class P4MockSimulator:
     """第四问 mock：全向 + 定向混合干扰源。"""
 
     def __init__(self, seed: int = 42, n_sources: Optional[int] = None,
-                 dir_frac: float = 0.5, error_mode: str = 'random'):
+                 dir_frac: float = 0.5, error_mode: str = 'random',
+                 reception_range=(R_EFF_MIN, R_EFF_MAX)):
+        lo, hi = map(float, reception_range)
+        if not (R_EFF_MIN <= lo <= hi <= R_EFF_MAX):
+            raise ValueError("reception_range must lie within 1000..1500 metres")
+        self.reception_range = (lo, hi)
         self.seed = seed
         if error_mode not in ('random','fixed','edge'):raise ValueError('Unknown error mode')
         self.error_mode=error_mode
@@ -55,7 +60,7 @@ class P4MockSimulator:
                     break
             self.sources[ch] = {
                 'pos': pos,
-                're': self.rng.uniform(R_EFF_MIN, R_EFF_MAX),
+                're': self.rng.uniform(*self.reception_range),
                 'direction': self.rng.uniform(0, 360),  # 定向方向 α₀
                 'is_dir': True,
             }
@@ -69,7 +74,7 @@ class P4MockSimulator:
                     break
             self.sources[ch] = {
                 'pos': pos,
-                're': self.rng.uniform(R_EFF_MIN, R_EFF_MAX),
+                're': self.rng.uniform(*self.reception_range),
                 'direction': None,
                 'is_dir': False,
             }

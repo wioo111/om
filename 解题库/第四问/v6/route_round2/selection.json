@@ -1,0 +1,5761 @@
+{
+  "selected_variant": "RouteProbeP4",
+  "selected_class": "RouteProbeP4",
+  "selected_source": "解题库\\第四问\\v6\\strategy_route_probe.py",
+  "selected_sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f",
+  "evidence_complete": true,
+  "combined_mean_T_per_N": 508.1556289227033,
+  "combined_reference_mean_T_per_N": 523.0756412735333,
+  "overall_improvement_percent": 2.852362292096844,
+  "all_runs_accepted": true,
+  "generated_at": "2026-09-13T02:07:51.687462+00:00",
+  "comparison_reference": "HuntP4",
+  "final_labels": [
+    "confirmation01",
+    "boundary01"
+  ],
+  "final_scenarios_per_variant": 168,
+  "development_excluded_from_combined": true,
+  "selection_rule": "All 168 final scenarios must fully clear and stop normally; among eligible unchanged candidates choose lowest all-run mean T/N; retain HuntP4 if no overall improvement",
+  "deployment_action": "none; integration is a separate recorded action",
+  "goal_300_400_s_per_source_achieved": false,
+  "goal_status": "This round is closed at the user's request; 300-400 s/source was not achieved",
+  "eligibility": {
+    "HuntP4": {
+      "all_runs_accepted": true,
+      "all_metrics_available": true,
+      "frozen_code_equal_across_final_stages": true,
+      "current_dependency_hashes_match": true,
+      "eligible": true
+    },
+    "RouteAwareP4": {
+      "all_runs_accepted": true,
+      "all_metrics_available": true,
+      "frozen_code_equal_across_final_stages": true,
+      "current_dependency_hashes_match": true,
+      "eligible": true
+    },
+    "RouteProbeP4": {
+      "all_runs_accepted": true,
+      "all_metrics_available": true,
+      "frozen_code_equal_across_final_stages": true,
+      "current_dependency_hashes_match": true,
+      "eligible": true
+    }
+  },
+  "selected_dependency_sha256": {
+    "discovery_compact.py": "abad3b159064e57314ac698e9c47136126d344acf363f494a176ed20bb7238f6",
+    "discovery_coverage.py": "d75365575177ffa46a4388aa40f9c185ad449bac3a8b319c3de2fed96fb4cdfc",
+    "discovery_mesh.py": "8a992b44af423df6297d230d6398028c9668d71b9aea2b1ef53d99548c8f1527",
+    "discovery_prune.py": "93ddb931be047a407febb19a135f4f938a533d099aa4cde16c43e6a0add4de69",
+    "discovery_rings.py": "6ad1df50249b85353ffe915b58424c61a528c18a2366509d243e8f29a9911bfa",
+    "local_hunt.py": "875efe3185bb490b85dde408e6888cd24182962f531d5347907bf0f98b96d718",
+    "mock_simulator_p4.py": "78e6dea4340bac658357fda291f8bc08061ef034b7be681846603b9ecd7d71cd",
+    "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+    "robot_iter.py": "8f17517891ba420d576532ee9d00608831fdf2c67e6654dff7734faa8b4e1bd1",
+    "route_round2_experiment.py": "c46f4ca59a5220587c19ee7f1e4e6cddc75b96fc79b426e621a2f8ee194ee5c0",
+    "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+    "strategy_cost.py": "6d0bce34c66422884a3e8a337f301f95fc37b1140e05cc64b363dce85110e505",
+    "strategy_fast.py": "1fbf01a56e368eaf80a99fe48d766cb228a58383776b2d495368b2fbaf9c5567",
+    "strategy_finish.py": "99598daa5c155685310c6b9488a752be527054d5ee23662b2b1008f22e83a6fc",
+    "strategy_hunt.py": "33e3de0328b9087c33dd49f037d2c8b86be88aabc2b97e7a229564f9cfdbc25c",
+    "strategy_p4.py": "b603659a864440a93a551b3201d43074fb5812809a79a7a54b698bf6df56a41a",
+    "strategy_route.py": "bb30e9d446b886670277036d5485729ff8d4263c3c2457e016c8b51c06639608",
+    "strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+  },
+  "validation_source_fingerprints": {
+    "HuntP4": {
+      "discovery_compact.py": "abad3b159064e57314ac698e9c47136126d344acf363f494a176ed20bb7238f6",
+      "discovery_coverage.py": "d75365575177ffa46a4388aa40f9c185ad449bac3a8b319c3de2fed96fb4cdfc",
+      "discovery_mesh.py": "8a992b44af423df6297d230d6398028c9668d71b9aea2b1ef53d99548c8f1527",
+      "discovery_prune.py": "93ddb931be047a407febb19a135f4f938a533d099aa4cde16c43e6a0add4de69",
+      "discovery_rings.py": "6ad1df50249b85353ffe915b58424c61a528c18a2366509d243e8f29a9911bfa",
+      "local_hunt.py": "875efe3185bb490b85dde408e6888cd24182962f531d5347907bf0f98b96d718",
+      "mock_simulator_p4.py": "78e6dea4340bac658357fda291f8bc08061ef034b7be681846603b9ecd7d71cd",
+      "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+      "robot_iter.py": "8f17517891ba420d576532ee9d00608831fdf2c67e6654dff7734faa8b4e1bd1",
+      "route_round2_experiment.py": "c46f4ca59a5220587c19ee7f1e4e6cddc75b96fc79b426e621a2f8ee194ee5c0",
+      "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+      "strategy_cost.py": "6d0bce34c66422884a3e8a337f301f95fc37b1140e05cc64b363dce85110e505",
+      "strategy_fast.py": "1fbf01a56e368eaf80a99fe48d766cb228a58383776b2d495368b2fbaf9c5567",
+      "strategy_finish.py": "99598daa5c155685310c6b9488a752be527054d5ee23662b2b1008f22e83a6fc",
+      "strategy_hunt.py": "33e3de0328b9087c33dd49f037d2c8b86be88aabc2b97e7a229564f9cfdbc25c",
+      "strategy_p4.py": "b603659a864440a93a551b3201d43074fb5812809a79a7a54b698bf6df56a41a",
+      "strategy_route.py": "bb30e9d446b886670277036d5485729ff8d4263c3c2457e016c8b51c06639608",
+      "strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+    },
+    "RouteAwareP4": {
+      "discovery_compact.py": "abad3b159064e57314ac698e9c47136126d344acf363f494a176ed20bb7238f6",
+      "discovery_coverage.py": "d75365575177ffa46a4388aa40f9c185ad449bac3a8b319c3de2fed96fb4cdfc",
+      "discovery_mesh.py": "8a992b44af423df6297d230d6398028c9668d71b9aea2b1ef53d99548c8f1527",
+      "discovery_prune.py": "93ddb931be047a407febb19a135f4f938a533d099aa4cde16c43e6a0add4de69",
+      "discovery_rings.py": "6ad1df50249b85353ffe915b58424c61a528c18a2366509d243e8f29a9911bfa",
+      "local_hunt.py": "875efe3185bb490b85dde408e6888cd24182962f531d5347907bf0f98b96d718",
+      "mock_simulator_p4.py": "78e6dea4340bac658357fda291f8bc08061ef034b7be681846603b9ecd7d71cd",
+      "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+      "robot_iter.py": "8f17517891ba420d576532ee9d00608831fdf2c67e6654dff7734faa8b4e1bd1",
+      "route_round2_experiment.py": "c46f4ca59a5220587c19ee7f1e4e6cddc75b96fc79b426e621a2f8ee194ee5c0",
+      "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+      "strategy_cost.py": "6d0bce34c66422884a3e8a337f301f95fc37b1140e05cc64b363dce85110e505",
+      "strategy_fast.py": "1fbf01a56e368eaf80a99fe48d766cb228a58383776b2d495368b2fbaf9c5567",
+      "strategy_finish.py": "99598daa5c155685310c6b9488a752be527054d5ee23662b2b1008f22e83a6fc",
+      "strategy_hunt.py": "33e3de0328b9087c33dd49f037d2c8b86be88aabc2b97e7a229564f9cfdbc25c",
+      "strategy_p4.py": "b603659a864440a93a551b3201d43074fb5812809a79a7a54b698bf6df56a41a",
+      "strategy_route.py": "bb30e9d446b886670277036d5485729ff8d4263c3c2457e016c8b51c06639608",
+      "strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+    },
+    "RouteProbeP4": {
+      "discovery_compact.py": "abad3b159064e57314ac698e9c47136126d344acf363f494a176ed20bb7238f6",
+      "discovery_coverage.py": "d75365575177ffa46a4388aa40f9c185ad449bac3a8b319c3de2fed96fb4cdfc",
+      "discovery_mesh.py": "8a992b44af423df6297d230d6398028c9668d71b9aea2b1ef53d99548c8f1527",
+      "discovery_prune.py": "93ddb931be047a407febb19a135f4f938a533d099aa4cde16c43e6a0add4de69",
+      "discovery_rings.py": "6ad1df50249b85353ffe915b58424c61a528c18a2366509d243e8f29a9911bfa",
+      "local_hunt.py": "875efe3185bb490b85dde408e6888cd24182962f531d5347907bf0f98b96d718",
+      "mock_simulator_p4.py": "78e6dea4340bac658357fda291f8bc08061ef034b7be681846603b9ecd7d71cd",
+      "problem1_v4_inline.py": "f3dafed5628a0a749a8680765533cb453e81a3b5d6b96a0a9fc12d06b9e4d86c",
+      "robot_iter.py": "8f17517891ba420d576532ee9d00608831fdf2c67e6654dff7734faa8b4e1bd1",
+      "route_round2_experiment.py": "c46f4ca59a5220587c19ee7f1e4e6cddc75b96fc79b426e621a2f8ee194ee5c0",
+      "strategy.py": "cc9e3a847de2079f0cc3cdc7b5dfd5d5a2fe326c6e115d821cba9d590a0ff9a4",
+      "strategy_cost.py": "6d0bce34c66422884a3e8a337f301f95fc37b1140e05cc64b363dce85110e505",
+      "strategy_fast.py": "1fbf01a56e368eaf80a99fe48d766cb228a58383776b2d495368b2fbaf9c5567",
+      "strategy_finish.py": "99598daa5c155685310c6b9488a752be527054d5ee23662b2b1008f22e83a6fc",
+      "strategy_hunt.py": "33e3de0328b9087c33dd49f037d2c8b86be88aabc2b97e7a229564f9cfdbc25c",
+      "strategy_p4.py": "b603659a864440a93a551b3201d43074fb5812809a79a7a54b698bf6df56a41a",
+      "strategy_route.py": "bb30e9d446b886670277036d5485729ff8d4263c3c2457e016c8b51c06639608",
+      "strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+    }
+  },
+  "combined_summary": {
+    "HuntP4": {
+      "runs": 168,
+      "full_clear": 168,
+      "normal_stop": 168,
+      "accepted": 168,
+      "metric_runs": 168,
+      "unavailable_metric_runs": 0,
+      "identities": [
+        [
+          "HuntP4",
+          "HuntP4_compact21",
+          "strategy_hunt.py"
+        ]
+      ],
+      "failures": [],
+      "comparison": {
+        "paired_runs": 168,
+        "status": "complete",
+        "mean_T_per_N": 523.0756412735333,
+        "reference_mean_T_per_N": 523.0756412735333,
+        "improvement_percent": 0.0,
+        "p95_regression_percent": 0.0,
+        "worst_regression_percent": 0.0,
+        "worst_case": {
+          "scenario": {
+            "seed": 962000,
+            "N": 10,
+            "dir_frac": 0.25,
+            "error_mode": "fixed",
+            "reception_range": [
+              1000,
+              1500
+            ]
+          },
+          "regression_fraction": 0.0,
+          "delta_T_s": 0.0,
+          "candidate_accepted": true,
+          "reference_accepted": true
+        },
+        "regressions": [],
+        "all_pairs_accepted": true
+      },
+      "mean_T_per_N": 523.0756412735333,
+      "mean_T": 6639.040485745503,
+      "weighted_T_per_N": 510.69542198042336,
+      "p95_T_per_N": 689.9779564481472,
+      "p95_T": 7724.597036077096,
+      "worst_T_per_N": 772.4597036077096,
+      "by_N": {
+        "10": 660.2816646694178,
+        "11": 603.1492641609309,
+        "12": 553.9510902795743,
+        "13": 510.1316963916544,
+        "14": 469.23334345862924,
+        "15": 449.0859763855274,
+        "16": 415.69645356899935
+      },
+      "mean_distance_m": 24977.52385729895,
+      "mean_measure_count": 261.0416666666667,
+      "mean_clear_fail_count": 4.940476190476191,
+      "mean_costs": {
+        "move_time_s": 4995.5047714597895,
+        "switch_time_s": 258.5059523809524,
+        "measure_time_s": 1305.2083333333333,
+        "clear_time_s": 79.82142857142857
+      },
+      "phases": {
+        "discovery": {
+          "move_time_s": 3083.5771971086588,
+          "switch_time_s": 257.82738095238096,
+          "measure_time_s": 1295.029761904762,
+          "clear_time_s": 0.0
+        },
+        "early_clear": {
+          "move_time_s": 896.8003452892907,
+          "switch_time_s": 0.0,
+          "measure_time_s": 0.0,
+          "clear_time_s": 61.392857142857146
+        },
+        "localization": {
+          "move_time_s": 1015.1272290618408,
+          "switch_time_s": 0.6785714285714286,
+          "measure_time_s": 10.178571428571429,
+          "clear_time_s": 18.428571428571427
+        }
+      },
+      "triggers": {
+        "early_clear_miss_advance": 830,
+        "early_clear_success": 2184,
+        "early_plan_started": 2184,
+        "local_planner.safe_convex_probe": 1,
+        "local_planner.speculative_first_pair": 341,
+        "mesh_coverage_completed": 168,
+        "remaining_scan_route_shortened": 77
+      }
+    },
+    "RouteAwareP4": {
+      "runs": 168,
+      "full_clear": 168,
+      "normal_stop": 168,
+      "accepted": 168,
+      "metric_runs": 168,
+      "unavailable_metric_runs": 0,
+      "identities": [
+        [
+          "RouteAwareP4",
+          "RouteAwareP4_joint21",
+          "strategy_route.py"
+        ]
+      ],
+      "failures": [],
+      "comparison": {
+        "paired_runs": 168,
+        "status": "complete",
+        "mean_T_per_N": 508.7896009147681,
+        "reference_mean_T_per_N": 523.0756412735333,
+        "improvement_percent": 2.731161467198695,
+        "p95_regression_percent": 8.025798109763738,
+        "worst_regression_percent": 17.69241577626184,
+        "worst_case": {
+          "scenario": {
+            "seed": 962053,
+            "N": 16,
+            "dir_frac": 0.75,
+            "error_mode": "edge",
+            "reception_range": [
+              1000,
+              1500
+            ]
+          },
+          "regression_fraction": 0.17692415776261838,
+          "delta_T_s": 983.27896105745,
+          "candidate_accepted": true,
+          "reference_accepted": true
+        },
+        "regressions": [
+          {
+            "scenario": {
+              "seed": 962004,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.08025798109763738,
+            "delta_T_s": 480.69508029506596,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962007,
+              "N": 10,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.030370056671784607,
+            "delta_T_s": 192.7475896513006,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962009,
+              "N": 11,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.008889432280772214,
+            "delta_T_s": 50.890809965118024,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962011,
+              "N": 11,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.03334907436790102,
+            "delta_T_s": 193.53167600138204,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962018,
+              "N": 12,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.009054357267761715,
+            "delta_T_s": 61.459474915948704,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962020,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.039952927440050745,
+            "delta_T_s": 266.29599825783225,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962028,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.00026854350977933983,
+            "delta_T_s": 1.9258051578890445,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962032,
+              "N": 14,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.09720376118695517,
+            "delta_T_s": 539.5263498874756,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962039,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.030701683757331955,
+            "delta_T_s": 205.82776444493356,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962041,
+              "N": 15,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.01901881109050585,
+            "delta_T_s": 121.69688299315203,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962043,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.1177939469998166,
+            "delta_T_s": 645.9008033110003,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962045,
+              "N": 15,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.04999930774530714,
+            "delta_T_s": 344.8508525935813,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962047,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.050211304894472564,
+            "delta_T_s": 362.88065006493616,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962052,
+              "N": 16,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.005595955381476614,
+            "delta_T_s": 40.947012478985926,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962053,
+              "N": 16,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.17692415776261838,
+            "delta_T_s": 983.27896105745,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962054,
+              "N": 16,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.029576754366378744,
+            "delta_T_s": 203.86220688560934,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963004,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.005050362945899778,
+            "delta_T_s": 36.940172697656635,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963005,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.028834474527767995,
+            "delta_T_s": 193.86618907492357,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963010,
+              "N": 11,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.057636016933041656,
+            "delta_T_s": 419.1692066747946,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963011,
+              "N": 11,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.05111176002753215,
+            "delta_T_s": 359.6787798459127,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963012,
+              "N": 11,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.02530712744474628,
+            "delta_T_s": 197.85848588195495,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963013,
+              "N": 11,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.04615127323778112,
+            "delta_T_s": 309.15100595401964,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963014,
+              "N": 11,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.03210222249942296,
+            "delta_T_s": 231.29281283181172,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963016,
+              "N": 12,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.0714723882231485,
+            "delta_T_s": 449.38598797309623,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963019,
+              "N": 12,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.004341716336165646,
+            "delta_T_s": 29.450671026779673,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963020,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.04051468428392435,
+            "delta_T_s": 314.0353338542436,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963022,
+              "N": 12,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.10047821467656104,
+            "delta_T_s": 680.0844797364534,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963023,
+              "N": 12,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.006799049977401772,
+            "delta_T_s": 55.68839601171294,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963028,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.006029074306578064,
+            "delta_T_s": 46.27863525360499,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963029,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.0019165807186742878,
+            "delta_T_s": 12.728336816663614,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963030,
+              "N": 13,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.09394182952412122,
+            "delta_T_s": 752.3881585241033,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963034,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.03523557142817202,
+            "delta_T_s": 251.6015077050106,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963035,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.04106452157885965,
+            "delta_T_s": 259.9894421857125,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963036,
+              "N": 14,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.09115718347999224,
+            "delta_T_s": 682.5940304663518,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963037,
+              "N": 14,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.00029764008553212484,
+            "delta_T_s": 2.0768574789826744,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963038,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.09941632589787908,
+            "delta_T_s": 764.0665929539182,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963039,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.037673094249326855,
+            "delta_T_s": 279.22548805581755,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963041,
+              "N": 15,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.07532583828503414,
+            "delta_T_s": 462.19216746432176,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963042,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.016176156792280016,
+            "delta_T_s": 105.952814500778,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963043,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.018471758762376167,
+            "delta_T_s": 128.56207127684593,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963044,
+              "N": 15,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.08171056922595965,
+            "delta_T_s": 581.802846673465,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963046,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.006686841639474306,
+            "delta_T_s": 58.908676386456136,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963053,
+              "N": 16,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.05640009697121484,
+            "delta_T_s": 396.9308696118351,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963054,
+              "N": 16,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.03221355473000043,
+            "delta_T_s": 284.8309180629076,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963055,
+              "N": 16,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.01574942821748837,
+            "delta_T_s": 126.15471573952891,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963113,
+              "N": 11,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.06024071234352846,
+            "delta_T_s": 372.16456164118335,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963121,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.022725325661034912,
+            "delta_T_s": 140.77025858570687,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963124,
+              "N": 13,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.06987886100607099,
+            "delta_T_s": 395.82545322383885,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963138,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.04080029795999751,
+            "delta_T_s": 289.95585429947005,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963139,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.013682182428432776,
+            "delta_T_s": 95.85958049667806,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963146,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.05388220187974735,
+            "delta_T_s": 349.5082267515927,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          }
+        ],
+        "all_pairs_accepted": true
+      },
+      "mean_T_per_N": 508.7896009147681,
+      "mean_T": 6459.7203944924395,
+      "weighted_T_per_N": 496.9015688071107,
+      "p95_T_per_N": 687.3767414279303,
+      "p95_T": 8016.1494520907845,
+      "worst_T_per_N": 737.7862851876548,
+      "by_N": {
+        "10": 639.4846406516828,
+        "11": 584.3029259943519,
+        "12": 540.44721636205,
+        "13": 490.6193568428264,
+        "14": 468.01356516299154,
+        "15": 438.2960008224301,
+        "16": 400.3635005670438
+      },
+      "mean_distance_m": 24028.393639128866,
+      "mean_measure_count": 266.0357142857143,
+      "mean_clear_fail_count": 4.684523809523809,
+      "mean_costs": {
+        "move_time_s": 4805.678727825773,
+        "switch_time_s": 244.8095238095238,
+        "measure_time_s": 1330.1785714285713,
+        "clear_time_s": 79.05357142857143
+      },
+      "phases": {
+        "discovery": {
+          "move_time_s": 3165.125954984015,
+          "switch_time_s": 244.11904761904762,
+          "measure_time_s": 1320.2083333333333,
+          "clear_time_s": 0.0
+        },
+        "joint_optical_clear": {
+          "move_time_s": 1319.0001385151054,
+          "switch_time_s": 0.0,
+          "measure_time_s": 0.0,
+          "clear_time_s": 79.05357142857143
+        },
+        "localization": {
+          "move_time_s": 321.55263432665254,
+          "switch_time_s": 0.6904761904761905,
+          "measure_time_s": 9.970238095238095,
+          "clear_time_s": 0.0
+        }
+      },
+      "triggers": {
+        "early_clear_miss_advance": 787,
+        "early_clear_success": 2184,
+        "early_plan_started": 2184,
+        "joint_clear_before_scan": 1945,
+        "joint_discovery_completed": 168,
+        "joint_route_planned": 5447,
+        "local_planner.safe_convex_probe": 1,
+        "local_planner.speculative_first_pair": 334,
+        "sixteen_sources_retire_remaining_stations": 10
+      }
+    },
+    "RouteProbeP4": {
+      "runs": 168,
+      "full_clear": 168,
+      "normal_stop": 168,
+      "accepted": 168,
+      "metric_runs": 168,
+      "unavailable_metric_runs": 0,
+      "identities": [
+        [
+          "RouteProbeP4",
+          "RouteProbeP4_zero_detour",
+          "strategy_route_probe.py"
+        ]
+      ],
+      "failures": [],
+      "comparison": {
+        "paired_runs": 168,
+        "status": "complete",
+        "mean_T_per_N": 508.1556289227033,
+        "reference_mean_T_per_N": 523.0756412735333,
+        "improvement_percent": 2.852362292096844,
+        "p95_regression_percent": 8.336870376910976,
+        "worst_regression_percent": 18.25881178576585,
+        "worst_case": {
+          "scenario": {
+            "seed": 962053,
+            "N": 16,
+            "dir_frac": 0.75,
+            "error_mode": "edge",
+            "reception_range": [
+              1000,
+              1500
+            ]
+          },
+          "regression_fraction": 0.1825881178576585,
+          "delta_T_s": 1014.757154132667,
+          "candidate_accepted": true,
+          "reference_accepted": true
+        },
+        "regressions": [
+          {
+            "scenario": {
+              "seed": 962004,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.08336870376910976,
+            "delta_T_s": 499.32636236681356,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962006,
+              "N": 10,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.004848256952894259,
+            "delta_T_s": 35.79500999807806,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962007,
+              "N": 10,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.013415466450320546,
+            "delta_T_s": 85.14303579649004,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962009,
+              "N": 11,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.01182554008726755,
+            "delta_T_s": 67.69963416198607,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962018,
+              "N": 12,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.013298482359799912,
+            "delta_T_s": 90.26789189359442,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962020,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.04848587159863227,
+            "delta_T_s": 323.1701506262016,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962021,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 7.179995283701501e-05,
+            "delta_T_s": 0.5084853606122124,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962025,
+              "N": 13,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.0009112491190743643,
+            "delta_T_s": 5.039356627086818,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962028,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.006608484211577226,
+            "delta_T_s": 47.39140033935564,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962032,
+              "N": 14,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.1031474185857637,
+            "delta_T_s": 572.5164291004921,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962034,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.0040807411495880075,
+            "delta_T_s": 24.830893129650576,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962035,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.0014829869769590331,
+            "delta_T_s": 8.434334664180824,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962038,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.0037455717908188024,
+            "delta_T_s": 25.350009417087676,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962039,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.10798344357837775,
+            "delta_T_s": 723.9339367989933,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962041,
+              "N": 15,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.018425983155976988,
+            "delta_T_s": 117.90351697042297,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962043,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.11591967642055478,
+            "delta_T_s": 635.6235954951408,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962045,
+              "N": 15,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.056487803393048264,
+            "delta_T_s": 389.602737311091,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962047,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.06021823779194713,
+            "delta_T_s": 435.20146153604946,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 962053,
+              "N": 16,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1500
+              ]
+            },
+            "regression_fraction": 0.1825881178576585,
+            "delta_T_s": 1014.757154132667,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963004,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.011174820979942934,
+            "delta_T_s": 81.73666354011766,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963005,
+              "N": 10,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.03418342397960639,
+            "delta_T_s": 229.82940542498,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963010,
+              "N": 11,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.06255209478591861,
+            "delta_T_s": 454.9223444382178,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963011,
+              "N": 11,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.01275461155821489,
+            "delta_T_s": 89.75553023797602,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963013,
+              "N": 11,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.05358798837240264,
+            "delta_T_s": 358.96692225640254,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963014,
+              "N": 11,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.017919400647061323,
+            "delta_T_s": 129.10721617462787,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963016,
+              "N": 12,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.015309708846672931,
+            "delta_T_s": 96.26051132028988,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963020,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.0530298374230449,
+            "delta_T_s": 411.0421441933804,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963022,
+              "N": 12,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.11139570602849314,
+            "delta_T_s": 753.9792682735142,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963028,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.014065940860565451,
+            "delta_T_s": 107.96890426025311,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963029,
+              "N": 13,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.008888652995776347,
+            "delta_T_s": 59.03104840527976,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963030,
+              "N": 13,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.0804309153364875,
+            "delta_T_s": 644.1780896218297,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963034,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.01517152966057167,
+            "delta_T_s": 108.333129904604,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963035,
+              "N": 14,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.043984029995503215,
+            "delta_T_s": 278.47355780464113,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963036,
+              "N": 14,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.09702896345624556,
+            "delta_T_s": 726.5625012658265,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963037,
+              "N": 14,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.009077635315724475,
+            "delta_T_s": 63.34145067602458,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963038,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.10546728194062882,
+            "delta_T_s": 810.5713629294942,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963039,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.04759611708555589,
+            "delta_T_s": 352.77296138247675,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963041,
+              "N": 15,
+              "dir_frac": 0.25,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.0804395628815624,
+            "delta_T_s": 493.5694944067909,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963042,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.022536977850359463,
+            "delta_T_s": 147.61579429836365,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963043,
+              "N": 15,
+              "dir_frac": 0.5,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.02550082174613877,
+            "delta_T_s": 177.48382842801402,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963044,
+              "N": 15,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.08415642946534452,
+            "delta_T_s": 599.2180778157717,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963046,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.016292238282491933,
+            "delta_T_s": 143.52877551767597,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963053,
+              "N": 16,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.07879992735240382,
+            "delta_T_s": 554.5757076499813,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963055,
+              "N": 16,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1000,
+                1000
+              ]
+            },
+            "regression_fraction": 0.04202365878982728,
+            "delta_T_s": 336.614298357752,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963113,
+              "N": 11,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.06945395604105764,
+            "delta_T_s": 429.0835897966117,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963121,
+              "N": 12,
+              "dir_frac": 0.75,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.02973495929785952,
+            "delta_T_s": 184.19088781518258,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963124,
+              "N": 13,
+              "dir_frac": 0.25,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.07525820513581638,
+            "delta_T_s": 426.2964897797792,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963136,
+              "N": 14,
+              "dir_frac": 0.75,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.03486875860604166,
+            "delta_T_s": 232.22586153481916,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963138,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.046885465264654425,
+            "delta_T_s": 333.2013689794603,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963139,
+              "N": 14,
+              "dir_frac": 1.0,
+              "error_mode": "edge",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.018381784754956776,
+            "delta_T_s": 128.7857536330348,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          },
+          {
+            "scenario": {
+              "seed": 963146,
+              "N": 15,
+              "dir_frac": 1.0,
+              "error_mode": "fixed",
+              "reception_range": [
+                1500,
+                1500
+              ]
+            },
+            "regression_fraction": 0.06029321960620537,
+            "delta_T_s": 391.09345079733794,
+            "candidate_accepted": true,
+            "reference_accepted": true
+          }
+        ],
+        "all_pairs_accepted": true
+      },
+      "mean_T_per_N": 508.1556289227033,
+      "mean_T": 6450.145875592487,
+      "weighted_T_per_N": 496.1650673532683,
+      "p95_T_per_N": 690.3508592624595,
+      "p95_T": 7783.879483619299,
+      "worst_T_per_N": 741.886285187655,
+      "by_N": {
+        "10": 640.8135058469361,
+        "11": 579.9405933454619,
+        "12": 540.495769217676,
+        "13": 490.8663902139884,
+        "14": 472.294165891682,
+        "15": 438.65472909040227,
+        "16": 394.02424885277645
+      },
+      "mean_distance_m": 23900.491282724342,
+      "mean_measure_count": 267.2916666666667,
+      "mean_clear_fail_count": 4.857142857142857,
+      "mean_costs": {
+        "move_time_s": 4780.0982565448685,
+        "switch_time_s": 254.01785714285714,
+        "measure_time_s": 1336.4583333333333,
+        "clear_time_s": 79.57142857142857
+      },
+      "phases": {
+        "discovery": {
+          "move_time_s": 2245.1396990922576,
+          "switch_time_s": 245.2202380952381,
+          "measure_time_s": 1287.202380952381,
+          "clear_time_s": 0.0
+        },
+        "joint_optical_clear": {
+          "move_time_s": 1354.0320636653832,
+          "switch_time_s": 0.0,
+          "measure_time_s": 0.0,
+          "clear_time_s": 79.57142857142857
+        },
+        "localization": {
+          "move_time_s": 266.303348541981,
+          "switch_time_s": 0.5357142857142857,
+          "measure_time_s": 7.946428571428571,
+          "clear_time_s": 0.0
+        },
+        "route_probe": {
+          "move_time_s": 914.6231452452465,
+          "switch_time_s": 8.261904761904763,
+          "measure_time_s": 41.30952380952381,
+          "clear_time_s": 0.0
+        }
+      },
+      "triggers": {
+        "early_clear_miss_advance": 816,
+        "early_clear_success": 2184,
+        "early_plan_started": 2184,
+        "joint_clear_before_scan": 1955,
+        "joint_discovery_completed": 168,
+        "joint_route_planned": 5449,
+        "local_planner.safe_convex_probe": 1,
+        "local_planner.speculative_first_pair": 266,
+        "route_probe.held_scan_resumed": 1388,
+        "route_probe.probe_direction": 809,
+        "route_probe.probe_no_signal": 579,
+        "route_probe.zero_detour_probe_issued": 1388,
+        "route_probe_held_scan_resumed": 1388,
+        "route_probe_probe_direction": 809,
+        "route_probe_probe_no_signal": 579,
+        "route_probe_zero_detour_probe_issued": 1388,
+        "sixteen_sources_retire_remaining_stations": 12
+      }
+    }
+  },
+  "verification_record": {
+    "source": "integration thread's completed validation record",
+    "passed": 113,
+    "seconds": 17.62,
+    "command": "python -m pytest test_route.py test_route_probe.py test_route_standalone.py test_discovery_prune.py test_hunt.py test_local_hunt.py test_discovery_compact.py test_discovery_coverage.py test_discovery_mesh.py test_discovery_rings.py test_finish.py test_cost.py -q",
+    "research_only_helper": "discovery_joint_prune.py",
+    "research_only_test": "test_discovery_joint_prune.py",
+    "research_only_passed": 9,
+    "research_helper_integrated": false
+  },
+  "label_evidence": {
+    "boundary01": {
+      "stage": "boundary",
+      "complete": true,
+      "report_sha256": "1a476ccd37aa044311631339fc25093a9eb8d7d0da7398bf24129ce65a411458",
+      "manifest_sha256": "d225f060727729e7a133cb1ce5d545d542e9f8fdda8eb635ef87cf35966f3bad",
+      "summary": {
+        "HuntP4": {
+          "runs": 112,
+          "full_clear": 112,
+          "normal_stop": 112,
+          "accepted": 112,
+          "metric_runs": 112,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 112,
+            "status": "complete",
+            "mean_T_per_N": 528.4881246145636,
+            "reference_mean_T_per_N": 528.4881246145636,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 963000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1000
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 528.4881246145636,
+          "mean_T": 6705.640249325985,
+          "weighted_T_per_N": 515.8184807173835,
+          "p95_T_per_N": 710.7537242008027,
+          "p95_T": 7884.763961735042,
+          "worst_T_per_N": 772.4597036077096,
+          "by_N": {
+            "10": 671.5912546772793,
+            "11": 612.2168596404372,
+            "12": 551.6978523976264,
+            "13": 514.0950075371909,
+            "14": 477.73532226913153,
+            "15": 456.0093085430287,
+            "16": 416.0712672372516
+          },
+          "mean_distance_m": 25185.969103772786,
+          "mean_measure_count": 265.2142857142857,
+          "mean_clear_fail_count": 4.973214285714286,
+          "mean_costs": {
+            "move_time_s": 5037.193820754557,
+            "switch_time_s": 262.45535714285717,
+            "measure_time_s": 1326.0714285714287,
+            "clear_time_s": 79.91964285714286
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3085.0825630379404,
+              "switch_time_s": 261.5625,
+              "measure_time_s": 1313.3482142857142,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 860.1788912751603,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 60.13392857142857
+            },
+            "localization": {
+              "move_time_s": 1091.9323664414567,
+              "switch_time_s": 0.8928571428571429,
+              "measure_time_s": 12.723214285714286,
+              "clear_time_s": 19.785714285714285
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 557,
+            "early_clear_success": 1456,
+            "early_plan_started": 1456,
+            "local_planner.safe_convex_probe": 1,
+            "local_planner.speculative_first_pair": 284,
+            "mesh_coverage_completed": 112,
+            "remaining_scan_route_shortened": 49
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 112,
+          "full_clear": 112,
+          "normal_stop": 112,
+          "accepted": 112,
+          "metric_runs": 112,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 112,
+            "status": "complete",
+            "mean_T_per_N": 513.5255630346769,
+            "reference_mean_T_per_N": 528.4881246145636,
+            "improvement_percent": 2.831201096675384,
+            "p95_regression_percent": 7.532583828503414,
+            "worst_regression_percent": 10.047821467656103,
+            "worst_case": {
+              "scenario": {
+                "seed": 963022,
+                "N": 12,
+                "dir_frac": 1.0,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1000
+                ]
+              },
+              "regression_fraction": 0.10047821467656104,
+              "delta_T_s": 680.0844797364534,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 963004,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.005050362945899778,
+                "delta_T_s": 36.940172697656635,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963005,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.028834474527767995,
+                "delta_T_s": 193.86618907492357,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963010,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.057636016933041656,
+                "delta_T_s": 419.1692066747946,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963011,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.05111176002753215,
+                "delta_T_s": 359.6787798459127,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963012,
+                  "N": 11,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.02530712744474628,
+                "delta_T_s": 197.85848588195495,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963013,
+                  "N": 11,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.04615127323778112,
+                "delta_T_s": 309.15100595401964,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963014,
+                  "N": 11,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.03210222249942296,
+                "delta_T_s": 231.29281283181172,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963016,
+                  "N": 12,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.0714723882231485,
+                "delta_T_s": 449.38598797309623,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963019,
+                  "N": 12,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.004341716336165646,
+                "delta_T_s": 29.450671026779673,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963020,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.04051468428392435,
+                "delta_T_s": 314.0353338542436,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963022,
+                  "N": 12,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.10047821467656104,
+                "delta_T_s": 680.0844797364534,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963023,
+                  "N": 12,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.006799049977401772,
+                "delta_T_s": 55.68839601171294,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963028,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.006029074306578064,
+                "delta_T_s": 46.27863525360499,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963029,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.0019165807186742878,
+                "delta_T_s": 12.728336816663614,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963030,
+                  "N": 13,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.09394182952412122,
+                "delta_T_s": 752.3881585241033,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963034,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.03523557142817202,
+                "delta_T_s": 251.6015077050106,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963035,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.04106452157885965,
+                "delta_T_s": 259.9894421857125,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963036,
+                  "N": 14,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.09115718347999224,
+                "delta_T_s": 682.5940304663518,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963037,
+                  "N": 14,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.00029764008553212484,
+                "delta_T_s": 2.0768574789826744,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963038,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.09941632589787908,
+                "delta_T_s": 764.0665929539182,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963039,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.037673094249326855,
+                "delta_T_s": 279.22548805581755,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963041,
+                  "N": 15,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.07532583828503414,
+                "delta_T_s": 462.19216746432176,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963042,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.016176156792280016,
+                "delta_T_s": 105.952814500778,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963043,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.018471758762376167,
+                "delta_T_s": 128.56207127684593,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963044,
+                  "N": 15,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.08171056922595965,
+                "delta_T_s": 581.802846673465,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963046,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.006686841639474306,
+                "delta_T_s": 58.908676386456136,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963053,
+                  "N": 16,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.05640009697121484,
+                "delta_T_s": 396.9308696118351,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963054,
+                  "N": 16,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.03221355473000043,
+                "delta_T_s": 284.8309180629076,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963055,
+                  "N": 16,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.01574942821748837,
+                "delta_T_s": 126.15471573952891,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963113,
+                  "N": 11,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06024071234352846,
+                "delta_T_s": 372.16456164118335,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963121,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.022725325661034912,
+                "delta_T_s": 140.77025858570687,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963124,
+                  "N": 13,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06987886100607099,
+                "delta_T_s": 395.82545322383885,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963138,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04080029795999751,
+                "delta_T_s": 289.95585429947005,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963139,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.013682182428432776,
+                "delta_T_s": 95.85958049667806,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963146,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.05388220187974735,
+                "delta_T_s": 349.5082267515927,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 513.5255630346769,
+          "mean_T": 6518.692076322129,
+          "weighted_T_per_N": 501.4378520247791,
+          "p95_T_per_N": 691.7282941068347,
+          "p95_T": 8170.6932060641975,
+          "worst_T_per_N": 735.130016887317,
+          "by_N": {
+            "10": 642.1392697087839,
+            "11": 595.4156839845981,
+            "12": 539.8800065812493,
+            "13": 497.47340210445714,
+            "14": 479.1964855547634,
+            "15": 443.7712837053302,
+            "16": 396.8028096035566
+          },
+          "mean_distance_m": 24234.62109589636,
+          "mean_measure_count": 269.11607142857144,
+          "mean_clear_fail_count": 4.517857142857143,
+          "mean_costs": {
+            "move_time_s": 4846.924219179272,
+            "switch_time_s": 247.63392857142858,
+            "measure_time_s": 1345.580357142857,
+            "clear_time_s": 78.55357142857143
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3168.1711610404345,
+              "switch_time_s": 246.74107142857142,
+              "measure_time_s": 1333.169642857143,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1292.7159123166166,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 78.55357142857143
+            },
+            "localization": {
+              "move_time_s": 386.03714582222074,
+              "switch_time_s": 0.8928571428571429,
+              "measure_time_s": 12.410714285714286,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 506,
+            "early_clear_success": 1456,
+            "early_plan_started": 1456,
+            "joint_clear_before_scan": 1281,
+            "joint_discovery_completed": 112,
+            "joint_route_planned": 3611,
+            "local_planner.safe_convex_probe": 1,
+            "local_planner.speculative_first_pair": 277,
+            "sixteen_sources_retire_remaining_stations": 7
+          }
+        },
+        "RouteProbeP4": {
+          "runs": 112,
+          "full_clear": 112,
+          "normal_stop": 112,
+          "accepted": 112,
+          "metric_runs": 112,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteProbeP4",
+              "RouteProbeP4_zero_detour",
+              "strategy_route_probe.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 112,
+            "status": "complete",
+            "mean_T_per_N": 512.9353281011893,
+            "reference_mean_T_per_N": 528.4881246145636,
+            "improvement_percent": 2.9428847667518188,
+            "p95_regression_percent": 8.043091533648749,
+            "worst_regression_percent": 11.139570602849314,
+            "worst_case": {
+              "scenario": {
+                "seed": 963022,
+                "N": 12,
+                "dir_frac": 1.0,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1000
+                ]
+              },
+              "regression_fraction": 0.11139570602849314,
+              "delta_T_s": 753.9792682735142,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 963004,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.011174820979942934,
+                "delta_T_s": 81.73666354011766,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963005,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.03418342397960639,
+                "delta_T_s": 229.82940542498,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963010,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.06255209478591861,
+                "delta_T_s": 454.9223444382178,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963011,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.01275461155821489,
+                "delta_T_s": 89.75553023797602,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963013,
+                  "N": 11,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.05358798837240264,
+                "delta_T_s": 358.96692225640254,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963014,
+                  "N": 11,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.017919400647061323,
+                "delta_T_s": 129.10721617462787,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963016,
+                  "N": 12,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.015309708846672931,
+                "delta_T_s": 96.26051132028988,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963020,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.0530298374230449,
+                "delta_T_s": 411.0421441933804,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963022,
+                  "N": 12,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.11139570602849314,
+                "delta_T_s": 753.9792682735142,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963028,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.014065940860565451,
+                "delta_T_s": 107.96890426025311,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963029,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.008888652995776347,
+                "delta_T_s": 59.03104840527976,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963030,
+                  "N": 13,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.0804309153364875,
+                "delta_T_s": 644.1780896218297,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963034,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.01517152966057167,
+                "delta_T_s": 108.333129904604,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963035,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.043984029995503215,
+                "delta_T_s": 278.47355780464113,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963036,
+                  "N": 14,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.09702896345624556,
+                "delta_T_s": 726.5625012658265,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963037,
+                  "N": 14,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.009077635315724475,
+                "delta_T_s": 63.34145067602458,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963038,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.10546728194062882,
+                "delta_T_s": 810.5713629294942,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963039,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.04759611708555589,
+                "delta_T_s": 352.77296138247675,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963041,
+                  "N": 15,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.0804395628815624,
+                "delta_T_s": 493.5694944067909,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963042,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.022536977850359463,
+                "delta_T_s": 147.61579429836365,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963043,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.02550082174613877,
+                "delta_T_s": 177.48382842801402,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963044,
+                  "N": 15,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.08415642946534452,
+                "delta_T_s": 599.2180778157717,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963046,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.016292238282491933,
+                "delta_T_s": 143.52877551767597,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963053,
+                  "N": 16,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.07879992735240382,
+                "delta_T_s": 554.5757076499813,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963055,
+                  "N": 16,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1000
+                  ]
+                },
+                "regression_fraction": 0.04202365878982728,
+                "delta_T_s": 336.614298357752,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963113,
+                  "N": 11,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06945395604105764,
+                "delta_T_s": 429.0835897966117,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963121,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.02973495929785952,
+                "delta_T_s": 184.19088781518258,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963124,
+                  "N": 13,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.07525820513581638,
+                "delta_T_s": 426.2964897797792,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963136,
+                  "N": 14,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.03486875860604166,
+                "delta_T_s": 232.22586153481916,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963138,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.046885465264654425,
+                "delta_T_s": 333.2013689794603,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963139,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.018381784754956776,
+                "delta_T_s": 128.7857536330348,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 963146,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1500,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06029321960620537,
+                "delta_T_s": 391.09345079733794,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 512.9353281011893,
+          "mean_T": 6512.2478570152825,
+          "weighted_T_per_N": 500.9421428473294,
+          "p95_T_per_N": 695.3246157418404,
+          "p95_T": 8214.661676863672,
+          "worst_T_per_N": 739.6096659715631,
+          "by_N": {
+            "10": 644.0910206881351,
+            "11": 589.5875492427047,
+            "12": 538.709716235678,
+            "13": 496.1090215911539,
+            "14": 482.2453165607089,
+            "15": 442.88131504629837,
+            "16": 396.92335734364633
+          },
+          "mean_distance_m": 24131.730356504988,
+          "mean_measure_count": 270.0267857142857,
+          "mean_clear_fail_count": 4.696428571428571,
+          "mean_costs": {
+            "move_time_s": 4826.346071300997,
+            "switch_time_s": 256.67857142857144,
+            "measure_time_s": 1350.1339285714287,
+            "clear_time_s": 79.08928571428571
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 2241.3002131273197,
+              "switch_time_s": 247.60714285714286,
+              "measure_time_s": 1298.3482142857142,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1331.8304670630112,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 79.08928571428571
+            },
+            "localization": {
+              "move_time_s": 322.81727392419674,
+              "switch_time_s": 0.6875,
+              "measure_time_s": 9.866071428571429,
+              "clear_time_s": 0.0
+            },
+            "route_probe": {
+              "move_time_s": 930.3981171864699,
+              "switch_time_s": 8.383928571428571,
+              "measure_time_s": 41.919642857142854,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 526,
+            "early_clear_success": 1456,
+            "early_plan_started": 1456,
+            "joint_clear_before_scan": 1295,
+            "joint_discovery_completed": 112,
+            "joint_route_planned": 3625,
+            "local_planner.safe_convex_probe": 1,
+            "local_planner.speculative_first_pair": 220,
+            "route_probe.held_scan_resumed": 939,
+            "route_probe.probe_direction": 543,
+            "route_probe.probe_no_signal": 396,
+            "route_probe.zero_detour_probe_issued": 939,
+            "route_probe_held_scan_resumed": 939,
+            "route_probe_probe_direction": 543,
+            "route_probe_probe_no_signal": 396,
+            "route_probe_zero_detour_probe_issued": 939,
+            "sixteen_sources_retire_remaining_stations": 7
+          }
+        }
+      }
+    },
+    "confirmation01": {
+      "stage": "confirmation",
+      "complete": true,
+      "report_sha256": "a7da5ac5589ed02b589d5ae38ff4c31045ce404547169e485121963594ea18e5",
+      "manifest_sha256": "30d7ff49d4ad73ff69182429a79282f67489a70f3762d9a256e0945c360ecee5",
+      "summary": {
+        "HuntP4": {
+          "runs": 56,
+          "full_clear": 56,
+          "normal_stop": 56,
+          "accepted": 56,
+          "metric_runs": 56,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 56,
+            "status": "complete",
+            "mean_T_per_N": 512.2506745914727,
+            "reference_mean_T_per_N": 512.2506745914727,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 962000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 512.2506745914727,
+          "mean_T": 6505.84095858454,
+          "weighted_T_per_N": 500.44930450650315,
+          "p95_T_per_N": 676.8492677207989,
+          "p95_T": 7317.25142314857,
+          "worst_T_per_N": 738.3067841878471,
+          "by_N": {
+            "10": 637.6624846536948,
+            "11": 585.0140732019181,
+            "12": 558.4575660434699,
+            "13": 502.20507410058156,
+            "14": 452.22938583762465,
+            "15": 435.2393120705249,
+            "16": 414.9468262324949
+          },
+          "mean_distance_m": 24560.633364351273,
+          "mean_measure_count": 252.69642857142858,
+          "mean_clear_fail_count": 4.875,
+          "mean_costs": {
+            "move_time_s": 4912.126672870255,
+            "switch_time_s": 250.60714285714286,
+            "measure_time_s": 1263.482142857143,
+            "clear_time_s": 79.625
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3080.566465250094,
+              "switch_time_s": 250.35714285714286,
+              "measure_time_s": 1258.392857142857,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 970.0432533175516,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 63.910714285714285
+            },
+            "localization": {
+              "move_time_s": 861.516954302609,
+              "switch_time_s": 0.25,
+              "measure_time_s": 5.089285714285714,
+              "clear_time_s": 15.714285714285714
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 273,
+            "early_clear_success": 728,
+            "early_plan_started": 728,
+            "local_planner.speculative_first_pair": 57,
+            "mesh_coverage_completed": 56,
+            "remaining_scan_route_shortened": 28
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 56,
+          "full_clear": 56,
+          "normal_stop": 56,
+          "accepted": 56,
+          "metric_runs": 56,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 56,
+            "status": "complete",
+            "mean_T_per_N": 499.3176766749503,
+            "reference_mean_T_per_N": 512.2506745914727,
+            "improvement_percent": 2.524740045845064,
+            "p95_regression_percent": 9.720376118695517,
+            "worst_regression_percent": 17.69241577626184,
+            "worst_case": {
+              "scenario": {
+                "seed": 962053,
+                "N": 16,
+                "dir_frac": 0.75,
+                "error_mode": "edge",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.17692415776261838,
+              "delta_T_s": 983.27896105745,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 962004,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.08025798109763738,
+                "delta_T_s": 480.69508029506596,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.030370056671784607,
+                "delta_T_s": 192.7475896513006,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962009,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.008889432280772214,
+                "delta_T_s": 50.890809965118024,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962011,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.03334907436790102,
+                "delta_T_s": 193.53167600138204,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962018,
+                  "N": 12,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.009054357267761715,
+                "delta_T_s": 61.459474915948704,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962020,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.039952927440050745,
+                "delta_T_s": 266.29599825783225,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962028,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.00026854350977933983,
+                "delta_T_s": 1.9258051578890445,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962032,
+                  "N": 14,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.09720376118695517,
+                "delta_T_s": 539.5263498874756,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962039,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.030701683757331955,
+                "delta_T_s": 205.82776444493356,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962041,
+                  "N": 15,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.01901881109050585,
+                "delta_T_s": 121.69688299315203,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962043,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.1177939469998166,
+                "delta_T_s": 645.9008033110003,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962045,
+                  "N": 15,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04999930774530714,
+                "delta_T_s": 344.8508525935813,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962047,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.050211304894472564,
+                "delta_T_s": 362.88065006493616,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962052,
+                  "N": 16,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.005595955381476614,
+                "delta_T_s": 40.947012478985926,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962053,
+                  "N": 16,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.17692415776261838,
+                "delta_T_s": 983.27896105745,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962054,
+                  "N": 16,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.029576754366378744,
+                "delta_T_s": 203.86220688560934,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 499.3176766749503,
+          "mean_T": 6341.777030833061,
+          "weighted_T_per_N": 487.82900237177387,
+          "p95_T_per_N": 653.9380120975272,
+          "p95_T": 7358.198435627556,
+          "worst_T_per_N": 737.7862851876548,
+          "by_N": {
+            "10": 634.1753825374803,
+            "11": 562.0774100138594,
+            "12": 541.5816359236516,
+            "13": 476.9112663195649,
+            "14": 445.6477243794478,
+            "15": 427.34543505662975,
+            "16": 407.4848824940181
+          },
+          "mean_distance_m": 23615.93872559388,
+          "mean_measure_count": 259.875,
+          "mean_clear_fail_count": 5.017857142857143,
+          "mean_costs": {
+            "move_time_s": 4723.187745118776,
+            "switch_time_s": 239.16071428571428,
+            "measure_time_s": 1299.375,
+            "clear_time_s": 80.05357142857143
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3159.0355428711773,
+              "switch_time_s": 238.875,
+              "measure_time_s": 1294.2857142857142,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1371.5685909120823,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 80.05357142857143
+            },
+            "localization": {
+              "move_time_s": 192.5836113355161,
+              "switch_time_s": 0.2857142857142857,
+              "measure_time_s": 5.089285714285714,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 281,
+            "early_clear_success": 728,
+            "early_plan_started": 728,
+            "joint_clear_before_scan": 664,
+            "joint_discovery_completed": 56,
+            "joint_route_planned": 1836,
+            "local_planner.speculative_first_pair": 57,
+            "sixteen_sources_retire_remaining_stations": 3
+          }
+        },
+        "RouteProbeP4": {
+          "runs": 56,
+          "full_clear": 56,
+          "normal_stop": 56,
+          "accepted": 56,
+          "metric_runs": 56,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteProbeP4",
+              "RouteProbeP4_zero_detour",
+              "strategy_route_probe.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 56,
+            "status": "complete",
+            "mean_T_per_N": 498.5962305657313,
+            "reference_mean_T_per_N": 512.2506745914727,
+            "improvement_percent": 2.6655785346951566,
+            "p95_regression_percent": 10.798344357837774,
+            "worst_regression_percent": 18.25881178576585,
+            "worst_case": {
+              "scenario": {
+                "seed": 962053,
+                "N": 16,
+                "dir_frac": 0.75,
+                "error_mode": "edge",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.1825881178576585,
+              "delta_T_s": 1014.757154132667,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 962004,
+                  "N": 10,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.08336870376910976,
+                "delta_T_s": 499.32636236681356,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962006,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.004848256952894259,
+                "delta_T_s": 35.79500999807806,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.013415466450320546,
+                "delta_T_s": 85.14303579649004,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962009,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.01182554008726755,
+                "delta_T_s": 67.69963416198607,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962018,
+                  "N": 12,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.013298482359799912,
+                "delta_T_s": 90.26789189359442,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962020,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04848587159863227,
+                "delta_T_s": 323.1701506262016,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962021,
+                  "N": 12,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 7.179995283701501e-05,
+                "delta_T_s": 0.5084853606122124,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962025,
+                  "N": 13,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0009112491190743643,
+                "delta_T_s": 5.039356627086818,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962028,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.006608484211577226,
+                "delta_T_s": 47.39140033935564,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962032,
+                  "N": 14,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.1031474185857637,
+                "delta_T_s": 572.5164291004921,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962034,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0040807411495880075,
+                "delta_T_s": 24.830893129650576,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962035,
+                  "N": 14,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0014829869769590331,
+                "delta_T_s": 8.434334664180824,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962038,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0037455717908188024,
+                "delta_T_s": 25.350009417087676,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962039,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.10798344357837775,
+                "delta_T_s": 723.9339367989933,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962041,
+                  "N": 15,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.018425983155976988,
+                "delta_T_s": 117.90351697042297,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962043,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.11591967642055478,
+                "delta_T_s": 635.6235954951408,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962045,
+                  "N": 15,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.056487803393048264,
+                "delta_T_s": 389.602737311091,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962047,
+                  "N": 15,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06021823779194713,
+                "delta_T_s": 435.20146153604946,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 962053,
+                  "N": 16,
+                  "dir_frac": 0.75,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.1825881178576585,
+                "delta_T_s": 1014.757154132667,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 498.5962305657313,
+          "mean_T": 6325.941912746895,
+          "weighted_T_per_N": 486.6109163651457,
+          "p95_T_per_N": 648.8700549468274,
+          "p95_T": 7418.862851876549,
+          "worst_T_per_N": 741.886285187655,
+          "by_N": {
+            "10": 634.2584761645379,
+            "11": 560.6466815509766,
+            "12": 544.0678751816719,
+            "13": 480.3811274596573,
+            "14": 452.3918645536282,
+            "15": 430.20155717861013,
+            "16": 388.2260318710367
+          },
+          "mean_distance_m": 23438.013135163048,
+          "mean_measure_count": 261.82142857142856,
+          "mean_clear_fail_count": 5.178571428571429,
+          "mean_costs": {
+            "move_time_s": 4687.60262703261,
+            "switch_time_s": 248.69642857142858,
+            "measure_time_s": 1309.107142857143,
+            "clear_time_s": 80.53571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 2252.818671022133,
+              "switch_time_s": 240.44642857142858,
+              "measure_time_s": 1264.9107142857142,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1398.4352568701277,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 80.53571428571429
+            },
+            "localization": {
+              "move_time_s": 153.2754977775494,
+              "switch_time_s": 0.23214285714285715,
+              "measure_time_s": 4.107142857142857,
+              "clear_time_s": 0.0
+            },
+            "route_probe": {
+              "move_time_s": 883.0732013627998,
+              "switch_time_s": 8.017857142857142,
+              "measure_time_s": 40.089285714285715,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 290,
+            "early_clear_success": 728,
+            "early_plan_started": 728,
+            "joint_clear_before_scan": 660,
+            "joint_discovery_completed": 56,
+            "joint_route_planned": 1824,
+            "local_planner.speculative_first_pair": 46,
+            "route_probe.held_scan_resumed": 449,
+            "route_probe.probe_direction": 266,
+            "route_probe.probe_no_signal": 183,
+            "route_probe.zero_detour_probe_issued": 449,
+            "route_probe_held_scan_resumed": 449,
+            "route_probe_probe_direction": 266,
+            "route_probe_probe_no_signal": 183,
+            "route_probe_zero_detour_probe_issued": 449,
+            "sixteen_sources_retire_remaining_stations": 5
+          }
+        }
+      }
+    },
+    "dev01": {
+      "stage": "development",
+      "complete": true,
+      "report_sha256": "3d69ff6f139c3852707ef4f6f3fbabb07283318fb38a21d126aa416454133f87",
+      "manifest_sha256": "97a6983d396836465cbc3392282860090ad299bfdd3d88a5b7e4d4f8d7e8e2fd",
+      "summary": {
+        "HuntP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 507.209473210253,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 961000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "random",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 507.209473210253,
+          "mean_T": 6434.673263634184,
+          "weighted_T_per_N": 494.97486643339874,
+          "p95_T_per_N": 662.3937414706191,
+          "p95_T": 7654.464538248532,
+          "worst_T_per_N": 662.3937414706191,
+          "by_N": {
+            "10": 646.5880915171088,
+            "11": 528.8202934855435,
+            "12": 576.8373362329571,
+            "13": 512.1931218167592,
+            "14": 487.64965583962896,
+            "15": 421.89011551731386,
+            "16": 376.4876980624597
+          },
+          "mean_distance_m": 24037.652032456637,
+          "mean_measure_count": 258.42857142857144,
+          "mean_clear_fail_count": 4.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4807.530406491327,
+            "switch_time_s": 256.7142857142857,
+            "measure_time_s": 1292.142857142857,
+            "clear_time_s": 78.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3002.959246922082,
+              "switch_time_s": 256.2142857142857,
+              "measure_time_s": 1286.7857142857142,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 1003.1538829371668,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 63.714285714285715
+            },
+            "localization": {
+              "move_time_s": 801.4172766320783,
+              "switch_time_s": 0.5,
+              "measure_time_s": 5.357142857142857,
+              "clear_time_s": 14.571428571428571
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 62,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "local_planner.speculative_first_pair": 15,
+            "mesh_coverage_completed": 14,
+            "remaining_scan_route_shortened": 12
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 499.0267394443024,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 1.613284884874111,
+            "p95_regression_percent": 6.800048425668792,
+            "worst_regression_percent": 6.800048425668792,
+            "worst_case": {
+              "scenario": {
+                "seed": 961001,
+                "N": 11,
+                "dir_frac": 0.5,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.06800048425668792,
+              "delta_T_s": 387.3655561923415,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 961000,
+                  "N": 10,
+                  "dir_frac": 0.25,
+                  "error_mode": "random",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04680193780435116,
+                "delta_T_s": 295.2184059813626,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961001,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06800048425668792,
+                "delta_T_s": 387.3655561923415,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961005,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0023305415938488228,
+                "delta_T_s": 15.121815713849173,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.05955112282279185,
+                "delta_T_s": 394.4629105536551,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961008,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.010740317874299743,
+                "delta_T_s": 63.77101035766373,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961010,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.03314532441123341,
+                "delta_T_s": 211.1747789146075,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 499.0267394443024,
+          "mean_T": 6299.435756148615,
+          "weighted_T_per_N": 484.5719812422012,
+          "p95_T_per_N": 701.8400325259847,
+          "p95_T": 7498.270701546982,
+          "worst_T_per_N": 701.8400325259847,
+          "by_N": {
+            "10": 681.0721573438595,
+            "11": 549.3265010559983,
+            "12": 527.6233273628768,
+            "13": 493.3786842630869,
+            "14": 481.87262310017604,
+            "15": 407.5044669372928,
+            "16": 352.4094160468263
+          },
+          "mean_distance_m": 23269.67878074308,
+          "mean_measure_count": 261.07142857142856,
+          "mean_clear_fail_count": 5.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4653.935756148616,
+            "switch_time_s": 258.85714285714283,
+            "measure_time_s": 1305.357142857143,
+            "clear_time_s": 81.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3102.4222947446465,
+              "switch_time_s": 258.42857142857144,
+              "measure_time_s": 1299.642857142857,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1292.1192719961164,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 81.28571428571429
+            },
+            "localization": {
+              "move_time_s": 259.3941894078531,
+              "switch_time_s": 0.42857142857142855,
+              "measure_time_s": 5.714285714285714,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 76,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "joint_clear_before_scan": 161,
+            "joint_discovery_completed": 14,
+            "joint_route_planned": 451,
+            "local_planner.speculative_first_pair": 16,
+            "sixteen_sources_retire_remaining_stations": 2
+          }
+        }
+      }
+    },
+    "dev02_prune": {
+      "stage": "development",
+      "complete": true,
+      "report_sha256": "c27ffd3bba4b764b03cf3e36841e4b239357c2e031658d9fb0eb4cf87c2daae9",
+      "manifest_sha256": "e9585dbe82abbd07fe8a4984e307132ad614ca53d14550d5d49d8fe67db77a09",
+      "summary": {
+        "HuntP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 507.209473210253,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 961000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "random",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 507.209473210253,
+          "mean_T": 6434.673263634184,
+          "weighted_T_per_N": 494.97486643339874,
+          "p95_T_per_N": 662.3937414706191,
+          "p95_T": 7654.464538248532,
+          "worst_T_per_N": 662.3937414706191,
+          "by_N": {
+            "10": 646.5880915171088,
+            "11": 528.8202934855435,
+            "12": 576.8373362329571,
+            "13": 512.1931218167592,
+            "14": 487.64965583962896,
+            "15": 421.89011551731386,
+            "16": 376.4876980624597
+          },
+          "mean_distance_m": 24037.652032456637,
+          "mean_measure_count": 258.42857142857144,
+          "mean_clear_fail_count": 4.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4807.530406491327,
+            "switch_time_s": 256.7142857142857,
+            "measure_time_s": 1292.142857142857,
+            "clear_time_s": 78.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3002.959246922082,
+              "switch_time_s": 256.2142857142857,
+              "measure_time_s": 1286.7857142857142,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 1003.1538829371668,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 63.714285714285715
+            },
+            "localization": {
+              "move_time_s": 801.4172766320783,
+              "switch_time_s": 0.5,
+              "measure_time_s": 5.357142857142857,
+              "clear_time_s": 14.571428571428571
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 62,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "local_planner.speculative_first_pair": 15,
+            "mesh_coverage_completed": 14,
+            "remaining_scan_route_shortened": 12
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 497.5109001792805,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 1.912143511355946,
+            "p95_regression_percent": 6.448956372337533,
+            "worst_regression_percent": 6.448956372337533,
+            "worst_case": {
+              "scenario": {
+                "seed": 961001,
+                "N": 11,
+                "dir_frac": 0.5,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.06448956372337533,
+              "delta_T_s": 367.3655561923415,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 961000,
+                  "N": 10,
+                  "dir_frac": 0.25,
+                  "error_mode": "random",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04378980576831948,
+                "delta_T_s": 276.2184059813626,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961001,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06448956372337533,
+                "delta_T_s": 367.3655561923415,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.05653177062366077,
+                "delta_T_s": 374.4629105536551,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961008,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.007371916522631805,
+                "delta_T_s": 43.77101035766373,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961010,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.030163144592932234,
+                "delta_T_s": 192.1747789146093,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 497.5109001792805,
+          "mean_T": 6280.359978241248,
+          "weighted_T_per_N": 483.10461371086524,
+          "p95_T_per_N": 699.8400325259847,
+          "p95_T": 7479.2707015469805,
+          "worst_T_per_N": 699.8400325259847,
+          "by_N": {
+            "10": 679.1221573438596,
+            "11": 547.5083192378165,
+            "12": 526.0032789727172,
+            "13": 491.7666937586964,
+            "14": 480.5154802430331,
+            "15": 406.0822744854146,
+            "16": 351.57809721342596
+          },
+          "mean_distance_m": 23272.157034063388,
+          "mean_measure_count": 260.85714285714283,
+          "mean_clear_fail_count": 5.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4654.431406812677,
+            "switch_time_s": 240.35714285714286,
+            "measure_time_s": 1304.2857142857142,
+            "clear_time_s": 81.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3102.1354152926097,
+              "switch_time_s": 239.92857142857142,
+              "measure_time_s": 1298.5714285714287,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1292.8240155768706,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 81.28571428571429
+            },
+            "localization": {
+              "move_time_s": 259.47197594319704,
+              "switch_time_s": 0.42857142857142855,
+              "measure_time_s": 5.714285714285714,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 76,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "joint_clear_before_scan": 161,
+            "joint_discovery_completed": 14,
+            "joint_route_planned": 451,
+            "local_planner.speculative_first_pair": 16,
+            "sixteen_sources_retire_remaining_stations": 2
+          }
+        }
+      }
+    },
+    "dev03_reuse_stops": {
+      "stage": "development",
+      "complete": true,
+      "report_sha256": "c97f16cba3f73e25b577899461efde130de80394a1c242ead06073a19ad4c541",
+      "manifest_sha256": "26b661f36f9fc63f4b38e980c1b4d230f07fa361e686ecad958df9ab725e64dd",
+      "summary": {
+        "HuntP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 507.209473210253,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 961000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "random",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 507.209473210253,
+          "mean_T": 6434.673263634184,
+          "weighted_T_per_N": 494.97486643339874,
+          "p95_T_per_N": 662.3937414706191,
+          "p95_T": 7654.464538248532,
+          "worst_T_per_N": 662.3937414706191,
+          "by_N": {
+            "10": 646.5880915171088,
+            "11": 528.8202934855435,
+            "12": 576.8373362329571,
+            "13": 512.1931218167592,
+            "14": 487.64965583962896,
+            "15": 421.89011551731386,
+            "16": 376.4876980624597
+          },
+          "mean_distance_m": 24037.652032456637,
+          "mean_measure_count": 258.42857142857144,
+          "mean_clear_fail_count": 4.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4807.530406491327,
+            "switch_time_s": 256.7142857142857,
+            "measure_time_s": 1292.142857142857,
+            "clear_time_s": 78.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3002.959246922082,
+              "switch_time_s": 256.2142857142857,
+              "measure_time_s": 1286.7857142857142,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 1003.1538829371668,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 63.714285714285715
+            },
+            "localization": {
+              "move_time_s": 801.4172766320783,
+              "switch_time_s": 0.5,
+              "measure_time_s": 5.357142857142857,
+              "clear_time_s": 14.571428571428571
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 62,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "local_planner.speculative_first_pair": 15,
+            "mesh_coverage_completed": 14,
+            "remaining_scan_route_shortened": 12
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 510.81262986410053,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": -0.7103882802192762,
+            "p95_regression_percent": 11.552098251942855,
+            "worst_regression_percent": 11.552098251942855,
+            "worst_case": {
+              "scenario": {
+                "seed": 961001,
+                "N": 11,
+                "dir_frac": 0.5,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.11552098251942855,
+              "delta_T_s": 658.0666319464208,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 961000,
+                  "N": 10,
+                  "dir_frac": 0.25,
+                  "error_mode": "random",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.07842912909375,
+                "delta_T_s": 494.71717539462225,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961001,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.11552098251942855,
+                "delta_T_s": 658.0666319464208,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961004,
+                  "N": 14,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.02066107926499572,
+                "delta_T_s": 123.96081084396064,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961005,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.07806397990122171,
+                "delta_T_s": 506.5213687117339,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.052067312461131054,
+                "delta_T_s": 344.89061909448446,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961008,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0430357895887199,
+                "delta_T_s": 255.52649518684848,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961010,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0652718473404128,
+                "delta_T_s": 415.85859171099673,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961011,
+                  "N": 14,
+                  "dir_frac": 1.0,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.01656630096916789,
+                "delta_T_s": 126.80616329844815,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 510.81262986410053,
+          "mean_T": 6454.235162861403,
+          "weighted_T_per_N": 496.4796279124157,
+          "p95_T_per_N": 696.8828033800676,
+          "p95_T": 7781.2707015469805,
+          "worst_T_per_N": 696.8828033800676,
+          "by_N": {
+            "10": 688.5684812415641,
+            "11": 570.3472538097831,
+            "12": 538.6416061449706,
+            "13": 489.69850325841617,
+            "14": 496.60561920185785,
+            "15": 431.3480754922896,
+            "16": 360.4788698998225
+          },
+          "mean_distance_m": 23106.532957164167,
+          "mean_measure_count": 295.7857142857143,
+          "mean_clear_fail_count": 5.5,
+          "mean_costs": {
+            "move_time_s": 4621.306591432833,
+            "switch_time_s": 272.5,
+            "measure_time_s": 1478.9285714285713,
+            "clear_time_s": 81.5
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3105.0875063350823,
+              "switch_time_s": 272.14285714285717,
+              "measure_time_s": 1473.5714285714287,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1284.450446518186,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 81.5
+            },
+            "localization": {
+              "move_time_s": 231.76863857956502,
+              "switch_time_s": 0.35714285714285715,
+              "measure_time_s": 5.357142857142857,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "bounded_additional_scan_at_clear_stop": 43,
+            "early_clear_miss_advance": 77,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "joint_clear_before_scan": 162,
+            "joint_discovery_completed": 14,
+            "joint_route_planned": 452,
+            "local_planner.speculative_first_pair": 15,
+            "sixteen_sources_retire_remaining_stations": 2
+          }
+        }
+      }
+    },
+    "dev04_transit_probe": {
+      "stage": "development",
+      "complete": true,
+      "report_sha256": "e8d95953512e5006d94780715a7b6c5fbd63fb2ac4379b09b0fec1945e954c31",
+      "manifest_sha256": "d3c58dffc88e3ab3dc11602d6447791361841cc665e377f754f84bf1a3e9a26d",
+      "summary": {
+        "HuntP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "HuntP4",
+              "HuntP4_compact21",
+              "strategy_hunt.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 507.209473210253,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 0.0,
+            "p95_regression_percent": 0.0,
+            "worst_regression_percent": 0.0,
+            "worst_case": {
+              "scenario": {
+                "seed": 961000,
+                "N": 10,
+                "dir_frac": 0.25,
+                "error_mode": "random",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.0,
+              "delta_T_s": 0.0,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 507.209473210253,
+          "mean_T": 6434.673263634184,
+          "weighted_T_per_N": 494.97486643339874,
+          "p95_T_per_N": 662.3937414706191,
+          "p95_T": 7654.464538248532,
+          "worst_T_per_N": 662.3937414706191,
+          "by_N": {
+            "10": 646.5880915171088,
+            "11": 528.8202934855435,
+            "12": 576.8373362329571,
+            "13": 512.1931218167592,
+            "14": 487.64965583962896,
+            "15": 421.89011551731386,
+            "16": 376.4876980624597
+          },
+          "mean_distance_m": 24037.652032456637,
+          "mean_measure_count": 258.42857142857144,
+          "mean_clear_fail_count": 4.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4807.530406491327,
+            "switch_time_s": 256.7142857142857,
+            "measure_time_s": 1292.142857142857,
+            "clear_time_s": 78.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3002.959246922082,
+              "switch_time_s": 256.2142857142857,
+              "measure_time_s": 1286.7857142857142,
+              "clear_time_s": 0.0
+            },
+            "early_clear": {
+              "move_time_s": 1003.1538829371668,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 63.714285714285715
+            },
+            "localization": {
+              "move_time_s": 801.4172766320783,
+              "switch_time_s": 0.5,
+              "measure_time_s": 5.357142857142857,
+              "clear_time_s": 14.571428571428571
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 62,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "local_planner.speculative_first_pair": 15,
+            "mesh_coverage_completed": 14,
+            "remaining_scan_route_shortened": 12
+          }
+        },
+        "RouteAwareP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteAwareP4",
+              "RouteAwareP4_joint21",
+              "strategy_route.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 497.5109001792805,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 1.912143511355946,
+            "p95_regression_percent": 6.448956372337533,
+            "worst_regression_percent": 6.448956372337533,
+            "worst_case": {
+              "scenario": {
+                "seed": 961001,
+                "N": 11,
+                "dir_frac": 0.5,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.06448956372337533,
+              "delta_T_s": 367.3655561923415,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 961000,
+                  "N": 10,
+                  "dir_frac": 0.25,
+                  "error_mode": "random",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04378980576831948,
+                "delta_T_s": 276.2184059813626,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961001,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06448956372337533,
+                "delta_T_s": 367.3655561923415,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.05653177062366077,
+                "delta_T_s": 374.4629105536551,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961008,
+                  "N": 11,
+                  "dir_frac": 0.25,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.007371916522631805,
+                "delta_T_s": 43.77101035766373,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961010,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.030163144592932234,
+                "delta_T_s": 192.1747789146093,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 497.5109001792805,
+          "mean_T": 6280.359978241248,
+          "weighted_T_per_N": 483.10461371086524,
+          "p95_T_per_N": 699.8400325259847,
+          "p95_T": 7479.2707015469805,
+          "worst_T_per_N": 699.8400325259847,
+          "by_N": {
+            "10": 679.1221573438596,
+            "11": 547.5083192378165,
+            "12": 526.0032789727172,
+            "13": 491.7666937586964,
+            "14": 480.5154802430331,
+            "15": 406.0822744854146,
+            "16": 351.57809721342596
+          },
+          "mean_distance_m": 23272.157034063388,
+          "mean_measure_count": 260.85714285714283,
+          "mean_clear_fail_count": 5.428571428571429,
+          "mean_costs": {
+            "move_time_s": 4654.431406812677,
+            "switch_time_s": 240.35714285714286,
+            "measure_time_s": 1304.2857142857142,
+            "clear_time_s": 81.28571428571429
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 3102.1354152926097,
+              "switch_time_s": 239.92857142857142,
+              "measure_time_s": 1298.5714285714287,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1292.8240155768706,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 81.28571428571429
+            },
+            "localization": {
+              "move_time_s": 259.47197594319704,
+              "switch_time_s": 0.42857142857142855,
+              "measure_time_s": 5.714285714285714,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 76,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "joint_clear_before_scan": 161,
+            "joint_discovery_completed": 14,
+            "joint_route_planned": 451,
+            "local_planner.speculative_first_pair": 16,
+            "sixteen_sources_retire_remaining_stations": 2
+          }
+        },
+        "RouteProbeP4": {
+          "runs": 14,
+          "full_clear": 14,
+          "normal_stop": 14,
+          "accepted": 14,
+          "metric_runs": 14,
+          "unavailable_metric_runs": 0,
+          "identities": [
+            [
+              "RouteProbeP4",
+              "RouteProbeP4_zero_detour",
+              "strategy_route_probe.py"
+            ]
+          ],
+          "failures": [],
+          "comparison": {
+            "paired_runs": 14,
+            "status": "complete",
+            "mean_T_per_N": 494.23043932726677,
+            "reference_mean_T_per_N": 507.209473210253,
+            "improvement_percent": 2.55890999054863,
+            "p95_regression_percent": 6.696146703352146,
+            "worst_regression_percent": 6.696146703352146,
+            "worst_case": {
+              "scenario": {
+                "seed": 961007,
+                "N": 10,
+                "dir_frac": 1.0,
+                "error_mode": "fixed",
+                "reception_range": [
+                  1000,
+                  1500
+                ]
+              },
+              "regression_fraction": 0.06696146703352146,
+              "delta_T_s": 443.54856682695754,
+              "candidate_accepted": true,
+              "reference_accepted": true
+            },
+            "regressions": [
+              {
+                "scenario": {
+                  "seed": 961000,
+                  "N": 10,
+                  "dir_frac": 0.25,
+                  "error_mode": "random",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.014879998623865243,
+                "delta_T_s": 93.86041862424736,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961001,
+                  "N": 11,
+                  "dir_frac": 0.5,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04342537777322564,
+                "delta_T_s": 247.37317385109236,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961004,
+                  "N": 14,
+                  "dir_frac": 0.25,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.0006867112320361191,
+                "delta_T_s": 4.120079113344218,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961005,
+                  "N": 15,
+                  "dir_frac": 0.5,
+                  "error_mode": "edge",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.002592876910648245,
+                "delta_T_s": 16.823989288586745,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961007,
+                  "N": 10,
+                  "dir_frac": 1.0,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.06696146703352146,
+                "delta_T_s": 443.54856682695754,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              },
+              {
+                "scenario": {
+                  "seed": 961010,
+                  "N": 13,
+                  "dir_frac": 0.75,
+                  "error_mode": "fixed",
+                  "reception_range": [
+                    1000,
+                    1500
+                  ]
+                },
+                "regression_fraction": 0.04327307902272359,
+                "delta_T_s": 275.70051154729117,
+                "candidate_accepted": true,
+                "reference_accepted": true
+              }
+            ],
+            "all_pairs_accepted": true
+          },
+          "mean_T_per_N": 494.23043932726677,
+          "mean_T": 6245.008344571084,
+          "weighted_T_per_N": 480.3852572746988,
+          "p95_T_per_N": 706.7485981533149,
+          "p95_T": 7308.863956865673,
+          "worst_T_per_N": 706.7485981533149,
+          "by_N": {
+            "10": 673.4585407896689,
+            "11": 535.5580239080789,
+            "12": 518.5102608454131,
+            "13": 495.8573344906093,
+            "14": 475.4539236157177,
+            "15": 407.68853429296615,
+            "16": 353.08645734841343
+          },
+          "mean_distance_m": 22994.68457999828,
+          "mean_measure_count": 262.85714285714283,
+          "mean_clear_fail_count": 5.5,
+          "mean_costs": {
+            "move_time_s": 4598.936915999656,
+            "switch_time_s": 250.28571428571428,
+            "measure_time_s": 1314.2857142857142,
+            "clear_time_s": 81.5
+          },
+          "phases": {
+            "discovery": {
+              "move_time_s": 2180.4017686394595,
+              "switch_time_s": 241.64285714285714,
+              "measure_time_s": 1268.9285714285713,
+              "clear_time_s": 0.0
+            },
+            "joint_optical_clear": {
+              "move_time_s": 1314.4667733890299,
+              "switch_time_s": 0.0,
+              "measure_time_s": 0.0,
+              "clear_time_s": 81.5
+            },
+            "localization": {
+              "move_time_s": 203.03337433227836,
+              "switch_time_s": 0.35714285714285715,
+              "measure_time_s": 3.9285714285714284,
+              "clear_time_s": 0.0
+            },
+            "route_probe": {
+              "move_time_s": 901.0349996388877,
+              "switch_time_s": 8.285714285714286,
+              "measure_time_s": 41.42857142857143,
+              "clear_time_s": 0.0
+            }
+          },
+          "triggers": {
+            "early_clear_miss_advance": 77,
+            "early_clear_success": 182,
+            "early_plan_started": 182,
+            "joint_clear_before_scan": 162,
+            "joint_discovery_completed": 14,
+            "joint_route_planned": 452,
+            "local_planner.speculative_first_pair": 11,
+            "route_probe.held_scan_resumed": 116,
+            "route_probe.probe_direction": 72,
+            "route_probe.probe_no_signal": 44,
+            "route_probe.zero_detour_probe_issued": 116,
+            "route_probe_held_scan_resumed": 116,
+            "route_probe_probe_direction": 72,
+            "route_probe_probe_no_signal": 44,
+            "route_probe_zero_detour_probe_issued": 116,
+            "sixteen_sources_retire_remaining_stations": 2
+          }
+        }
+      }
+    },
+    "integration_before_route2": {
+      "stage": null,
+      "complete": false,
+      "report_sha256": null,
+      "manifest_sha256": null,
+      "summary": {}
+    }
+  },
+  "integration_record": {
+    "status": "hash_matches_current_source",
+    "file": "tools\\p4_practice_deployment.json",
+    "updated_at": "2026-09-13T02:07:27.622397+00:00",
+    "actual_class": "RouteProbeP4",
+    "name": "RouteProbeP4_zero_detour",
+    "source": "解题库\\第四问\\v6\\strategy_route_probe.py",
+    "recorded_sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f",
+    "current_sha256": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f",
+    "source_hash_matches": true,
+    "matches_recommendation": true,
+    "formal_entry": "FastP4",
+    "interpretation": "verified metadata only; this report does not start a simulator or deploy code"
+  }
+}
