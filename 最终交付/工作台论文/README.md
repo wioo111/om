@@ -20,7 +20,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1
 ```
 
-浏览器打开 **[http://localhost:8765](http://localhost:8765)**。保持服务终端运行，结束使用时按 `Ctrl+C`。服务只监听本机，GitHub 用来分发源码，不能使用 GitHub Pages 直接编辑电脑上的正式论文。
+浏览器打开 **[http://localhost:8765](http://localhost:8765)**。启动器在后台运行服务，完成启动后退出；关闭浏览器或启动器不会停止后台服务，`Ctrl+C` 也不用于结束已启动的后台服务。服务只监听本机，GitHub 用来分发源码，不能使用 GitHub Pages 直接编辑电脑上的正式论文。
+
+可指定端口或禁止自动打开浏览器：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1 -Port 8766 -NoBrowser
+```
+
+后台服务记录位于工作台目录 `paper_editor/runtime/server-8765.json`，包含对应进程信息；端口改变时记录文件名相应改变。对同一工作台已启动的服务，启动器会复用它。
 
 需要同步仓库更新时，在仓库根目录运行：
 
@@ -196,13 +204,17 @@ Python 依赖以 `paper_editor/requirements.txt` 为准：FastAPI、Uvicorn、HT
 
 ## 当前验收依据与边界
 
-既有非视觉自动化验收记录：
+本轮 48 项非视觉自动化测试全部通过，用时 10.42 秒：
 
 - 32 项源码映射测试：块定位、稳定 ID、修改范围、版本竞争、保护与撤销等。
 - 6 项 API 测试：本地接口、逐块写入、AI 提案流程和权限边界等。
 - 10 项渲染测试：数学、引用、图注父子映射、表格、列表、代码保留、路径限制和 HTML 转义等。
 
-真实论文的已有渲染检查覆盖 463 个 ID、17 幅图、13 个表格及 29 个代码块，未发现缺失或重复的 HTML 块映射。上述记录不意味着任何后续改稿已经编译通过，也不代表真实外部 AI 服务已联调。
+真实论文的渲染检查覆盖 463 个 ID、17 幅图、13 个表格及 29 个代码块，未发现缺失或重复的 HTML 块映射。
+
+实际浏览器操作已验收：选中 `abstract.p001`，临时修改文字并保存，确认 HTML 更新及相对基线的实际 diff；再通过历史撤销，源码 diff 恢复为空。点击图片定位只读 `q1.f001`，点击图注独立定位 `q1.c001`。[操作截图](acceptance/workbench-operation.png)已保存。
+
+正式 PDF 已用 XeLaTeX 连续两轮构建成功：101 页、3,278,548 字节，交叉引用稳定，0 条 Overfull 警告。两轮日志合计仍有原模板的 80 行 Missing character 警告；本任务未为消除这些警告修改论文内容。后续改稿需要重新构建，不能沿用本次构建状态作为验证结果。真实外部 AI 服务尚未联调。
 
 需要按改动范围重跑逻辑测试时，在工作台目录、已准备环境后执行：
 
@@ -211,4 +223,4 @@ Python 依赖以 `paper_editor/requirements.txt` 为准：FastAPI、Uvicorn、HT
 .\.venv\Scripts\python.exe -m unittest paper_editor.test_renderer -v
 ```
 
-浏览器实际操作记录、PDF 构建结果和截图应以单独验收记录为准；本说明不以测试替代截图，也不声称已经完成尚未验证的界面或 PDF 验收。遵守当前任务要求，不进行反复视觉检查。
+上述浏览器操作、截图和 PDF 结果对应本轮验收；不代表其他电脑已完成首次安装，也不代表后续改稿已验证。遵守当前任务要求，不进行反复视觉检查。

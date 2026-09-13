@@ -22,7 +22,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1
 ```
 
-启动入口准备工作台专用虚拟环境、安装所需依赖、准备本地 MathJax，然后启动服务。浏览器地址为 **[http://localhost:8765](http://localhost:8765)**。服务仅监听本机回环地址；停止服务可在运行终端按 `Ctrl+C`。
+启动入口准备工作台专用虚拟环境、安装所需依赖、准备本地 MathJax，然后在后台启动服务。浏览器地址为 **[http://localhost:8765](http://localhost:8765)**。服务仅监听本机回环地址；关闭浏览器或启动器不会停止后台服务，`Ctrl+C` 也不用于结束已启动的后台服务。
+
+可用 `-Port 8766` 更换端口，或用 `-NoBrowser` 只启动服务而不打开浏览器。启动器记录位于工作台目录 `paper_editor/runtime/server-8765.json`；端口改变时文件名相应改变。
 
 获取仓库更新后打开：
 
@@ -48,6 +50,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start-paper-editor.ps1
 
 唯一构建入口为 `最终交付/工作台论文/paper/main.tex`，正文来自它引用的 `paper/source/*.tex`。HTML、缓存和 PDF 均为派生产物；`archive/` 保存迁移前原稿，不能作为另一份正文继续修改，也不能让旧生成链覆盖正式源。
 
-当前导入包含 **463 个稳定块，其中 190 个块受到冻结保护**。已提供 32 项源码映射测试、6 项 API 测试及 10 项渲染测试的既有验收结果；这不替代真实浏览器操作或当前机器的 PDF 构建验收。
+当前导入包含 **463 个稳定块，其中 190 个块受到冻结保护**。本轮 48 项自动化测试通过（10.42 秒）。实际浏览器已完成段落保存、HTML 更新、diff 查看与撤销，撤销后源码 diff 为空；图片与图注独立定位通过。[操作截图](最终交付/工作台论文/acceptance/workbench-operation.png)已保存。
+
+正式 PDF 经两轮 XeLaTeX 构建成功，101 页、3,278,548 字节，交叉引用稳定，0 条 Overfull 警告；两轮日志合计保留原模板的 80 行 Missing character 警告，未为消除警告改动论文内容。
 
 完整目录、AI 配置、接口、修改保护、测试命令和验收边界见 [工作台使用说明](最终交付/工作台论文/README.md)。
