@@ -1,0 +1,54 @@
+{
+  "source_commit": "71a22c1bce9df2ae1b5a809396821407c448de1c",
+  "scope": "Only published records; schematic geometry is not a measured trajectory.",
+  "q3_formal_source": "解题库/正式运行/evidence/p3_formal_summary.json",
+  "q3_formal": [
+    {"run":1,"cleared":11,"total":3160.153103,"measure":160,"switch":157,"clear_fail":5,"move_s":2133.153104215134,"measure_s":800,"switch_s":157,"clear_s":70,"runtime_s":1.8464018000013311},
+    {"run":2,"cleared":12,"total":2910.978089,"measure":156,"switch":151,"clear_fail":6,"move_s":1901.978088828336,"measure_s":780,"switch_s":151,"clear_s":78,"runtime_s":1.567878900001233},
+    {"run":3,"cleared":16,"total":3016.179059,"measure":111,"switch":107,"clear_fail":7,"move_s":2253.1790590093283,"measure_s":555,"switch_s":107,"clear_s":101,"runtime_s":1.4777175999988685}
+  ],
+  "q3_practice_source": "解题库/演练调试/P3_PRACTICE_0530.md",
+  "q3_practice": [
+    {"id":"P1","case":"2RAG-BYRW-DNT4-8WTY","N":10,"cleared":10,"total":3130.189739},
+    {"id":"P2","case":"KCJ8-VZB5-8EVB-QNU6","N":10,"cleared":10,"total":2545.502680},
+    {"id":"P3","case":"WBHY-JMHS-FE2Q-6CAW","N":16,"cleared":16,"total":2993.189467},
+    {"id":"P4","case":"X76H-ECV6-TNDX-YVU7","N":14,"cleared":14,"total":3090.895984},
+    {"id":"P5","case":"9U5V-SDSE-WCTP-3BM6","N":10,"cleared":10,"total":3219.777290},
+    {"id":"P6","case":"GHZF-RURM-PEB6-YDWN","N":12,"cleared":12,"total":2971.569865},
+    {"id":"P7","case":"SVSY-F55G-TB4D-63G5","N":13,"cleared":13,"total":3218.167086},
+    {"id":"P8","case":"DXPC-XNVZ-ANXK-KJQQ","N":13,"cleared":13,"total":3094.720477}
+  ],
+  "q4_source": "解题库/结果汇总/第四问.md",
+  "q4_precision": "Values transcribed from the published rounded Markdown table, not unrounded raw records.",
+  "q4_offline": {
+    "N":[10,11,12,13,14,15,16],
+    "HuntP4":[660.28,603.15,553.95,510.13,469.23,449.09,415.70],
+    "RouteAwareP4":[639.48,584.30,540.45,490.62,468.01,438.30,400.36],
+    "RouteProbeP4":[640.81,579.94,540.50,490.87,472.29,438.65,394.02],
+    "rounds":168,"confirmation_rounds":56,"boundary_rounds":112,
+    "mean_per_source":[523.08,508.79,508.16],
+    "confirmation_mean":[512.25,499.32,498.60],
+    "boundary_mean":[528.49,513.53,512.94],
+    "move_s":[4995.50,4805.68,4780.10],
+    "switch_s":[258.51,244.81,254.02],
+    "measure_s":[1305.21,1330.18,1336.46],
+    "clear_s":[79.82,79.05,79.57]
+  },
+  "q4_practice_current": [
+    {"id":"P4-P-22","N":15,"cleared":15,"total":7074.18,"per_cleared":471.61,"measure":258,"clear_fail":3},
+    {"id":"P4-P-23","N":16,"cleared":16,"total":6710.91,"per_cleared":419.43,"measure":260,"clear_fail":6},
+    {"id":"P4-P-24","N":14,"cleared":14,"total":5823.89,"per_cleared":415.99,"measure":227,"clear_fail":6}
+  ],
+  "q4_formal_entry": [
+    {"id":"P4-F-01","status":"connection_failure_no_result","cleared":null,"total":null,"per_cleared":null},
+    {"id":"P4-F-02","status":"normal_stop","cleared":11,"total":5937.23,"per_cleared":539.75,"measure":283,"clear_fail":2},
+    {"id":"P4-F-03","status":"connection_failure_no_result","cleared":null,"total":null,"per_cleared":null},
+    {"id":"P4-F-04","status":"normal_stop","cleared":16,"total":5404.28,"per_cleared":337.77,"measure":178,"clear_fail":6},
+    {"id":"P4-F-05","status":"normal_stop","cleared":13,"total":5496.09,"per_cleared":422.78,"measure":220,"clear_fail":8}
+  ],
+  "q4_mode_verified_by_protocol":false,
+  "q4_formal_total_N_available":false,
+  "q4_geometry_source":"解题库/第四问/v6/discovery_compact.py",
+  "q4_geometry":{"inner_radius":999.999,"inner_count":8,"outer_apothem":1800.0001,"outer_count":12,"target_radius":1800},
+  "q4_probe_source":"解题库/第四问/v6/strategy_route_probe.py"
+}
