@@ -99,8 +99,21 @@ def ensure_python_environment(root: Path) -> Path:
     installed = stamp.read_text(encoding='ascii').strip() if stamp.is_file() else ''
     if installed != fingerprint:
         note('正在安装工作台依赖；首次启动需要网络，之后可离线启动。')
-        run_checked([str(python), '-m', 'pip', 'install', '--disable-pip-version-check', '-r', str(requirement)], root,
-                    '依赖安装失败。请检查网络和上方 pip 提示；修复后再次运行启动器即可继续。')
+        install_arguments = ['--disable-pip-version-check', '--retries', '0', '--timeout', '20', '-r', str(requirement)]
+        try:
+            subprocess.run([str(python), '-m', 'pip', 'install', *install_arguments], cwd=root, check=True)
+        except (OSError, subprocess.CalledProcessError):
+            note('当前 pip 镜像或代理安装失败；仅为本次子进程直连官方 PyPI 重试一次，不修改全局设置。')
+            direct_environment = {key: value for key, value in os.environ.items()
+                                  if key.lower() not in {'http_proxy', 'https_proxy', 'all_proxy'}}
+            direct_environment['NO_PROXY'] = '*'
+            direct_environment['no_proxy'] = '*'
+            try:
+                subprocess.run([str(python), '-m', 'pip', '--isolated', 'install',
+                                '--index-url', 'https://pypi.org/simple', *install_arguments],
+                               cwd=root, env=direct_environment, check=True)
+            except (OSError, subprocess.CalledProcessError) as error:
+                raise LaunchError('依赖安装及官方 PyPI 直连重试均失败。请检查上方网络提示，修复后再次运行启动器即可继续。') from error
         stamp.write_text(fingerprint + '\n', encoding='ascii')
     run_checked([str(python), '-c', 'import fastapi, uvicorn, httpx, fitz'], root,
                 '本地 .venv 依赖不可用。请在 .venv 中重新执行 pip install -r paper_editor/requirements.txt。')
@@ -123,18 +136,23 @@ def mathjax_package(root: Path) -> dict:
 def download_package(url: str) -> bytes:
     request = urllib.request.Request(url, headers={'User-Agent': 'LocalPaperWorkbench/1.0'})
     maximum = 64 * 1024 * 1024
-    content = bytearray()
-    try:
-        with urllib.request.urlopen(request, timeout=45) as response:
-            if urllib.parse.urlsplit(response.geturl()).scheme != 'https':
-                raise LaunchError('MathJax 下载被重定向到非 HTTPS 地址，已终止。')
-            while chunk := response.read(1024 * 1024):
-                content.extend(chunk)
-                if len(content) > maximum:
-                    raise LaunchError('MathJax 安装包超过预期大小，已终止下载。')
-    except (urllib.error.URLError, TimeoutError, OSError) as error:
-        raise LaunchError('MathJax 下载失败。请检查网络后再次运行；不需要安装 Node.js。') from error
-    return bytes(content)
+    for direct in (False, True):
+        content = bytearray()
+        try:
+            open_url = urllib.request.build_opener(urllib.request.ProxyHandler({})).open if direct else urllib.request.urlopen
+            with open_url(request, timeout=20) as response:
+                if urllib.parse.urlsplit(response.geturl()).scheme != 'https':
+                    raise LaunchError('MathJax 下载被重定向到非 HTTPS 地址，已终止。')
+                while chunk := response.read(1024 * 1024):
+                    content.extend(chunk)
+                    if len(content) > maximum:
+                        raise LaunchError('MathJax 安装包超过预期大小，已终止下载。')
+            return bytes(content)
+        except (urllib.error.URLError, TimeoutError, OSError) as error:
+            if direct:
+                raise LaunchError('MathJax 下载及原 HTTPS 地址直连重试均失败。请检查网络后再次运行；不需要安装 Node.js。') from error
+            note('MathJax 默认网络请求失败；仅为本次下载绕过代理，直连原 HTTPS 地址重试一次。')
+    raise LaunchError('MathJax 下载未完成。')
 
 
 def extract_mathjax(archive: bytes, destination: Path) -> None:
