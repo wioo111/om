@@ -1,0 +1,47 @@
+{
+  "purpose": "仓库清理与交付组装验收；不是新算法实验，也不是正式成绩",
+  "original_algorithm_commit": "1a1452ab7fa3ba1cdee5abc9d0cb6510a1e19e0d",
+  "cleanup_commit": "54ed8a36c211f5e92dd43835c6690bd0acff3f07",
+  "archive_branch": "archive/before-final-cleanup-20260913",
+  "final_submission_ready": false,
+  "algorithm_files_unchanged": {
+    "解题库/第三问/v10/strategy_task.py": "b5c4ad9f6fefe90ff5b1c168f97ff5ca7a1e5a97a5e2483108da7fa62cd7aef8",
+    "解题库/第四问/v6/strategy_route_probe.py": "16e69149d6655d5c5e770a19547ec5688d7366e571ef2e9c03424fda613f468f"
+  },
+  "packaging_fixture_tests": {"passed": 10, "failed": 0, "not_model_performance_tests": true},
+  "github_actions": {
+    "before_cleanup_run_id": 34747215586,
+    "after_cleanup_run_id": 34747279870,
+    "after_cleanup_conclusion": "success"
+  },
+  "inspected_staging_artifact": {
+    "artifact_id": 10314168811,
+    "workflow_run_id": 34747215586,
+    "inventory_files": 157,
+    "source_files_including_launch_scripts": 78,
+    "uncompressed_inventory_bytes": 16974267,
+    "artifact_zip_bytes": 6622872,
+    "final_submission_zip": false,
+    "note": "该工作区尚未加入本机正式原始日志、最终AI说明和最终合并论文，不能直接提交。"
+  },
+  "isolated_smoke_checks": [
+    {"name": "第一二问导入、有限交会与第二测点计算", "exit_code": 0},
+    {"name": "第三问OpticalTaskP3单场离线", "seed": 41001, "N": 15, "cleared": 15, "normal_stop": true, "exit_code": 0},
+    {"name": "第四问RouteProbeP4单场离线", "seed": 993302, "N": 10, "cleared": 10, "normal_stop": true, "exit_code": 0}
+  ],
+  "smoke_scope": "在下载的真实组装源码副本中，隔离目录、独立进程并禁用套接字连接后执行。只说明这些用例可以独立运行，不是全面回归或模型正确性证明；不覆盖原始实验记录。",
+  "anonymity_review": {
+    "two_strategy_files": "仍含未使用的个人电脑备用搜索路径；正式导出副本须按匿名要求人工处理并重生成哈希及附录。内联几何存在时不走这些备用路径。",
+    "test_one_click": "自动扫描命中的12位编号为全零测试占位，不是参赛队真实编号；仍列入人工复核记录。",
+    "binary_metadata_and_images": "未被此文本扫描完整核验，不能据此声明全部匿名。"
+  },
+  "remaining_blockers": [
+    "四问完整最终论文PDF及与支撑包逐项一致的附录A、完整附录B尚未核验",
+    "本机第三问和第四问各三次原始正式导出日志、案例对应仍需补入",
+    "AI工具型号、实际人工审核与最终AI详情PDF仍需补全",
+    "所有提交文件、图像和元数据的匿名复核，以及最终20MB限制复核"
+  ],
+  "no_official_test_started": true,
+  "local_user_uncommitted_files_touched": false,
+  "history_rewritten": false
+}
