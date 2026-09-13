@@ -1,0 +1,364 @@
+
+
+%<paper-block id="q4.h001" type="heading">
+\section{问题四模型的建立与求解}
+%</paper-block>
+
+%<paper-block id="q4.h002" type="heading">
+\subsection{问题分析与总体思路}
+%</paper-block>
+
+%<paper-block id="q4.p001" type="paragraph">
+问题四在问题三的基础上，把部分干扰源由全向辐射改为覆盖角为 $180^{\circ}$ 的定向辐射，即其有效覆盖范围为定向方向两侧各 $90^{\circ}$。这一改变使“检测不到信号”的含义不再唯一：它既可能是该频道确实不存在，也可能是检测点距源超过了有效接收半径，还可能是检测点恰好落在发射半平面之外。因此，问题三中“由无信号观测排除 $1000$ m 圆盘”的规则不再成立，若继续沿用会误删真实源。本问需要在源的位置、有效接收半径与发射朝向均未知的条件下，仍然保留“发现全部干扰源”的依据，同时尽量减少为寻找第二个有效视点而产生的重复行进。
+%</paper-block>
+
+%<paper-block id="q4.p002" type="paragraph">
+沿用问题三的目标圆域 $\Omega=B(0,1800)$、频道集合 $\mathcal H=\{1,\dots,20\}$ 以及总数约束 $10\le N\le16$。对定向源 $h$，记其位置为 $x_h$、有效接收半径为 $R_h\in[1000,1500]$、朝向单位向量为 $n_h$，则检测点 $s$ 能够接收到该源信号的条件为
+%</paper-block>
+%<paper-block id="q4.e001" type="equation">
+\begin{equation}
+\|s-x_h\|\le R_h,\qquad n_h^{\mathsf T}(s-x_h)\ge0,
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p003" type="paragraph">
+其中覆盖边界含在有效范围内；对全向源，退化为只要求距离条件。任务总时间仍以
+%</paper-block>
+%<paper-block id="q4.e002" type="equation">
+\begin{equation}
+T=\frac{L}{5}+5n_m+n_s+3n_f+5n_c
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p004" type="paragraph">
+度量，其中 $L$ 为累计移动距离，$n_m,n_s,n_f,n_c$ 分别为检测次数、频道切换次数、失败清除次数与成功清除次数。据此，我们构建最终策略（记作 RouteProbeP4）：以一个面向全区域的连续覆盖构造作为“发现骨架”，把可执行的光学清除任务与剩余扫描站联合安排，并在既有的行进线段上插入少量有价值的补测。该策略不以推断全部源的精确朝向为先决条件，也不读取模拟器隐藏的真值。
+%</paper-block>
+
+%<paper-block id="q4.h003" type="heading">
+\subsection{朝向未知条件下的发现覆盖}
+%</paper-block>
+
+%<paper-block id="q4.h004" type="heading">
+\subsubsection{共同近邻凸包条件}
+%</paper-block>
+
+%<paper-block id="q4.p005" type="paragraph">
+若只沿用问题三的圆心与少量环上点，定向源可能因朝向不同而始终背向所有检测点。为此，对任意候选源位置 $x\in\Omega$，考察距其不超过最小接收半径的站点集合
+%</paper-block>
+%<paper-block id="q4.e003" type="equation">
+\begin{equation}
+\mathcal S_x=\{s\in\mathcal S:\|s-x\|\le1000\},
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p006" type="paragraph">
+并要求其对整个允许区域成立：
+%</paper-block>
+%<paper-block id="q4.e004" type="equation">
+\begin{equation}
+x\in\operatorname{conv}(\mathcal S_x),\qquad\forall x\in\Omega .\label{eq:p4hull}
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p007" type="paragraph">
+式~\eqref{eq:p4hull} 是“未知朝向下至少有一个站点可接收”的充分条件。证明如下：对任意朝向 $n$，若 $\mathcal S_x$ 中所有站点都落在闭覆盖半平面之外，即 $n^{\mathsf T}(s-x)<0$，则这些站点的任意凸组合也满足该严格不等式；而由 $x\in\operatorname{conv}(\mathcal S_x)$，$x$ 本身可表为这些站点的凸组合，于是 $n^{\mathsf T}(x-x)=0<0$，矛盾。故至少存在一个站点同时满足距离条件与覆盖角条件。该条件不依赖源的真实位置，而是要求对整个区域成立。
+%</paper-block>
+
+%<paper-block id="q4.h005" type="heading">
+\subsubsection{21 站构造与连续验证}
+%</paper-block>
+
+%<paper-block id="q4.p008" type="paragraph">
+为满足式~\eqref{eq:p4hull}，我们采用由一个中心站、8 个内环站与 12 个外环站构成的 21 站骨架。内环半径取 $999.999$ m、等角间隔 $45^{\circ}$；外环取正十二边形的顶点，并使其内切圆半径略大于目标域半径，从而外环半径为
+%</paper-block>
+%<paper-block id="q4.e005" type="equation">
+\begin{equation}
+R_{\mathrm{out}}=\frac{1800.0001}{\cos(\pi/12)}\approx1863.50\ \text{m}.
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p009" type="paragraph">
+外环位于目标域之外并不违反题意，因为题目限制的是源的位置，而非机器狗的活动范围。站点布局如图~\ref{fig:p4compact} 所示。
+%</paper-block>
+
+%<paper-block id="q4.f001" type="figure">
+\begin{figure}[htbp]
+\centering
+\paperfigure{0.66}{q4_01_compact_stations.pdf}{9}
+%<paper-block id="q4.c001" type="caption">
+\caption{中心、内环与外环组成的 21 站发现骨架（实线为目标域边界，虚线为外环站凸包）。图中位置由实现参数计算，不含任何场景真值。}
+%</paper-block>
+\label{fig:p4compact}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q4.p010" type="paragraph">
+覆盖验证并非检查有限采样点。实现以严格外包目标圆的96边形与同样严格外包目标圆的固定站点凸包之交为验证域，通过半平面裁剪维护连续单元；对每个凸单元 $C$，取“到 $C$ 的所有顶点距离均不超过 $1000$ m”的共同近邻站点集 $\mathcal J_C$，再检查
+%</paper-block>
+%<paper-block id="q4.e006" type="equation">
+\begin{equation}
+C\subseteq\operatorname{conv}(\mathcal J_C).\label{eq:p4cell}
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p011" type="paragraph">
+由于欧氏距离在凸单元上的最大值可由顶点控制，$\mathcal J_C$ 中的站点到单元内任意点都满足接收距离条件，式~\eqref{eq:p4cell} 于是把式~\eqref{eq:p4hull} 推广到整个单元；未能认证的单元继续细分，只有覆盖全部验证域后才形成完成证据。两个外包域都包含完整目标圆，取交后仍覆盖边界，不是仅验证圆内的一部分。距离筛选向内预留 $10^{-5}$ m，外包96边形的边支撑向外预留 $10^{-5}$ m；裁剪采用所给浮点坐标对应的精确有理数，方向判定有歧义时也回到有理数运算。单元或深度预算耗尽表示“未完成证明”，不能判为覆盖成功。需要强调的是，我们不把“所有三角剖分边均小于 $1000$ m”当作该构造的证明。
+%</paper-block>
+
+%<paper-block id="q4.h006" type="heading">
+\subsubsection{计划覆盖与实际排空分离}
+%</paper-block>
+
+%<paper-block id="q4.p012" type="paragraph">
+对每个尚未发现的频道，程序分别保存“实际已执行检测的站点”与“规划中拟访问的站点”。规划站点可用于检验某个候选计划是否仍具有完整的发现能力，但不能提前用于判定频道为空；结束发现阶段时，必须再次以实际检测位置核验覆盖。算法允许用已经到达的清除位置替换或删去未来的扫描站，但替换必须先通过连续覆盖验证。此外，若累计确认了 $16$ 个不同源频道，可由公开上界判定其余频道为空；当前实现还要求这些已知源已清除或已具备可执行的清除覆盖计划，才取消剩余发现站，以免把“无需再找新源”误当成“已知源已处理完毕”。
+%</paper-block>
+
+%<paper-block id="q4.h007" type="heading">
+\subsection{有界定位、光学覆盖与安全恢复}
+%</paper-block>
+
+%<paper-block id="q4.p013" type="paragraph">
+有效示向度仍按误差扇形进行交会，并结合目标圆域与 $1500$ m 接收上界维护候选区域，误差半宽取 $1.0050001^{\circ}$（含两位小数量化的保护余量）。对定向源遇到的无信号响应，只保留“不可接收”这一事实，不再按全向源规则裁剪 $1000$ m 圆盘，也不把多个无信号点的连线解释为朝向边界。由于同一源的实际可接收集合是“圆盘 $\cap$ 闭半平面”，为凸集，当已获得至少两个不同的正向观测位置 $s_1,s_2$ 时，在
+%</paper-block>
+%<paper-block id="q4.e007" type="equation">
+\begin{equation}
+s(\lambda)=(1-\lambda)s_1+\lambda s_2,\qquad 0\le\lambda\le1
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p014" type="paragraph">
+处的补测仍满足该源的接收条件。据此，局部规划器优先从正向点的凸组合中产生新视点，排除重复位置，并结合移动与预期完成成本排序；当只有一个正向位置时无法应用这一保证，只允许有限次横向偏移、换侧与回退探测，并明确视为可能返回无信号的尝试。局部规划器对每个频道最多提出 $8$ 次测量，预算耗尽后返回既有的全局搜索或定位恢复逻辑，既不跳过该频道，也不伪造完成状态。
+%</paper-block>
+
+%<paper-block id="q4.p015" type="paragraph">
+在清除环节，当候选区域已被当前位置的 $20$ m 圆完整覆盖、或接口返回近距响应时，可原地清除；当候选区域仍较长时，采用至多 $6$ 个位置的有限光学覆盖计划，并要求覆盖整个连续区域而非仅估计中心或若干假设点。该计划的成本包括到达各位置的移动时间、前序失败尝试各 $3$ s 与成功清除 $5$ s；估价只用于决定任务顺序，实际成功仍由响应确认。光学计划执行期间保持剩余位置队列，失败后推进至下一位置，成功后结束该频道；计划耗尽仍未成功则报告观测或几何矛盾，而非无限重复。由此把局部尝试控制在有限范围内，不以扩大清除阈值替代定位验证。
+%</paper-block>
+
+%<paper-block id="q4.h008" type="heading">
+\subsubsection{二维矩形分块的光学覆盖检验}
+%</paper-block>
+%<paper-block id="q4.p016" type="paragraph">
+第四问复用的是二维矩形分块覆盖，而非将第三问的单排条带公式直接搬来。设候选区域的定向包围矩形边长为 $a_r,b_r$，枚举正整数 $n_x,n_y$，满足
+%</paper-block>
+%<paper-block id="q4.e008" type="equation">
+\begin{equation}\label{eq:p4opticaltile}
+n_xn_y\le6,\qquad
+\frac12\sqrt{(a_r/n_x)^2+(b_r/n_y)^2}\le19.99\ \mathrm m.
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p017" type="paragraph">
+把每个小矩形的中心作为清除位置，式~\eqref{eq:p4opticaltile} 保证矩形内任一点均处于相应20米清除范围内。实现还用半径19.99999米圆的内接多边形作并集，检查候选区域与该并集的差集确实为空，不以面积很小或采样点全覆盖代替判断。若 $k$ 个清除点为 $q_1,\ldots,q_k$，在最后一点才成功的计划成本为
+%</paper-block>
+%<paper-block id="q4.e009" type="equation">
+\begin{equation}\label{eq:p4opticalcost}
+C_{\max}=\sum_{i=1}^{k}\frac{\|q_i-q_{i-1}\|}{5}+3(k-1)+5,\qquad q_0=p.
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p018" type="paragraph">
+枚举这些有限位置的顺序并比较行程后，将可行计划交给调度器；真实失败更新排除记录，真实成功才结束频道。这一计划成本与第三问用于方案排序的面积加权预期成本不是同一口径。
+%</paper-block>
+
+%<paper-block id="q4.h009" type="heading">
+\subsection{发现站与清除任务的联合路线}
+%</paper-block>
+
+%<paper-block id="q4.p019" type="paragraph">
+为减少“扫到最后再统一返回清除”的折返，我们在一个站点的检测队列完成后，把剩余扫描站与已具备完整光学覆盖方案的目标一起构成联合任务节点，目标节点以当前估计位置作为路线代理。路线求解使用两个初始方案：其一为所有任务节点的最近邻开放路径；其二以扫描站路线为骨架，将清除任务按最小新增路程插入。随后对两者分别进行有次数上限的 2-opt 反转与单节点搬移，选取较短的开放路线；执行一个任务并取得真实响应后，再从实际当前位置重算剩余任务。该安排把“扫描—清除”由串联改为交错执行，但它优化的是有限代理节点上的路线，光学计划的多个访问点、后续新观测与接收失败仍会改变实际行进，故只作为在线启发式安排，而非未知场景的全局最优控制。此外，未来扫描站的删除或替换与路径缩短分开处理：路径交换只调整顺序，删除站点必须另有连续覆盖证据。
+%</paper-block>
+
+%<paper-block id="q4.h010" type="heading">
+\subsection{零绕路补测及其成本门槛}
+%</paper-block>
+
+%<paper-block id="q4.p020" type="paragraph">
+联合路线减少了任务间的折返，但单条示向记录仍可能要求另行前往第二个测点。为此，最终策略在已经发出的移动段上插入少量补测：设机器狗当前位置为 $A$、原动作目标站为 $B$，在其线段内部取
+%</paper-block>
+%<paper-block id="q4.e010" type="equation">
+\begin{equation}
+P=A+\lambda(B-A),\qquad 0<\lambda<1 .
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p021" type="paragraph">
+由于 $P$ 在线段内部，插入前后的移动长度满足
+%</paper-block>
+%<paper-block id="q4.e011" type="equation">
+\begin{equation}
+\|A-P\|+\|P-B\|-\|A-B\|=0 ,
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p022" type="paragraph">
+即不产生额外路程。机制如图~\ref{fig:p4probe} 所示。在父策略已发出的扫描测量动作上，每次只为一个“仍只有一个不同正向观测位置”的已知频道选点，每频道最多插入 $2$ 次，且不把原动作的频道本身作为插入对象，以免重复购买即将发生的测量。
+%</paper-block>
+
+%<paper-block id="q4.f002" type="figure">
+\begin{figure}[htbp]
+\centering
+\paperfigure{0.6}{q4_02_zero_detour.pdf}{10}
+%<paper-block id="q4.c002" type="caption">
+\caption{沿既有行进线段的零额外路程补测示意。假设位置只用于评估交会价值，不是源的真值，插入点可能返回无信号。}
+%</paper-block>
+\label{fig:p4probe}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q4.p023" type="paragraph">
+零绕路不等于零成本。设插入前测向机频道为 $c$、补测频道为 $h$、原动作频道为 $b$，则相对原动作的新增成本为
+%</paper-block>
+%<paper-block id="q4.e012" type="equation">
+\begin{equation}
+\Delta T=5+\mathbf 1(c\ne h)+\mathbf 1(h\ne b)-\mathbf 1(c\ne b),
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p024" type="paragraph">
+即一次检测与完整往返频道变化的增量，范围为 $5\sim7$ s。补测价值按有限假设估计：沿首次示向方向取 $500$、$1000$、$1400$ m 三个假设位置，剔除落在目标圆外的位置，并以若干固定线段比例及假设点在行进段上的投影作为候选；对每个假设计算新旧测距与交会几何，用
+%</paper-block>
+%<paper-block id="q4.e013" type="equation">
+\begin{equation}
+\widehat r(P)=\tan(\varepsilon_{\mathrm{eff}})\,\frac{d_1+d_2}{|\sin\gamma|}
+\end{equation}
+%</paper-block>
+%<paper-block id="q4.p025" type="paragraph">
+近似交会价值，其中 $\gamma$ 为假设位置处的交会角。上述近似量仅用于排序；有效假设还须通过几何与测距筛选，且预计节省必须超过 $\max(10,2\Delta T)$ s 才允许插入。该估计既不保证定向源在 $P$ 处可接收，也不构成候选区域的半径证书；只有实际得到正向或近距响应后，才由几何更新器处理，若返回无信号则计入已记录的测量成本并恢复原扫描动作。
+%</paper-block>
+
+%<paper-block id="q4.h011" type="heading">
+\subsection{结果分析}
+%</paper-block>
+
+%<paper-block id="q4.h012" type="heading">
+\subsubsection{同场景离线比较}
+%</paper-block>
+
+%<paper-block id="q4.p026" type="paragraph">
+最终版本对应的离线证据包括 $56$ 场独立确认与 $112$ 场固定接收半径边界场景。各场景按策略不可见、仅模拟器已知的 $N$ 计算 $T/N$ 后等权平均；开发集只用于开发，边界场景属压力测试，均不等同于官方场景分布。本节基础搜索策略为 \texttt{HuntP4}，联合路线策略为 \texttt{RouteAwareP4}，最终策略为 \texttt{RouteProbeP4}，不是早期49站版本之间的比较。结果如表~\ref{tab:p4offline} 所示：在 $168$ 场测试集合上，最终策略相对基础搜索策略的平均每源时间下降约 $2.85\%$（独立确认集单列下降约 $2.66\%$）；其中大部分收益来自扫描与清除的联合路线安排，零绕路补测只带来进一步的小幅改善——它与仅做联合调度的策略相比，合计均值只低 $0.63$ s/源。
+%</paper-block>
+
+%<paper-block id="q4.t001" type="table">
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+%<paper-block id="q4.tc001" type="table-caption">
+\caption{问题四同场景离线比较（平均 $T/N$，秒／源）}
+%</paper-block>
+\label{tab:p4offline}
+\begin{tabular}{@{}p{0.24\textwidth}*{3}{>{\centering\arraybackslash}p{0.175\textwidth}}>{\centering\arraybackslash}p{0.16\textwidth}@{}}
+\toprule
+策略 & 独立确认（56 场） & 固定半径边界（112 场） & 合计（168 场） & 全清／正常停止 \\
+\midrule
+基础搜索策略 & 512.25 & 528.49 & 523.08 & 168/168 \\
+联合路线策略 & 499.32 & 513.53 & 508.79 & 168/168 \\
+最终策略（含零绕路补测） & 498.60 & 512.94 & 508.16 & 168/168 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q4.p027" type="paragraph">
+逐 $N$ 的平均时间如图~\ref{fig:p4offlinen} 所示，可见最终策略在 $N=14$ 处的均值略高于基础搜索策略，因此不能只报告总体改善。
+%</paper-block>
+
+%<paper-block id="q4.f003" type="figure">
+\begin{figure}[htbp]
+\centering
+\paperfigure{0.72}{q4_03_offline_by_n.pdf}{11}
+%<paper-block id="q4.c003" type="caption">
+\caption{同场景离线比较的逐 $N$ 平均时间（横轴不是策略可读取的真实源数）。}
+%</paper-block>
+\label{fig:p4offlinen}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q4.p028" type="paragraph">
+进一步拆解平均成本（表~\ref{tab:p4cost}）：相对基础搜索策略，最终策略平均减少移动约 $215.40$ s，同时增加检测约 $31.25$ s，计入频道切换与清除的变化后，平均总时间净减约 $188.89$ s。全部 $168$ 场共发出 $1388$ 次零绕路补测，其中 $809$ 次取得方向、$579$ 次无信号，且每次都恢复原扫描动作——无信号补测的成本未被删除。
+%</paper-block>
+
+%<paper-block id="q4.t002" type="table">
+\begin{table}[htbp]
+\centering
+%<paper-block id="q4.tc002" type="table-caption">
+\caption{问题四 $168$ 场测试的每场平均成本（秒）}
+%</paper-block>
+\label{tab:p4cost}
+\begin{tabular}{ccccc}
+\toprule
+策略 & 移动 & 切换频道 & 检测 & 光学定位及清除 \\
+\midrule
+基础搜索策略 & 4995.50 & 258.51 & 1305.21 & 79.82 \\
+联合路线策略 & 4805.68 & 244.81 & 1330.18 & 79.05 \\
+最终策略 & 4780.10 & 254.02 & 1336.46 & 79.57 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q4.p029" type="paragraph">
+需要指出的是，相对基础搜索策略，最终策略在 $168$ 场中有 $51$ 场耗时增加，最差单场增加 $18.26\%$；其 $T/N$ 的经验 95 分位为 $690.35$ s/源，基础搜索策略为 $689.98$ s/源，尾部并未随均值同步改善。因此，当前证据支持的是有限测试集上的平均成本下降，而不是逐场优越性或稳健最优性。
+%</paper-block>
+
+%<paper-block id="q4.h013" type="heading">
+\subsubsection{官方演练}
+%</paper-block>
+
+%<paper-block id="q4.p030" type="paragraph">
+当前策略有 $3$ 场题号与结束统计一致、并正常停止的第四问演练记录，且由结束后公开的总源数确认全清，结果如表~\ref{tab:p4practice} 所示；其他版本演练只作为历史记录，不与当前版本混算。
+%</paper-block>
+
+%<paper-block id="q4.t003" type="table">
+\begin{table}[htbp]
+\centering
+%<paper-block id="q4.tc003" type="table-caption">
+\caption{问题四当前版本官方演练结果}
+%</paper-block>
+\label{tab:p4practice}
+\begin{tabular}{cccccc}
+\toprule
+运行 & 清除数／公开总源数 & 总时间／s & 平均清除时间／s & 检测次数 & 失败清除次数 \\
+\midrule
+P4-P-22 & 15/15 & 7074.18 & 471.61 & 258 & 3 \\
+P4-P-23 & 16/16 & 6710.91 & 419.43 & 260 & 6 \\
+P4-P-24 & 14/14 & 5823.89 & 415.99 & 227 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q4.p031" type="paragraph">
+三场合计清除 $45$ 个源，但样本量不足以证明任意定向布局均可在时限内完成；其均值也不能与不同案例的旧版演练均值直接作因果比较。
+%</paper-block>
+
+%<paper-block id="q4.h014" type="heading">
+\subsubsection{正式入口运行记录}
+%</paper-block>
+
+%<paper-block id="q4.p032" type="paragraph">
+公开汇总保存 $5$ 次正式入口接入尝试，其中 $3$ 次正常结束、$2$ 次在进入接口时连接被重置而无结果文件。由于公开记录没有协议核验的模式标志、也不含总源数，本节报告实际清除数与 $T/n_c$，不将其改写为官方核验的全清率，结果如表~\ref{tab:p4formal} 所示。
+%</paper-block>
+
+%<paper-block id="q4.t004" type="table">
+\begin{table}[htbp]
+\centering
+%<paper-block id="q4.tc004" type="table-caption">
+\caption{问题四正式入口记录与缺失结果}
+%</paper-block>
+\label{tab:p4formal}
+\begin{tabular}{cccccc}
+\toprule
+记录 & 状态 & 已清除数 & 总时间／s & $T/n_c$／s & 检测次数 \\
+\midrule
+P4-F-01 & 进入连接失败，无结果 & --- & --- & --- & --- \\
+P4-F-02 & 正常结束 & 11 & 5937.23 & 539.75 & 283 \\
+P4-F-03 & 进入连接失败，无结果 & --- & --- & --- & --- \\
+P4-F-04 & 正常结束 & 16 & 5404.28 & 337.77 & 178 \\
+P4-F-05 & 正常结束 & 13 & 5496.09 & 422.78 & 220 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q4.p033" type="paragraph">
+对应记录的时间比较见附录C图~\ref{fig:appq4formal}；两条进入连接失败的记录不画成零耗时完成。三次正常结束合计清除 $40$ 个源，按公开舍入值合计虚拟时间约 $16837.60$ s，按清除数加权约 $420.94$ s/源。这既是完成记录的时间汇总，也提示：三场真实源数未知、布局与朝向各异，不能仅凭中间一场清除 $16$ 个时较低的 $T/n_c$ 判定算法逐场改善。
+%</paper-block>
+
+%<paper-block id="q4.h015" type="heading">
+\subsection{模型评价}
+%</paper-block>
+
+%<paper-block id="q4.p034" type="paragraph">
+本问以共同近邻凸包条件处理未知朝向下的发现覆盖，并以实际观测位置而非规划游标作为排空依据；以正向点凸组合、有预算的局部探测与完整区域的光学覆盖处理定位；以扫描与清除任务的联合安排、零绕路补测减少额外行进，其中路线交换、站点删除与信息价值估计各司其职、不能互相替代。现有证据表明，最终版本在 $168$ 场离线确认及边界测试中均全清且正常停止，$3$ 场当前版本官方演练亦全清，正式入口有 $3$ 次正常结束记录。其局限在于信息价值与任务节点位置仍为近似，部分补测不免返回无信号，且离线中有 $51$ 场耗时退步、尾部指标未同步改善；有关的保证应限定在相应的覆盖条件与计算实现范围内，有限测试结果并不构成整个问题的最优性证明。
+%</paper-block>
+		
+		
+		%Part Six

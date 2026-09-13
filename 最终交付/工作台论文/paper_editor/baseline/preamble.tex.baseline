@@ -1,0 +1,168 @@
+% !TeX program = xelatex
+% 第一二问依据冻结源码及结果核对；附录源程序段保持原文。
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper,left=2.7cm,right=2.7cm,top=2.54cm,bottom=2.54cm}
+ 
+
+\usepackage[UTF8,heading=true]{ctex}
+ 
+
+\usepackage{abstract}
+\setlength{\abstitleskip}{0em}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+\setlength{\absparsep}{0em}
+\renewcommand{\abstractname}{\textbf{\zihao{4}{摘要}}}
+\renewcommand{\abstracttextfont}{\zihao{-4}} %设置摘要正文字号
+ 
+\usepackage{fancyhdr}
+\pagestyle{plain}
+ 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+ 
+
+\usepackage{float}
+\usepackage{subfig}
+\captionsetup[figure]{labelsep=space} %去除图标题的冒号
+\captionsetup[table]{labelsep=space} %去除表格标题的冒号
+%设置标题格式
+\ctexset {
+	%设置一级标题的格式
+	section = {
+		name={,、},
+		number=\chinese{section}, %设置中文版的标题
+		aftername=,
+	},
+	%设置三级标题的格式
+	subsubsection = {
+		format += \zihao{-4} % 设置三级标题的字号
+	}
+}
+ 
+ 
+%使得英文字体都为Time NewTown
+%\usepackage{times}
+ 
+%图片包导入
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+% 有原图目录时优先使用原文件；否则使用同目录 paper_figures.pdf 的对应页。
+\newcommand{\paperfigure}[3]{%
+\IfFileExists{figures/#2}{\includegraphics[width=#1\textwidth]{figures/#2}}%
+{\includegraphics[width=#1\textwidth,page=#3]{paper_figures.pdf}}}
+ %图片在当前目录下的figures目录
+ 
+%参考文献包引入
+\usepackage[numbers,sort&compress]{natbib}
+ 
+%代码格式
+\usepackage{listings}
+\usepackage{xurl}
+\usepackage{xcolor}%代码配色，无额外高亮依赖
+\lstset{
+	%numbers=left, %设置行号位置
+	%	numberstyle=\tiny, %设置行号大小
+	keywordstyle=\color{blue}, %设置关键字颜色
+	commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+	escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+	breaklines, %自动折行
+	extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+	xleftmargin=1em,xrightmargin=1em, aboveskip=1em, %设置边距
+	tabsize=4, %设置tab空格数
+	showspaces=false %不显示空格
+}
+ 
+ 
+
+\lstdefinestyle{appendixcode}{
+    language=Python,
+    basicstyle=\ttfamily\fontsize{5.2}{5.8}\selectfont,
+    numbers=left,
+    numberstyle=\fontsize{4.5}{5}\selectfont,
+    numbersep=5pt,
+    stepnumber=1,
+    firstnumber=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    tabsize=4,
+    frame=none,
+    xleftmargin=1.4em,
+    xrightmargin=0.1em,
+    aboveskip=0.35em,
+    belowskip=0.55em,
+    escapeinside={(*@}{@*)}
+}
+
+\renewcommand{\refname}{}
+ 
+%item包
+\usepackage{enumitem}
+ 
+%表格加粗
+\usepackage{booktabs}
+ 
+%设置表格间距
+\usepackage{caption}
+ 
+%允许表格长跨页
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{needspace}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\IfFontExistsTF{DejaVu Sans Mono}
+  {\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]}
+  {\setmonofont{Latin Modern Mono}}
+% 第三问原正文使用的数学宏；只补定义，不修改公式含义。
+\providecommand{\measHist}{\mathcal D}
+\providecommand{\meas}{\widehat{\theta}}
+\providecommand{\effErr}{\varepsilon_{\mathrm{eff}}}
+\providecommand{\cross}{\operatorname{cross}}
+\providecommand{\locRegion}{P}
+\providecommand{\emptyHist}{\mathcal Z}
+\providecommand{\proj}{\widetilde P}
+\providecommand{\knownSet}{\mathcal K}
+\providecommand{\clearedSet}{\mathcal L}
+\providecommand{\emptySet}{\mathcal A}
+\providecommand{\chan}{\mathcal H}
+
+ 
+%伪代码用到的宏包
+\usepackage{algorithmic}
+\usepackage{algorithm}
+ 
+
+% 图文整合版：正文仍为小四，调整空白，不缩小源码正文或更改代码。
+\linespread{1.12}
+\ctexset{
+  section={beforeskip=1.5ex plus .3ex minus .2ex,afterskip=.8ex plus .2ex},
+  subsection={beforeskip=1.2ex plus .2ex,afterskip=.5ex plus .1ex},
+  subsubsection={beforeskip=.9ex plus .2ex,afterskip=.4ex plus .1ex}}
+\setlist{itemsep=1pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{.90}
+\renewcommand{\bottomfraction}{.80}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.70}
+\captionsetup{font=small,skip=4pt}
+\AtBeginDocument{\setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+\setlength{\abovedisplayshortskip}{3pt plus 1pt}
+\setlength{\belowdisplayshortskip}{5pt plus 1pt}}
+
+%正文区
+%<paper-block id="title.h001" type="heading">
+\title{有界测向误差下干扰源的交会定位与搜索清除策略} 
+%</paper-block>
+\author{}
+\date{} %不显示日期
+ 
+%文档

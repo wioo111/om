@@ -1,0 +1,409 @@
+
+%<paper-block id="q3.h001" type="heading">
+\section{问题三模型的建立与求解}
+%</paper-block>
+
+%<paper-block id="q3.h002" type="heading">
+\subsection{建模思路与统一时间成本}
+%</paper-block>
+%<paper-block id="q3.p001" type="paragraph">
+最终实施策略记为 \texttt{OpticalTaskP3}。它只接收当前位置、当前测向频道及已经接受的动作响应，不接收源的真实位置、实际数量或未来误差。程序从原点逐频道扫描，之后交错完成未知区域搜索、已知目标定位与光学清除；任务不要求返回原点。
+%</paper-block>
+
+%<paper-block id="q3.p002" type="paragraph">
+记累计移动距离为 $L$，检测次数为 $n_m$，测向机换频道次数为 $n_s$，失败与成功清除次数分别为 $n_f,n_c$，统一目标为
+%</paper-block>
+%<paper-block id="q3.e001" type="equation">
+\begin{equation}\label{eq:taskcost}
+T=\frac L5+5n_m+n_s+3n_f+5n_c.
+\end{equation}
+%</paper-block>
+%<paper-block id="q3.p003" type="paragraph">
+成功清除的5秒包括光学定位3秒与激光清除2秒；清除指令指定目标频道，但不改变测向机频道。失败尝试虽然只增加3秒直接操作成本，专程前往该点的移动仍须计入。式~\eqref{eq:taskcost} 评价完整任务，而非Python的现实执行时间，也不单独优化最短路径或最小定位直径。
+%</paper-block>
+
+%<paper-block id="q3.h003" type="heading">
+\subsection{观测约束与定位区域更新}
+%</paper-block>
+%<paper-block id="q3.h004" type="heading">
+	\subsubsection{正向测量的几何约束}
+%</paper-block>
+%<paper-block id="q3.p004" type="paragraph">
+	对频道$h$，记有效示向度观测集合$\measHist_h =\{(s_i,\meas_i)\}$。沿用第一问测向交会的几何思路：单次有效测向可生成以测点$s_i$为顶点的扇形约束区域$W(s_i,\meas_i)$。由于接口返回示向度仅保留两位小数，在题目给定$1^\circ$测向误差基础上额外增加$0.005^\circ$量化误差与数值计算余量，取$\effErr=1.0050001^\circ$。
+%</paper-block>
+	
+%<paper-block id="q3.p005" type="paragraph">
+	令 $u(\theta)=(\cos\theta,\sin\theta)$，三角函数计算前将角度转为弧度。候选源位置满足
+%</paper-block>
+%<paper-block id="q3.e002" type="equation">
+	\[
+	\begin{aligned}
+		\cross\bigl(u(\meas_i-\effErr),x-s_i\bigr)&\ge0,\\
+		\cross\bigl(u(\meas_i+\effErr),x-s_i\bigr)&\le0.
+	\end{aligned}
+	\]
+%</paper-block>
+%<paper-block id="q3.p006" type="paragraph">
+	有效接收范围附加约束 $\|x-s_i\| \le 1500$。正向观测对应的凸松弛区域：
+%</paper-block>
+%<paper-block id="q3.e003" type="equation">
+	\[
+	\locRegion_h^{+}=\Omega\cap\bigcap_{(s_i,\meas_i)\in\measHist_h}
+	\left[W(s_i,\meas_i)\cap B(s_i,1500)\right].
+	\]
+%</paper-block>
+%<paper-block id="q3.p007" type="paragraph">
+	对有效接收圆盘，采用切向半平面构造外包多边形做近似，再与测向半平面求交集。普通测向自带的“源距离大于5m”约束不纳入本次凸松弛；近距信号单独分支处理，需要区分凸松弛区域与包含全部物理约束的精确可行域。题目规定同一测点的检测误差短时间内保持不变，因此同一位置重复测得的示向度，不再提供额外的空间定位信息。
+%</paper-block>
+	
+%<paper-block id="q3.h005" type="heading">
+	\subsubsection{无信号观测的信息利用}
+%</paper-block>
+%<paper-block id="q3.p008" type="paragraph">
+	记频道$h$完成清除前，所有无信号测点构成集合$\emptyHist_h$。全向干扰源有效接收半径下限为1000米：若机器狗在位置$z$收到无信号反馈，则该频道内未清除的干扰源一定不在圆盘$B(z,1000)$中。利用该性质，既可压缩已发现目标的候选区域，也能对未发现频道持续积累排除区域。
+%</paper-block>
+	
+%<paper-block id="q3.p009" type="paragraph">
+	同一干扰源的有效接收半径在单次测试过程中保持恒定。若机器狗在测点$s$收到信号、测点$z$无信号反馈，则存在半径$R_h$满足：
+%</paper-block>
+%<paper-block id="q3.e004" type="equation">
+	\[
+	\|x-s\| \leq R_h < \|x-z\|.
+	\]
+%</paper-block>
+%<paper-block id="q3.p010" type="paragraph">
+	将不等式两边平方化简，得到可直接用于数值计算的闭半平面约束：
+%</paper-block>
+%<paper-block id="q3.e005" type="equation">
+	\[
+	2(z-s)^{\mathsf T}x \leq \|z\|^2 - \|s\|^2.
+	\]
+%</paper-block>
+%<paper-block id="q3.p011" type="paragraph">
+	该式依托同一频道下正、负两组观测建立约束，无需提前获知$R_h$。本文同时结合这套半平面约束与无信号圆盘规则缩小候选域；非凸区域取保守凸包参与定位，会保留一部分备选位置，但算法始终使用完整候选区域，不会只用中心点近似替代。下文将数值求解维护的凸候选区域记作$\proj_h$。
+%</paper-block>
+	
+%<paper-block id="q3.p012" type="paragraph">
+	若模拟器返回近距信号$\texttt{near}$，代表机器狗与干扰源距离小于等于5米，已进入20米光学清除的有效范围，可直接发起清除动作，不再额外采集示向度。
+%</paper-block>
+	
+%<paper-block id="q3.h006" type="heading">
+	\subsection{逐频道覆盖搜索与路径安排}
+%</paper-block>
+%<paper-block id="q3.h007" type="heading">
+	\subsubsection{未发现频道的覆盖判定}
+%</paper-block>
+%<paper-block id="q3.p013" type="paragraph">
+	对尚未检出干扰源的频道 $h$，定义无法被无信号观测排除的候选区域：
+%</paper-block>
+%<paper-block id="q3.e006" type="equation">
+	\[
+	U_h = \Omega \setminus \bigcup_{z\in\mathcal Z_h} B(z,1000).
+	\]
+%</paper-block>
+%<paper-block id="q3.p014" type="paragraph">
+	若 $U_h=\emptyset$，说明目标区域内不存在该频道的干扰源，判定为空频道。各频道检测记录相互独立，覆盖状态分频道维护，不可跨频道复用无信号观测结果。
+%</paper-block>
+	
+%<paper-block id="q3.p015" type="paragraph">
+	为在连续平面上实现保守判定，将目标圆形区域离散为边长60m的方格，保留所有与目标圆相交的边界方格。设某方格中心为 $c$，若无信号测点 $z$ 满足
+%</paper-block>
+%<paper-block id="q3.e007" type="equation">
+	\[
+	\|c-z\|+30\sqrt{2} \le 1000-\eta,\quad \eta>0,
+	\]
+%</paper-block>
+%<paper-block id="q3.p016" type="paragraph">
+	则整个方格位于排除圆盘内部。该式利用方格半对角线长约束格内最远点，在校验格心的基础上一次性完成整格判定。
+%</paper-block>
+	
+%<paper-block id="q3.p017" type="paragraph">
+	对于后期零散残余区域，采用目标圆外包多边形扣除全部无信号圆盘内接多边形的并集，构造保守残余集合。将该方法与方格判据结合，降低纯网格判定引入的额外搜索量。频道排空判定仅可基于已完成的实测与覆盖校验；仅做访问规划、未实际抵达的测点，不能作为排空依据。
+%</paper-block>
+	
+%<paper-block id="q3.h008" type="heading">
+	\subsubsection{已知目标与补扫站的联合安排}
+%</paper-block>
+%<paper-block id="q3.p018" type="paragraph">
+	机器狗在原点遍历扫描全部20个频道，完成已发现目标与未知频道状态初始化。以待清除目标估计位置作为路径节点，通过最近邻规则生成开放路径，再采用2-opt算法调整局部路径以缩短总移动距离；任务不要求返回起点，路径不设置返程路段。
+%</paper-block>
+	
+%<paper-block id="q3.p019" type="paragraph">
+	若未知频道仍存在未覆盖区域，则在目标访问路径中插入补扫测点，候选测点取自多半径环点、内部网格与残余候选区域。将测点 $s$ 插入相邻节点 $a,b$ 之间，新增路程记为：
+%</paper-block>
+%<paper-block id="q3.e008" type="equation">
+	\[
+	\Delta L(s) = \|a-s\|+\|s-b\|-\|a-b\|.
+	\]
+%</paper-block>
+%<paper-block id="q3.p020" type="paragraph">
+	采用新增覆盖网格数量 $G(s)$ 与额外耗时的比值评价测点插入收益。基于 $G(s)$ 的不同权重生成多条候选路径，综合移动与补扫开销的预估总成本，选取较优方案。
+%</paper-block>
+	
+%<paper-block id="q3.h009" type="heading">
+	\subsection{成本驱动的检测点选择与光学清除}
+%</paper-block>
+%<paper-block id="q3.h010" type="heading">
+	\subsubsection{单源补测点的有限候选比较}
+%</paper-block>
+%<paper-block id="q3.p021" type="paragraph">
+	仅有一条示向度时，候选区域沿测向方向延展较长，沿射线直行会造成较差的交会几何。本文在趋近目标估计位置的同时引入横向偏移，兼顾交会角与行进距离。
+%</paper-block>
+	
+%<paper-block id="q3.p022" type="paragraph">
+	按首次测点至目标估计位置距离的0.45、0.65、0.85、1.00倍设置前进距离，并搭配50 m、100 m、200 m横向偏移；每组左右备选站位优先选取移动代价更小的一侧。新增候选测点需满足：测点到 $\widetilde P_h$ 所有顶点距离不超过999.99 m。利用欧氏距离的凸性，该约束保证整个凸候选区域落在测点1000 m接收范围内。原策略动作仍作为回退项，新增候选的安全筛选不能扩展为对所有回退动作的接收保证。
+%</paper-block>
+	
+%<paper-block id="q3.p023" type="paragraph">
+	对满足条件的测点 $s$，基于预估成本进行排序，代价表达式为
+%</paper-block>
+%<paper-block id="q3.e009" type="equation">
+	\[
+	\widehat J(s)=\frac{\|s-p\|}{5}+5+\sum_j w_j \sum_\ell q_\ell \widehat V(\widetilde P_h\cap W(s,\theta_{j\ell}),s).
+	\]
+%</paper-block>
+%<paper-block id="q3.p024" type="paragraph">
+	式中 $p$ 为机器狗当前位置，$w_j$ 为候选区域三角剖分得到的面积权重；$\theta_{j\ell}$ 代表假设源位置与误差组合生成的模拟读数；$\widehat V$ 用于估算后续移动、检测、清除与失败恢复的总开销。计算选取 $-1^\circ,0^\circ,1^\circ$ 三组误差采样点，搭配权重 $0.25,0.50,0.25$ 实现近似积分。这些权重是规划近似，不是官方误差分布；假设响应不写入真实观测历史，也不用于直接判定清除或排空。
+%</paper-block>
+	
+%<paper-block id="q3.h011" type="heading">
+	\subsubsection{利用候选区域而非估计点作清除判断}
+%</paper-block>
+%<paper-block id="q3.p025" type="paragraph">
+	设 $\widetilde P_h$ 的最小包围圆圆心为 $c_h$、半径为 $r_h$。当 $r_h<20$ 时，可在满足 $\|q-c_h\| \le 20-r_h$ 的位置 $q$ 执行清除。由三角不等式，对任意 $x\in \widetilde P_h$ 有
+%</paper-block>
+%<paper-block id="q3.e010" type="equation">
+	\[
+	\|x-q\| \le \|x-c_h\|+\|c_h-q\| \le 20.
+	\]
+%</paper-block>
+%<paper-block id="q3.p026" type="paragraph">
+	在候选区域包含真实干扰源的前提下，该清除位置能够覆盖全部可行位置。算法将清除点从包围圆圆心向机器狗当前位置偏移，并预留数值余量，减少末端多余移动；计算直接采用最小包围圆，不假设直径对应的外接圆能够完全覆盖多边形。
+%</paper-block>
+	
+%<paper-block id="q3.p027" type="paragraph">
+	若包围圆半径尚未收缩至20 m以内，则不持续无限制测向。对于已获得至少两组示向度、包围圆半径不大于80 m、无清除失败记录的目标，允许在估计位置执行试探清除。试探清除无法保证一定成功，失败产生的移动与重试开销全部计入总成本。算法对比继续补测和有限光学搜索的整体代价，选择更优执行方案。
+%</paper-block>
+	
+%<paper-block id="q3.h012" type="heading">
+	\subsubsection{有限光学覆盖与终局成本比较}
+%</paper-block>
+%<paper-block id="q3.p028" type="paragraph">
+	提取候选区域最长顶点连线与各边方向，构造能够包裹 $\proj_h$ 的定向矩形。记矩形主轴长度为 $\ell$，法向半宽为 $w$，设置光学保护半径 $r_o=19.99$ 米。当 $w<r_o$ 时，令
+%</paper-block>
+%<paper-block id="q3.e011" type="equation">
+	\[
+	h=\sqrt{r_o^2-w^2},\qquad
+	k=\max\left\{1,\left\lceil\frac{\ell}{2h}\right\rceil\right\}.
+	\]
+%</paper-block>
+%<paper-block id="q3.p029" type="paragraph">
+	沿矩形主轴布置 $k$ 个光学清除圆心，保证各个20米圆的覆盖条带首尾相接，实现对整个矩形、进而对 $\proj_h$ 的覆盖。程序只考虑 $k\le6$ 的有限搜索方案，同时评估正反两种遍历顺序。
+%</paper-block>
+	
+%<paper-block id="q3.p030" type="paragraph">
+	假设干扰源处于位置 $x$，第 $j(x)$ 个光学测点完成首次成功清除，记起点 $q_0=p$，该场景下剩余任务开销
+%</paper-block>
+%<paper-block id="q3.e012" type="equation">
+	\[
+	C(x)=\sum_{i=1}^{j(x)}\frac{\|q_i-q_{i-1}\|}{5}
+	+3\bigl(j(x)-1\bigr)+5.
+	\]
+%</paper-block>
+%<paper-block id="q3.p031" type="paragraph">
+	结合候选区域面积权重估算光学搜索整体代价。只有相比原有方案至少节约1秒，才启用这套光学搜索策略。采样点只用于成本评估，几何覆盖依靠矩形与圆盘位置关系保证。一次清除失败，代表该源不在当前20米搜索圆内，算法据此保守收缩候选区域，继续执行后续计划。只有收到成功清除反馈，才更新频道清除状态。若全部搜索点位尝试完毕仍未清除，标记几何或观测异常，不把失败响应当作清除完成。
+%</paper-block>
+	
+	
+%<paper-block id="q3.f001" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.76}{q3_01_optical_cover.pdf}{7}
+%<paper-block id="q3.c001" type="caption">
+\caption{第三问有限光学条带覆盖示意。构造多边形用于说明覆盖关系，不是正式场景轨迹。}
+%</paper-block>
+\label{fig:p3optical}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q3.h013" type="heading">
+\subsection{终止判据与闭环执行}
+%</paper-block>
+%<paper-block id="q3.p032" type="paragraph">
+	令 $\knownSet$ 为曾经通过有效方向或近距响应确认有源的频道集合，$\clearedSet$ 为已经成功清除的频道集合，$\emptySet$ 为经覆盖判定或数量上界判定的空频道集合。集合均按不同频道计数，重复测量不会增加源数。
+%</paper-block>
+	
+%<paper-block id="q3.p033" type="paragraph">
+	当所有已知目标均已清除，且其余频道全部具有排空依据，即
+%</paper-block>
+%<paper-block id="q3.e013" type="equation">
+	\[
+	\clearedSet\cup\emptySet=\chan,
+	\]
+%</paper-block>
+%<paper-block id="q3.p034" type="paragraph">
+	算法主动结束任务。此外，题目给出 $N\le16$。当 $|\knownSet|=16$ 时，已经观测到16个不同源，结合数量上界可判定其他频道为空，无须再进行未知频道的空间排查；但这16个源仍须全部清除。当 $|\clearedSet|=16$ 时可以直接结束。只发现或清除10至15个时不能套用该规则，也不能读取测试结束后才公开的真实总数来决定停机。
+%</paper-block>
+	
+%<paper-block id="q3.p035" type="paragraph">
+	闭环执行过程为：原点逐频道扫描后更新候选区域与覆盖状态；根据当前已知目标和剩余未知区域安排下一动作；收到完整响应后更新位置、频道、虚拟时间和目标状态；当前目标完成后再规划后续任务；满足上式或清除数达到公开上界时调用退出指令。有限光学计划执行期间保持计划进度，不随意打断。
+%</paper-block>
+	
+%<paper-block id="q3.h014" type="heading">
+	\subsection{模型检验与正式测试结果}
+%</paper-block>
+%<paper-block id="q3.h015" type="heading">
+	\subsubsection{离线验证与策略权衡}
+%</paper-block>
+%<paper-block id="q3.p036" type="paragraph">
+	对最终策略开展同场景配对验证。普通场景包含56个均匀生成场景和56个历史参考敏感性场景，另设有效接收半径固定为1000米、1500米并取边界误差的各14个压力场景。最终策略在上述140个非开发场景中均完成全部清除。历史参考模型仅用于敏感性对照，不视为官方真实场景分布。
+%</paper-block>
+	
+%<paper-block id="q3.p037" type="paragraph">
+	在均匀模型下，相对未加入最终光学终局决策的上一步策略，场景等权平均每源时间由250.126秒降至248.602秒，下降0.610\%；在参考模型下由242.904秒降至240.435秒，下降1.016\%。平均收益较小，部分场景耗时增加，故不宣称逐场占优或全局最优。策略选型重点考察完整任务成本与任务完成情况，不片面追求检测次数、路径长度等单一指标。
+%</paper-block>
+	
+%<paper-block id="q3.h016" type="heading">
+	\subsubsection{官方模拟器演练}
+%</paper-block>
+%<paper-block id="q3.p038" type="paragraph">
+	正式测试之前，同一最终策略完成8场官方演练。演练结束后模拟器公开源总数，因而可按题意计算被清除比例 $\rho=n_c/N$ 及平均定位清除时间 $\bar T=T/n_c$。结果见表\ref{tab:p3_practice}.
+%</paper-block>
+	
+%<paper-block id="q3.t001" type="table">
+	\begin{table}[htbp]
+		\centering
+%<paper-block id="q3.tc001" type="table-caption">
+		\caption{同版本第三问官方演练结果}
+%</paper-block>
+		\label{tab:p3_practice}
+		\begin{tabular}{l r r r r}
+			\toprule
+			演练案例编码 & 源总数 & 清除数 & 清除比例 & 平均定位清除时间／秒 \\
+			\midrule
+			2RAG-BYRW-DNT4-8WTY & 10 & 10 & 100\% & 313.02 \\
+			KCJ8-VZB5-8EVB-QNU6 & 10 & 10 & 100\% & 254.55 \\
+			WBHY-JMHS-FE2Q-6CAW & 16 & 16 & 100\% & 187.07 \\
+			X76H-ECV6-TNDX-YVU7 & 14 & 14 & 100\% & 220.78 \\
+			9U5V-SDSE-WCTP-3BM6 & 10 & 10 & 100\% & 321.98 \\
+			GHZF-RURM-PEB6-YDWN & 12 & 12 & 100\% & 247.63 \\
+			SVSY-F55G-TB4D-63G5 & 13 & 13 & 100\% & 247.55 \\
+			DXPC-XNVZ-ANXK-KJQQ & 13 & 13 & 100\% & 238.06 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+%</paper-block>
+	
+%<paper-block id="q3.p039" type="paragraph">
+	8场合计清除98个源，清除比例均为100\%，场景等权平均定位清除时间为253.83秒／源。该批演练未包含11源和15源场景，且样本量有限，只能反映本组案例的运行表现，不能代表全部场景的统计效果。
+%</paper-block>
+	
+%<paper-block id="q3.p040" type="paragraph">
+	源数较少时，未知频道的排空工作会带来明显的收尾开销。例如，案例KCJ8‑VZB5‑8EVB‑QNU6在最后一个源清除后仍运行398.73秒，用于完成其余频道的覆盖确认。该数值属于事后统计；程序运行阶段无法读取真实源数量，不能直接省略这部分校验流程。
+%</paper-block>
+	
+%<paper-block id="q3.h017" type="heading">
+	\subsubsection{三次正式测试}
+%</paper-block>
+%<paper-block id="q3.p041" type="paragraph">
+	三次正式运行均采用同一策略源码版本，分别清除11、12、16个源。按题目要求整理正式结果如表\ref{tab:p3_formal1}。
+%</paper-block>
+	
+%<paper-block id="q3.t002" type="table">
+	\begin{table}[htbp]
+		\centering
+%<paper-block id="q3.tc002" type="table-caption">
+		\caption{第三问正式测试结果}
+%</paper-block>
+		\label{tab:p3_formal1}
+		\begin{tabular}{l r r r}
+			\toprule
+			运行记录 & 清除干扰源个数 & 平均定位清除时间／秒 & 程序运行时间／秒 \\
+			\midrule
+			第1次 & 11 & 287.29 & 1.8464 \\
+			第2次 & 12 & 242.58 & 1.5679 \\
+			第3次 & 16 & 188.51 & 1.4777 \\
+			\bottomrule
+		\end{tabular}
+		\footnotesize
+		注：按现有汇总的运行顺序编号，不以记录序号替代官方案例码。现实运行时间采用程序驱动器实测值，与虚拟任务时间分开。
+	\end{table}
+%</paper-block>
+	
+%<paper-block id="q3.p042" type="paragraph">
+	三次运行的动作统计及虚拟成本分解见表\ref{tab:p3_formal2}。
+%</paper-block>
+	
+%<paper-block id="q3.t003" type="table">
+	\begin{table}[htbp]
+		\centering
+%<paper-block id="q3.tc003" type="table-caption">
+		\caption{三次正式测试的动作统计与时间构成}
+%</paper-block>
+		\label{tab:p3_formal2}
+		\begin{tabular}{l r r r}
+			\toprule
+			指标 & 第1次 & 第2次 & 第3次 \\
+			\midrule
+			总虚拟时间／秒 & 3160.15 & 2910.98 & 3016.18 \\
+			移动时间／秒 & 2133.15 & 1901.98 & 2253.18 \\
+			检测时间／秒 & 800.00 & 780.00 & 555.00 \\
+			频道切换时间／秒 & 157.00 & 151.00 & 107.00 \\
+			光学定位及清除时间／秒 & 70.00 & 78.00 & 101.00 \\
+			检测次数 & 160 & 156 & 111 \\
+			清除尝试次数 & 16 & 18 & 23 \\
+			其中失败尝试次数 & 5 & 6 & 7 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+%</paper-block>
+	
+%<paper-block id="q3.p043" type="paragraph">
+	三次合计清除39个源，总虚拟时间为9087.310251秒。按已清除源数量加权的平均定位清除时间为
+%</paper-block>
+%<paper-block id="q3.e014" type="equation">
+	\[
+	\bar T_{\mathrm{weighted}}=
+	\frac{3160.153103+2910.978089+3016.179059}{11+12+16}
+	=233.01\ \text{秒／源}.
+	\]
+%</paper-block>
+%<paper-block id="q3.p044" type="paragraph">
+	分别计算各场 $T/n_c$ 后再等权平均，则为239.46秒／源。两者权重不同，不可混用。上述时间均为虚拟任务成本，与表的程序现实运行时间是不同指标。
+%</paper-block>
+	
+%<paper-block id="q3.p045" type="paragraph">
+	三次脚本均正常结束，模拟器记录均为程序主动调用退出。前两次依据“已清除频道与覆盖排空频道覆盖全部频道”终止，第三次依据“成功清除数量达到16”终止。
+%</paper-block>
+	
+%<paper-block id="q3.h018" type="heading">
+	\subsubsection{正式记录的成本分解与解释}
+%</paper-block>
+%<paper-block id="q3.p046" type="paragraph">
+图~\ref{fig:p3formalcost} 将三次正式记录按式~\eqref{eq:taskcost} 分解。合计移动占69.20\%，检测占23.49\%，频道切换占4.57\%，光学定位与清除占2.74\%。18次失败清除的直接操作成本为54秒，但其伴随移动计在移动项，不能解释为失败没有完整成本。结果提示，后续应优先检验路线与信息获取的联合安排，而不是仅减少光学尝试。
+%</paper-block>
+
+%<paper-block id="q3.p047" type="paragraph">
+前两次正式记录未公开真实源总数，故本文报告清除数与内部完成判据，不写成官方确认的39/39全清；第三次清除16个结合题设上界，可推知该场不存在第17个。演练的源数及效率关系见附录C图~\ref{fig:appq3practice}，不同案例之间不构成新旧算法的配对比较。
+%</paper-block>
+
+%<paper-block id="q3.f002" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.80}{q3_03_formal_cost.pdf}{8}
+%<paper-block id="q3.c002" type="caption">
+\caption{第三问三次正式记录的虚拟时间成本构成。图中清除数来自实际响应，不作为开局已知量。}
+%</paper-block>
+\label{fig:p3formalcost}
+\end{figure}
+%</paper-block>
+%<paper-block id="q3.h019" type="heading">
+\subsection{模型评价}
+%</paper-block>
+%<paper-block id="q3.p048" type="paragraph">
+	本模型将单源交会定位拓展至多频道、未知源数条件下的完整任务决策。模型依靠全向源的无信号观测维护各频道覆盖状态，结合接收半径上下界、正负观测约束压缩候选区域，把补扫测点插入目标访问路径；定位后期对比继续测向和有限光学搜索的整体开销，选择执行方案。停止条件来源于实测观测结果、区域覆盖校验以及题目给出的源数量上界，不依赖干扰源真实位置与源总数等隐藏信息。
+%</paper-block>
+	
+%<paper-block id="q3.p049" type="paragraph">
+	本组8场官方演练全部完成干扰源清除；三次正式测试分别清除11、12、16个源，程序可以完整执行搜索、定位、清除与退出全流程。该模型仍存在局限：路径规划、后续动作开销仅做有限候选与近似预估；几何计算效果受模型假设与数值实现影响。有限场景得到的测试结果，不能证明策略全局时间最优；程序内部完成判断，不等同于模拟器官方真值评判。
+%</paper-block>

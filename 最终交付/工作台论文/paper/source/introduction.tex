@@ -1,0 +1,110 @@
+%<paper-block id="introduction.h001" type="heading">
+		\section{引言}
+%</paper-block>
+%<paper-block id="introduction.p001" type="paragraph">
+干扰源的发现、定位与清除需要同时处理测向误差、观测距离限制和检测点之间的移动成本。题目以机器狗替代逐点人工排查，给出测向、移动和光学清除接口，要求从单源交会定位逐步扩展至未知数量的多源任务。已有研究讨论了直接定位、交会角及无源定位区间，并将源估计、目标确定与路径规划结合\cite{ref1,ref2,ref3,ref4}。在本题中，较好的定位精度并不自动对应较短的清除时间；源的方向性还会改变无信号观测所能提供的信息。
+%</paper-block>
+
+%<paper-block id="introduction.p002" type="paragraph">
+本文先建立有界误差下的可行区域与覆盖判据，再研究保证接收的第二站位，随后把几何推断纳入全向、定向源的搜索清除流程。理论判断、近似成本预测与实际响应分别记录，避免用预测覆盖替代已完成检测，或用事后源数量决定运行时停机。
+%</paper-block>
+
+%<paper-block id="introduction.h002" type="heading">
+\section{问题分析}
+%</paper-block>
+%<paper-block id="introduction.h003" type="heading">
+		\subsection{问题一的分析}
+%</paper-block>
+%<paper-block id="introduction.p003" type="paragraph">
+问题一要求计算由带 $\pm1^\circ$ 误差的示向度形成的交会区域直径，并判断以该直径为直径的圆能否覆盖整个区域。本文把单次测向等价为两条半平面，先判别交集为空、无界或有界，再对非空有界区域求顶点、比较顶点对并检验直径圆。纯交会集合记为 $P$；目标圆域、有效接收半径及近距排除共同给出的物理可行集合另记为 $\mathcal F$，两者不混称。直径圆未必覆盖区域，故进一步给出最小包围圆与 Jung 界作为严格的覆盖尺度。
+%</paper-block>
+
+%<paper-block id="introduction.h004" type="heading">
+\subsection{问题二的分析}
+%</paper-block>
+%<paper-block id="introduction.p004" type="paragraph">
+问题二在首次有效方向观测后选择第二检测点。本文明确采用“保证第二次接收或近距返回，并最小化最终位置集合的最坏直径”这一目标，而非平均误差、最小包围圆半径或单独的交会角最大化。首次已经收到信号提供了有关未知接收半径的条件信息，不能简单地要求所有候选源到第二站均不超过1000米。本文先推导未截断首次扇形下的四圆接收安全域，再以不可区分源对建立全域下界，通过解析极值与整数区间证书得到相等上界。对被目标边界截断的具体观测，四圆域仍提供通用安全保证，但不宣称其恰好等于该状态的完整安全域，也不宣称同一站位逐状态最优。
+%</paper-block>
+
+%<paper-block id="introduction.h005" type="heading">
+\subsection{问题三的分析}
+%</paper-block>
+%<paper-block id="introduction.p005" type="paragraph">
+问题三的目标是可靠完成未知数量的全向源任务，并尽量减小总虚拟时间。有效方向用于缩小定位区，无信号用于逐频道排空；补扫和已知目标访问共同安排，定位后期比较继续测向与有限光学搜索。结束任务必须具备覆盖排空或达到公开数量上界的依据，不能仅因当前没有待清目标便退出。
+%</paper-block>
+
+%<paper-block id="introduction.h006" type="heading">
+\subsection{问题四的分析}
+%</paper-block>
+%<paper-block id="introduction.p006" type="paragraph">
+定向源的可接收区域增加180$^\circ$朝向约束，近距离无信号也可能来自发射半平面之外，因此不能照搬第三问的1000米排除圆。本文保留正向测量交会和统一时间成本，以对任意朝向有效的连续发现覆盖替换全向排空规则；定位阶段利用正向点的凸组合与有预算的试探，调度阶段联合扫描和清除，并在原行进段上补测。覆盖验证决定是否允许停止，信息价值预测只决定动作次序。
+%</paper-block>
+
+%<paper-block id="introduction.h007" type="heading">
+\section{模型假设}
+%</paper-block>
+%<paper-block id="introduction.l001" type="list">
+\begin{enumerate}
+%<paper-block id="introduction.li001" type="list-item">
+\item \textbf{有界误差与同点固定。} 普通示向度误差位于 $[-1^\circ,1^\circ]$。同一位置短时间内重复测量的误差保持不变，不能将其当作独立观测。几何判据与第二问保证只要求误差有界，不依赖独立均匀分布。
+%</paper-block>
+%<paper-block id="introduction.li002" type="list-item">
+\item \textbf{固定源与固定半径。} 单次测试中干扰源位置、频道及接收半径保持不变，源位置属于半径1800米的目标圆域；半径未知但位于1000至1500米。该目标圆域不是机器狗的活动边界。
+%</paper-block>
+%<paper-block id="introduction.li003" type="list-item">
+\item \textbf{近距响应与清除范围分开。} 5米是普通示向度改为近距响应的距离阈值，20米是光学清除范围。对定向源，普通或近距接收仍需满足发射半平面条件；光学清除不受发射朝向限制。
+%</paper-block>
+%<paper-block id="introduction.li004" type="list-item">
+\item \textbf{频道唯一与公开数量上界。} 每频道至多一个源，总数为10至16，实际总数不作为策略输入。示向度给出测点指向源的方位，并不等于定向源的发射朝向。
+%</paper-block>
+%<paper-block id="introduction.li005" type="list-item">
+\item \textbf{数值实验分布单独声明。} 第一二问实验按保存的生成规则抽样源位置、半径及不同位置的误差。均匀抽样仅用于相应实验，不视为官方场景分布或理论证明的前提；第二问场景还条件于首次确实收到方向。
+%</paper-block>
+\end{enumerate}
+%</paper-block>
+
+%<paper-block id="introduction.h008" type="heading">
+\section{符号说明}
+%</paper-block>
+\begingroup
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+%<paper-block id="introduction.t001" type="table">
+\begin{longtable}{@{}p{0.21\textwidth}p{0.55\textwidth}p{0.18\textwidth}@{}}
+\toprule
+符号 & 含义 & 取值／单位 \\
+\midrule
+\endfirsthead
+\toprule 符号 & 含义 & 取值／单位 \\ \midrule
+\endhead
+$S_i,\theta_i$ & 第 $i$ 个测点位置及其实际示向度读数 & 米；度 \\
+$G$ & 未知干扰源位置 & $\mathbb R^2$ \\
+$\Omega$ & 干扰源所在目标圆域，不是机器狗活动边界 & 半径1800米 \\
+$\varepsilon$ & 第一二问方向误差半宽 & $1^\circ$ \\
+$a$ & 普通示向度的近距阈值 & 5米 \\
+$R_{\rm lo},R_{\rm hi}$ & 未知接收半径的下界、上界 & 1000、1500米 \\
+$B(S,r)$ & 以 $S$ 为圆心、$r$ 为半径的闭圆盘 & --- \\
+$W_i$ & 第 $i$ 次测向的有向楔形闭包 & 半角 $\varepsilon$ \\
+$P$ & 纯示向度半平面交集，可为空、无界或有界 & --- \\
+$K$ & 加入目标圆与接收上界的凸松弛集合，可含圆弧 & --- \\
+$\mathcal F$ & 再加入近距排除后的精确物理可行集合 & 可非凸 \\
+$D(P)$ & 非空区域内点对距离的上确界 & 米 \\
+$R^*(P),c^*$ & 最小包围圆半径、圆心 & 米 \\
+$A,B,M$ & 一对直径端点及其中点 & $M=(A+B)/2$ \\
+$\mathcal F_1,\mathcal F_2$ & 首次、两次观测后的精确物理位置集合 & --- \\
+$\mathcal F^0,\mathcal C^0$ & 标准未截断扇形、其完整接收安全域 & --- \\
+$J(S)$ & 第二站位 $S$ 对应的最坏后验直径 & 米 \\
+$\delta$ & 第二问推导中的双倍角误差 & $2\varepsilon$ \\
+$t_*$ & 解析二次方程通过符号检查的小根 & 1401.240718米 \\
+$S_*^\pm$ & 标准状态中关于示向度轴对称的最优站位 & $x=843.034754$，$y=\pm545.528422$米 \\
+$D_*$ & 理想策略的极小极大直径 & 110.969319米 \\
+$\mathcal C_{20}$ & 连续20\%近优候选区域 & --- \\
+$\mathcal H,\mathcal K,\mathcal L,\mathcal A$ & 全部频道、已发现、已清除、已排空频道集合 & 按频道计数 \\
+$\mathcal D_h,\mathcal Z_h$ & 频道 $h$ 的有效方向、无信号观测集合 & --- \\
+$\widetilde P_h$ & 第三四问维护的凸候选位置外包 & --- \\
+$T$ & 完整搜索清除任务的虚拟时间 & 秒 \\
+\bottomrule
+\end{longtable}
+%</paper-block>
+\endgroup

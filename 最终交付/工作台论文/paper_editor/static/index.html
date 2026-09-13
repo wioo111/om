@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>论文微调工作台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, tags: 'ams'},
+      svg: {fontCache: 'global'},
+      options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+      startup: {typeset: false}
+    };
+  </script>
+  <script defer src="/vendor/mathjax/tex-svg.js" onerror="window.paperMathJaxUnavailable=true"></script>
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">文</span><div><h1>论文微调工作台</h1><p>阅读、逐块修改，LaTeX 生成最终 PDF</p></div></div>
+    <div class="topbar-actions"><span id="connection-status" class="connection-status" role="status">正在连接</span><button id="open-diff" class="button secondary" disabled>源码 diff</button><button id="build-pdf" class="button primary" disabled>构建 PDF</button></div>
+  </header>
+  <div class="source-strip"><span class="source-label">唯一正式源</span><span id="canonical-source">正在读取…</span><span id="ai-status" class="ai-status">AI 状态读取中</span></div>
+  <main class="workspace">
+    <section class="reading-pane" aria-label="论文阅读视图">
+      <div class="reading-toolbar"><div class="view-tabs" role="tablist" aria-label="阅读模式"><button id="html-tab" class="view-tab active" role="tab" aria-selected="true" aria-controls="html-view">HTML 阅读</button><button id="pdf-tab" class="view-tab" role="tab" aria-selected="false" aria-controls="pdf-view">PDF 预览</button></div><button id="toc-toggle" class="text-button" aria-expanded="false" aria-controls="toc">章节目录</button><span id="document-revision" class="revision"></span></div>
+      <nav id="toc" class="toc" aria-label="章节目录" hidden><p class="empty-note">正在读取目录…</p></nav>
+      <div id="html-view" class="reader-scroll" role="tabpanel" aria-labelledby="html-tab"><article id="reader" class="paper"><div class="reader-placeholder"><span class="eyebrow">LOCAL PAPER EDITOR</span><h2>正在载入论文</h2><p>点击正文、标题或图注，即可定位对应的正式源码块。</p></div></article></div>
+      <div id="pdf-view" class="pdf-view" role="tabpanel" aria-labelledby="pdf-tab" hidden><div id="pdf-empty" class="empty-state"><h2>最终 PDF 由 LaTeX 构建</h2><p>点击右上角“构建 PDF”，完成后可在此预览。</p></div><iframe id="pdf-frame" title="论文 PDF 预览" hidden></iframe></div>
+      <div class="reading-footer"><span>点击段落选择 · 点击图片定位整幅图 · 公式默认只读</span><span id="block-count"></span></div>
+    </section>
+    <aside class="inspector" aria-label="源码块编辑器">
+      <div id="selection-empty" class="empty-state selection-empty"><span class="eyebrow">BLOCK EDITOR</span><h2>从左侧选中一处内容</h2><p>每次修改仅替换一个稳定 ID 对应的源码块。保存后立即刷新阅读视图。</p><div class="empty-rule"></div><p class="muted">Q1 / Q2 的数学内容受冻结保护；AI 建议须先审阅，再接受。</p></div>
+      <div id="selection-panel" class="selection-panel" hidden>
+        <div class="selection-header"><div><span class="eyebrow">当前选中</span><h2 id="selected-section"></h2></div><span id="type-badge" class="badge"></span></div>
+        <dl class="block-meta"><div><dt>BLOCK ID</dt><dd id="selected-id"></dd></div><div><dt>源码路径</dt><dd id="selected-source"></dd></div></dl>
+        <div id="protection-note" class="notice protection" hidden></div>
+        <div class="editor-tabs" role="tablist" aria-label="块操作"><button class="editor-tab active" data-panel="edit" role="tab" aria-selected="true">手动编辑</button><button class="editor-tab" data-panel="ai" role="tab" aria-selected="false">AI 微调</button><button class="editor-tab" data-panel="history" role="tab" aria-selected="false">修改历史</button></div>
+        <section id="edit-panel" class="editor-panel" role="tabpanel">
+          <details class="original-details"><summary>查看当前源码</summary><pre id="original-source" class="source-code"></pre></details>
+          <div class="field-heading"><label for="block-editor">替换内容 <span class="muted">LaTeX</span></label><span id="draft-state" class="muted">未修改</span></div>
+          <textarea id="block-editor" class="code-editor" spellcheck="false" placeholder="请选择一个可编辑块"></textarea>
+          <label id="equation-mode-row" class="checkbox-row"><input id="edit-equation" type="checkbox"><span>编辑公式 <small>显式允许本次手动修改数学内容</small></span></label>
+          <p id="readonly-message" class="field-hint" hidden></p>
+          <details id="manual-diff-details" class="diff-details"><summary>本次修改 diff</summary><pre id="manual-diff" class="diff-code">尚无修改。</pre></details>
+          <div class="action-row"><button id="save-block" class="button primary" disabled>保存此块</button><button id="reset-draft" class="button secondary" disabled>还原编辑框</button></div>
+          <p class="field-hint">保存只重建 HTML；构建 PDF 需单独点击。Ctrl / ⌘ + Enter 保存当前块。</p>
+        </section>
+        <section id="ai-panel" class="editor-panel" role="tabpanel" hidden>
+          <p id="ai-config-note" class="notice">AI 状态读取中。</p>
+          <div id="ai-modes" class="mode-grid" aria-label="改写方式"><button class="mode-button active" data-mode="simplify">精简</button><button class="mode-button" data-mode="academic">学术化</button><button class="mode-button" data-mode="natural">去 AI 味</button><button class="mode-button" data-mode="split">拆长句</button><button class="mode-button" data-mode="logic">增强逻辑</button><button class="mode-button" data-mode="polish">保持含义润色</button><button class="mode-button" data-mode="custom">自定义</button></div>
+          <label class="field-label" for="ai-instruction">补充要求 <span class="muted">自定义时必填</span></label><textarea id="ai-instruction" class="instruction-editor" rows="3" placeholder="例如：删去重复表达，保留全部结论和限定条件。"></textarea>
+          <p class="field-hint">仅发送章节标题、前一块、当前块、后一块和本次要求。建议不会自动写入源码。</p>
+          <button id="generate-ai" class="button primary" disabled>生成修改建议</button>
+          <div id="ai-proposal" class="ai-proposal" hidden><div id="ai-validation" class="notice"></div><details><summary>Before · 当前源码</summary><pre id="ai-before" class="source-code"></pre></details><label class="field-label" for="ai-after">After · 建议替换内容</label><textarea id="ai-after" class="code-editor proposal-editor" readonly spellcheck="false"></textarea><details open><summary>Before / after diff</summary><pre id="ai-diff" class="diff-code"></pre></details><div class="action-row"><button id="accept-ai" class="button primary" disabled>接受并保存此块</button><button id="discard-ai" class="button secondary">丢弃建议</button></div></div>
+        </section>
+        <section id="history-panel" class="editor-panel" role="tabpanel" hidden><div class="history-toolbar"><p class="field-hint">仅展示当前块的操作记录。</p><button id="undo-block" class="button secondary" disabled>撤销最近修改</button></div><div id="history-list" class="history-list"><p class="empty-note">暂无修改记录。</p></div></section>
+      </div>
+      <section id="build-result" class="build-result" aria-live="polite" hidden><div class="field-heading"><h3>PDF 构建</h3><span id="build-status" class="badge"></span></div><p id="build-path" class="file-path"></p><details id="build-log-details"><summary>编译日志摘要</summary><pre id="build-log" class="log-code"></pre></details><a id="pdf-download" class="text-link" target="_blank" rel="noopener" hidden>打开 PDF</a></section>
+      <div id="operation-message" class="operation-message" role="status" aria-live="polite" hidden></div>
+    </aside>
+  </main>
+  <dialog id="diff-dialog" class="diff-dialog"><div class="dialog-heading"><div><span class="eyebrow">SOURCE CHANGES</span><h2>正式源码的实际 diff</h2></div><button id="close-diff" class="button secondary">关闭</button></div><p id="diff-context" class="field-hint">正在读取…</p><div class="diff-view-tabs"><button id="session-diff-tab" class="view-tab active">本轮源码修改</button><button id="git-diff-tab" class="view-tab">Git diff</button></div><pre id="source-diff" class="diff-code source-diff"></pre></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

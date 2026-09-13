@@ -1,0 +1,47 @@
+%<paper-block id="conclusion.h001" type="heading">
+		\section{模型的评价、改进与推广}
+%</paper-block>
+%<paper-block id="conclusion.h002" type="heading">
+\subsection{模型优点}
+%</paper-block>
+%<paper-block id="conclusion.p001" type="paragraph">
+本文把几何保证与任务决策分开：交会、包围圆、逐频道排空和定向覆盖给出可核验条件；路径及假设观测只比较预期成本，不能改变完成状态。第三问利用全向无信号证据，第四问改用未知朝向的连续覆盖，避免观测语义混用。两问均将移动、检测、切频道及失败清除纳入相同时间账，并保留已发现、已清除、已排空的区别，因而能够解释实际动作及停止原因。
+%</paper-block>
+
+%<paper-block id="conclusion.h003" type="heading">
+\subsection{模型局限}
+%</paper-block>
+%<paper-block id="conclusion.p002" type="paragraph">
+第一二问的最优性限于所定义的几何及接收目标，不能外推为第三四问的全任务时间最优。两种多源策略的路线节点、未来观测与信息价值仍是有限候选和近似估计，可能增加无效补测；第四问已有51个配对场景退步，尾部分位未随均值同步下降。连续几何检查依赖数值保护与有限计算预算，验证失败只能保留搜索，不能推断目标不存在。演练样本较少，正式记录又未全部公开真实源数，因此完成记录、内部覆盖判据和官方真值评价必须区分。
+%</paper-block>
+
+%<paper-block id="conclusion.h004" type="heading">
+\subsection{后续改进与适用范围}
+%</paper-block>
+%<paper-block id="conclusion.p003" type="paragraph">
+后续可在冻结当前基线的前提下，比较末段目标访问、未知频道补扫与任务结束位置的联合安排，并报告完整任务时间而非只报告尾段缩短；对补测价值模型则同时检查新增检测成本和不利场景。上述方向尚未作为本论文正式算法的改进成果。若推广至具有障碍物、变化源或非半平面辐射的环境，需要重新定义移动代价和覆盖集合并重新验证，不能直接沿用本题的直线距离、固定源及凸性保证。
+%</paper-block>
+
+%<paper-block id="conclusion.h005" type="heading">
+\section*{AI工具使用声明}
+%</paper-block>
+%<paper-block id="conclusion.p004" type="paragraph">
+本研究使用AI工具辅助建模讨论、数学推导草稿、代码生成与调试、实验分析、论文撰写及图表整理。AI输出不作为原始实验数据或官方成绩来源，具体使用情况另见支撑材料中的AI工具使用详情。
+%</paper-block>
+
+\typeout{REFERENCES-START-PAGE=\thepage}
+%<paper-block id="conclusion.h006" type="heading">
+\section{参考文献}
+%</paper-block>
+		\vspace{-2em} % 减小上面的间距
+%<paper-block id="conclusion.refs001" type="references">
+		\begin{thebibliography}{9}  
+			\bibitem{ref1} 吴癸周, 郭福成, 张敏. 信号直接定位技术综述[J]. 雷达学报, 2020, 9(6): 998–1013.
+			\bibitem{ref2} 修建娟, 何友, 王国宏, 董云龙. 测向交叉定位系统中的交会角研究[J]. 宇航学报, 2005, 26(3): 282–286.
+			\bibitem{ref3} 李超, 吕日毅, 钱任军, 张阳. 双机无源定位高精度定位区间分布仿真研究[J]. 弹箭与制导学报, 2022, 42(2): 129–132.
+			\bibitem{ref4}  Ji Y, Zhao Y, Chen B, Zhu Z, Liu Y, Zhu H, Qiu S. Source searching in unknown obstructed environments through source estimation, target determination, and path planning[J]. Building and Environment, 2022, 221: 109266.	10.1016/j.buildenv.2022.109266
+			\bibitem{ref5} Jung H. Ueber die kleinste Kugel, die eine räumliche Figur einschliesst[J]. Journal für die reine und angewandte Mathematik, 1901, 123: 241–257.
+		\end{thebibliography}
+%</paper-block>
+\clearpage
+\typeout{APPENDIX-A-START-PAGE=\thepage}

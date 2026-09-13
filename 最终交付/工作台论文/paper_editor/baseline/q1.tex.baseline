@@ -1,0 +1,341 @@
+
+%<paper-block id="q1.h001" type="heading">
+\section{问题一模型的建立与求解}
+%</paper-block>
+%<paper-block id="q1.h002" type="heading">
+\subsection{数据预处理与分析}
+%</paper-block>
+%<paper-block id="q1.h003" type="heading">
+\subsubsection{示向度的角度归一化}
+%</paper-block>
+%<paper-block id="q1.p001" type="paragraph">
+示向度 $\theta_i$ 位于 $[0^\circ,360^\circ)$，而 $\operatorname{atan2}$ 返回角通常位于 $(-180^\circ,180^\circ]$。定义
+%</paper-block>
+%<paper-block id="q1.e001" type="equation">
+\begin{equation}
+\operatorname{wrap}(\alpha)=\alpha-360^\circ\left\lfloor\frac{\alpha+180^\circ}{360^\circ}\right\rfloor\in[-180^\circ,180^\circ).
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p002" type="paragraph">
+约束写为 $|\operatorname{wrap}(\arg(G-S_i)-\theta_i)|\le\varepsilon$。例如 $350^\circ$ 与 $-10^\circ$ 表示同一方向，归一化后差值为 $0^\circ$；直接相减得到的 $360^\circ$ 不代表真实角误差。
+%</paper-block>
+
+%<paper-block id="q1.h004" type="heading">
+\subsubsection{测向误差的楔形区域化}
+%</paper-block>
+%<paper-block id="q1.p003" type="paragraph">
+令 $u(\alpha)=(\cos\alpha,\sin\alpha)$，所有三角函数计算前先把角度转为弧度。记 $u_i^-=u(\theta_i-\varepsilon)$、$u_i^+=u(\theta_i+\varepsilon)$。由于 $2\varepsilon<180^\circ$，有向扇形闭包可精确写成
+%</paper-block>
+%<paper-block id="q1.e002" type="equation">
+\begin{equation}
+W_i=\{g:\operatorname{cross}(u_i^-,g-S_i)\ge0,\quad
+              \operatorname{cross}(u_i^+,g-S_i)\le0\}.
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p004" type="paragraph">
+两条半平面的标准形式为
+%</paper-block>
+%<paper-block id="q1.e003" type="equation">
+\begin{equation}
+\begin{aligned}
+n_i^-&=(u_{i,y}^-,-u_{i,x}^-),& d_i^-&=n_i^-\cdot S_i,\\
+n_i^+&=(-u_{i,y}^+,u_{i,x}^+),& d_i^+&=n_i^+\cdot S_i.
+\end{aligned}
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p005" type="paragraph">
+将全部约束叠放得到 $P=\bigcap_iW_i=\{g:Ag\le d\}$。这里的 $P$ 只由示向度决定，不先加任意大方框截断，也不把无向直线误当作有向测线。
+%</paper-block>
+
+%<paper-block id="q1.p006" type="paragraph">
+图~\ref{fig:q1measurement} 展示单次误差楔形及多次观测交会；图中局部放大用于观察可行区，不改变坐标与误差尺度。
+%</paper-block>
+%<paper-block id="q1.f001" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q1_measurement_geometry.png}{1}
+%<paper-block id="q1.c001" type="caption">
+\caption{单次测向误差楔形与多站交会的几何关系。}
+%</paper-block>
+\label{fig:q1measurement}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q1.h005" type="heading">
+\subsubsection{纯交会集合与物理可行集合的区分}
+%</paper-block>
+%<paper-block id="q1.p007" type="paragraph">
+第一问的直径与覆盖判据首先针对纯交会集合 $P$。若另利用目标圆域和普通方向接收的距离上界，可定义
+%</paper-block>
+%<paper-block id="q1.e004" type="equation">
+\begin{equation}
+K=\Omega\cap P\cap\bigcap_iB(S_i,R_{\rm hi}).
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p008" type="paragraph">
+$K$ 是凸集，但边界可能含圆弧，因此不一定是多边形。普通方向响应还排除距离不超过5米的近距区域；全部物理信息对应
+%</paper-block>
+%<paper-block id="q1.e005" type="equation">
+\begin{equation}\label{eq:q1physical}
+\mathcal F=\Omega\cap P\cap\bigcap_i\{g:a<\|g-S_i\|\le R_{\rm hi}\}.
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p009" type="paragraph">
+$\mathcal F$ 可能具有孔洞并且非凸。对所有正向观测，只需存在一个不超过 $R_{\rm hi}$、不小于各测距及 $R_{\rm lo}$ 的共同半径；式\eqref{eq:q1physical}已保留这种存在性。$P$、$K$、$\mathcal F$ 在程序中分别计算并标明含义，不以多边形近似值冒充精确物理集合的值。
+%</paper-block>
+
+%<paper-block id="q1.h006" type="heading">
+\subsection{几何分析}
+%</paper-block>
+%<paper-block id="q1.h007" type="heading">
+\subsubsection{相容性、有界性与退化状态}
+%</paper-block>
+%<paper-block id="q1.p010" type="paragraph">
+先求解线性可行性问题 $Ag\le d$。若无解，报告空集；若有解，则 $P$ 有界当且仅当衰退锥 $\{v:Av\le0\}$ 仅含零向量。等价地，设非零法向极角排序后的最大环接角隙为 $\Delta$，有界判据为 $\Delta<180^\circ$。
+%</paper-block>
+
+%<paper-block id="q1.p011" type="paragraph">
+证明如下：若存在非零 $v$ 满足 $Av\le0$，则对任意 $g_0\in P$ 和 $t\ge0$，均有 $g_0+tv\in P$，从而无界。反之，对无界点列的方向归一化并取收敛子列，可得满足 $Av\le0$ 的非零极限方向。其存在等价于全部法向落在某个闭半圆中，也等价于最大环接角隙不小于 $180^\circ$。单点、线段均作为真实退化状态保留，不因顶点不足三个就判为空集。
+%</paper-block>
+
+%<paper-block id="q1.h008" type="heading">
+\subsubsection{连续直径与最远顶点对}
+%</paper-block>
+%<paper-block id="q1.p012" type="paragraph">
+非空有界 $P$ 是凸多边形，设其顶点为 $v_1,\ldots,v_m$。任取 $p=\sum_i\lambda_iv_i$、$q=\sum_j\mu_jv_j$，系数非负且各自和为1，则
+%</paper-block>
+%<paper-block id="q1.e006" type="equation">
+\begin{equation}
+\begin{aligned}
+\|p-q\|&=\left\|\sum_{i,j}\lambda_i\mu_j(v_i-v_j)\right\|\\
+&\le\sum_{i,j}\lambda_i\mu_j\|v_i-v_j\|
+\le\max_{i,j}\|v_i-v_j\|.
+\end{aligned}
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p013" type="paragraph">
+最远顶点对本身属于 $P$，故
+%</paper-block>
+%<paper-block id="q1.e007" type="equation">
+\begin{equation}\label{eq:q1diameter}
+D(P)=\max_{p,q\in P}\|p-q\|=\max_{i,j}\|v_i-v_j\|.
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p014" type="paragraph">
+该结论针对整个连续多边形成立，不是有限采样近似。对四边形应比较四个顶点的六个两两距离，而非仅比较两条对角线。
+%</paper-block>
+
+%<paper-block id="q1.h009" type="heading">
+\subsection{覆盖模型与判据}
+%</paper-block>
+%<paper-block id="q1.h010" type="heading">
+\subsubsection{直径圆覆盖的充要条件}
+%</paper-block>
+%<paper-block id="q1.p015" type="paragraph">
+取一对直径端点 $A,B$，令 $M=(A+B)/2$。存在直径恰为 $D(P)$ 的圆覆盖 $P$，当且仅当
+%</paper-block>
+%<paper-block id="q1.e008" type="equation">
+\begin{equation}\label{eq:q1cover}
+\max_i\|v_i-M\|\le D(P)/2.
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p016" type="paragraph">
+它也等价于最小包围圆半径 $R^*(P)=D(P)/2$。事实上，任意覆盖圆的半径至少为 $D(P)/2$；若圆心为 $C$ 且半径等于该下界，利用
+%</paper-block>
+%<paper-block id="q1.e009" type="equation">
+\begin{equation}
+\|A-C\|^2+\|B-C\|^2=2\|C-M\|^2+D(P)^2/2
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p017" type="paragraph">
+可知 $C=M$。圆盘包含全部顶点就包含其凸包，因而式\eqref{eq:q1cover}充分且必要。程序直接比较距离，不需要反三角函数求角。
+%</paper-block>
+
+%<paper-block id="q1.h011" type="heading">
+\subsubsection{Jung 界与反例}
+%</paper-block>
+%<paper-block id="q1.p018" type="paragraph">
+对直径 $D>0$ 的平面有界集合，平面 Jung 界为\citep{ref5}
+%</paper-block>
+%<paper-block id="q1.e010" type="equation">
+\begin{equation}\label{eq:jungcorrect}
+\frac D2\le R^*\le\frac D{\sqrt3},\qquad
+1\le\frac{2R^*}{D}\le\frac2{\sqrt3}.
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p019" type="paragraph">
+下界由直径端点得到。若最小包围圆由两个接触点支撑，则它们为直径端点。否则可用三个接触点的凸包包含圆心；三个相邻圆心角不超过 $180^\circ$ 且和为 $360^\circ$，其中至少一个不小于 $120^\circ$，相应弦长至少为 $\sqrt3R^*$，从而得到上界。边长为 $D$ 的等边三角形达到 $R^*=D/\sqrt3>D/2$，所以直径圆覆盖一般不成立。
+%</paper-block>
+
+%<paper-block id="q1.p020" type="paragraph">
+本文算例由三次有效测向形成边长30米的等边三角形，其 $R^*=10\sqrt3$ 米，$2R^*/D=2/\sqrt3$。以一条边为直径的圆不能包含第三顶点，径向超出量为 $15\sqrt3-15\approx10.980762$ 米。
+%</paper-block>
+
+%<paper-block id="q1.p021" type="paragraph">
+两次测向也存在反例：取 $S_1=(0,0)$、$\theta_1=0^\circ$，$S_2=(10,-400)$、$\theta_2=91^\circ$，其交集为顶点 $(0,0)$、$(10,\pm10\tan1^\circ)$ 的三角形，满足 $2R^*/D=\sec1^\circ>1$。因而检测点数为2不能成为覆盖保证。
+%</paper-block>
+
+%<paper-block id="q1.p022" type="paragraph">
+图~\ref{fig:q1coverjung} 对照覆盖成立、两站轻微不覆盖和等边三角形达到Jung上界三种情况。两站反例的局部细节见附录C图~\ref{fig:appq1two}。
+%</paper-block>
+%<paper-block id="q1.f002" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q1_diameter_cover_jung.png}{2}
+%<paper-block id="q1.c002" type="caption">
+\caption{直径圆覆盖判定及Jung上界：不能以检测点数量代替逐区域检查。}
+%</paper-block>
+\label{fig:q1coverjung}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q1.h012" type="heading">
+\subsection{模型求解与数值保护}
+%</paper-block>
+%<paper-block id="q1.h013" type="heading">
+\subsubsection{半平面交、直径与退化处理}
+%</paper-block>
+%<paper-block id="q1.p023" type="paragraph">
+构造 $h=2n$ 条半平面后，在非空有界分支枚举两两不平行边界的交点，逐一检查全部不等式，去重并求凸包。每个顶点都至少由两条线性独立的活动边界确定，故枚举不会遗漏顶点。构造阶段的最坏复杂度为 $O(h^3)$，实验中的小顶点数不改变该最坏复杂度。直径按式\eqref{eq:q1diameter}作 $O(m^2)$ 比较，较多顶点时使用 $O(m)$ 旋转卡壳，并以独立全点对计算核对结果。
+%</paper-block>
+
+%<paper-block id="q1.t001" type="table">
+\begin{table}[htbp]
+\centering\small
+%<paper-block id="q1.tc001" type="table-caption">
+\caption{程序中的区域状态与输出口径}
+%</paper-block>
+\begin{tabular}{p{0.17\textwidth}p{0.29\textwidth}p{0.44\textwidth}}
+\toprule
+状态 & 直径、覆盖输出 & 解释 \\
+\midrule
+空集 & \texttt{D=None}，覆盖为\texttt{None} & 观测不相容，不视为零误差或覆盖成功 \\
+无界 & 不返回有限直径或有限包围圆 & 保留无界状态，不以方框伪造截断 \\
+单点 & $D=0$，零半径圆覆盖 & 与空集严格区分 \\
+线段 & 两端距离，直径圆覆盖 & 保留退化几何 \\
+有界多边形 & 最远顶点对及逐顶点覆盖检查 & 纳入有定义的直径与覆盖统计 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q1.h014" type="heading">
+\subsubsection{圆域与近距孔洞的内外夹逼}
+%</paper-block>
+%<paper-block id="q1.p024" type="paragraph">
+圆盘的外切正 $N_d$ 边形包含原圆，内接正 $N_d$ 边形包含于原圆。保留圆约束时取外近似、删除近距圆时取内近似，得到 $\mathcal F^{\rm out}_{N_d}\supseteq\mathcal F$；反向组合给出 $\mathcal F^{\rm in}_{N_d}\subseteq\mathcal F$。因此
+%</paper-block>
+%<paper-block id="q1.e011" type="equation">
+\begin{equation}\label{eq:q1bracket}
+D(\mathcal F^{\rm in}_{N_d})\le D(\mathcal F)\le D(\mathcal F^{\rm out}_{N_d}).
+\end{equation}
+%</paper-block>
+%<paper-block id="q1.p025" type="paragraph">
+若内近似为空，只取0为平凡下界，不据此判定精确集合为空。非凸集合与其凸包的直径相同，因此对保留分量的顶点统一求凸包可以计算直径，但不能据此声称原集合凸。
+%</paper-block>
+
+%<paper-block id="q1.p026" type="paragraph">
+单个半径 $r$ 的圆的外切径向超出为 $r(\sec(\pi/N_d)-1)$；当 $r=1500$ 米、$N_d=64$ 时约1.809米。这个量并不等于多个约束交集的直径误差，直径精度仍用式\eqref{eq:q1bracket}报告，$N_d$ 也不是固定只能取64。单站物理夹逼例在 $N_d=64$ 时为 $[1498.421395,1500.228492]$ 米，在 $N_d=2048$ 时为 $[1499.999994,1500.001765]$ 米；它们是物理集合夹逼，不是无界纯单扇形的直径。
+%</paper-block>
+
+%<paper-block id="q1.h015" type="heading">
+\subsection{结果分析}
+%</paper-block>
+%<paper-block id="q1.p027" type="paragraph">
+圆盘内外近似的示例及夹逼随边数的变化见附录C图~\ref{fig:appq1disk}；其几何径向误差不与最终交集直径误差混用。
+%</paper-block>
+
+%<paper-block id="q1.h016" type="heading">
+\subsubsection{可追溯的典型算例}
+%</paper-block>
+%<paper-block id="q1.p028" type="paragraph">
+表\ref{tab:q1cases_verified}直接使用保存的\texttt{q1\_summary.json}中的三类纯交会算例，各项度量使用相同的集合定义。
+%</paper-block>
+%<paper-block id="q1.t002" type="table">
+\begin{table}[htbp]
+\centering\small
+%<paper-block id="q1.tc002" type="table-caption">
+\caption{纯交会算例的几何度量}\label{tab:q1cases_verified}
+%</paper-block>
+\begin{tabular}{lrrrr}
+\toprule
+算例 & 顶点数 & $D$／米 & $R^*$／米 & 直径圆覆盖 \\
+\midrule
+典型三站交会 & 4 & 36.339274 & 18.169637 & 是 \\
+两站三角形反例 & 3 & 10.001523 & 5.001523 & 否 \\
+等边三角形紧界例 & 3 & 30.000000 & 17.320508 & 否 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+%<paper-block id="q1.p029" type="paragraph">
+其中两站例的 $2R^*/D\approx1.000152328$，虽只略大于1，仍构成严格反例；等边三角形例达到 Jung 上界。反例和理论界共同说明应检查实际覆盖，不能仅根据形状近似或测点数量作结论。
+%</paper-block>
+
+%<paper-block id="q1.h017" type="heading">
+\subsubsection{共享场景统计}
+%</paper-block>
+%<paper-block id="q1.p030" type="paragraph">
+实验生成200个共享场景，对每个场景依次加入最多12个测点，在 $n=2,3,5,8,12$ 时评价，总计1000个交会区域。各检测距离不超过该场景真实接收半径，允许测点位于目标圆之外；不同位置的误差在该实验中独立均匀抽样。表\ref{tab:stats}给出结果，直径分位数和覆盖率仅在有定义的有界区域中计算。
+%</paper-block>
+%<paper-block id="q1.t003" type="table">
+\begin{table}[htbp]
+\centering\small
+%<paper-block id="q1.tc003" type="table-caption">
+\caption{200个共享场景在不同测点数下的纯交会统计}\label{tab:stats}
+%</paper-block>
+\begin{tabular}{crrrr}
+\toprule
+$n$ & 有界／总数 & 直径中位数／米 & 25\%--75\%分位／米 & 有界覆盖率 \\
+\midrule
+2 & 199/200 & 62.421 & 39.362--128.113 & 98.995\% \\
+3 & 200/200 & 32.819 & 20.179--47.445 & 88.000\% \\
+5 & 200/200 & 16.066 & 9.484--24.582 & 73.000\% \\
+8 & 200/200 & 8.613 & 5.579--13.059 & 67.000\% \\
+12 & 200/200 & 5.483 & 3.640--8.468 & 59.500\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+%<paper-block id="q1.p031" type="paragraph">
+$n=2$ 的一个场景为无界纯交会区域，程序如实保留。空集的未定义值不转成\texttt{False}后塞入覆盖率分母，无界区域也不计入该分母。固定已有观测后增加约束，交集只会缩小，直径因而不增；跨场景覆盖率的变化依赖生成分布，不能把本表趋势说成普适定理。
+%</paper-block>
+
+%<paper-block id="q1.h018" type="heading">
+\subsection{模型检验}
+%</paper-block>
+%<paper-block id="q1.p032" type="paragraph">
+图~\ref{fig:q1statistics} 汇总相同观测组下的直径变化和有界区域覆盖率；置信区间仅反映该组抽样，不是几何定理的误差界。
+%</paper-block>
+%<paper-block id="q1.f003" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q1_statistics.png}{3}
+%<paper-block id="q1.c003" type="caption">
+\caption{第一问共享场景统计。空集与无界状态不进入直径圆覆盖率分母。}
+%</paper-block>
+\label{fig:q1statistics}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q1.h019" type="heading">
+\subsubsection{方向与独立几何对照}
+%</paper-block>
+%<paper-block id="q1.p033" type="paragraph">
+在多个方位使用沿测向方向的内点和反向外点检查半平面符号；对退化状态单独测试。最小包围圆使用局部随机源组织增量构造并显式检查包含性，以独立的一点、两点、三点支持圆枚举作对照。直径圆判据本身仅依赖式\eqref{eq:q1cover}，不依赖最小包围圆随机遍历次序。
+%</paper-block>
+
+%<paper-block id="q1.h020" type="heading">
+\subsubsection{误差半宽的灵敏度}
+%</paper-block>
+%<paper-block id="q1.p034" type="paragraph">
+固定配置下的半误差敏感性曲线见附录C图~\ref{fig:appq1sensitivity}。
+固定测点和中心读数，若 $0<\varepsilon_1\le\varepsilon_2$，则每个楔形嵌套，因而 $P(\varepsilon_1)\subseteq P(\varepsilon_2)$；在有界情形下，直径随允许误差半宽不减。这不同于“改变中心读数 $\theta_i$”的敏感性，不能混用两个自变量。保存的同一配置实验中，半宽 $0.2^\circ,1^\circ,2^\circ,3^\circ$ 对应直径分别为6.278388、31.401552、62.863275、94.445819米。它支持该配置下的几何趋势，但不提供适用于任意交会形状的全局导数界。
+%</paper-block>
+
+%<paper-block id="q1.h021" type="heading">
+\subsection{结论}
+%</paper-block>
+%<paper-block id="q1.p035" type="paragraph">
+第一问先求纯示向度交集 $P$，区分空集、无界和退化状态，再在非空有界分支由最远顶点对求直径，按式\eqref{eq:q1cover}检验直径圆。直径圆并不总覆盖区域，两次测向亦有反例。加入物理先验时，另计算可能含圆弧与孔洞的 $\mathcal F$ 并报告内外夹逼。若一个包含真实源的候选区域满足 $R^*\le20$ 米，可在其最小包围圆圆心进行一次可靠的光学清除；$D\le20\sqrt3$ 是由 Jung 界得到的充分条件，$D\le40$ 则一般不够。
+%</paper-block>

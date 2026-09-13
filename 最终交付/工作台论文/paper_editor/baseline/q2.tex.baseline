@@ -1,0 +1,438 @@
+
+%<paper-block id="q2.h001" type="heading">
+\section{问题二模型的建立与求解}
+%</paper-block>
+%<paper-block id="q2.h002" type="heading">
+		\subsection{建模思路}
+%</paper-block>
+
+%<paper-block id="q2.p001" type="paragraph">
+为实现对同一干扰源在两次观测下的交会定位、并给出最优的第二检测点，在本小节中，我们构建了以保证第二次接收、并以两次观测后最坏定位直径最小化为准则的第二检测点选择模型。首先，基于机器狗在 $S_1$ 处得到的首次读数，我们将“第二次能够接收信号”转化为一个圆盘族约束，保证源无论落在扇形何处都能被第二站点测到，从而避免因源落到接收范围之外而需要重新移动；接着，用两个在第二站点处夹角不超过 $2^\circ$ 的不可区分源对刻画两次观测后精确位置集合的最坏直径，把两次测向近乎平行、交会角退化导致误差被放大的风险转为可优化的目标；最后，借助圆盘极值将最坏交点参数化为一元二次方程并求解，得到使该最坏直径达到极小极大的第二检测点及其安全候选区域。此模型在保证第二次接收的前提下减小最坏定位直径。由于原题并未规定移动时间与定位精度之间的加权系数，我们仅认准了接受保证与最坏直径两个准则，而不保证同时最小化移动时间。
+%</paper-block>
+
+%<paper-block id="q2.h003" type="heading">
+\subsection{模型建立}
+%</paper-block>
+
+%<paper-block id="q2.h004" type="heading">
+\subsubsection{首次观测的信息集}
+%</paper-block>
+
+%<paper-block id="q2.p002" type="paragraph">
+设已收到普通方向读数 $(S_1,\theta_1)$。首次精确不确定集合为
+%</paper-block>
+%<paper-block id="q2.e001" type="equation">
+\begin{equation}
+\mathcal{F}_1=\Omega\cap\{S_1+r\,u(\theta_1+\alpha):a<r\le R_{\mathrm{hi}},\ |\alpha|\le\varepsilon\},
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p003" type="paragraph">
+其中 $\Omega=\{g:\|g\|\le1800\}$，$u(\alpha)=(\cos\alpha,\sin\alpha)$。真实源 $G$、$\|G-S_1\|$ 与真实接收半径 $R_{\mathrm{true}}$ 均未知，不能作为选点函数的输入。首次已收到信号说明对每个与观测一致的假设源 $g\in\mathcal{F}_1$，必有 $\|g-S_1\|\le R_{\mathrm{true}}\le R_{\mathrm{hi}}$。
+%</paper-block>
+
+%<paper-block id="q2.p004" type="paragraph">
+记接收半径下界为 $R_{\mathrm{lo}}=1000$ m，则真实接收半径必须满足
+%</paper-block>
+%<paper-block id="q2.e002" type="equation">
+\begin{equation}
+R_{\mathrm{true}}\in[\max\{R_{\mathrm{lo}},\|g-S_1\|\},\ R_{\mathrm{hi}}].
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p005" type="paragraph">
+则第二次能够接收或近距返回的完整条件为
+%</paper-block>
+%<paper-block id="q2.e003" type="equation">
+\begin{equation}
+\|S_2-g\|\le\max\{R_{\mathrm{lo}},\|g-S_1\|\}\qquad(\forall g\in\mathcal{F}_1).
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p006" type="paragraph">
+这不同于错误地对全部源要求 $\|S_2-g\|\le1000$ m。本文先保证上式，再最小化两次观测后的最坏位置集合直径。
+%</paper-block>
+
+%<paper-block id="q2.p007" type="paragraph">
+对普通第二读数 $\phi$，
+%</paper-block>
+%<paper-block id="q2.e004" type="equation">
+\begin{equation}
+\mathcal{F}_2(S,\phi)=\mathcal{F}_1\cap\{g:a<\|g-S\|\le R_{\mathrm{hi}}\}\cap W(S,\phi,\varepsilon),\qquad
+J(S)=\sup_{\phi\ \text{可发生}}D\bigl(\mathcal{F}_2(S,\phi)\bigr).
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p008" type="paragraph">
+近距返回后允许直接转入光学定位，本问把该分支的剩余测向定位代价定义为 $0$；这不表示光学操作耗时为0，也不表示响应直接给出了源坐标。对满足接收条件的站位，第二次上界 $\|g-S\|\le R_{\mathrm{hi}}$ 自动成立。
+%</paper-block>
+
+%<paper-block id="q2.h005" type="heading">
+\subsubsection{接收保证与四圆候选区}
+%</paper-block>
+
+%<paper-block id="q2.p009" type="paragraph">
+平移至 $S_1=0$ 并旋转至 $\theta_1=0$，先研究未被 $\Omega$ 截断的扇形
+%</paper-block>
+%<paper-block id="q2.e005" type="equation">
+\begin{equation}
+\mathcal{F}^{0}=\{r\,u(\alpha):a<r\le R_{\mathrm{hi}},\ |\alpha|\le\varepsilon\},
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p010" type="paragraph">
+它包含任意有效首次观测在相对坐标下的 $\mathcal{F}_1$，并在原点观测时与真实 $\mathcal{F}_1$ 相同。对未截断的 $\mathcal F^0$，下述四圆交集是完整接收安全域的必要充分条件；对 $\mathcal F_1\subset\mathcal F^0$ 的边界截断状态，它只是通用充分域，具体状态的完整安全域仍由前述对所有 $g\in\mathcal F_1$ 的接收条件定义。令 $u_{\pm}=u(\pm\varepsilon)$。
+%</paper-block>
+
+%<paper-block id="q2.p011" type="paragraph">
+对固定的方向 $u$，接收条件为 $\|S-ru\|\le\max\{R_{\mathrm{lo}},\,r\}$。当 $a\le r\le R_{\mathrm{lo}}$ 时，$\|S-ru\|^2$ 关于 $r$ 是凸二次函数，其区间最大值必在端点 $r=a$ 或 $r=R_{\mathrm{lo}}$ 处取得；当 $R_{\mathrm{lo}}\le r\le R_{\mathrm{hi}}$ 时，条件化为 $\|S\|^2-2r\,S\cdot u\le0$，只要在 $r=R_{\mathrm{lo}}$ 处满足便有 $S\cdot u\ge0$，且左端随 $r$ 不增，故仍只需检查 $r=R_{\mathrm{lo}}$。因此径向只需约束两端 $r=a$ 与 $r=R_{\mathrm{lo}}$；在允许角度上，$S\cdot u(\alpha)$ 的最小值出现在两端 $\alpha=\pm\varepsilon$。两端径向与两端角度两两组合，接收条件恰好由四个圆盘约束刻画：
+%</paper-block>
+%<paper-block id="q2.e006" type="equation">
+\begin{equation}
+\mathcal{C}^{0}=B(au_{-},R_{\mathrm{lo}})\cap B(au_{+},R_{\mathrm{lo}})\cap B(R_{\mathrm{lo}}u_{-},R_{\mathrm{lo}})\cap B(R_{\mathrm{lo}}u_{+},R_{\mathrm{lo}}).
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p012" type="paragraph">
+其中两个 $R_{\mathrm{lo}}u_{\pm}$ 圆盘保证端点投影非负，使站位相对扇形轴的偏角落在 $\left[-\frac{\pi}{2}+\varepsilon,\ \frac{\pi}{2}-\varepsilon\right]$；近距边界 $r=a$ 虽不产生普通方向读数，但它是有效候选源的极限，其相应约束不能删去。
+%</paper-block>
+
+%<paper-block id="q2.p013" type="paragraph">
+因此，在标准扇形下第二站点的安全候选区即为四圆交集 $\mathcal{C}^{0}$。该域不是 $\Omega$，也不要求 $\|S\|\le1000$ m；由任一近端圆可知 $\|S\|\le R_{\mathrm{lo}}+a=1005$ m，这个 $1005$ m 界是推导所得而非人为截断。
+%</paper-block>
+
+%<paper-block id="q2.h006" type="heading">
+\subsubsection{最坏直径的刻画}
+%</paper-block>
+
+%<paper-block id="q2.p014" type="paragraph">
+对 $S\ne S_1$，两个候选源 $p,q$ 都距 $S$ 超过 $5$ m 时，能够产生同一个第二示向度，当且仅当两条向量 $p-S$、$q-S$ 的小夹角不超过 $2\varepsilon$：必要性由两次误差区间重叠得到，充分性取两方向短弧的中点作为读数、各自误差便不超过 $\varepsilon$。在接收条件下，这两个假设都可选择一个与两次接收一致的 $R_{\mathrm{true}}\le R_{\mathrm{hi}}$。因此，对标准未截断状态且第二站不同于第一站时，最坏直径可写为
+%</paper-block>
+%<paper-block id="q2.e007" type="equation">
+\begin{equation}
+J(S)=\sup\{\|p-q\|:\ p,q\in\mathcal{F}^{0},\ \|p-S\|,\|q-S\|>a,\ \angle(p-S,q-S)\le2\varepsilon\}.
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p015" type="paragraph">
+同点重复测量不产生独立误差，$S=S_1$ 单独按没有新增信息处理，不能套用两次自由误差的源对表达式。
+%</paper-block>
+
+
+%<paper-block id="q2.p016" type="paragraph">
+图~\ref{fig:q2safe} 将首次信息、安全域与20\%近优候选框并列展示。近优框还需与安全域求交，不能把方框全部直接作为可执行站位。
+%</paper-block>
+%<paper-block id="q2.f001" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q2_information_safe_candidate.png}{4}
+%<paper-block id="q2.c001" type="caption">
+\caption{首次观测信息、四圆接收安全域与连续近优候选区域。}
+%</paper-block>
+\label{fig:q2safe}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q2.h007" type="heading">
+\subsection{连续全局最优的求解	}
+%</paper-block>
+
+
+%<paper-block id="q2.p017" type="paragraph">
+为构造全域下界，先进行坐标变换。将首次示向度归一至0后，再旋转 $+\varepsilon$，使首次下边界成为横轴，上边界角为 $\delta=2\varepsilon$。本节记
+%</paper-block>
+%<paper-block id="q2.e008" type="equation">
+\[
+s=\sin\delta,\quad c=\cos\delta,\quad s_2=\sin2\delta,\quad c_2=\cos2\delta,
+\]
+%</paper-block>
+%<paper-block id="q2.p018" type="paragraph">
+并用 $b=R_{\rm hi}$、$R=R_{\rm lo}$ 简化下界构造。利用关于首次扇形轴的对称性，只研究轴上方一半；此处 $R$ 专指接收半径下界，不是第一问的包围圆半径。
+%</paper-block>
+
+%<paper-block id="q2.p019" type="paragraph">
+若站位在首次扇形内部，到原点距离为 $\rho\le1005$，沿同一径向射线避开两个近距区后，至少有一段同向不可区分源区间长度为
+%</paper-block>
+%<paper-block id="q2.e009" type="equation">
+\[
+\max\{(\rho-10)_+,1495-\rho\}\ge742.5\text{米}.
+\]
+%</paper-block>
+%<paper-block id="q2.p020" type="paragraph">
+它已显著大于后述最优值，故该分支可排除。对位于扇形上方的站位 $S=(X,Y)$，取 $p=(b,0)$，将 $p-S$ 顺时针旋转 $\delta$，与上边界相交于 $q=t(S)(c,s)$。解得
+%</paper-block>
+%<paper-block id="q2.e010" type="equation">
+\begin{equation}\label{eq:q2NH}
+\begin{aligned}
+t(S)&=\frac{N(S)}{H(S)},\\
+N(S)&=(bX-X^2-Y^2)s+bYc,\\
+H(S)&=(b-X)s_2+Yc_2.
+\end{aligned}
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p021" type="paragraph">
+该域中 $H>0$，交点的正向射线系数为 $(Yc-Xs)/H>0$。四圆条件还给出 $N>0$，故 $t(S)>0$。当 $q$ 也是普通方向有效源时，两源夹角恰为 $\delta$，其距离
+%</paper-block>
+%<paper-block id="q2.e011" type="equation">
+\begin{equation}\label{eq:q2dt}
+d(t)=\sqrt{b^2+t^2-2btc}
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p022" type="paragraph">
+是 $J(S)$ 的下界。若 $t\le a$，或 $t>a$ 但 $\|q-S\|\le5$，改取 $m=(p+q)/2$ 与 $p$ 组成有效源对：两种分支分别给出至少747.5米和245米的距离下界，且 $\|m-S\|\ge247.5$ 米。因此近端例外不影响约111米的全域下界。下面的圆盘极值给出所用的 $t\le t_*<b$。
+%</paper-block>
+
+%<paper-block id="q2.p023" type="paragraph">
+\textbf{Step 1（圆盘上的极值）}：上半区站位都落在圆盘 $B((a,0),R_{\mathrm{lo}})$ 内。将 $N(S)-tH(S)$ 写成
+%</paper-block>
+%<paper-block id="q2.e012" type="equation">
+\[
+-s(X^2+Y^2)+(R_{\mathrm{hi}}s+ts_2)X+(R_{\mathrm{hi}}c-tc_2)Y-tR_{\mathrm{hi}}s_2.
+\]
+%</paper-block>
+%<paper-block id="q2.p024" type="paragraph">
+这是严格凹二次函数。当其无约束极大点位于该圆盘外时，圆盘最大值为
+%</paper-block>
+%<paper-block id="q2.e013" type="equation">
+\begin{equation}
+Q(t)=-K-H_0t+R_{\mathrm{lo}}\sqrt{A(t)^{2}+B(t)^{2}},
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p025" type="paragraph">
+其中
+%</paper-block>
+%<paper-block id="q2.e014" type="equation">
+\begin{equation}
+A(t)=s(R_{\mathrm{hi}}-2a)+t\,s_2,\qquad B(t)=R_{\mathrm{hi}}c-t\,c_2,
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.e015" type="equation">
+\begin{equation}
+K=s\{R_{\mathrm{lo}}^{2}-a(R_{\mathrm{hi}}-a)\},\qquad H_0=(R_{\mathrm{hi}}-a)s_2,
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p026" type="paragraph">
+这里 $K$ 是本小节的标量常数，与第一问的凸集合 $K$ 分开使用。最大值点为
+%</paper-block>
+%<paper-block id="q2.e016" type="equation">
+\begin{equation}
+X(t)=a+\frac{R_{\mathrm{lo}}A(t)}{\sqrt{A(t)^2+B(t)^2}},\qquad Y(t)=\frac{R_{\mathrm{lo}}B(t)}{\sqrt{A(t)^2+B(t)^2}}.
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p027" type="paragraph">
+\textbf{Step 2（临界根）}：令 $Q(t)=0$，保留符号条件 $K+H_0t>0$ 后平方，得二次方程 $\alpha t^{2}+\beta t+\gamma=0$，其中
+%</paper-block>
+%<paper-block id="q2.e017" type="equation">
+\begin{equation}
+\begin{aligned}
+\alpha&=R_{\mathrm{lo}}^{2}-H_0^{2},\\
+\beta&=2R_{\mathrm{lo}}^{2}\{s(R_{\mathrm{hi}}-2a)s_2-R_{\mathrm{hi}}c\,c_2\}-2KH_0,\\
+\gamma&=R_{\mathrm{lo}}^{2}\{s^{2}(R_{\mathrm{hi}}-2a)^{2}+R_{\mathrm{hi}}^{2}c^{2}\}-K^{2}.
+\end{aligned}
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p028" type="paragraph">
+取满足符号条件的小根
+%</paper-block>
+%<paper-block id="q2.e018" type="equation">
+\begin{equation}
+t_{*}=\frac{-\beta-\sqrt{\beta^{2}-4\alpha\gamma}}{2\alpha}=1401.240718368340688\ldots,
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p029" type="paragraph">
+对应 $X_{*}=833.385571720909\ldots$、$Y_{*}=560.158320981329\ldots$。
+%</paper-block>
+
+%<paper-block id="q2.p030" type="paragraph">
+\textbf{Step 3（全域下界）}：由 $Q(t_{*})=0$ 及 $d(t)$ 在 $t<R_{\mathrm{hi}}c$ 上严格递减，整个连续可行域上成立统一下界
+%</paper-block>
+%<paper-block id="q2.e019" type="equation">
+\begin{equation}
+J(S)\ge d(t_{*})=:D_{*}=110.969318572838179\ldots\qquad(\forall S\in\mathcal{C}^{0}),
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p031" type="paragraph">
+推导中未枚举或离散任何第二检测点。
+%</paper-block>
+
+%<paper-block id="q2.p032" type="paragraph">
+\textbf{Step 4相等上界}：取外包五边形
+%</paper-block>
+%<paper-block id="q2.e020" type="equation">
+\begin{equation}
+P^{+}=\operatorname{conv}\{0,\ R_{\mathrm{hi}}u_{-},\ (R_{\mathrm{hi}},\pm R_{\mathrm{hi}}\tan(\varepsilon/2)),\ R_{\mathrm{hi}}u_{+}\}\supset\mathcal{F}^{0},
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p033" type="paragraph">
+并旋转回最优站位
+%</paper-block>
+%<paper-block id="q2.e021" type="equation">
+\begin{equation}
+\begin{aligned}
+S_{*}^{+}&=(X_{*}\cos\varepsilon+Y_{*}\sin\varepsilon,\ -X_{*}\sin\varepsilon+Y_{*}\cos\varepsilon)\\
+&=(843.034753748736\ldots,\ 545.528422439214\ldots).
+\end{aligned}
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p034" type="paragraph">
+在临界根处，无约束极大点位于圆盘外、未平方方程的符号、另外三个圆约束及 $a<t_*<R_{\mathrm{hi}}c$ 均由整数区间证书核验，不能仅凭平方方程接受根。再用有理数区间证书验证：在活动区间 $[-42.1^\circ,-42.0^\circ]$ 内枚举交会多边形的全部顶点对，其余方向由 $63$ 个闭角区间覆盖 $[-180^\circ,180^\circ]$ 扣除活动区间后的部分；结合活动区间的解析检查得
+%</paper-block>
+%<paper-block id="q2.e022" type="equation">
+\begin{equation}
+D\bigl(P^{+}\cap W(S_{*}^{+},\phi,\varepsilon)\bigr)\le D_{*}\qquad(\forall\phi).
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p035" type="paragraph">
+\textbf{Step 5取等与最优解}：在 $\phi_{*}=\arg(R_{\mathrm{hi}}u_{-}-S_{*}^{+})-\varepsilon\approx-42.040447288508^\circ$ 处，源 $p=R_{\mathrm{hi}}u_{-}$ 与 $q=t_{*}u_{+}$ 同属精确 $\mathcal{F}_2$ 且距离为 $D_{*}$，故上下界在此取等：
+%</paper-block>
+%<paper-block id="q2.e023" type="equation">
+\begin{equation}
+\begin{aligned}
+\min_{S\in\mathcal C^0}J(S)&=D_*,\\
+\operatorname*{argmin}_{S\in\mathcal C^0}J(S)&=\{S_*^+,S_*^-\},\\
+S_*^-&=(843.034753748736\ldots,-545.528422439214\ldots).
+\end{aligned}
+\end{equation}
+%</paper-block>
+%<paper-block id="q2.p036" type="paragraph">
+且由严格凹性，上半区的极值点唯一，下半区由镜像得到另一点；全域共有上述两个对称最优点，
+图~\ref{fig:q2optimality} 展示不可区分源对、临界根和达到相等上界的观测。覆盖其余读数方向的完整区间核验见附录C图~\ref{fig:appq2cert}。
+%</paper-block>
+%<paper-block id="q2.f002" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q2_global_optimality.png}{5}
+%<paper-block id="q2.c002" type="caption">
+\caption{第二检测点的全域下界、临界根与相等上界的几何联系。}
+%</paper-block>
+\label{fig:q2optimality}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q2.h008" type="heading">
+\subsection{最优策略与候选区域}
+%</paper-block>
+
+%<paper-block id="q2.p037" type="paragraph">
+记 $\operatorname{Rot}(\theta)$ 为平面旋转矩阵，理想坐标下的通用选择映射为
+%</paper-block>
+%<paper-block id="q2.e024" type="equation">
+\begin{equation}
+\pi_{\pm}(S_1,\theta_1)=S_1+\operatorname{Rot}(\theta_1)\,S_{*}^{\pm}.
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p038" type="paragraph">
+该映射对任意有效首次观测都保证第二次接收，且精确后验的最坏直径不超过 $D_{*}$：任一首次物理集合在相对坐标中都包含于 $\mathcal{F}^{0}$，而四圆接收条件对整个 $\mathcal{F}^{0}$ 成立，故对子集也成立，且更小的首次集合与相同第二角锥相交只会缩小后验直径；反之，任何策略在合法观测 $S_1=0,\theta_1=0$ 下都必须从 $\mathcal{C}^{0}$ 中选点，其最优代价为 $D_{*}$。因此，若 $\Pi$ 为对所有有效首次观测都保证接收或近距返回的策略集，则
+%</paper-block>
+%<paper-block id="q2.e025" type="equation">
+\begin{equation}
+\inf_{\pi\in\Pi}\ \sup_{\text{有效首次观测}}J\bigl(\pi(S_1,\theta_1)\bigr)=D_{*}.
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p039" type="paragraph">
+目标边界截断可能使某个具体首次观测具有小于 $D_*$ 的逐状态最优值。因此本文的结论是：标准未截断状态的站位级全局最优，以及全部有效首次观测上的策略级极小极大；不把两者误写成“任何边界状态都在相同相对坐标逐状态最优”。
+%</paper-block>
+
+
+%<paper-block id="q2.p040" type="paragraph">
+由此，通用接收安全候选区为 $S_1+\operatorname{Rot}(\theta_1)\mathcal{C}^{0}$；再取 $20\%$ 近优连续候选区
+%</paper-block>
+%<paper-block id="q2.e026" type="equation">
+\begin{equation}
+\mathcal{C}_{20}=\mathcal{C}^{0}\cap\Bigl[(S_{*}^{+}+[-4,4]^{2})\cup(S_{*}^{-}+[-4,4]^{2})\Bigr],
+\end{equation}
+%</paper-block>
+
+%<paper-block id="q2.p041" type="paragraph">
+它是两个 $8$ m 见方候选框与安全区的连续交集。站位最大扰动为 $\sqrt{32}$ 米，将最优点的角锥半宽由 $1^\circ$ 扩为 $1.625^\circ$ 后，用56个闭角区间覆盖全部方向并作向外舍入核验，所得直径上界小于133.150813米，而 $1.2D_*>133.163182$ 米。因此候选区内每一点都满足 $J(S)\le1.2D_*$；该结论来自连续区间证书，不是只验证候选框内的有限格点。
+%</paper-block>
+
+%<paper-block id="q2.h009" type="heading">
+\subsection{模型求解与数值实验}
+%</paper-block>
+
+%<paper-block id="q2.p042" type="paragraph">
+本问选点不再依赖网格搜索，而是读取题目固定常数、计算一次 $t_{*}$ 与 $S_{*}^{\pm}$ 后，每次输入只需一次旋转与平移即可给出第二站位，选点复杂度为 $O(1)$，且仅依赖首次读数与固定常数。由于理论上最优点落在接收圆的边界上，为避免浮点误差把执行坐标推到可行区域之外，实际执行坐标由理想点向可行内点 $(750,0)$ 微移取得，即相对坐标 $(843.034744445260,545.528367886373)$ m，保护比例为 $10^{-7}$，位移约0.00005534米。证书核验其满足四个圆约束与完整角度上界，执行点相对理想最优值的损失上界小于0.00000621米。理论精确最优只对理想坐标表述，不把向内保护后的执行坐标也写成严格取等。
+%</paper-block>
+
+%<paper-block id="q2.p043" type="paragraph">
+为检验策略的有效性，在中心、偏心、靠近边界、目标区域外等六类首次站位上共生成 $1500$ 个有效场景；先从目标圆均匀抽样源、从 $[1000,1500]$ 均匀抽样半径，再条件于首次确实收到方向。每个场景对四种策略使用同一真实源、真实接收半径与误差，共 $6000$ 次评估。表~\ref{tab:strategy}中普通方向分支报告物理后验直径外包上界，近距终局按实验定义计0，无信号数单列。
+%</paper-block>
+
+%<paper-block id="q2.t001" type="table">
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+%<paper-block id="q2.tc001" type="table-caption">
+\caption{四种策略的配对结果（各1500场景；长度单位为米）}
+%</paper-block>
+\label{tab:strategy}
+\begin{tabular}{lrrrrr}
+\toprule
+策略 & 方向 & 近距 & 无信号 & 上界均值 & 上界95\%分位 \\
+\midrule
+极小极大解析策略 & 1500 & 0 & 0 & 50.636 & 86.995 \\
+沿示向度前进750米 & 1492 & 8 & 0 & 571.274 & 745.251 \\
+垂线方向1000米 & 579 & 0 & 921 & 66.435 & 105.579 \\
+$\Omega$内随机点 & 621 & 0 & 879 & 144.671 & 612.014 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%</paper-block>
+
+%<paper-block id="q2.p044" type="paragraph">
+表~\ref{tab:strategy}分别报告接收状态与有定义的定位代价。解析策略的1500次响应全部为方向；沿向策略有1492次方向、8次近距、0次无信号。近距后转光学定位的分支按实验定义以0纳入定位代价统计，并非声称测点已知道精确坐标。其余方向分支的数值为物理后验直径外包上界；表中均值与分位数只对非无信号样本计算，无信号数据保留但不人为赋予零直径。
+%</paper-block>
+
+%<paper-block id="q2.p045" type="paragraph">
+垂线与随机策略分别有921次（61.4\%）和879次（58.6\%）无信号，其66.435米和144.671米的均值只来自579和621个有效样本，不能仅据较小的条件均值判断整体表现。解析策略在该批场景的上界均值和95\%分位最低，但抽样结果不意味着不存在尾部风险或在任意分布下平均误差最优；接收保证与最坏直径结论仍以数学论证为依据。
+%</paper-block>
+
+%<paper-block id="q2.p046" type="paragraph">
+图~\ref{fig:q2benchmark} 同时给出有效返回后的直径上界分布与无信号比例。仅比较左侧的条件分布会忽视垂向、随机策略的大量无信号场景；沿向策略的8次近距后光学记录按原实验定位目标计零，不代表实际检测、清除无需耗时。
+%</paper-block>
+
+%<paper-block id="q2.f003" type="figure">
+\begin{figure}[!htbp]
+\centering
+\paperfigure{0.96}{fig_q2_strategy_benchmark.png}{6}
+%<paper-block id="q2.c003" type="caption">
+\caption{四种第二检测点策略的配对比较：有效样本分布与无信号比例分别报告。}
+%</paper-block>
+\label{fig:q2benchmark}
+\end{figure}
+%</paper-block>
+
+%<paper-block id="q2.h010" type="heading">
+\subsection{结果分析}
+%</paper-block>
+
+%<paper-block id="q2.p047" type="paragraph">
+最后用一次物理算例检验实现的正确性。构造最坏观测：$G=R_{\mathrm{hi}}u_{-}$、两次测向误差分别取 $+1^\circ$ 与 $-1^\circ$、真实接收半径取 $1500$ m，对精确后验作内外逼近，得到最坏直径区间 $[110.969243,\ 110.969319]$ m，与解析值 $D_{*}=110.969319$ m 一致，说明程序与模型给出的最坏直径相符。
+%</paper-block>
+
+%<paper-block id="q2.h011" type="heading">
+\subsection{模型检验}
+%</paper-block>
+
+%<paper-block id="q2.p048" type="paragraph">
+本节从接收保证与最坏直径最优性两个方面检验模型：
+%</paper-block>
+
+%<paper-block id="q2.p049" type="paragraph">
+（1）接收保证：由四圆候选区命题严格给出，对任意有效首次观测均成立，且 $1005$ m 的界是推导所得而非人为截断；
+%</paper-block>
+
+%<paper-block id="q2.p050" type="paragraph">
+（2）最优性：全域物理下界与覆盖全部观测方向的严格上界在同一可发生源对上取等，故命题给出的是精确最优值，而非局部极小点或采样结论；
+%</paper-block>
+
+%<paper-block id="q2.h012" type="heading">
+\subsection{结论}
+%</paper-block>
+%<paper-block id="q2.p051" type="paragraph">
+第二问在标准未截断状态下得到两个关于首次示向度轴对称的全局最优点，其相对坐标约为 $(843.035,\pm545.528)$ 米，最坏直径为110.969米。将该规则按首次位置平移、按实际示向度旋转，可对全部有效首次观测保持接收与直径上界保证，并达到策略级极小极大下界；目标边界截断状态仍可能有更好的逐状态解。运行时只需一次解析常数计算及旋转平移，选点复杂度为 $O(1)$。实际输出保留理想坐标和向内微移的执行坐标，二者的保证分别说明。
+%</paper-block>
