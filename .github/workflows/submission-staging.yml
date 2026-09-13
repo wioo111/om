@@ -1,0 +1,57 @@
+name: Prepare submission staging
+on:
+  push:
+    paths:
+      - '最终交付/**'
+      - '.github/workflows/submission-staging.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/*/
+            /tools/
+            /最终交付/
+            /解题库/第一二问/
+            !/解题库/第一二问/logs/
+            !/解题库/第一二问/source/
+            /解题库/第三问/v10/
+            !/解题库/第三问/v10/results/
+            !/解题库/第三问/v10/__pycache__/
+            /解题库/第四问/v6/
+            !/解题库/第四问/v6/results/
+            !/解题库/第四问/v6/__pycache__/
+            /解题库/演练调试/*.py
+            /解题库/演练调试/*.json
+            /解题库/演练调试/data/
+            /解题库/演练调试/datasets/
+            /解题库/结果汇总/
+            /解题库/正式运行/*.md
+            /解题库/正式运行/evidence/
+            /解题库/完整论文/第三四问/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Test packaging only
+        run: |
+          python -m pip install pytest
+          python -m pytest -q 最终交付/test_prepare_submission.py
+      - name: Assemble existing sources and evidence without executing strategies
+        run: python 最终交付/prepare_submission.py prepare --repo . --out "$RUNNER_TEMP/submission-staging"
+      - name: Publish staging artifact, not competition submission
+        uses: actions/upload-artifact@v4
+        with:
+          name: submission-staging-NOT-READY
+          path: ${{ runner.temp }}/submission-staging/
+          retention-days: 7
+          if-no-files-found: error
+          compression-level: 9
